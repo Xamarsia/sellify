@@ -1,0 +1,9 @@
+services:
+  customer-frontend:
+    container_name: customer-frontend
+    build:
+      context: .
+      dockerfile: ./services/customer-frontend/Dockerfile
+    restart: always
+    ports:
+      - 3006:3000
