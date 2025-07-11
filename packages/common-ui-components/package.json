@@ -11,6 +11,7 @@
         "dist"
     ],
     "exports": {
+        "./types.d.ts": "./types.d.ts",
         "./styles.css": "./dist/styles.css",
         "./*": "./dist/*.js",
         "./buttons/*": "./dist/buttons/*.js"
