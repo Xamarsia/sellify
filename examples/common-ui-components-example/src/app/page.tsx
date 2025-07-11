@@ -1,17 +1,41 @@
 "use client";
 
+import PlusIcon from "@sellify/common-icons/plus";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
+import Input from "@sellify/common-ui-components/input/Input";
+import Textarea from "@sellify/common-ui-components/input/Textarea";
+
+import Radio from "@sellify/common-ui-components/input/Radio";
+import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
+
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
-import PlusIcon from "../../public/plus";
+
+import SearchBarExample from "./components/examples/SearchBarExample";
 
 
 export default function Home() {
+
+  const comboboxItems = new Map<string, string>([
+    ["apple", 'Apple'],
+    ["apricot", 'Apricot'],
+    ["avocado", 'Avocado'],
+    ["banana", 'Banana'],
+    ["blueberry", 'Blueberry'],
+    ["cherry", 'Cherry'],
+    ["coconut", 'Coconut'],
+    ["cranberry", 'Cranberry'],
+    ["fig", 'Fig'],
+    ["grape", 'Grape'],
+    ["grapefruit", 'Grapefruit'],
+    ["guava", 'Guava']
+  ]);
 
   return (
     <div className="min-h-full">
@@ -129,6 +153,59 @@ export default function Home() {
             <TransparentIconButton variant="destructive" disabled >
               <PlusIcon style="size-6" />
             </TransparentIconButton>
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Input"} >
+          <SectionItem>
+            <Input placeholder="Required Input" title="Required Input" required />
+            <Input title="Disabled Input" value="Disabled" disabled />
+            <Input placeholder="Invalid Input" value="Invalid" title="Invalid Input" state="invalid" />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Textarea"} >
+          <SectionItem>
+            <Textarea placeholder="Required" title="Required Textarea" required />
+            <Textarea title="Disabled Textarea" value="Disabled" disabled />
+            <Textarea placeholder="Invalid" value="Invalid" title="Invalid Textarea" state="invalid" />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Media Input Field"} >
+          <SectionItem>
+            <MediaInputField size="small" text="Small Media Input Field" />
+            <MediaInputField text="Default Media Input Field" />
+          </SectionItem>
+        </Section>
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Search Input"} >
+          <SectionItem>
+            <SearchBarExample />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Checkbox & Radio buttons"} >
+          <SectionItem>
+            <Checkbox label="Default Checkbox" value="default" />
+            <Checkbox checked label="Checked Checkbox" value="checked" />
+            <Checkbox disabled label="Disabled Checkbox" value="disabled" />
+            <Checkbox disabled checked label="Disabled Checked Checkbox" value="disabled-checked" />
+          </SectionItem>
+          <SectionItem>
+            <Radio label="Default Radio" value="default" />
+            <Radio checked label="Checked Radio" value="checked" />
+            <Radio disabled label="Disabled Radio" value="disabled" />
+            <Radio disabled checked label="Disabled Checked Radio" value="disabled-checked" />
           </SectionItem>
         </Section>
 
