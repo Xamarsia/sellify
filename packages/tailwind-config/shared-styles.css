@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    font-size: 2.25rem;
+    /* 36px */
+    line-height: 2.5rem;
+    /* 40px */
+    font-weight: 400;
+    /* font-normal */
+    color: var(--color-blue-700);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 400;
+    /* font-normal */
+  }
+
+  h3 {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 600;
+    /* font-semibold */
+  }
+
+  h4 {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 500;
+    /* font-medium */
+  }
+
+  progress {
+    border-radius: 4px;
+    width: 100%;
+    height: 2px;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #E1E1E1;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: #383838;
+  }
+
+  progress::-moz-progress-bar {
+    background: #383838;
+  }
+}
+
+@layer components {
+  .body {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 400;
+    /* font-normal */
+  }
+
+  .label {
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 400;
+    /* font-normal */
+  }
+
+  .h4 {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 500;
+    /* font-medium */
+  }
+}
+
+@theme default {
+  --color-placeholder: #A9A8AA;
+  --color-disabled: #A9A8AA;
+
+  --color-stroke: #E1E1E1;
+  --color-hovered: #F9FAFB;
+
+
+  --color-primary: #FFFFFF;
+
+  --color-table-heading: #F7F7F7;
+  --color-combobox-item: #F8F8F8;
+
+  --color-destructive: #F14141;
+  --color-destructive-disabled: #FAC0C0;
+  --color-destructive-hovered: #D93A3A;
+
+}
+
+:root:has(.no-doc-scroll) {
+  overflow: hidden;
+}

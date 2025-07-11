@@ -6,6 +6,9 @@
 .pnp.*
 .pnpm-store/
 
+# builds
+*dist/
+
 # testing
 /coverage
 

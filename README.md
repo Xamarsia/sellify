@@ -35,7 +35,7 @@ The project is actively being developed, with new features and improvements bein
 - `@sellify/common-ui-components`: a React component library.
 - `@sellify/typescript-config`: tsconfig.json's used throughout the monorepo.
 - `@sellify/eslint-config`: ESLint presets.
-
+- `@sellify/tailwind-config`: tailwindcss presets and shared-styles.
 ## Examples
 
 - `common-ui-components-example`:  provides a practical example of using the custom React component library from the `@sellify/common-ui-components` package.
@@ -92,6 +92,7 @@ The project is actively being developed, with new features and improvements bein
 - `pnpm turbo lint` - Runs lint.
 - `pnpm turbo check-types` - starts project if build exists.
 - `pnpm format` - formats every .ts, .tsx or .md file with Prettier.
+- `pnpm store prune` - removes unreferenced packages from the store.
 
 ## Future Enhancements
 
