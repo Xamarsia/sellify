@@ -18,6 +18,9 @@
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
+    "@sellify/tailwind-config": "workspace:*",
+    "eslint": "^9.30.0",
+    "postcss": "^8.5.3",
     "typescript": "~5.8.3",
     "tailwindcss": "~4.1.10",
     "@types/node": "~22.15.3",
