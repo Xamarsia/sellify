@@ -21,6 +21,7 @@ import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
 
 import SearchBarExample from "./components/examples/SearchBarExample";
+import DropdownUseExample from "./components/examples/DropdownUseExample";
 
 
 export default function Home() {
@@ -238,6 +239,16 @@ export default function Home() {
             <Tabs items={tabs} />
           </SectionItem>
         </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Dropdown"} >
+          <SectionItem>
+            <DropdownUseExample items={comboboxItems} title="Sort By" />
+            <DropdownUseExample items={comboboxItems} title="Sort By" disabled />
+          </SectionItem>
+        </Section>
+
       </main>
     </div>
   );
