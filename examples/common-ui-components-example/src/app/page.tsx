@@ -22,9 +22,21 @@ import SectionItem from "./components/SectionItem";
 
 import SearchBarExample from "./components/examples/SearchBarExample";
 import DropdownUseExample from "./components/examples/DropdownUseExample";
+import ComboboxUseExample from "./components/examples/ComboboxUseExample";
+import MultipleSelectionComboboxUseExample from "./components/examples/MultipleSelectionComboboxUseExample";
 
 
 export default function Home() {
+
+  const comboboxDefaultSelectedValues: string[] = [
+    "apple",
+    "apricot",
+    "avocado",
+    "banana",
+    "cherry",
+    "coconut",
+    "cranberry"
+  ]
 
   const comboboxItems = new Map<string, string>([
     ["apple", 'Apple'],
@@ -246,6 +258,24 @@ export default function Home() {
           <SectionItem>
             <DropdownUseExample items={comboboxItems} title="Sort By" />
             <DropdownUseExample items={comboboxItems} title="Sort By" disabled />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Combobox"} >
+          <SectionItem>
+            <ComboboxUseExample items={comboboxItems} title="Required Combobox" required />
+            <ComboboxUseExample items={comboboxItems} title="Disabled Combobox" disabled defaultValue="Default value" />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Multiple Selection Combobox"} >
+          <SectionItem>
+            <MultipleSelectionComboboxUseExample items={comboboxItems} title="Required Combobox" required />
+            <MultipleSelectionComboboxUseExample items={comboboxItems} title="Disabled Combobox" disabled defaultSelectedValues={comboboxDefaultSelectedValues} />
           </SectionItem>
         </Section>
 
