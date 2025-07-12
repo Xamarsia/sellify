@@ -1,0 +1,26 @@
+{
+    "name": "@sellify/common-icons",
+    "type": "module",
+    "version": "0.0.0",
+    "private": true,
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        "./*": "./dist/*.js"
+    },
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "tsc",
+        "check-types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "react": "19.1.0"
+    },
+    "devDependencies": {
+        "@sellify/typescript-config": "workspace:*",
+        "@types/react": "~19.1.8",
+        "typescript": "~5.8.3"
+    }
+}

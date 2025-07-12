@@ -11,9 +11,10 @@
         "dist"
     ],
     "exports": {
+        "./types.d.ts": "./src/types.d.ts",
         "./styles.css": "./dist/styles.css",
         "./*": "./dist/*.js",
-        "./buttons/*": "./dist/buttons/*.js"
+        "./**/*": "./dist/**/*.js"
     },
     "scripts": {
         "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
@@ -25,6 +26,9 @@
     },
     "peerDependencies": {
         "react": "19.1.0"
+    },
+    "dependencies": {
+        "@sellify/common-icons": "workspace:*"
     },
     "devDependencies": {
         "@sellify/tailwind-config": "workspace:*",
