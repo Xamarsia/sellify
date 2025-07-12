@@ -17,18 +17,34 @@ import MediaInputField from "@sellify/common-ui-components/input/MediaInputField
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 
-import Section from "./components/Section";
-import SectionItem from "./components/SectionItem";
+import Section from "../components/Section";
+import SectionItem from "../components/SectionItem";
 
-import SearchBarExample from "./components/examples/SearchBarExample";
-import DropdownUseExample from "./components/examples/DropdownUseExample";
-import ComboboxUseExample from "./components/examples/ComboboxUseExample";
-import MultipleSelectionComboboxUseExample from "./components/examples/MultipleSelectionComboboxUseExample";
-import DialogExample from "./components/examples/DialogExample";
-import AlertDialogExample from "./components/examples/AlertDialogExample";
+import SearchBarExample from "../examples/SearchBarExample";
+import DropdownUseExample from "../examples/DropdownUseExample";
+import ComboboxUseExample from "../examples/ComboboxUseExample";
+import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
+import DialogExample from "../examples/DialogExample";
+import AlertDialogExample from "../examples/AlertDialogExample";
+import { ChangeEvent, useCallback, useState } from "react";
+import { usePathname } from "next/navigation";
 
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState<string>("");
+  const [textareaValue, setTextareaValue] = useState<string>("");
+
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
+    const value: string = e.target.value;
+    setInputValue(value);
+  }, []);
+
+  const handleTextaresChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>): void => {
+    const value: string = e.target.value;
+    setTextareaValue(value);
+  }, []);
+
+  const pathname: string = usePathname();
 
   const comboboxDefaultSelectedValues: string[] = [
     "apple",
@@ -191,9 +207,9 @@ export default function Home() {
 
         <Section title={"Input"} >
           <SectionItem>
-            <Input placeholder="Required Input" title="Required Input" required />
-            <Input title="Disabled Input" value="Disabled" disabled />
-            <Input placeholder="Invalid Input" value="Invalid" title="Invalid Input" state="invalid" />
+            <Input value={inputValue} placeholder="Required Input" title="Required Input" required onChange={handleInputChange} />
+            <Input title="Disabled Input" value="Disabled" disabled onChange={handleInputChange} />
+            <Input placeholder="Invalid Input" value="Invalid" title="Invalid Input" state="invalid" onChange={handleInputChange} />
           </SectionItem>
         </Section>
 
@@ -201,9 +217,9 @@ export default function Home() {
 
         <Section title={"Textarea"} >
           <SectionItem>
-            <Textarea placeholder="Required" title="Required Textarea" required />
-            <Textarea title="Disabled Textarea" value="Disabled" disabled />
-            <Textarea placeholder="Invalid" value="Invalid" title="Invalid Textarea" state="invalid" />
+            <Textarea value={textareaValue} placeholder="Required" title="Required Textarea" required onChange={handleTextaresChange} />
+            <Textarea value={textareaValue} title="Disabled Textarea" disabled onChange={handleTextaresChange} />
+            <Textarea value={textareaValue} placeholder="Invalid" title="Invalid Textarea" state="invalid" onChange={handleTextaresChange} />
           </SectionItem>
         </Section>
 
@@ -243,14 +259,14 @@ export default function Home() {
 
         <Section title={"Sidebar"} >
           <SectionItem>
-            <Sidebar items={sidebarItem} />
+            <Sidebar items={sidebarItem} pathname={pathname} />
           </SectionItem>
         </Section>
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Tab"} >
           <SectionItem>
-            <Tabs items={tabs} />
+            <Tabs items={tabs} pathname={pathname} />
           </SectionItem>
         </Section>
 
