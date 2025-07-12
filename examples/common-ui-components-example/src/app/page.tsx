@@ -15,6 +15,7 @@ import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
@@ -38,14 +39,20 @@ export default function Home() {
     ["grapefruit", 'Grapefruit'],
     ["guava", 'Guava']
   ]);
-  
+
   const sidebarItem: Array<SidebarItemInfo> = [
     { href: "/", title: 'Home' },
     { href: "/orders", title: 'Orders' },
     { href: "/products", title: 'Products' },
     { href: "/category", title: 'Category' }
   ];
-  
+
+  const tabs: Array<TabItemInfo> = [
+    { href: "/", title: 'Home' },
+    { href: "/description", title: 'Description' },
+    { href: "/info", title: 'Additional Information' },
+  ];
+
   return (
     <div className="min-h-full">
       <header className="h-16 bg-gray-800   px-4 sm:px-6 lg:px-8">
@@ -224,7 +231,13 @@ export default function Home() {
             <Sidebar items={sidebarItem} />
           </SectionItem>
         </Section>
-        
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Tab"} >
+          <SectionItem>
+            <Tabs items={tabs} />
+          </SectionItem>
+        </Section>
       </main>
     </div>
   );
