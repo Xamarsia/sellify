@@ -14,6 +14,8 @@ import Radio from "@sellify/common-ui-components/input/Radio";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 
+import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
 
@@ -36,7 +38,14 @@ export default function Home() {
     ["grapefruit", 'Grapefruit'],
     ["guava", 'Guava']
   ]);
-
+  
+  const sidebarItem: Array<SidebarItemInfo> = [
+    { href: "/", title: 'Home' },
+    { href: "/orders", title: 'Orders' },
+    { href: "/products", title: 'Products' },
+    { href: "/category", title: 'Category' }
+  ];
+  
   return (
     <div className="min-h-full">
       <header className="h-16 bg-gray-800   px-4 sm:px-6 lg:px-8">
@@ -208,7 +217,14 @@ export default function Home() {
             <Radio disabled checked label="Disabled Checked Radio" value="disabled-checked" />
           </SectionItem>
         </Section>
+        {/* ------------------------------------------------------------- */}
 
+        <Section title={"Sidebar"} >
+          <SectionItem>
+            <Sidebar items={sidebarItem} />
+          </SectionItem>
+        </Section>
+        
       </main>
     </div>
   );

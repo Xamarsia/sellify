@@ -11,11 +11,10 @@
         "dist"
     ],
     "exports": {
-        "./types.d.ts": "./types.d.ts",
+        "./types.d.ts": "./src/types.d.ts",
         "./styles.css": "./dist/styles.css",
         "./*": "./dist/*.js",
-        "./buttons/*": "./dist/buttons/*.js",
-        "./input/*": "./dist/input/*.js"
+        "./**/*": "./dist/**/*.js"
     },
     "scripts": {
         "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
