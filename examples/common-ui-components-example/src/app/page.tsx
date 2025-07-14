@@ -6,14 +6,11 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-
 import Input from "@sellify/common-ui-components/input/Input";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
-
 import Radio from "@sellify/common-ui-components/input/Radio";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
-
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 
@@ -26,6 +23,7 @@ import ComboboxUseExample from "../examples/ComboboxUseExample";
 import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
 import DialogExample from "../examples/DialogExample";
 import AlertDialogExample from "../examples/AlertDialogExample";
+
 import { ChangeEvent, useCallback, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -86,7 +84,8 @@ export default function Home() {
 
   return (
     <div className="min-h-full">
-      <header className="h-16 bg-gray-800   px-4 sm:px-6 lg:px-8">
+      <header className="flex items-center h-32 bg-[#242424] px-4 sm:px-6 lg:px-8">
+        <h1 className="text-white text-3xl">Common UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
 
@@ -142,13 +141,13 @@ export default function Home() {
               <PlusIcon style="size-6" />
             </IconButton>
 
-            <IconButton disabled >
+            <IconButton variant="outline">
               <PlusIcon style="size-6" />
             </IconButton>
           </SectionItem>
 
           <SectionItem>
-            <IconButton variant="outline" >
+            <IconButton disabled >
               <PlusIcon style="size-6" />
             </IconButton>
 
@@ -187,13 +186,13 @@ export default function Home() {
               <PlusIcon style="size-6" />
             </TransparentIconButton>
 
-            <TransparentIconButton disabled >
+            <TransparentIconButton variant="destructive" >
               <PlusIcon style="size-6" />
             </TransparentIconButton>
           </SectionItem>
 
           <SectionItem>
-            <TransparentIconButton variant="destructive" >
+            <TransparentIconButton disabled >
               <PlusIcon style="size-6" />
             </TransparentIconButton>
 
@@ -219,7 +218,7 @@ export default function Home() {
           <SectionItem>
             <Textarea value={textareaValue} placeholder="Required" title="Required Textarea" required onChange={handleTextaresChange} />
             <Textarea value={textareaValue} title="Disabled Textarea" disabled onChange={handleTextaresChange} />
-            <Textarea value={textareaValue} placeholder="Invalid" title="Invalid Textarea" state="invalid" onChange={handleTextaresChange} />
+            <Textarea placeholder="Invalid" value="Invalid" title="Invalid Textarea" state="invalid" onChange={handleTextaresChange} />
           </SectionItem>
         </Section>
 
@@ -255,6 +254,7 @@ export default function Home() {
             <Radio disabled checked label="Disabled Checked Radio" value="disabled-checked" />
           </SectionItem>
         </Section>
+
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Sidebar"} >
@@ -262,6 +262,7 @@ export default function Home() {
             <Sidebar items={sidebarItem} pathname={pathname} />
           </SectionItem>
         </Section>
+
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Tab"} >
@@ -302,7 +303,7 @@ export default function Home() {
         <Section title={"Dialog"} >
           <SectionItem>
             <DialogExample title="Dialog" />
-            <AlertDialogExample title="AlertDialog" />
+            <AlertDialogExample title="Alert Dialog" />
           </SectionItem>
         </Section>
 
