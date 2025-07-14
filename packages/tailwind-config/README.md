@@ -22,5 +22,4 @@ To use the styles, simply add the following import to your global.css file.
 
 ```css
 @import "@sellify/tailwind-config";
-
 ```
