@@ -6,6 +6,25 @@ This repository is a React component library. It contains a collection of common
 
 __@sellify/common-ui-components__ was designed in Figma prior to development; based on [SEL Prototype 1.0](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
 
+## Table Of Content
+
+- [Related Projects](#related-projects)
+- [Local Dependencies](#local-dependencies)
+- [Development Stack](#development-stack)
+- [Environment Setup](#environment-setup)
+- [Build & Run](#build--run)
+  - [Useful Commands](#useful-commands)
+- [Components](#components)
+  - [Button](#button)
+  - [Icon Button](#icon-button)
+  - [Transparent Icon Button](#transparent-icon-button)
+  - [Checkbox & Radio Buttons](#checkbox--radio-buttons)
+  - [Input](#input)
+  - [Dropdown & Combobox](#dropdown--combobox)
+  - [Dialog](#dialog)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
+
 ## Related Projects
 
 - [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
@@ -137,7 +156,7 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
   </tr>
 </table>
 
-### Checkbox & Radio buttons
+### Checkbox & Radio Buttons
 
 <table>
   <tr>
@@ -233,3 +252,11 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
     </td>
   </tr>
 </table>
+
+## Future Enhancements
+
+- [ ] ...
+
+## License
+
+Licensed under the MIT License. See [LICENSE](./LICENSE) file for more details.
