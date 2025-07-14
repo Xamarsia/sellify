@@ -18,8 +18,10 @@ type DialogProps = {
 export default function AlertDialog({ title, children: content, dialogOpen, icon, onDialogClose }: DialogProps) {
     return (
         <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose} >
-            <AlertDialogHeader title={title} icon={icon} />
-            {content}
+            <div className="flex flex-col grow justify-between min-h-72">
+                <AlertDialogHeader title={title} icon={icon} />
+                {content}
+            </div>
         </DialogBase>
     );
 };
