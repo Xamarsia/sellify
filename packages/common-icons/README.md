@@ -38,6 +38,6 @@ This repository is a React component library. It contains a collection of common
 
 ## Icons
 
-
+<img width="576" height="296" alt="Icons" src="https://github.com/user-attachments/assets/f1bef841-6fd1-4da4-b471-2eeaccd161c1" />
 
 The SVG icons were sourced from [Heroicons](https://heroicons.com/outline).
