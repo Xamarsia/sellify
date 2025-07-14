@@ -4,16 +4,15 @@
 
 This repository is a React component library. It contains a collection of common components of __sellify__ project. The components auto-updates as you edit the file.
 
-__@sellify/common-ui-components__ was designed in Figma prior to development; based on [SEL Prototype 1.0](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
-
 ## Table Of Content
 
 - [Related Projects](#related-projects)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
+- [UI Prototype](#ui-prototype)
 - [Environment Setup](#environment-setup)
 - [Build & Run](#build--run)
-  - [Useful Commands](#useful-commands)
+- [Useful Commands](#useful-commands)
 - [Components](#components)
   - [Button](#button)
   - [Icon Button](#icon-button)
@@ -42,6 +41,12 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
 - `Tailwind CSS` - for simplified CSS styling.
 - `ESLint` - for code linting.
 - `Figma` - for project prototyping.
+
+## UI Prototype
+
+__@sellify/common-ui-components__ was designed in Figma prior to development; based on [SEL Prototype 1.0 / Common](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
+
+<img alt="Combobox" src="https://github.com/user-attachments/assets/0f5a0dda-960b-401a-83ad-5be4fd5e631d" />  
 
 ## Environment Setup
 
@@ -72,7 +77,7 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
     pnpm turbo build
     ```
 
-### Useful Commands
+## Useful Commands
 
 - `pnpm turbo build` - Builds project styles and components.
 - `pnpm turbo build:styles` - Builds project styles.
