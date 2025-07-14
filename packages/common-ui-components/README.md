@@ -22,7 +22,6 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
   - [Input](#input)
   - [Dropdown & Combobox](#dropdown--combobox)
   - [Dialog](#dialog)
-- [Future Enhancements](#future-enhancements)
 - [License](#license)
 
 ## Related Projects
@@ -252,10 +251,6 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
     </td>
   </tr>
 </table>
-
-## Future Enhancements
-
-- [ ] ...
 
 ## License
 
