@@ -10,6 +10,7 @@ This repository is a Next.js project designed to showcase the usage of the __@se
 - [Local Dependencies](#local-dependencies)
 - [Environment Setup](#environment-setup)
 - [Run](#run)
+- [View](#view)
 - [Useful Commands](#useful-commands)
 
 ## Related Projects
@@ -43,6 +44,12 @@ This repository is a Next.js project designed to showcase the usage of the __@se
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+
+## View
+
+<p align="center">
+     <img  width="72%" alt="image" src="https://github.com/user-attachments/assets/f1482c09-db9d-426b-a4f0-77d8f5432df9" />
+ </p>
 
 ## Useful Commands
 
