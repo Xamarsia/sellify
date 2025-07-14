@@ -17,8 +17,10 @@ type DialogProps = {
 export default function Dialog({ title, children: content, dialogOpen, onDialogClose }: DialogProps) {
     return (
         <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose} >
-            <DialogHeader title={title} onDialogClose={onDialogClose} />
-            {content}
+            <div className={"flex flex-col grow justify-between min-h-96 h-full"}>
+                <DialogHeader title={title} onDialogClose={onDialogClose} />
+                {content}
+            </div>
         </DialogBase>
     );
 };
