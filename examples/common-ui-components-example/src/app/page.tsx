@@ -84,7 +84,8 @@ export default function Home() {
 
   return (
     <div className="min-h-full">
-      <header className="h-16 bg-gray-800   px-4 sm:px-6 lg:px-8">
+      <header className="flex items-center h-32 bg-[#242424] px-4 sm:px-6 lg:px-8">
+        <h1 className="text-white text-3xl">Common UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
 
