@@ -31,7 +31,7 @@ export default function DialogBase({ children: content, dialogOpen, onDialogClos
     return (
         <div className={`fixed top-0 left-0 z-50 size-full bg-black/20 flex justify-center items-center backdrop-blur-xs 
             ${dialogOpen ? 'no-doc-scroll' : 'hidden'}`}>
-            <div ref={modal} className={"bg-white w-full max-w-xl h-fit max-h-screen m-4 px-9 py-6 rounded-lg border border-stroke"}>
+            <div ref={modal} className="bg-white w-full max-w-xl h-fit max-h-screen m-4 px-9 py-6 rounded-lg border border-stroke">
                 {content}
             </div>
         </div>
