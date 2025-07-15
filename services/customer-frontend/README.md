@@ -58,6 +58,63 @@ This frontend application has been designed in Figma prior to development; based
 
 The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
 
+<table>
+  <tr>
+    <td width="48%">Product Detail</td>
+    <td width="48%">Order History</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
+    </td>
+    <td width="48%" style="padding: 0;">
+        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
+    </td>
+  </tr>
+      <tr>
+    <td width="48%">Personal Information</td>
+    <td width="48%">Payment Method</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+        <img alt="Personal Information" src="https://github.com/user-attachments/assets/ed99b7e7-7279-418b-bf5a-1f080901101d" />
+    </td>
+    <td width="48%" style="padding: 0;">
+        <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <td width="48%">Product Detail</td>
+    <td width="48%">Order History</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
+    </td>
+          <td width="48%" style="padding: 0;">
+        <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
+    </td>
+
+  </tr>
+      <tr>
+    <td width="48%">Personal Information</td>
+    <td width="48%">Payment Method</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+        <img alt="Personal Information" src="https://github.com/user-attachments/assets/ed99b7e7-7279-418b-bf5a-1f080901101d" />
+    </td>
+    <td width="48%" style="padding: 0;">
+        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
+    </td>
+  </tr>
+</table>
+
 ## Environment Setup
 
 [Set up the environment for the main repository](https://github.com/Xamarsia/sellify#environment-setup).
