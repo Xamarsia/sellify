@@ -61,6 +61,13 @@ This frontend application has been designed in Figma prior to development; based
 
 The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
 
+<p align="center">
+    <img width="48%" height="1045" alt="Home" src="https://github.com/user-attachments/assets/cbfac667-1d97-408f-90f3-f718947f4299" />
+    <img width="48%" height="1024" alt="Settings" src="https://github.com/user-attachments/assets/8e4864e6-5b37-464f-9ef5-f7ae027f2c91" />
+    <img width="48%" height="1024" alt="Create New Admin" src="https://github.com/user-attachments/assets/774ecb1d-530c-43d5-a842-8c6c6746d6e2" />
+    <img width="48%" height="1024" alt="Edit Role" src="https://github.com/user-attachments/assets/d2d58173-715a-4608-9d16-72a95192bb58" />
+</p>
+
 ## Environment Setup
 
 [Set up the environment for the main repository](https://github.com/Xamarsia/sellify#environment-setup).
