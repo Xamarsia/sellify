@@ -20,9 +20,7 @@ This repository is a frontend for admins of [sellify](https://github.com/Xamarsi
 
 ## Description
 
-Admin Frontend project is a UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
-
-This application is web-based and built to be compatible with various devices.
+Admin Frontend project is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
 
 Prototype of the application is designed in Figma (see [UI Prototype](#ui-prototype)).
 
@@ -53,7 +51,22 @@ The application is written in TypeScript, using Next.js.
 
 ## Project Features
 
-------
+- __Authentication:__ Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+  - Only authorized users are permitted.
+  - Supports authentication via email and password.
+  - Implemented using OAuth 2.0.
+- __Statistic Dashboard:__ Users can view general statistics.
+- __Order Processing:__ Users can view and manage customer orders.
+- __Product Management:__ Users can add, edit, and delete products.
+- __Category Management:__ Users can add and delete categories.
+- __Inventory Management:__ Users can add quantities to products.
+- __Customer Management:__  Users can view the list of customers, see their profile information and statistics; can archive customers.
+- __Role Management:__ Super admin can create, edit and delete roles.
+- __Role-Based Access Control:__ Restricts system access to authorized users based on their assigned roles.
+  - Users can be assigned to a single role.
+- __Admin User Management:__ Super admin can create and delete admins.
+- __Form Validation:__ Server-side validation for user inputs and data integrity.
+  - Displays validation errors on the input fields when validation fails.
 
 ## UI Prototype
 
@@ -111,6 +124,8 @@ pnpm turbo build --filter="./services/*"
 ## Future Enhancements
 
 - [ ] Increase test coverage.
+- [ ] Implement a skeleton for upload times.
+- [ ] Add functionality to handle order cancellations and refunds.
 
 ## License
 
