@@ -51,6 +51,23 @@ The application is written in TypeScript, using Next.js.
 
 ## Project Features
 
+- __Authentication:__ Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+  - Supports authentication via email and password or external identity provider ( Google ).
+  - Implemented using OAuth 2.0.
+- __Product Viewing:__ Displays product details, including images, descriptions, prices, and availability.
+- __Shopping Cart:__  Users can view and edit their shopping cart contents.
+  - The total price, including taxes and shipping, is calculated.
+- __Order History and Tracking:__ Users can view their order history.
+  - Tracking information for orders is provided.
+- __Product Search:__  Users can search for products by name.
+- __Product Filtering:__ Filtering options (e.g., price range, category) are available.
+- __Input Validation:__ Server-side validation for user inputs and data integrity.
+  - Displays validation errors on the input fields when validation fails.
+- __Device Compatibility:__ Compatible with various devices to ensure a smooth user experience.
+  - Web platform with responsive design which adapts the layout and content to various screen sizes.
+- __Responsive design:__ Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
+  - The UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
+  - The UI adapts on laptop views for screens wider than 448px (28rem).
 
 ## UI Prototype
 
@@ -81,36 +98,6 @@ The design process ensured that the layout, color schemes, typography, and overa
     </td>
     <td width="48%" style="padding: 0;">
         <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
-    </td>
-  </tr>
-</table>
-
-<br>
-
-<table>
-  <tr>
-    <td width="48%">Product Detail</td>
-    <td width="48%">Order History</td>
-  </tr>
-  <tr align="center">
-    <td width="48%" style="padding: 0;">
-        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
-    </td>
-          <td width="48%" style="padding: 0;">
-        <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
-    </td>
-
-  </tr>
-      <tr>
-    <td width="48%">Personal Information</td>
-    <td width="48%">Payment Method</td>
-  </tr>
-  <tr align="center">
-    <td width="48%" style="padding: 0;">
-        <img alt="Personal Information" src="https://github.com/user-attachments/assets/ed99b7e7-7279-418b-bf5a-1f080901101d" />
-    </td>
-    <td width="48%" style="padding: 0;">
-        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
     </td>
   </tr>
 </table>
@@ -157,9 +144,10 @@ pnpm turbo build --filter="./services/*"
 
 ## Future Enhancements
 
-- [ ] Increase test coverage.
+- [ ] Expand test coverage.
 - [ ] Implement a skeleton for upload times.
-- [ ] Add functionality to handle order cancellations and refunds.
+- [ ] Implement functionality for order cancellations and refunds.
+- [ ] Add user reviews and ratings.
 
 ## License
 
