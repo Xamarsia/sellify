@@ -1,5 +1,5 @@
 <h1 align="center">
-    Admin Frontend
+Admin Frontend
 </h1>
 
 This repository is a frontend for admins of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
@@ -7,15 +7,13 @@ This repository is a frontend for admins of [sellify](https://github.com/Xamarsi
 ## Table Of Content
 
 - [Description](#description)
-- [Related Projects](#related-projects)
+- [Related Repositories](#related-repositories)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
-- [Project Features](#project-features)
+- [Service Features](#service-features)
 - [UI Prototype](#ui-prototype)
 - [Environment Setup](#environment-setup)
 - [Build & Run](#build--run)
-- [Useful Commands](#useful-commands)
-- [Future Enhancements](#future-enhancements)
 - [License](#license)
 
 ## Description
@@ -26,17 +24,16 @@ Prototype of the application is designed in Figma (see [UI Prototype](#ui-protot
 
 The application is written in TypeScript, using Next.js.
 
-## Related Projects
+## Related Repositories
 
 - [`sellify`](https://github.com/Xamarsia/sellify/README.md) - main repository.
 - [`admin-api`](https://github.com/Xamarsia/sellify/services/admin-api): an Express backend server for admins.
 
 ## Local Dependencies
-<!-- ## Packages -->
 
 - `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
 - `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`:  provides ESLint presets.
+- `@sellify/eslint-config`: provides ESLint presets.
 - `@sellify/common-ui-components`: provides common components.
 - `@sellify/admin-ui-components`: provides admin components.
 - `@sellify/common-icons`: provides icons.
@@ -45,38 +42,36 @@ The application is written in TypeScript, using Next.js.
 
 - `React` - to build user interface out of components.
 - `TypeScript` - for static type checking.
-- `Tailwind CSS` - for simplified CSS styling.
+- `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
 - `Figma` - for project prototyping.
 
-## Project Features
+## Service Features
 
-- __Authentication:__ Sign In, Sign Up, and Sign Out functionalities, including password reset option.
-  - Only authorized users are permitted.
-  - Supports authentication via email and password.
-  - Implemented using OAuth 2.0.
-- __Statistic Dashboard:__ Users can view general statistics.
-- __Order Processing:__ Users can view and manage customer orders.
-- __Product Management:__ Users can add, edit, and delete products.
-- __Category Management:__ Users can add and delete categories.
-- __Inventory Management:__ Users can add quantities to products.
-- __Customer Management:__  Users can view the list of customers, see their profile information and statistics; can archive customers.
-- __Role Management:__ Super admin can create, edit and delete roles.
-- __Role-Based Access Control:__ Restricts system access to authorized users based on their assigned roles.
+- [ ] `Authentication`: Implement Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+  - Ensure that only authorized users are permitted.
+  - Support authentication via email and password.
+  - Use OAuth 2.0 for implementation.
+- [ ] `Statistic Dashboard`: Display general statistics.
+- [ ] `Order Processing`: Enable users to view and manage customer orders.
+- [ ] `Product Management`: Allow users to add, edit, and delete products.
+- [ ] `Category Management`: Provide functionality for users to add and delete categories.
+- [ ] `Inventory Management`: Enable users to add quantities to products.
+- [ ] `Customer Management`: Allow users to view the list of customers, see their profile information and statistics; allow to archive customers.
+- [ ] `Role Management`: Enable the super admin to create, edit, and delete roles.
+- [ ] `Role-Based Access Control`: Restricts system access to authorized users based on their assigned roles.
   - Users can be assigned to a single role.
-- __Admin User Management:__ Super admin can create and delete admins.
-- __Form Validation:__ Server-side validation for user inputs and data integrity.
+- [ ] `Admin User Management`: Allow the super admin to create and delete admins.
+- [ ] `Form Validation`: Implement server-side validation for user inputs and data integrity.
   - Displays validation errors on the input fields when validation fails.
+- [ ] `Testing`: Write tests for different features.
+- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
+- [ ] `Order Cancellations and Refunds`: Introduce functionality for processing order cancellations and refunds.
+- [ ] `User Reviews and Ratings`: Add features for users to submit reviews and ratings.
 
 ## UI Prototype
 
 This frontend application has been designed in Figma prior to development; based on [SEL Prototype 1.0 / Admin](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5147&t=0EzElkWsprYyA0pO-1).
-
-The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
-
-<p align="center">
-
-</p>
 
 <table>
   <tr>
@@ -113,44 +108,15 @@ The design process ensured that the layout, color schemes, typography, and overa
 
 1. Open project in VS Code.
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
-3. To run the example, open the terminal in the root directory and execute the following command:
+3. To run the service, open the terminal in the root directory and execute the following command:
 
     ```bash
     pnpm turbo admin-frontend#dev
     ```
 
-    This command will start the example on the development server.
+    This command will start the service on the development server.
 
-4. Open <http://localhost:3000> with your browser to see the result.
-
-## Useful Commands
-
-These commands should be executed in the root directory of the __sellify__ project.
-
-- `pnpm turbo dev` - Starts the development server.
-- `pnpm turbo build` - Builds the application for production.
-- `pnpm turbo start` - Starts the production server.
-- `pnpm turbo lint` - Runs ESLint.
-- `pnpm turbo check-types` - Runs type checking.
-
-Add `admin-frontend#` after `pnpm turbo` to run this command for current project only.
-
-```bash
-pnpm turbo admin-frontend#build
-```
-
-You can also add  `--filter="./services/*"` to the end of the command to run it for all services.
-
-```bash
-pnpm turbo build --filter="./services/*"
-```
-
-## Future Enhancements
-
-- [ ] Expand test coverage.
-- [ ] Implement a skeleton for upload times.
-- [ ] Implement functionality for order cancellations and refunds.
-- [ ] Add user reviews and ratings.
+4. Open <http://localhost:3000> in a browser to see the service.
 
 ## License
 

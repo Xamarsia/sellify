@@ -1,18 +1,15 @@
 <h1 align="center">
-    @sellify/common-ui-components
+@sellify/common-ui-components
 </h1>
 
-This repository is a React component library. It contains a collection of common components of __sellify__ project. The components auto-updates as you edit the file.
+This repository is a React component library. It contains a collection of common components of __sellify__ project.
 
 ## Table Of Content
 
-- [Related Projects](#related-projects)
+- [Related Repositories](#related-repositories)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
 - [UI Prototype](#ui-prototype)
-- [Environment Setup](#environment-setup)
-- [Build & Run](#build--run)
-- [Useful Commands](#useful-commands)
 - [Components](#components)
   - [Button](#button)
   - [Icon Button](#icon-button)
@@ -23,22 +20,24 @@ This repository is a React component library. It contains a collection of common
   - [Dialog](#dialog)
 - [License](#license)
 
-## Related Projects
+## Related Repositories
 
-- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
 - [`sellify`](./README.md) - main repository.
+- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
+- [`admin-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/admin-frontend) - admin frontend repository.
+- [`customer-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/customer-frontend) - customer frontend repository.
 
 ## Local Dependencies
-<!-- ## Packages -->
+
 - `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
 - `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`:  provides ESLint presets.
+- `@sellify/eslint-config`: provides ESLint presets.
 
 ## Development Stack
 
 - `React` - to build user interface out of components.
 - `TypeScript` - for static type checking.
-- `Tailwind CSS` - for simplified CSS styling.
+- `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
 - `Figma` - for project prototyping.
 
@@ -46,47 +45,7 @@ This repository is a React component library. It contains a collection of common
 
 __@sellify/common-ui-components__ was designed in Figma prior to development; based on [SEL Prototype 1.0 / Common](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
 
-<img alt="Combobox" src="https://github.com/user-attachments/assets/0f5a0dda-960b-401a-83ad-5be4fd5e631d" />  
-
-## Environment Setup
-
-1. Install Visual Studio Code (`ms-vscode-remote.remote-containers` extension).
-2. Install Docker Engine  [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and  [Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/).
-3. Clone project.
-4. [Install turbo](https://turborepo.com/docs/getting-started/installation):
-
-    ```bash
-    pnpm add turbo --save-dev 
-    ```
-
-## Build & Run
-
-1. Open project in VS Code.
-2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
-3. To run application, open the terminal and execute the following command:
-
-    ```bash
-    pnpm turbo dev
-    ```
-
-    This will trigger the build process and then will run it.
-
-4. To only build application, execute the following command:
-
-    ```bash
-    pnpm turbo build
-    ```
-
-## Useful Commands
-
-- `pnpm turbo build` - Builds project styles and components.
-- `pnpm turbo build:styles` - Builds project styles.
-- `pnpm turbo build:components` - Builds project components.
-- `pnpm turbo dev` - Builds and runs project styles and components for development.
-- `pnpm turbo dev:styles` - Builds and runs only project styles for development.
-- `pnpm turbo dev:components` - Builds and runs only project components for development.
-- `pnpm lint` - Runs lint.
-- `pnpm check-types` - Runs type checking task
+<img alt="Combobox" src="https://github.com/user-attachments/assets/0f5a0dda-960b-401a-83ad-5be4fd5e631d" />
 
 ## Components
 
@@ -127,12 +86,12 @@ __@sellify/common-ui-components__ was designed in Figma prior to development; ba
   <tr align="center">
     <td width="44%" style="padding: 0;">
       <a href="./src/buttons/IconButton.tsx">
-        <img  alt="IconButton" src="https://github.com/user-attachments/assets/356e16dd-409b-4c1d-b2a9-fe075c737271" />
+        <img alt="IconButton" src="https://github.com/user-attachments/assets/356e16dd-409b-4c1d-b2a9-fe075c737271" />
       </a>
     </td>
     <td width="44%" style="padding: 0;">
       <a href="./src/buttons/IconButton.tsx">
-        <img  alt="OutlineIconButton" src="https://github.com/user-attachments/assets/2f81b88d-acb0-44bf-8b76-a79e90aed58a" />
+        <img alt="OutlineIconButton" src="https://github.com/user-attachments/assets/2f81b88d-acb0-44bf-8b76-a79e90aed58a" />
       </a>
     </td>
   </tr>
