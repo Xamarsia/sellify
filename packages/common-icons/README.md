@@ -9,7 +9,7 @@ This repository is a React component library. It contains a collection of common
 - [Related Repositories](#related-repositories)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
-- [Icons](#icons)s
+- [Icons](#icons)
 
 ## Related Repositories
 
