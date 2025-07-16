@@ -1,5 +1,5 @@
 <h1 align="center">
-    Customer Frontend
+Customer Frontend
 </h1>
 
 This repository is a frontend for customers of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
@@ -7,15 +7,13 @@ This repository is a frontend for customers of [sellify](https://github.com/Xama
 ## Table Of Content
 
 - [Description](#description)
-- [Related Projects](#related-projects)
+- [Related Repositories](#related-repositories)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
-- [Project Features](#project-features)
+- [Service Features](#service-features)
 - [UI Prototype](#ui-prototype)
 - [Environment Setup](#environment-setup)
 - [Build & Run](#build--run)
-- [Useful Commands](#useful-commands)
-- [Future Enhancements](#future-enhancements)
 - [License](#license)
 
 ## Description
@@ -26,17 +24,16 @@ Prototype of the application is designed in Figma (see [UI Prototype](#ui-protot
 
 The application is written in TypeScript, using Next.js.
 
-## Related Projects
+## Related Repositories
 
 - [`sellify`](https://github.com/Xamarsia/sellify/README.md) - main repository.
 - [`customer-api`](https://github.com/Xamarsia/sellify/services/customer-api): an Express backend server for customers.
 
 ## Local Dependencies
-<!-- ## Packages -->
 
 - `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
 - `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`:  provides ESLint presets.
+- `@sellify/eslint-config`: provides ESLint presets.
 - `@sellify/common-ui-components`: provides common components.
 - `@sellify/customer-ui-components`: provides customer components.
 - `@sellify/common-icons`: provides icons.
@@ -45,29 +42,33 @@ The application is written in TypeScript, using Next.js.
 
 - `React` - to build user interface out of components.
 - `TypeScript` - for static type checking.
-- `Tailwind CSS` - for simplified CSS styling.
+- `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
 - `Figma` - for project prototyping.
 
-## Project Features
+## Service Features
 
-- __Authentication:__ Sign In, Sign Up, and Sign Out functionalities, including password reset option.
-  - Supports authentication via email and password or external identity provider ( Google ).
-  - Implemented using OAuth 2.0.
-- __Product Viewing:__ Displays product details, including images, descriptions, prices, and availability.
-- __Shopping Cart:__  Users can view and edit their shopping cart contents.
-  - The total price, including taxes and shipping, is calculated.
-- __Order History and Tracking:__ Users can view their order history.
-  - Tracking information for orders is provided.
-- __Product Search:__  Users can search for products by name.
-- __Product Filtering:__ Filtering options (e.g., price range, category) are available.
-- __Input Validation:__ Server-side validation for user inputs and data integrity.
-  - Displays validation errors on the input fields when validation fails.
-- __Device Compatibility:__ Compatible with various devices to ensure a smooth user experience.
-  - Web platform with responsive design which adapts the layout and content to various screen sizes.
-- __Responsive design:__ Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
-  - The UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
-  - The UI adapts on laptop views for screens wider than 448px (28rem).
+- [ ] `Authentication` - Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+  - Support authentication via email and password or external identity provider ( Google ).
+  - Use OAuth 2.0 for implementation.
+- [ ] `Product Viewing`: Display product details, including images, descriptions, prices, and availability.
+- [ ] `Shopping Cart`: Allow users to view and edit their shopping cart contents.
+  - Calculate the total price, including taxes and shipping.
+- [ ] `Order History and Tracking`: Enable users to view their order history.
+  - Provide tracking information for orders.
+- [ ] `Product Search`: Allow users to search for products by name.
+- [ ] `Product Filtering`: Provide filtering options (e.g., price range, category).
+- [ ] `Input Validation`: Implement server-side validation for user inputs and data integrity.
+  - Display validation errors on the input fields when validation fails.
+- [ ] `Device Compatibility`: Ensure compatibility with various devices to provide a smooth user experience.
+  - Create a web platform with responsive design that adapts the layout and content to various screen sizes.
+- [ ] `Responsive design`: Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
+  - Ensure the UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
+  - Ensure the UI adapts on laptop views for screens wider than 448px (28rem).
+- [ ] `Testing`: Write tests for different features.
+- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
+- [ ] `Order Cancellations and Refunds`: Introduce functionality for processing order cancellations and refunds.
+- [ ] `User Reviews and Ratings`: Add features for users to submit reviews and ratings.
 
 ## UI Prototype
 
@@ -118,36 +119,7 @@ The design process ensured that the layout, color schemes, typography, and overa
 
     This command will start the example on the development server.
 
-4. Open <http://localhost:3000> with your browser to see the result.
-
-## Useful Commands
-
-These commands should be executed in the root directory of the __sellify__ project.
-
-- `pnpm turbo dev` - Starts the development server.
-- `pnpm turbo build` - Builds the application for production.
-- `pnpm turbo start` - Starts the production server.
-- `pnpm turbo lint` - Runs ESLint.
-- `pnpm turbo check-types` - Runs type checking.
-
-Add `customer-frontend#` after `pnpm turbo` to run this command for current project only.
-
-```bash
-pnpm turbo customer-frontend#build
-```
-
-You can also add  `--filter="./services/*"` to the end of the command to run it for all services.
-
-```bash
-pnpm turbo build --filter="./services/*"
-```
-
-## Future Enhancements
-
-- [ ] Expand test coverage.
-- [ ] Implement a skeleton for upload times.
-- [ ] Implement functionality for order cancellations and refunds.
-- [ ] Add user reviews and ratings.
+4. Open <http://localhost:3000> in a browser to see the service.
 
 ## License
 
