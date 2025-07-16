@@ -22,8 +22,10 @@ This repository is a React component library. It contains a collection of common
 
 ## Related Repositories
 
-- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
 - [`sellify`](./README.md) - main repository.
+- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
+- [`admin-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/admin-frontend) - admin frontend repository.
+- [`customer-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/customer-frontend) - customer frontend repository.
 
 ## Local Dependencies
 
