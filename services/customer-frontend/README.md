@@ -111,13 +111,13 @@ The design process ensured that the layout, color schemes, typography, and overa
 
 1. Open project in VS Code.
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
-3. To run the example, open the terminal in the root directory and execute the following command:
+3. To run the service, open the terminal in the root directory and execute the following command:
 
     ```bash
     pnpm turbo customer-frontend#dev
     ```
 
-    This command will start the example on the development server.
+    This command will start the service on the development server.
 
 4. Open <http://localhost:3000> in a browser to see the service.
 
