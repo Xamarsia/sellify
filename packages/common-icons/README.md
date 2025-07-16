@@ -1,40 +1,32 @@
 <h1 align="center">
-    @sellify/common-icons
+@sellify/common-icons
 </h1>
 
-This repository is a React component library. It contains a collection of common icon components of __sellify__ project. The components auto-updates as you edit the file.
+This repository is a React component library. It contains a collection of common icon components of __sellify__ project.
 
 ## Table Of Content
 
-- [Related Projects](#related-projects)
+- [Related Repositories](#related-repositories)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
-- [Useful Commands](#useful-commands)
-- [Icons](#icons)
+- [Icons](#icons)s
 
-## Related Projects
+## Related Repositories
 
 - [`sellify`](https://github.com/Xamarsia/sellify/blob/main/README.md) - main repository.
 - [`admin-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/admin-frontend) - admin frontend repository.
 - [`customer-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/customer-frontend) - customer frontend repository.
 
 ## Local Dependencies
-<!-- ## Packages -->
+
 - `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- `@sellify/eslint-config`:  provides ESLint presets.
+- `@sellify/eslint-config`: provides ESLint presets.
 
 ## Development Stack
 
-- `React` - to build user interface out of components.
+- `React` - to build UI out of components.
 - `TypeScript` - for static type checking.
 - `ESLint` - for code linting.
-
-## Useful Commands
-
-- `pnpm dev` - Compiles TypeScript files and monitors for changes.
-- `pnpm build` - Compiles TypeScript files.
-- `pnpm lint` - Runs lint.
-- `pnpm check-types` - Runs type checking task.
 
 ## Icons
 
