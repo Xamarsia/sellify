@@ -8,7 +8,7 @@ This package provides __Tailwind CSS__ presets and includes __shared styles__ to
 
 ### Postcss
 
-Add the following import to your postcss.config.mjs file.
+Add the following import to the postcss.config.mjs file.
 
 ```mjs
 import { postcssConfig } from "@sellify/tailwind-config/postcss";
@@ -18,7 +18,7 @@ export default postcssConfig;
 
 ### Styles
 
-To use the styles, simply add the following import to your global.css file.
+To use the styles, add the following import to the global.css file.
 
 ```css
 @import "@sellify/tailwind-config";
