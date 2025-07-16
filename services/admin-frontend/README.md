@@ -1,5 +1,5 @@
 <h1 align="center">
-    Admin frontend
+    Admin Frontend
 </h1>
 
 This repository is a frontend for admins of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
@@ -75,11 +75,35 @@ This frontend application has been designed in Figma prior to development; based
 The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
 
 <p align="center">
-    <img width="48%" height="1024" alt="Home" src="https://github.com/user-attachments/assets/a83836b9-719a-4973-bda1-048a599541e6" />
-    <img width="48%" height="1024" alt="Settings" src="https://github.com/user-attachments/assets/8e4864e6-5b37-464f-9ef5-f7ae027f2c91" />
-    <img width="48%" height="1024" alt="Create New Admin" src="https://github.com/user-attachments/assets/774ecb1d-530c-43d5-a842-8c6c6746d6e2" />
-    <img width="48%" height="1024" alt="Edit Role" src="https://github.com/user-attachments/assets/d2d58173-715a-4608-9d16-72a95192bb58" />
+
 </p>
+
+<table>
+  <tr>
+    <td width="48%">Home</td>
+    <td width="48%">Settings</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+      <img alt="Home" src="https://github.com/user-attachments/assets/a83836b9-719a-4973-bda1-048a599541e6" />
+    </td>
+    <td width="48%" style="padding: 0;">
+      <img alt="Settings" src="https://github.com/user-attachments/assets/8e4864e6-5b37-464f-9ef5-f7ae027f2c91" />
+    </td>
+  </tr>
+      <tr>
+    <td width="48%">Create New Admin</td>
+    <td width="48%">Edit Role</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+      <img alt="Create New Admin" src="https://github.com/user-attachments/assets/774ecb1d-530c-43d5-a842-8c6c6746d6e2" />
+    </td>
+    <td width="48%" style="padding: 0;">
+      <img alt="Edit Role" src="https://github.com/user-attachments/assets/d2d58173-715a-4608-9d16-72a95192bb58" />
+    </td>
+  </tr>
+</table>
 
 ## Environment Setup
 
@@ -123,9 +147,10 @@ pnpm turbo build --filter="./services/*"
 
 ## Future Enhancements
 
-- [ ] Increase test coverage.
+- [ ] Expand test coverage.
 - [ ] Implement a skeleton for upload times.
-- [ ] Add functionality to handle order cancellations and refunds.
+- [ ] Implement functionality for order cancellations and refunds.
+- [ ] Add user reviews and ratings.
 
 ## License
 
