@@ -1,5 +1,5 @@
 <h1 align="center">
-    Admin frontend
+    Admin Frontend
 </h1>
 
 This repository is a frontend for admins of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
@@ -123,9 +123,10 @@ pnpm turbo build --filter="./services/*"
 
 ## Future Enhancements
 
-- [ ] Increase test coverage.
+- [ ] Expand test coverage.
 - [ ] Implement a skeleton for upload times.
-- [ ] Add functionality to handle order cancellations and refunds.
+- [ ] Implement functionality for order cancellations and refunds.
+- [ ] Add user reviews and ratings.
 
 ## License
 
