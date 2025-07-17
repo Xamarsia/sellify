@@ -2,7 +2,7 @@
 @sellify/typescript-config
 </h1>
 
-This package provides __TypeScript__ configuration to maintain consistency throughout the monorepo.
+This package provides **TypeScript** configuration to maintain consistency throughout the monorepo.
 
 ## Usage
 

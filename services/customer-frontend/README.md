@@ -2,12 +2,12 @@
 Customer Frontend
 </h1>
 
-This repository is a frontend for customers of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
+This service is a frontend for customers of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
 
 ## Table Of Content
 
 - [Description](#description)
-- [Related Repositories](#related-repositories)
+- [Related Services](#related-services)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
 - [Service Features](#service-features)
@@ -18,57 +18,56 @@ This repository is a frontend for customers of [sellify](https://github.com/Xama
 
 ## Description
 
-Customer Frontend project is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
+Customer Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
 
 Prototype of the application is designed in Figma (see [UI Prototype](#ui-prototype)).
 
 The application is written in TypeScript, using Next.js.
 
-## Related Repositories
+## Related Services
 
-- [`sellify`](https://github.com/Xamarsia/sellify/README.md) - main repository.
-- [`customer-api`](https://github.com/Xamarsia/sellify/services/customer-api): an Express backend server for customers.
+- TODO:`customer-api` - an Express backend server for customers.
 
 ## Local Dependencies
 
-- `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`: provides ESLint presets.
-- `@sellify/common-ui-components`: provides common components.
-- `@sellify/customer-ui-components`: provides customer components.
-- `@sellify/common-icons`: provides icons.
+- `@sellify/typescript-config` - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- `@sellify/tailwind-config` - tailwindcss presets and shared-styles.
+- `@sellify/eslint-config` - ESLint presets.
+- `@sellify/common-ui-components` - common UI components.
+- `@sellify/customer-ui-components` - customer UI components.
+- `@sellify/common-icons` - common UI icons components.
 
 ## Development Stack
 
-- `React` - to build user interface out of components.
+- `Next.js` ( React ) - for client and server rendering, advanced routing, nested layouts, data fetching.
 - `TypeScript` - for static type checking.
 - `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
+- `Zod` - for frontend forms validation.
 - `Figma` - for project prototyping.
 
 ## Service Features
 
-- [ ] `Authentication` - Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+- [ ] `Authentication` - sign in, sign up, and sign out functionalities, including password reset option.
   - Support authentication via email and password or external identity provider ( Google ).
   - Use OAuth 2.0 for implementation.
-- [ ] `Product Viewing`: Display product details, including images, descriptions, prices, and availability.
-- [ ] `Shopping Cart`: Allow users to view and edit their shopping cart contents.
+- [ ] `Product Viewing` - display product details, including images, descriptions, prices, and availability.
+- [ ] `Shopping Cart` - view and edit personal shopping cart content functionalities.
   - Calculate the total price, including taxes and shipping.
-- [ ] `Order History and Tracking`: Enable users to view their order history.
+- [ ] `Order History and Tracking` - display order history.
   - Provide tracking information for orders.
-- [ ] `Product Search`: Allow users to search for products by name.
-- [ ] `Product Filtering`: Provide filtering options (e.g., price range, category).
-- [ ] `Input Validation`: Implement server-side validation for user inputs and data integrity.
+- [ ] `Product Search` - search for products by name.
+- [ ] `Product Filtering` - filter products by options (e.g., price range, category).
+- [ ] `Wishlist Feature` - wishlist to save items of interest.
+- [ ] `Input Validation` - server-side validation for user inputs and data integrity.
   - Display validation errors on the input fields when validation fails.
-- [ ] `Device Compatibility`: Ensure compatibility with various devices to provide a smooth user experience.
-  - Create a web platform with responsive design that adapts the layout and content to various screen sizes.
-- [ ] `Responsive design`: Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
-  - Ensure the UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
-  - Ensure the UI adapts on laptop views for screens wider than 448px (28rem).
-- [ ] `Testing`: Write tests for different features.
-- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
-- [ ] `Order Cancellations and Refunds`: Introduce functionality for processing order cancellations and refunds.
-- [ ] `User Reviews and Ratings`: Add features for users to submit reviews and ratings.
+- [ ] `Device Compatibility` - compatible with various devices to provide a smooth user experience.
+  - Web platform with responsive design that adapts the layout and content to various screen sizes.
+- [ ] `Responsive design` - adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
+  - The UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
+  - The UI adapts on laptop views for screens wider than 448px (28rem).
+- [ ] `Skeleton` - display loading skeleton before UI component uploads.
+- [ ] `Order Cancellations and Refunds` - order cancellations and refunds functionalities.
 
 ## UI Prototype
 
@@ -83,22 +82,22 @@ The design process ensured that the layout, color schemes, typography, and overa
   </tr>
   <tr align="center">
     <td width="48%" style="padding: 0;">
-        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
+      <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
     </td>
     <td width="48%" style="padding: 0;">
-        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
+      <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
     </td>
   </tr>
-      <tr>
-    <td width="48%">Personal Information</td>
-    <td width="48%">Payment Method</td>
-  </tr>
+    <tr>
+      <td width="48%">Personal Information</td>
+      <td width="48%">Payment Method</td>
+    </tr>
   <tr align="center">
     <td width="48%" style="padding: 0;">
-        <img alt="Personal Information" src="https://github.com/user-attachments/assets/ed99b7e7-7279-418b-bf5a-1f080901101d" />
+      <img alt="Personal Information" src="https://github.com/user-attachments/assets/ed99b7e7-7279-418b-bf5a-1f080901101d" />
     </td>
     <td width="48%" style="padding: 0;">
-        <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
+      <img alt="Payment Method" src="https://github.com/user-attachments/assets/218585a8-f3de-4011-b0e8-529db5305ff2" />
     </td>
   </tr>
 </table>
@@ -113,11 +112,11 @@ The design process ensured that the layout, color schemes, typography, and overa
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
 3. To run the service, open the terminal in the root directory and execute the following command:
 
-    ```bash
-    pnpm turbo customer-frontend#dev
-    ```
+   ```bash
+   pnpm turbo customer-frontend#dev
+   ```
 
-    This command will start the service on the development server.
+   This command will start the service on the development server.
 
 4. Open <http://localhost:3000> in a browser to see the service.
 

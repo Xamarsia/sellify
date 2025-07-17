@@ -34,7 +34,7 @@ The project is set up as a multi-package workspace (monorepo).
 
 ## Project Status
 
-Current Status: __Active Development__
+Current Status: **Active Development**
 
 ## Project's Services
 
@@ -117,7 +117,7 @@ Current Status: __Active Development__
   - [ ] `Product Management` - add, edit, and delete products functionalities.
   - [ ] `Category Management` - add and delete categories functionalities.
   - [ ] `Inventory Management` - add quantities to products functionality.
-  - [ ] `Customer Management` - display list of customers, their profile information and statistics; add  archive customers option.
+  - [ ] `Customer Management` - display list of customers, their profile information and statistics; add archive customers option.
   - [ ] `Role Management` - create, edit, and delete roles functionalities for the super admin.
   - [ ] `Role-Based Access Control` - restricts system access to authorized users based on their assigned roles.
     - Users can be assigned to a single role.
@@ -127,13 +127,13 @@ Current Status: __Active Development__
 ## Environment Setup
 
 1. Install Visual Studio Code (`ms-vscode-remote.remote-containers` extension).
-2. Install Docker Engine  [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and  [Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/).
+2. Install Docker Engine [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and [Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/).
 3. Clone project.
 4. [Install turbo](https://turborepo.com/docs/getting-started/installation) by executing the following command:
 
-    ```bash
-    pnpm add turbo --save-dev 
-    ```
+   ```bash
+   pnpm add turbo --save-dev
+   ```
 
 ## Build & Run
 
@@ -141,11 +141,11 @@ Current Status: __Active Development__
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
 3. To run project, open the terminal in the root directory and execute the following command:
 
-    ```bash
-    pnpm turbo dev
-    ```
+   ```bash
+   pnpm turbo dev
+   ```
 
-    This command will start the service on the development server.
+   This command will start the service on the development server.
 
 4. Open <http://localhost:3000> in a browser to see the customer web app or admin web on 3001 port.
 
