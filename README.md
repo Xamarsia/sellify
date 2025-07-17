@@ -171,15 +171,15 @@ The design process ensured that the layout, color schemes, typography, and overa
 
 <table>
   <tr>
-    <td width="48%">Product Detail</td>
-    <td width="48%">Order History</td>
+    <td width="48%">Admin Home</td>
+    <td width="48%">Customer Home</td>
   </tr>
   <tr align="center">
     <td width="48%" style="padding: 0;">
-        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
+       <img alt="Home" src="https://github.com/user-attachments/assets/4ca974b0-1d01-48f8-b1b1-9ad00930007f" />
     </td>
     <td width="48%" style="padding: 0;">
-        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
+      <img alt="News" src="https://github.com/user-attachments/assets/52dbcdf3-484d-4b23-81de-96046a369ed1" />
     </td>
   </tr>
 </table>
