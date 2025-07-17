@@ -2,12 +2,12 @@
 Admin Frontend
 </h1>
 
-This repository is a frontend for admins of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
+This service is a frontend for admins of [sellify](https://github.com/Xamarsia/sellify) project. It is implemented using Typescript and Next.js ( React ) framework.
 
 ## Table Of Content
 
 - [Description](#description)
-- [Related Repositories](#related-repositories)
+- [Related Services](#related-services)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
 - [Service Features](#service-features)
@@ -18,56 +18,54 @@ This repository is a frontend for admins of [sellify](https://github.com/Xamarsi
 
 ## Description
 
-Admin Frontend project is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
+Admin Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
 
 Prototype of the application is designed in Figma (see [UI Prototype](#ui-prototype)).
 
 The application is written in TypeScript, using Next.js.
 
-## Related Repositories
+## Related Services
 
-- [`sellify`](https://github.com/Xamarsia/sellify/README.md) - main repository.
-- [`admin-api`](https://github.com/Xamarsia/sellify/services/admin-api): an Express backend server for admins.
+- TODO:[`admin-api`](https://github.com/Xamarsia/sellify/services/admin-api) - an Express backend server for admins.
 
 ## Local Dependencies
 
-- `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`: provides ESLint presets.
-- `@sellify/common-ui-components`: provides common components.
-- `@sellify/admin-ui-components`: provides admin components.
-- `@sellify/common-icons`: provides icons.
+- `@sellify/typescript-config` - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- `@sellify/tailwind-config` - tailwindcss presets and shared-styles.
+- `@sellify/eslint-config` - ESLint presets.
+- `@sellify/common-ui-components` - common UI components.
+- `@sellify/admin-ui-components` - admin UI components.
+- `@sellify/common-icons` - common UI icons components.
 
 ## Development Stack
 
-- `React` - to build user interface out of components.
+- `Next.js` ( React ) - for client and server rendering, advanced routing, nested layouts, data fetching.
 - `TypeScript` - for static type checking.
 - `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
+- `Zod` - for frontend forms validation.
 - `Figma` - for project prototyping.
 
 ## Service Features
 
-- [ ] `Authentication`: Implement Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+- [ ] `Authentication` - sign in, sign up, and sign out functionalities, including password reset option.
   - Ensure that only authorized users are permitted.
   - Support authentication via email and password.
   - Use OAuth 2.0 for implementation.
-- [ ] `Statistic Dashboard`: Display general statistics.
-- [ ] `Order Processing`: Enable users to view and manage customer orders.
-- [ ] `Product Management`: Allow users to add, edit, and delete products.
-- [ ] `Category Management`: Provide functionality for users to add and delete categories.
-- [ ] `Inventory Management`: Enable users to add quantities to products.
-- [ ] `Customer Management`: Allow users to view the list of customers, see their profile information and statistics; allow to archive customers.
-- [ ] `Role Management`: Enable the super admin to create, edit, and delete roles.
-- [ ] `Role-Based Access Control`: Restricts system access to authorized users based on their assigned roles.
+- [ ] `Statistic Dashboard` - general statistics visualization.
+- [ ] `Order Processing` - view and manage customer orders.
+- [ ] `Product Management` - add, edit, and delete products functionalities.
+- [ ] `Category Management` - add and delete categories functionalities.
+- [ ] `Inventory Management` - add quantities to products functionality.
+- [ ] `Customer Management` - display list of customers, their profile information and statistics; add archive customers option.
+- [ ] `Role Management` - create, edit, and delete roles functionalities for the super admin.
+- [ ] `Role-Based Access Control` - restricts system access to authorized users based on their assigned roles.
   - Users can be assigned to a single role.
-- [ ] `Admin User Management`: Allow the super admin to create and delete admins.
-- [ ] `Form Validation`: Implement server-side validation for user inputs and data integrity.
+- [ ] `Admin User Management` - create and delete admins functionalities for the super admin.
+- [ ] `Form Validation` - server-side validation for user inputs and data integrity.
   - Displays validation errors on the input fields when validation fails.
-- [ ] `Testing`: Write tests for different features.
-- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
-- [ ] `Order Cancellations and Refunds`: Introduce functionality for processing order cancellations and refunds.
-- [ ] `User Reviews and Ratings`: Add features for users to submit reviews and ratings.
+- [ ] `Skeleton` - display loading skeleton before UI component uploads.
+- [ ] `Order Cancellations and Refunds` - order cancellations and refunds functionalities.
 
 ## UI Prototype
 
@@ -110,11 +108,11 @@ This frontend application has been designed in Figma prior to development; based
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
 3. To run the service, open the terminal in the root directory and execute the following command:
 
-    ```bash
-    pnpm turbo admin-frontend#dev
-    ```
+   ```bash
+   pnpm turbo admin-frontend#dev
+   ```
 
-    This command will start the service on the development server.
+   This command will start the service on the development server.
 
 4. Open <http://localhost:3000> in a browser to see the service.
 

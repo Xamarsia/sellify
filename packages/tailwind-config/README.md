@@ -2,7 +2,7 @@
 @sellify/tailwind-config
 </h1>
 
-This package provides __Tailwind CSS__ presets and includes __shared styles__ to maintain consistency throughout the monorepo.
+This package provides **Tailwind CSS** presets and includes **shared styles** to maintain consistency throughout the monorepo.
 
 ## Usage
 

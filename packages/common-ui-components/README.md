@@ -2,11 +2,11 @@
 @sellify/common-ui-components
 </h1>
 
-This repository is a React component library. It contains a collection of common components of __sellify__ project.
+This package is a React component library. It contains a collection of common components of **sellify** project.
 
 ## Table Of Content
 
-- [Related Repositories](#related-repositories)
+- [Related Services](#related-services)
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
 - [UI Prototype](#ui-prototype)
@@ -20,22 +20,19 @@ This repository is a React component library. It contains a collection of common
   - [Dialog](#dialog)
 - [License](#license)
 
-## Related Repositories
+## Related Services
 
-- [`sellify`](./README.md) - main repository.
-- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use __@sellify/common-ui-components__.
-- [`admin-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/admin-frontend) - admin frontend repository.
-- [`customer-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/customer-frontend) - customer frontend repository.
+- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use **@sellify/common-ui-components**.
 
 ## Local Dependencies
 
-- `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`: provides ESLint presets.
+- `@sellify/typescript-config` - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- `@sellify/tailwind-config` - tailwindcss presets and shared-styles.
+- `@sellify/eslint-config` - ESLint presets.
 
 ## Development Stack
 
-- `React` - to build user interface out of components.
+- `React` - to build UI out of components.
 - `TypeScript` - for static type checking.
 - `Tailwind CSS` - for CSS styling.
 - `ESLint` - for code linting.
@@ -43,7 +40,7 @@ This repository is a React component library. It contains a collection of common
 
 ## UI Prototype
 
-__@sellify/common-ui-components__ was designed in Figma prior to development; based on [SEL Prototype 1.0 / Common](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
+**@sellify/common-ui-components** was designed in Figma prior to development; based on [SEL Prototype 1.0 / Common](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=0-1&t=8Lqom0HTjqPgxfkf-1).
 
 <img alt="Combobox" src="https://github.com/user-attachments/assets/0f5a0dda-960b-401a-83ad-5be4fd5e631d" />
 
