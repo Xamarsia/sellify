@@ -71,15 +71,56 @@ The project is actively being developed, with new features and improvements bein
 
 ## Project Features
 
-- __User Authentication:__ Sign In, Sign Up, and Sign Out functionalities are provided, along with an option for Password Reset.
-  - Authentication using email addresses and passwords or popular identity provider Google.
-  - Authentication is implemented using industry standards such as OAuth 2.0.
-- __Form Validation:__ Server-side validation for user inputs and data integrity.
-- __Alerts:__ Display an alert when the request fails.
-- __Device Compatibility:__ Compatible with various devices to ensure a smooth user experience.
-  - Web platform with responsive design which adapts the layout and content to various screen sizes.
-- __Security__:
-  - Not vulnerable to DDoS.
+- [ ] `Authentication` - Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+  - Use OAuth 2.0 for implementation.
+- [ ] `Testing`: Write automated tests.
+- [ ] `Payment System`: Integrate a payment processing system.
+- [ ] `Notifications System`: Add a notification system.
+- [ ] `Logging System`: Establish a logging mechanism for tracking events.
+- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
+- [ ] `DDoS Protection`: Ensure the system is not vulnerable to DDoS attacks.
+- [ ] `Implement services features`:
+
+  <details>
+    <summary>Customer service features</summary>
+
+  - [ ] `Authentication`:  Support authentication via email and password or external identity provider ( Google ).
+  - [ ] `Product Viewing`: Display product details, including images, descriptions, prices, and availability.
+  - [ ] `Shopping Cart`: Allow users to view and edit their shopping cart contents.
+    - Calculate the total price, including taxes and shipping.
+  - [ ] `Order History and Tracking`: Enable users to view their order history.
+    - Provide tracking information for orders.
+  - [ ] `Product Search`: Allow users to search for products by name.
+  - [ ] `Product Filtering`: Provide filtering options (e.g., price range, category).
+  - [ ] `Wishlist Feature`: Implement a wishlist for users to save items of interest.
+  - [ ] `Input Validation`: Implement server-side validation for user inputs and data integrity.
+    - Display validation errors on the input fields when validation fails.
+  - [ ] `Device Compatibility`: Ensure compatibility with various devices to provide a smooth user experience.
+    - Create a web platform with responsive design that adapts the layout and content to various screen sizes.
+  - [ ] `Responsive design`: Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
+    - Ensure the UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
+    - Ensure the UI adapts on laptop views for screens wider than 448px (28rem).
+
+  </details>
+  
+  <details>
+    <summary>Admin service features</summary>
+
+  - [ ] `Authentication`: Support authentication via email and password.
+    - Ensure that only authorized users are permitted.
+  - [ ] `Statistic Dashboard`: Display general statistics.
+  - [ ] `Order Processing`: Enable users to view and manage customer orders.
+  - [ ] `Product Management`: Allow users to add, edit, and delete products.
+  - [ ] `Category Management`: Provide functionality for users to add and delete categories.
+  - [ ] `Inventory Management`: Enable users to add quantities to products.
+  - [ ] `Customer Management`: Allow users to view the list of customers, see their profile information and statistics; allow to archive customers.
+  - [ ] `Role Management`: Enable the super admin to create, edit, and delete roles.
+  - [ ] `Role-Based Access Control`: Restricts system access to authorized users based on their assigned roles.
+    - Users can be assigned to a single role.
+  - [ ] `Admin User Management`: Allow the super admin to create and delete admins.
+  - [ ] `Form Validation`: Implement server-side validation for user inputs and data integrity.
+
+  </details>
 
 ## Environment Setup
 
@@ -131,14 +172,6 @@ To apply the command to all directory, include `--filter="./directory-name/*"` a
 ```bash
 pnpm turbo build --filter="./directory-name/*"
 ```
-
-## Future Enhancements
-
-- [ ] Add payment system.
-- [ ] Implement refunds system.
-- [ ] Implement wish list.
-- [ ] Add notifications.
-- [ ] Increase test coverage.
 
 ## License
 
