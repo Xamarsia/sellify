@@ -2,9 +2,25 @@
 Sellify
 </h1>
 
+Sellify is a microservice demo of e-commerce web platform. The project is set up as a multi-package workspace (monorepo) and implemented using Typescript and Next.js ( React ) framework.
+
 ## Table Of Content
 
-...
+- [Description](#description)
+- [Project Status](#project-status)
+- [Projects Repositories](#projects-repositories)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+  - [Examples](#examples)
+- [Project Packages](#project-packages)
+- [Development Stack](#development-stack)
+- [Project Features](#project-features)
+
+- [Environment Setup](#environment-setup)
+- [Build & Run](#build--run)
+- [Useful Commands](#useful-commands)
+- [UI Prototype](#ui-prototype)
+- [License](#license)
 
 ## Description
 
@@ -16,7 +32,7 @@ The customer application will allow users to browse products, manage their shopp
 
 The project is set up as a multi-package workspace (monorepo).
 
-## Project status
+## Project Status
 
 Current Status: __Active Development__
 
@@ -146,6 +162,27 @@ The project is actively being developed, with new features and improvements bein
     This command will start the service on the development server.
 
 4. Open <http://localhost:3000> in a browser to see the customer web app or admin web on 3001 port.
+
+## UI Prototype
+
+This frontend application has been designed in Figma prior to development; based on [SEL Prototype V1.0](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5147&t=0EzElkWsprYyA0pO-1).
+
+The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
+
+<table>
+  <tr>
+    <td width="48%">Product Detail</td>
+    <td width="48%">Order History</td>
+  </tr>
+  <tr align="center">
+    <td width="48%" style="padding: 0;">
+        <img alt="Product Detail" src="https://github.com/user-attachments/assets/f2ca8b8e-08ec-464f-8e95-2128e1ba7557" />
+    </td>
+    <td width="48%" style="padding: 0;">
+        <img alt="Order History" src="https://github.com/user-attachments/assets/86eaf8e5-4c0b-4811-baba-1d247abb160e" />
+    </td>
+  </tr>
+</table>
 
 ## Useful Commands
 
