@@ -101,7 +101,7 @@ Current Status: __Active Development__
     - Provide tracking information for orders.
   - [ ] `Product Search` - search for products by name.
   - [ ] `Product Filtering` - filter products by options (e.g., price range, category).
-  - [ ] `Wishlist Feature` - Wishlist to save items of interest.
+  - [ ] `Wishlist Feature` - wishlist to save items of interest.
   - [ ] `Input Validation` - server-side validation for user inputs and data integrity.
     - Display validation errors on the input fields when validation fails.
   - [ ] `Device Compatibility` - compatible with various devices to provide a smooth user experience.
