@@ -44,8 +44,8 @@ The project is actively being developed, with new features and improvements bein
 
 ### Frontend
 
-- `customer-frontend`: a Next.js web application that provides customer interface.
-- `admin-frontend`: a Next.js web application that functions as a admin panel.
+- [`customer-frontend`](https://github.com/Xamarsia/sellify/services/customer-frontend/README.md): a Next.js web application that provides customer interface.
+- [`admin-frontend`](https://github.com/Xamarsia/sellify/services/admin-frontend/README.md): a Next.js web application that functions as a admin panel.
 
 ### Backend
 
@@ -58,17 +58,18 @@ The project is actively being developed, with new features and improvements bein
 
 ### Examples
 
-- `common-ui-components-example`:  provides a practical example of using the custom React component library from the `@sellify/common-ui-components` package.
+- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/examples/common-ui-components-example/README.md):  provides a practical example of using the custom React component library from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) package.
 
 ## Project Packages
 
-- `@sellify/typescript-config`: shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- `@sellify/tailwind-config`: provides tailwindcss presets and shared-styles.
-- `@sellify/eslint-config`: provides ESLint presets.
-- `@sellify/common-ui-components`: provides common components.
-- `@sellify/customer-ui-components`: provides customer components.
-- `@sellify/common-icons`: provides icons.
-- `@sellify/logger`: log service with Cassandra.
+- [`@sellify/typescript-config`](https://github.com/Xamarsia/sellify/packages/typescript-config/README.md): shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
+- [`@sellify/tailwind-config`](https://github.com/Xamarsia/sellify/packages/tailwind-config/README.md): provides tailwindcss presets and shared-styles.
+- [`@sellify/eslint-config`](https://github.com/Xamarsia/sellify/packages//README.md): provides ESLint presets.
+- [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md): provides common components.
+- [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/packages/customer-ui-components/README.md): provides customer components.
+- [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/packages/admin-ui-components/README.md): provides customer components.
+- [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/packages/common-icons/README.md): provides icons.
+- [`@sellify/logger`](https://github.com/Xamarsia/sellify/packages/logger/README.md): log service with Cassandra.
 
 ## Development Stack
 
@@ -89,11 +90,11 @@ The project is actively being developed, with new features and improvements bein
 
 - [ ] `Authentication` - Sign In, Sign Up, and Sign Out functionalities, including password reset option.
   - Use OAuth 2.0 for implementation.
-- [ ] `Testing`: Write automated tests.
-- [ ] `Payment System`: Integrate a payment processing system.
-- [ ] `Notifications System`: Add a notification system.
-- [ ] `Logging System`: Establish a logging mechanism for tracking events.
 - [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
+- [ ] `Notifications System`: Add a notification system.
+- [ ] `Payment System`: Integrate a payment processing system.
+- [ ] `Logging System`: Establish a logging mechanism for tracking events.
+- [ ] `Testing`: Write automated tests.
 - [ ] `DDoS Protection`: Ensure the system is not vulnerable to DDoS attacks.
 - [ ] `Implement services features`:
 
@@ -176,10 +177,14 @@ The design process ensured that the layout, color schemes, typography, and overa
   </tr>
   <tr align="center">
     <td width="48%" style="padding: 0;">
-       <img alt="Home" src="https://github.com/user-attachments/assets/4ca974b0-1d01-48f8-b1b1-9ad00930007f" />
+      <a href="https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5147&t=O2mOqoVwI29NQ0iX-1">
+        <img alt="Home" src="https://github.com/user-attachments/assets/4ca974b0-1d01-48f8-b1b1-9ad00930007f" />
+       </a>
     </td>
     <td width="48%" style="padding: 0;">
-      <img alt="News" src="https://github.com/user-attachments/assets/52dbcdf3-484d-4b23-81de-96046a369ed1" />
+      <a href="https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5148&t=O2mOqoVwI29NQ0iX-1">
+        <img alt="News" src="https://github.com/user-attachments/assets/52dbcdf3-484d-4b23-81de-96046a369ed1" />
+      </a>
     </td>
   </tr>
 </table>
