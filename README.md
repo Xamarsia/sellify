@@ -2,13 +2,13 @@
 Sellify
 </h1>
 
-Sellify is a microservice demo of e-commerce web platform. The project is set up as a multi-package workspace (monorepo) and implemented using Typescript and Next.js ( React ) framework.
+Sellify is a microservice demo e-commerce web platform project.
 
 ## Table Of Content
 
 - [Description](#description)
 - [Project Status](#project-status)
-- [Projects Repositories](#projects-repositories)
+- [Project's Services](#projects-services)
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [Examples](#examples)
@@ -26,9 +26,9 @@ Sellify is a microservice demo of e-commerce web platform. The project is set up
 
 Sellify is a microservice demo of e-commerce web platform.
 
-The online store will consist of two main web applications: one for administrators and another for customers.
-The admin application will provide tools for product management, order processing, and overseeing customer interactions, as well as inventory management.
-The customer application will allow users to browse products, manage their shopping carts and track their orders.
+The online store consists of two main web applications: one for administrators and another for customers.
+The admin application provides tools for product management, order processing, and overseeing customer interactions, as well as inventory management.
+The customer application allows users to browse products, manage their shopping carts and track their orders.
 
 The project is set up as a multi-package workspace (monorepo).
 
@@ -36,40 +36,36 @@ The project is set up as a multi-package workspace (monorepo).
 
 Current Status: __Active Development__
 
-The project is actively being developed, with new features and improvements being added regularly.
-
-## Projects Repositories
-
-- [`sellify`](https://github.com/Xamarsia/sellify/README.md) - main repository.
+## Project's Services
 
 ### Frontend
 
-- [`customer-frontend`](https://github.com/Xamarsia/sellify/services/customer-frontend/README.md): a Next.js web application that provides customer interface.
-- [`admin-frontend`](https://github.com/Xamarsia/sellify/services/admin-frontend/README.md): a Next.js web application that functions as a admin panel.
+- [`customer-frontend`](https://github.com/Xamarsia/sellify/services/customer-frontend/README.md) - a Next.js web application that provides customer UI.
+- [`admin-frontend`](https://github.com/Xamarsia/sellify/services/admin-frontend/README.md) - a Next.js web application that functions as a admin panel.
 
 ### Backend
 
-- `customer-api`: an Express server dedicated to customer management.
-- `admin-api`: an Express server for managing admin functionalities.
-- `catalog-api`: an Express server for handling product catalog.
-- `basket-api`: an Express server for managing shopping basket operations.
-- `inventory-api`: an Express server for inventory data management.
-- `order-api`: an Express server for order processing.
+- TODO: `customer-api` - an Express server dedicated to customer management.
+- TODO: `admin-api` - an Express server for managing admin functionalities.
+- TODO: `catalog-api` - an Express server for handling product catalog.
+- TODO: `basket-api` - an Express server for managing shopping basket operations.
+- TODO: `inventory-api` - an Express server for inventory data management.
+- TODO: `order-api` - an Express server for order processing.
 
 ### Examples
 
-- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/examples/common-ui-components-example/README.md):  provides a practical example of using the custom React component library from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) package.
+- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/examples/common-ui-components-example/README.md) - a practical example of using the custom React component library from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) package.
 
 ## Project Packages
 
-- [`@sellify/typescript-config`](https://github.com/Xamarsia/sellify/packages/typescript-config/README.md): shares the tsconfig.json configuration to maintain consistency throughout the monorepo.
-- [`@sellify/tailwind-config`](https://github.com/Xamarsia/sellify/packages/tailwind-config/README.md): provides tailwindcss presets and shared-styles.
-- [`@sellify/eslint-config`](https://github.com/Xamarsia/sellify/packages//README.md): provides ESLint presets.
-- [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md): provides common components.
-- [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/packages/customer-ui-components/README.md): provides customer components.
-- [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/packages/admin-ui-components/README.md): provides customer components.
-- [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/packages/common-icons/README.md): provides icons.
-- [`@sellify/logger`](https://github.com/Xamarsia/sellify/packages/logger/README.md): log service with Cassandra.
+- [`@sellify/typescript-config`](https://github.com/Xamarsia/sellify/packages/typescript-config/README.md) - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- [`@sellify/tailwind-config`](https://github.com/Xamarsia/sellify/packages/tailwind-config/README.md) - tailwindcss presets and shared-styles.
+- [`@sellify/eslint-config`](https://github.com/Xamarsia/sellify/packages//README.md) - ESLint presets.
+- [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) - common UI components.
+- [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/packages/customer-ui-components/README.md) - customer UI components.
+- [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/packages/admin-ui-components/README.md) - admin UI components.
+- [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/packages/common-icons/README.md) - common UI icons components.
+- [`@sellify/logger`](https://github.com/Xamarsia/sellify/packages/logger/README.md) - log service with Cassandra.
 
 ## Development Stack
 
@@ -88,56 +84,45 @@ The project is actively being developed, with new features and improvements bein
 
 ## Project Features
 
-- [ ] `Authentication` - Sign In, Sign Up, and Sign Out functionalities, including password reset option.
+- [ ] `Authentication` - sign in, sign up, and sign out functionalities, including password reset option.
   - Use OAuth 2.0 for implementation.
-- [ ] `Skeleton`: Implement a loading skeleton to display before component uploads.
-- [ ] `Notifications System`: Add a notification system.
-- [ ] `Payment System`: Integrate a payment processing system.
-- [ ] `Logging System`: Establish a logging mechanism for tracking events.
-- [ ] `Testing`: Write automated tests.
-- [ ] `DDoS Protection`: Ensure the system is not vulnerable to DDoS attacks.
-- [ ] `Implement services features`:
-
-  <details>
-    <summary>Customer service features</summary>
-
-  - [ ] `Authentication`:  Support authentication via email and password or external identity provider ( Google ).
-  - [ ] `Product Viewing`: Display product details, including images, descriptions, prices, and availability.
-  - [ ] `Shopping Cart`: Allow users to view and edit their shopping cart contents.
+- [ ] `Skeleton` - display loading skeleton before UI component uploads.
+- [ ] `Notifications System` - notification system integrated.
+- [ ] `Payment System` - payment system integrated.
+- [ ] `Logging System` - logging mechanism for tracking events.
+- [ ] `Testing` - automated tests.
+- [ ] `DDoS Protection` - system is not vulnerable to DDoS attacks.
+- [ ] `Implement customer service features`:
+  - [ ] `Authentication` - support authentication via email and password or external identity provider ( Google ).
+  - [ ] `Product Viewing` - display product details, including images, descriptions, prices, and availability.
+  - [ ] `Shopping Cart` - view and edit personal shopping cart content functionalities.
     - Calculate the total price, including taxes and shipping.
-  - [ ] `Order History and Tracking`: Enable users to view their order history.
+  - [ ] `Order History and Tracking` - display order history.
     - Provide tracking information for orders.
-  - [ ] `Product Search`: Allow users to search for products by name.
-  - [ ] `Product Filtering`: Provide filtering options (e.g., price range, category).
-  - [ ] `Wishlist Feature`: Implement a wishlist for users to save items of interest.
-  - [ ] `Input Validation`: Implement server-side validation for user inputs and data integrity.
+  - [ ] `Product Search` - search for products by name.
+  - [ ] `Product Filtering` - filter products by options (e.g., price range, category).
+  - [ ] `Wishlist Feature` - Wishlist to save items of interest.
+  - [ ] `Input Validation` - server-side validation for user inputs and data integrity.
     - Display validation errors on the input fields when validation fails.
-  - [ ] `Device Compatibility`: Ensure compatibility with various devices to provide a smooth user experience.
-    - Create a web platform with responsive design that adapts the layout and content to various screen sizes.
-  - [ ] `Responsive design`: Adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
-    - Ensure the UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
-    - Ensure the UI adapts on laptop views for screens wider than 448px (28rem).
-
-  </details>
-  
-  <details>
-    <summary>Admin service features</summary>
-
-  - [ ] `Authentication`: Support authentication via email and password.
+  - [ ] `Device Compatibility` - compatible with various devices to provide a smooth user experience.
+    - Web platform with responsive design that adapts the layout and content to various screen sizes.
+  - [ ] `Responsive design` - adaptive user interfaces that adjust seamlessly from smartphone to laptop screen sizes.
+    - The UI adapts on smartphone views for screens with widths ranging from 320px (20rem) to 448px (28rem).
+    - The UI adapts on laptop views for screens wider than 448px (28rem).
+- [ ] `Implement admin service features`:
+  - [ ] `Authentication` - support authentication via email and password.
     - Ensure that only authorized users are permitted.
-  - [ ] `Statistic Dashboard`: Display general statistics.
-  - [ ] `Order Processing`: Enable users to view and manage customer orders.
-  - [ ] `Product Management`: Allow users to add, edit, and delete products.
-  - [ ] `Category Management`: Provide functionality for users to add and delete categories.
-  - [ ] `Inventory Management`: Enable users to add quantities to products.
-  - [ ] `Customer Management`: Allow users to view the list of customers, see their profile information and statistics; allow to archive customers.
-  - [ ] `Role Management`: Enable the super admin to create, edit, and delete roles.
-  - [ ] `Role-Based Access Control`: Restricts system access to authorized users based on their assigned roles.
+  - [ ] `Statistic Dashboard`- general statistics visualization.
+  - [ ] `Order Processing` - view and manage customer orders.
+  - [ ] `Product Management` - add, edit, and delete products functionalities.
+  - [ ] `Category Management` - add and delete categories functionalities.
+  - [ ] `Inventory Management` - add quantities to products functionality.
+  - [ ] `Customer Management` - display list of customers, their profile information and statistics; add  archive customers option.
+  - [ ] `Role Management` - create, edit, and delete roles functionalities for the super admin.
+  - [ ] `Role-Based Access Control` - restricts system access to authorized users based on their assigned roles.
     - Users can be assigned to a single role.
-  - [ ] `Admin User Management`: Allow the super admin to create and delete admins.
-  - [ ] `Form Validation`: Implement server-side validation for user inputs and data integrity.
-
-  </details>
+  - [ ] `Admin User Management` - create and delete admins functionalities for the super admin.
+  - [ ] `Form Validation` - server-side validation for user inputs and data integrity.
 
 ## Environment Setup
 
@@ -154,7 +139,7 @@ The project is actively being developed, with new features and improvements bein
 
 1. Open project in VS Code.
 2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
-3. To run application, open the terminal in the root directory and execute the following command:
+3. To run project, open the terminal in the root directory and execute the following command:
 
     ```bash
     pnpm turbo dev
@@ -166,7 +151,7 @@ The project is actively being developed, with new features and improvements bein
 
 ## UI Prototype
 
-This frontend application has been designed in Figma prior to development; based on [SEL Prototype V1.0](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5147&t=0EzElkWsprYyA0pO-1).
+This project has been designed in Figma prior to development; based on [SEL Prototype V1.0](https://www.figma.com/design/AO5rA915a6xdGOhtnVNobW/SEL-Prototype-1.0?node-id=2003-5147&t=0EzElkWsprYyA0pO-1).
 
 The design process ensured that the layout, color schemes, typography, and overall aesthetics aligned with the project goals.
 
@@ -194,7 +179,7 @@ The design process ensured that the layout, color schemes, typography, and overa
 These commands should be executed in the root directory of the `sellify` project.
 
 - `pnpm turbo dev` - starts the development server.
-- `pnpm turbo build` - builds the application for production.
+- `pnpm turbo build` - builds the project for production.
 - `pnpm turbo start` - starts the production server.
 - `pnpm turbo lint` - runs ESLint.
 - `pnpm turbo check-types` - runs type checking.
