@@ -2,7 +2,7 @@
 
 
 import { ReactNode } from "react";
-import AlertDialogIcon from "./AlertDialogIcon.js";
+import AlertDialogIcon from "./AlertDialogIcon";
 
 
 type DialogProps = {

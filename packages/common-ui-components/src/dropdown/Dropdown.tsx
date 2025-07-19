@@ -2,7 +2,7 @@
 
 
 import { useCallback, useEffect, useRef } from 'react';
-import DropdownItem from './DropdownItem.js';
+import DropdownItem from './DropdownItem';
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
 

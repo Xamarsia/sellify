@@ -15,7 +15,8 @@
     },
     "dependencies": {
         "react": "19.1.0",
-        "react-dom": "19.1.0"
+        "react-dom": "19.1.0",
+        "@sellify/common-icons": "workspace:*"
     },
     "devDependencies": {
         "@sellify/tailwind-config": "workspace:*",
