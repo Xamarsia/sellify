@@ -1,7 +1,6 @@
 {
   "name": "common-ui-components-example",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -12,14 +11,12 @@
   },
   "dependencies": {
     "@sellify/common-ui-components": "workspace:*",
-    "@sellify/common-icons": "workspace:*",
     "next": "15.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
-    "@sellify/tailwind-config": "workspace:*",
     "@tailwindcss/postcss": "~4.1.10",
     "@types/node": "~22.15.3",
     "@types/react": "~19.1.8",
