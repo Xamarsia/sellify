@@ -61,6 +61,46 @@ importers:
         specifier: ~5.8.3
         version: 5.8.3
 
+  packages/admin-ui-components:
+    dependencies:
+      '@sellify/common-icons':
+        specifier: workspace:*
+        version: link:../common-icons
+      '@sellify/common-ui-components':
+        specifier: workspace:*
+        version: link:../common-ui-components
+      react:
+        specifier: 19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: 19.1.0
+        version: 19.1.0(react@19.1.0)
+    devDependencies:
+      '@sellify/tailwind-config':
+        specifier: workspace:*
+        version: link:../tailwind-config
+      '@sellify/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@tailwindcss/postcss':
+        specifier: ~4.1.10
+        version: 4.1.11
+      '@types/react':
+        specifier: ~19.1.8
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: ~19.1.6
+        version: 19.1.6(@types/react@19.1.8)
+      postcss:
+        specifier: ^8.5.3
+        version: 8.5.6
+      tailwindcss:
+        specifier: ~4.1.10
+        version: 4.1.11
+      typescript:
+        specifier: ~5.8.3
+        version: 5.8.3
+
   packages/common-icons:
     dependencies:
       react:
@@ -167,6 +207,9 @@ importers:
 
   services/admin-frontend:
     dependencies:
+      '@sellify/admin-ui-components':
+        specifier: workspace:*
+        version: link:../../packages/admin-ui-components
       '@sellify/common-ui-components':
         specifier: workspace:*
         version: link:../../packages/common-ui-components
