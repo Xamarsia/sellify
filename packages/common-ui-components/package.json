@@ -1,42 +1,29 @@
 {
     "name": "@sellify/common-ui-components",
-    "type": "module",
     "version": "0.0.0",
     "private": true,
     "license": "MIT",
-    "sideEffects": [
-        "**/*.css"
-    ],
-    "files": [
-        "dist"
-    ],
     "exports": {
-        "./types.d.ts": "./src/types.d.ts",
-        "./styles.css": "./dist/styles.css",
-        "./*": "./dist/*.js",
-        "./**/*": "./dist/**/*.js"
+        "./styles.css": "./styles/globals.css",
+        "./*": "./src/*.tsx",
+        "./**/*": "./src/**/*.tsx"
     },
     "scripts": {
-        "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-        "build:components": "tsc",
         "check-types": "tsc --noEmit",
-        "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-        "dev:components": "tsc --watch",
         "lint": "eslint src --max-warnings 0"
     },
-    "peerDependencies": {
-        "react": "19.1.0"
-    },
     "dependencies": {
-        "@sellify/common-icons": "workspace:*"
+        "react": "19.1.0",
+        "react-dom": "19.1.0"
     },
     "devDependencies": {
         "@sellify/tailwind-config": "workspace:*",
         "@sellify/typescript-config": "workspace:*",
-        "@tailwindcss/cli": "^4.1.5",
         "@types/react": "~19.1.8",
-        "eslint": "^9.30.0",
+        "@types/react-dom": "~19.1.6",
+        "typescript": "~5.8.3",
         "tailwindcss": "~4.1.10",
-        "typescript": "~5.8.3"
+        "@tailwindcss/postcss": "~4.1.10",
+        "postcss": "^8.5.3"
     }
 }
