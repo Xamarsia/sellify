@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    ".": "./shared-styles.css",
-    "./postcss": "./postcss.config.mjs"
+    "./styles.css": "./shared-styles.css"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",

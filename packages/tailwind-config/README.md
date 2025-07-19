@@ -21,5 +21,5 @@ export default postcssConfig;
 To use the styles, add the following import to the global.css file.
 
 ```css
-@import "@sellify/tailwind-config";
+@import "@sellify/tailwind-config/styles.css";
 ```
