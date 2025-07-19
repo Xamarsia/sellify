@@ -5,6 +5,7 @@
     "license": "MIT",
     "exports": {
         "./styles.css": "./styles/globals.css",
+        "./types.d.ts": "./src/types.d.ts",
         "./*": "./src/*.tsx",
         "./**/*": "./src/**/*.tsx"
     },
