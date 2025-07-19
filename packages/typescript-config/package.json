@@ -2,7 +2,10 @@
     "name": "@sellify/typescript-config",
     "version": "0.0.0",
     "private": true,
-    "license": "MIT",
+    "scripts": {
+        "clean": "git clean -xdf .cache .turbo dist node_modules",
+        "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    },
     "publishConfig": {
         "access": "public"
     }

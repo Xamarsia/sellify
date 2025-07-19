@@ -1,19 +1,13 @@
 {
     "name": "@sellify/common-icons",
-    "type": "module",
     "version": "0.0.0",
     "private": true,
-    "license": "MIT",
-    "files": [
-        "dist"
-    ],
     "exports": {
-        "./*": "./dist/*.js"
+        "./*": "./src/*.tsx"
     },
     "scripts": {
-        "dev": "tsc --watch",
-        "build": "tsc",
-        "check-types": "tsc --noEmit"
+        "check-types": "tsc --noEmit",
+        "clean": "git clean -xdf .cache .turbo dist node_modules"
     },
     "dependencies": {
         "react": "19.1.0"
