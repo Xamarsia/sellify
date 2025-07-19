@@ -11,10 +11,11 @@
     "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },
   "dependencies": {
-    "@sellify/common-ui-components": "workspace:*",
     "next": "15.3.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "@sellify/common-icons": "workspace:*",
+    "@sellify/common-ui-components": "workspace:*"
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
