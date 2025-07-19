@@ -2,8 +2,8 @@
 
 
 import { ReactNode } from "react";
-import DialogBase from "./DialogBase.js";
-import DialogHeader from "./DialogHeader.js";
+import DialogBase from "./DialogBase";
+import DialogHeader from "./DialogHeader";
 
 
 type DialogProps = {

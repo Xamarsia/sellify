@@ -1,7 +1,7 @@
 "use client";
 
 
-import Tab from "./Tab.js";
+import Tab from "./Tab";
 
 
 type TabsProps = {

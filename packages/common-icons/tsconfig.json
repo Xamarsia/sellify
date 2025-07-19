@@ -1,14 +1,11 @@
 {
   "extends": "@sellify/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
   "include": [
-    "src"
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": [
-    "dist",
-    "build",
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }

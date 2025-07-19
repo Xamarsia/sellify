@@ -14,7 +14,9 @@
                 "dbaeumer.vscode-eslint",
                 "christian-kohler.npm-intellisense",
                 "redhat.vscode-yaml",
-                "bradlc.vscode-tailwindcss"
+                "bradlc.vscode-tailwindcss",
+                "DavidAnson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     },

@@ -1,7 +1,7 @@
 "use client"
 
 
-import SidebarItem from "./SidebarItem.js";
+import SidebarItem from "./SidebarItem";
 
 type Props = {
     items: Array<SidebarItemInfo>,

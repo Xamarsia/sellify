@@ -3,6 +3,7 @@
         "declaration": true,
         "declarationMap": true,
         "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
         "incremental": false,
         "isolatedModules": true,
         "lib": [
@@ -17,6 +18,7 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
-        "target": "ES2022"
+        "target": "ES2022",
+        "strictNullChecks": true
     }
 }

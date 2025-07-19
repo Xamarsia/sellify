@@ -6,9 +6,9 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import ChevronDown from "@sellify/common-icons/chevron-down"
 import ChevronUp from "@sellify/common-icons/chevron-up"
 
-import TransparentIconButton from '../buttons/TransparentIconButton.js';
-import DropdownItem from '../dropdown/DropdownItem.js';
-import ComboboxItem from './ComboboxItem.js';
+import TransparentIconButton from '../buttons/TransparentIconButton';
+import DropdownItem from '../dropdown/DropdownItem';
+import ComboboxItem from './ComboboxItem';
 
 
 type MultipleSelectionComboboxProps = {
@@ -115,7 +115,7 @@ export default function MultipleSelectionCombobox({ title, items, selectedItems,
                     </div>
 
                     <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
-                        {isExtended ? <ChevronUp style='size-4'/> : <ChevronDown style='size-4' />}
+                        {isExtended ? <ChevronUp style='size-4' /> : <ChevronDown style='size-4' />}
                     </TransparentIconButton>
                 </div>
 

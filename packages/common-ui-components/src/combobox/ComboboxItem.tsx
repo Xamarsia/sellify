@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 
 import XMark from "@sellify/common-icons/x-mark"
-import TransparentIconButton from "../buttons/TransparentIconButton.js";
+import TransparentIconButton from "../buttons/TransparentIconButton";
 
 
 type ComboboxItemProps = {

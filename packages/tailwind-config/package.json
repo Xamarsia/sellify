@@ -1,11 +1,13 @@
 {
   "name": "@sellify/tailwind-config",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
   "exports": {
-    ".": "./shared-styles.css",
-    "./postcss": "./postcss.config.mjs"
+    "./styles.css": "./shared-styles.css"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "postcss": "^8.5.3",

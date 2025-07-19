@@ -2,11 +2,17 @@
   "name": "sellify-monorepo",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "services/*",
+    "packages/*",
+    "examples/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "git clean -xdf node_modules .pnpm-store .turbo/cache .turbo/cookies"
   },
   "dependencies": {},
   "devDependencies": {

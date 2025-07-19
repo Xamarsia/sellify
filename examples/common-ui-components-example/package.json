@@ -1,25 +1,24 @@
 {
   "name": "common-ui-components-example",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },
   "dependencies": {
-    "@sellify/common-ui-components": "workspace:*",
-    "@sellify/common-icons": "workspace:*",
     "next": "15.3.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "@sellify/common-icons": "workspace:*",
+    "@sellify/common-ui-components": "workspace:*"
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
-    "@sellify/tailwind-config": "workspace:*",
     "@tailwindcss/postcss": "~4.1.10",
     "@types/node": "~22.15.3",
     "@types/react": "~19.1.8",
