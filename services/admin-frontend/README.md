@@ -18,7 +18,7 @@ This service is a frontend for admins of [sellify](https://github.com/Xamarsia/s
 
 ## Description
 
-Admin Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
+Admin Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/sellify) project.
 
 Prototype of the application is designed in Figma (see [UI Prototype](#ui-prototype)).
 
@@ -26,7 +26,7 @@ The application is written in TypeScript, using Next.js.
 
 ## Related Services
 
-- TODO:[`admin-api`](https://github.com/Xamarsia/sellify/services/admin-api) - an Express backend server for admins.
+- TODO: `admin-api` - an Express backend server for admins.
 
 ## Local Dependencies
 

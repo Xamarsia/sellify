@@ -18,7 +18,7 @@ This service is a frontend for customers of [sellify](https://github.com/Xamarsi
 
 ## Description
 
-Customer Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/spsp-deployment) project.
+Customer Frontend service is a web-based UI of [sellify](https://github.com/Xamarsia/sellify) project.
 
 Prototype of the application is designed in Figma (see [UI Prototype](#ui-prototype)).
 
