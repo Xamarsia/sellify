@@ -185,6 +185,7 @@ These commands should be executed in the root directory of the `sellify` project
 - `pnpm turbo check-types` - runs type checking.
 - `pnpm format` - formats every .ts, .tsx or .md file with Prettier.
 - `pnpm store prune` - removes unreferenced packages from the store.
+- `pnpm turbo clean` - removes .pnpm-store and node_modules folders.
 
 [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters) by package is a simple way to only run tasks for the selected packages.
 
