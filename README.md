@@ -40,8 +40,8 @@ Current Status: **Active Development**
 
 ### Frontend
 
-- [`customer-frontend`](https://github.com/Xamarsia/sellify/services/customer-frontend/README.md) - a Next.js web application that provides customer UI.
-- [`admin-frontend`](https://github.com/Xamarsia/sellify/services/admin-frontend/README.md) - a Next.js web application that functions as a admin panel.
+- [`customer-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/customer-frontend/README.md) - a Next.js web application that provides customer UI.
+- [`admin-frontend`](https://github.com/Xamarsia/sellify/tree/main/services/admin-frontend/README.md) - a Next.js web application that functions as a admin panel.
 
 ### Backend
 
@@ -54,18 +54,18 @@ Current Status: **Active Development**
 
 ### Examples
 
-- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/examples/common-ui-components-example/README.md) - a practical example of using the custom React component library from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) package.
+- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/common-ui-components-example/README.md) - a practical example of using the custom React component library from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/common-ui-components/README.md) package.
 
 ## Project Packages
 
-- [`@sellify/typescript-config`](https://github.com/Xamarsia/sellify/packages/typescript-config/README.md) - tsconfig.json configuration to maintain consistency throughout the monorepo.
-- [`@sellify/tailwind-config`](https://github.com/Xamarsia/sellify/packages/tailwind-config/README.md) - tailwindcss presets and shared-styles.
-- [`@sellify/eslint-config`](https://github.com/Xamarsia/sellify/packages//README.md) - ESLint presets.
-- [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/packages/common-ui-components/README.md) - common UI components.
-- [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/packages/customer-ui-components/README.md) - customer UI components.
-- [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/packages/admin-ui-components/README.md) - admin UI components.
-- [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/packages/common-icons/README.md) - common UI icons components.
-- [`@sellify/logger`](https://github.com/Xamarsia/sellify/packages/logger/README.md) - log service with Cassandra.
+- [`@sellify/typescript-config`](https://github.com/Xamarsia/sellify/tree/main/packages/typescript-config/README.md) - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- [`@sellify/tailwind-config`](https://github.com/Xamarsia/sellify/tree/main/packages/tailwind-config/README.md) - tailwindcss presets and shared-styles.
+- [`@sellify/eslint-config`](https://github.com/Xamarsia/sellify/tree/main/packages//README.md) - ESLint presets.
+- [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/common-ui-components/README.md) - common UI components.
+- [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/customer-ui-components/README.md) - customer UI components.
+- [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/admin-ui-components/README.md) - admin UI components.
+- [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/tree/main/packages/common-icons/README.md) - common UI icons components.
+- [`@sellify/logger`](https://github.com/Xamarsia/sellify/tree/main/packages/logger/README.md) - log service with Cassandra.
 
 ## Development Stack
 
