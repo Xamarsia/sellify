@@ -22,7 +22,7 @@ This package is a React component library. It contains a collection of common co
 
 ## Related Services
 
-- [`common-ui-components-example`](./examples/common-ui-components-example) - contains examples of how to use **@sellify/common-ui-components**.
+- [`common-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/common-ui-components-example/README.md) - contains examples of how to use **@sellify/common-ui-components**.
 
 ## Local Dependencies
 
