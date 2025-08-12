@@ -2,7 +2,7 @@
 Sellify
 </h1>
 
-Sellify is a microservice demo e-commerce web platform project.
+Sellify is a microservice demo of an e-commerce web platform.
 
 ## Table Of Content
 
@@ -24,7 +24,7 @@ Sellify is a microservice demo e-commerce web platform project.
 
 ## Description
 
-Sellify is a microservice demo of e-commerce web platform.
+Sellify is a microservice demo of an e-commerce web platform.
 
 The online store consists of two main web applications: one for administrators and another for customers.
 The admin application provides tools for product management, order processing, and overseeing customer interactions, as well as inventory management.
