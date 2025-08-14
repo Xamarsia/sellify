@@ -31,6 +31,7 @@ This package is a React component library. It contains a collection of admin com
 - `Figma` - for project prototyping.
 
 ## UI Prototype
+<img width="718" height="461" alt="Card" src="https://github.com/user-attachments/assets/074ebade-6bec-4eef-b891-0d224ae1f87d" />
 
 ## License
 
