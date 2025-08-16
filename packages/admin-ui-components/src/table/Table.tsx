@@ -9,7 +9,7 @@ type Props = {
 
 export default function Table({ head, content }: Props) {
     return (
-        <div className="w-full bg-white border border-stroke rounded-lg">
+        <div className="w-full bg-white border border-stroke rounded-lg body">
             <table className="w-full">
                 <TableTop head={head} />
                 {content.map(con => (
