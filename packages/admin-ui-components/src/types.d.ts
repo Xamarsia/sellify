@@ -38,6 +38,7 @@ type Inventory = {
 
 
 type Customer = {
+    customerId: number;
     name: string;
     ordersCount: number;
     totalExpenses: number;
@@ -65,13 +66,14 @@ type Role = {
 };
 
 
-type ProductCategories = {
+type ProductPreview = {
     image: string;
     title: string;
     productId: number;
 };
 
-type RoleAdmin = {
+type AdminPreview = {
     adminId: number;
     name: string;
+    role: string;
 };
