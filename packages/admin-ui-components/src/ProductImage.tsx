@@ -17,9 +17,9 @@ export default function ProductImage({ src, onClick }: Props) {
         </div>
       </div>
       <img
-        className={`size-full object-cover rounded-md`}
         src={src}
         alt="Product image"
+        className={`size-full object-cover rounded-md`}
       />
     </div>
   );

@@ -20,7 +20,7 @@ export default function OrdersTable({ content }: Props) {
     return content.map((order) => [
       <h4 key={"orderid" + order.orderId}>{"#" + order.orderId}</h4>,
       <p>{order.date}</p>,
-      <p>{order.date}</p>,
+      <p>{order.customerName}</p>,
       <p>{"$" + order.total}</p>,
       <OrderStatusComponent status={order.status} />,
       <p>{order.items + `${order.items > 1 ? " items" : " item"}`}</p>,
