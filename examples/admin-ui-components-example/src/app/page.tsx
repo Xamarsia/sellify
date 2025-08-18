@@ -142,6 +142,7 @@ export default function Home() {
         <h1 className="text-white text-3xl">Admin UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
+
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Add Amount Button"}>

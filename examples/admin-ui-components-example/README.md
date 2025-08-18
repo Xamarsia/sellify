@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+admin-ui-components-example
+</h1>
 
-## Getting Started
+This is a Next.js application designed to showcase the usage of the **@sellify/admin-ui-components** React component library.
 
-First, run the development server:
+## Table Of Content
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Local Dependencies](#local-dependencies)
+- [Environment Setup](#environment-setup)
+- [Run](#run)
+- [View](#view)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `@sellify/typescript-config` - tsconfig.json configuration to maintain consistency throughout the monorepo.
+- `@sellify/tailwind-config` - tailwindcss presets and shared-styles.
+- `@sellify/eslint-config` - ESLint presets.
+- `@sellify/admin-ui-components` - admin UI components.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Setup
 
-## Learn More
+[Set up the environment for the main repository](https://github.com/Xamarsia/sellify#environment-setup).
 
-To learn more about Next.js, take a look at the following resources:
+## Run
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Open project in VS Code.
+2. [Reopen project in Dev Container](https://code.visualstudio.com/docs/devcontainers/containers).
+3. To run the example, open a terminal in the root directory and execute the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   pnpm turbo admin-ui-components-example#dev
+   ```
 
-## Deploy on Vercel
+   This command will start the example on the development server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000) in a browser to see the example.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## View
+
+<p align="center">
+    <img alt="image" src="https://github.com/user-attachments/assets/f1482c09-db9d-426b-a4f0-77d8f5432df9" />
+</p>
