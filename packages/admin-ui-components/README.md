@@ -10,6 +10,11 @@ This package is a React component library. It contains a collection of admin com
 - [Local Dependencies](#local-dependencies)
 - [Development Stack](#development-stack)
 - [UI Prototype](#ui-prototype)
+- [Components](#components)
+  - [Product Image](#product-image)
+  - [Add Amount Button](#add-amount-button)
+  - [Card](#card)
+  - [Table](#table)
 - [License](#license)
 
 ## Related Services
@@ -39,16 +44,28 @@ This package is a React component library. It contains a collection of admin com
 ## Components
 
 ### Product Image
-<img alt="Product Image" src="https://github.com/user-attachments/assets/76166254-7822-4e0d-ba44-3525b2b62d98" />
 
-### Card
-<img alt="Card" src="https://github.com/user-attachments/assets/9149f957-a0d4-4510-8b78-2426705346dc" />
+<a href="./src/ProductImage.tsx">
+    <img alt="Product Image" src="https://github.com/user-attachments/assets/76166254-7822-4e0d-ba44-3525b2b62d98" />
+ </a>
 
 ### Add Amount Button
-<img alt="Add Amount Button" src="https://github.com/user-attachments/assets/b4271177-4ee3-4ab4-b43b-8fb1f5d57279" />
+
+<a href="./src/AddAmountButton.tsx">
+    <img alt="Add Amount Button" src="https://github.com/user-attachments/assets/b4271177-4ee3-4ab4-b43b-8fb1f5d57279" />
+ </a>
+
+### Card
+
+<a href="./src/Card.tsx">
+    <img alt="Card" src="https://github.com/user-attachments/assets/9149f957-a0d4-4510-8b78-2426705346dc" />
+ </a>
 
 ### Table
+
+<a href="./src/table/Table.tsx">
 <img alt="Table" src="https://github.com/user-attachments/assets/c5025b05-b61f-44f2-b625-bc9bdd0bb158" />
+ </a>
 
 ## License
 
