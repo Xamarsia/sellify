@@ -1,8 +1,8 @@
 import { ReactNode, useMemo, useState } from "react";
 
-import Table from "./Table";
-import ProductPreviewImage from "../ProductPreviewImage";
-import AddAmountButton from "../AddAmountButton";
+import Table from "../Table";
+import ProductPreviewImage from "../../ProductPreviewImage";
+import AddAmountButton from "../../AddAmountButton";
 
 
 type Props = {
@@ -31,8 +31,6 @@ export default function InventoryTable({ disabled, content, onSubmit }: Props) {
     }, [content]);
 
     return (
-        <div className="flex flex-row m-16 gap-10">
-            <Table head={tableHeader} content={getContentArray} />
-        </div>
+        <Table head={tableHeader} content={getContentArray} />
     )
 }

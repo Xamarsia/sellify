@@ -1,8 +1,8 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "./Table";
-import ProductStatusComponent from "../../statuses/ProductStatusComponent";
-import ProductPreviewImage from "../ProductPreviewImage";
+import Table from "../Table";
+import ProductStatusComponent from "../../../statuses/ProductStatusComponent";
+import ProductPreviewImage from "../../ProductPreviewImage";
 
 
 type Props = {
@@ -29,8 +29,6 @@ export default function ProductsTable({ content }: Props) {
     }, [content]);
 
     return (
-        <div className="flex flex-row m-16 gap-10">
-            <Table head={tableHeader} content={getContentArray} />
-        </div>
+        <Table head={tableHeader} content={getContentArray} />
     )
 }

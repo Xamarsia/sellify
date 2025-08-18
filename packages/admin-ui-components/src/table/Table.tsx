@@ -1,6 +1,8 @@
 import { ReactNode } from "react"
+
+import TableHeader from "./TableHeader"
 import TableContent from "./TableContent"
-import TableTop from "./TableTop"
+
 
 type Props = {
     head: Array<string>,
@@ -9,12 +11,10 @@ type Props = {
 
 export default function Table({ head, content }: Props) {
     return (
-        <div className="w-full bg-white border border-stroke rounded-lg body">
-            <table className="w-full">
-                <TableTop head={head} />
-                {content.map(con => (
-                    <TableContent body={con} />
-                ))}
+        <div className="relative overflow-x-auto bg-white border border-stroke rounded-lg body py-2">
+            <table className="w-full table-auto text-left">
+                <TableHeader head={head} />
+                <TableContent body={content} />
             </table>
         </div>
     )

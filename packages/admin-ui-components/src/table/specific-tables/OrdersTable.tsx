@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
-import Table from "./Table";
-import OrderStatusComponent from "../../statuses/OrderStatusComponent";
+import Table from "../Table";
+import OrderStatusComponent from "../../../statuses/OrderStatusComponent";
 
 type Props = {
     content: Array<Order>
@@ -12,7 +12,7 @@ export default function OrdersTable({ content }: Props) {
     const getContentArray = useMemo((): Array<Array<ReactNode>> => {
         return content.map(order => (
             [
-                <h4>{"#" + order.orderId}</h4>,
+                <h4 key={"orderid"+ order.orderId}>{"#" + order.orderId}</h4>,
                 <p>{order.date}</p>,
                 <p>{order.date}</p>,
                 <p>{"$" + order.total}</p>,
@@ -23,8 +23,6 @@ export default function OrdersTable({ content }: Props) {
     }, [content]);
 
     return (
-        <div className="flex flex-row m-16 gap-10">
-            <Table head={tableHeader} content={getContentArray} />
-        </div>
+        <Table head={tableHeader} content={getContentArray} />
     )
 }
