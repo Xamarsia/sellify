@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ProductStatus } from "./../src/constants";
+import { ProductStatus } from "../constants";
 
 type Props = {
   status: ProductStatus;

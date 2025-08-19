@@ -1,16 +1,18 @@
 import { useMemo } from "react";
-import { CustomerStatus } from "./../src/constants";
+import { AdminStatus } from "../constants";
 
 type Props = {
-  status: CustomerStatus;
+  status: AdminStatus;
 };
 
-export default function CustomerStatusComponent({ status }: Props) {
+export default function AdminStatusComponent({ status }: Props) {
   const color = useMemo(() => {
     switch (status) {
-      case CustomerStatus.Active:
+      case AdminStatus.Active:
         return "text-[#279F51]";
-      case CustomerStatus.Archived:
+      case AdminStatus.Invited:
+        return "text-[#FF392B]";
+      case AdminStatus.Disabled:
       default:
         return "text-placeholder";
     }
@@ -18,10 +20,12 @@ export default function CustomerStatusComponent({ status }: Props) {
 
   const valueLabel = useMemo(() => {
     switch (status) {
-      case CustomerStatus.Active:
+      case AdminStatus.Active:
         return "Active";
-      case CustomerStatus.Archived:
-        return "Archived";
+      case AdminStatus.Invited:
+        return "Invited";
+      case AdminStatus.Disabled:
+        return "Disabled";
       default:
         return status;
     }

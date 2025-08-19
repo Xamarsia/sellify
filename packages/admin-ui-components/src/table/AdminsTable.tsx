@@ -1,5 +1,5 @@
 import { ReactNode, useMemo } from "react";
-import AdminStatusComponent from "../../statuses/AdminStatusComponent";
+import AdminStatusComponent from "../statuses/AdminStatusComponent";
 import Table from "./common/Table";
 
 type Props = {

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { OrderStatus } from "./../src/constants";
+import { OrderStatus } from "../constants";
 
 type Props = {
   status: OrderStatus;

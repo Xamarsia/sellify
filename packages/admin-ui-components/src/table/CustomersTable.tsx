@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 import Table from "./common/Table";
-import CustomerStatusComponent from "../../statuses/CustomerStatusComponent";
+import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
 
 type Props = {
   content: Array<Customer>;
