@@ -1,5 +1,5 @@
 import { ReactNode, useMemo } from "react";
-import Table from "../Table";
+import Table from "./common/Table";
 
 type Props = {
   content: Array<AdminPreview>;

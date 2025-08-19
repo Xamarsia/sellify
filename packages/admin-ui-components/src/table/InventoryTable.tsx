@@ -1,8 +1,8 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
-import Table from "../Table";
-import ProductPreviewImage from "../../ProductPreviewImage";
-import AddAmountButton from "../../AddAmountButton";
+import Table from "./common/Table";
+import ProductPreviewImage from "../ProductPreviewImage";
+import AddAmountButtonTableItem from "./common/AddAmountButtonTableItem";
 
 type Props = {
   content: Array<Inventory>;
@@ -17,7 +17,6 @@ export default function InventoryTable({ disabled, content, onSubmit }: Props) {
     "Quantity",
     "Actions",
   ];
-  const [quantity, setQuantity] = useState<number>();
 
   const getContentArray = useMemo((): Array<Array<ReactNode>> => {
     return content.map((inventory) => [
@@ -27,14 +26,9 @@ export default function InventoryTable({ disabled, content, onSubmit }: Props) {
       </div>,
       <h4>{"#" + inventory.productId}</h4>,
       <p>{inventory.quantity + " in stock"}</p>,
-      <AddAmountButton
-        value={quantity}
-        onChange={setQuantity}
-        onSubmit={setQuantity}
-        disabled={disabled}
-      />,
+      <AddAmountButtonTableItem onSubmit={onSubmit} disabled={disabled} />,
     ]);
-  }, [content]);
+  }, [content, disabled]);
 
   return <Table head={tableHeader} content={getContentArray} />;
 }

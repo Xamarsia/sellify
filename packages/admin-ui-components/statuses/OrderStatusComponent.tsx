@@ -6,40 +6,35 @@ type Props = {
 };
 
 export default function OrderStatusComponent({ status }: Props) {
-  type OrderProps = {
-    color: string;
-    value: string;
-  };
-
-  const statusProps = useMemo((): OrderProps => {
+  const color = useMemo(() => {
     switch (status) {
       case OrderStatus.New:
-        return {
-          color: "text-[#279F51]",
-          value: "New",
-        };
+        return "text-[#279F51]";
       case OrderStatus.InProgress:
-        return {
-          color: "text-[#FFA000]",
-          value: "In Progress",
-        };
+        return "text-[#FFA000]";
       case OrderStatus.Shipped:
-        return {
-          color: "text-[#2F80ED]",
-          value: "Shipped",
-        };
+        return "text-[#2F80ED]";
       case OrderStatus.Canceled:
-        return {
-          color: "text-[#FF392B]",
-          value: "Canceled",
-        };
+        return "text-[#FF392B]";
       default:
-        return {
-          color: "text-placeholder",
-          value: status,
-        };
+        return "text-placeholder";
     }
   }, [status]);
 
-  return <span className={`${statusProps.color}`}>{statusProps.value}</span>;
+  const valueLabel = useMemo(() => {
+    switch (status) {
+      case OrderStatus.New:
+        return "New";
+      case OrderStatus.InProgress:
+        return "In Progress";
+      case OrderStatus.Shipped:
+        return "Shipped";
+      case OrderStatus.Canceled:
+        return "Canceled";
+      default:
+        return status;
+    }
+  }, [status]);
+
+  return <span className={color}>{valueLabel}</span>;
 }

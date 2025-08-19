@@ -6,35 +6,30 @@ type Props = {
 };
 
 export default function AdminStatusComponent({ status }: Props) {
-  type ProductProps = {
-    color: string;
-    value: string;
-  };
-
-  const statusProps = useMemo((): ProductProps => {
+  const color = useMemo(() => {
     switch (status) {
       case AdminStatus.Active:
-        return {
-          color: "text-[#279F51]",
-          value: "Active",
-        };
+        return "text-[#279F51]";
       case AdminStatus.Invited:
-        return {
-          color: "text-[#FFA000]",
-          value: "Invited",
-        };
+        return "text-[#FF392B]";
       case AdminStatus.Disabled:
-        return {
-          color: "text-placeholder",
-          value: "Disabled",
-        };
       default:
-        return {
-          color: "text-placeholder",
-          value: status,
-        };
+        return "text-placeholder";
     }
   }, [status]);
 
-  return <span className={`${statusProps.color}`}>{statusProps.value}</span>;
+  const valueLabel = useMemo(() => {
+    switch (status) {
+      case AdminStatus.Active:
+        return "Active";
+      case AdminStatus.Invited:
+        return "Invited";
+      case AdminStatus.Disabled:
+        return "Disabled";
+      default:
+        return status;
+    }
+  }, [status]);
+
+  return <span className={color}>{valueLabel}</span>;
 }

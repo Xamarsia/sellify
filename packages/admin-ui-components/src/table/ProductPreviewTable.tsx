@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "../Table";
-import ProductPreviewImage from "../../ProductPreviewImage";
+import Table from "./common/Table";
+import ProductPreviewImage from "../ProductPreviewImage";
 
 type Props = {
   content: Array<ProductPreview>;

@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
-import Table from "../Table";
-import OrderStatusComponent from "../../../statuses/OrderStatusComponent";
+import Table from "./common/Table";
+import OrderStatusComponent from "../../statuses/OrderStatusComponent";
 
 type Props = {
   content: Array<Order>;
