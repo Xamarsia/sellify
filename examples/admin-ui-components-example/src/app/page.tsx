@@ -1,17 +1,16 @@
 "use client";
 
-import image from "./../../resources/image1.jpg";
-
 import { useState } from "react";
 
-import Section from "./components/Section";
-import SectionItem from "./components/SectionItem";
 import {
   AdminStatus,
   CustomerStatus,
   OrderStatus,
 } from "@sellify/admin-ui-components/constants";
 
+import image from "./../../resources/image.jpg";
+import Section from "./components/Section";
+import SectionItem from "./components/SectionItem";
 import AddAmountButton from "@sellify/admin-ui-components/AddAmountButton";
 import ProductImage from "@sellify/admin-ui-components/ProductImage";
 import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
@@ -142,9 +141,6 @@ export default function Home() {
         <h1 className="text-white text-3xl">Admin UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
-
-        {/* ------------------------------------------------------------- */}
-
         <Section title={"Add Amount Button"}>
           <SectionItem>
             <AddAmountButton
