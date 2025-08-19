@@ -13,7 +13,6 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint src --max-warnings 0",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md,css,mjs,json}\""
   },
   "dependencies": {
     "react": "19.1.0",
@@ -29,7 +28,6 @@
     "typescript": "~5.8.3",
     "tailwindcss": "~4.1.10",
     "@tailwindcss/postcss": "~4.1.10",
-    "prettier": "3.6.0",
     "postcss": "^8.5.3"
   }
 }
