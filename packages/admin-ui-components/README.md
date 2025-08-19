@@ -63,7 +63,7 @@ This package is a React component library. It contains a collection of admin com
 
 ### Table
 
-<a href="./src/table/Table.tsx">
+<a href="./src/table/common/Table.tsx">
 <img alt="Table" src="https://github.com/user-attachments/assets/c5025b05-b61f-44f2-b625-bc9bdd0bb158" />
  </a>
 

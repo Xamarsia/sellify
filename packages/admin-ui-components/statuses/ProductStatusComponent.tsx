@@ -6,30 +6,26 @@ type Props = {
 };
 
 export default function ProductStatusComponent({ status }: Props) {
-  type ProductProps = {
-    color: string;
-    value: string;
-  };
-
-  const statusProps = useMemo((): ProductProps => {
+  const color = useMemo(() => {
     switch (status) {
       case ProductStatus.Active:
-        return {
-          color: "text-[#279F51]",
-          value: "Active",
-        };
+        return "text-[#279F51]";
       case ProductStatus.Archived:
-        return {
-          color: "text-placeholder",
-          value: "Archived",
-        };
       default:
-        return {
-          color: "text-placeholder",
-          value: status,
-        };
+        return "text-placeholder";
     }
   }, [status]);
 
-  return <span className={`${statusProps.color}`}>{statusProps.value}</span>;
+  const valueLabel = useMemo(() => {
+    switch (status) {
+      case ProductStatus.Active:
+        return "Active";
+      case ProductStatus.Archived:
+        return "Archived";
+      default:
+        return status;
+    }
+  }, [status]);
+
+  return <span className={color}>{valueLabel}</span>;
 }
