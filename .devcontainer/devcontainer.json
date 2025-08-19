@@ -1,24 +1,22 @@
 {
-    "name": "sellify-monorepo",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
-    "runArgs": [
-        "--userns=keep-id:uid=1000,gid=1000"
-    ],
-    "updateRemoteUserUID": true,
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "dbaeumer.vscode-eslint",
-                "christian-kohler.npm-intellisense",
-                "redhat.vscode-yaml",
-                "bradlc.vscode-tailwindcss",
-                "DavidAnson.vscode-markdownlint",
-                "streetsidesoftware.code-spell-checker"
-            ]
-        }
-    },
-    "postCreateCommand": "pnpm install" // install dependencies
+  "name": "sellify-monorepo",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--userns=keep-id:uid=1000,gid=1000"],
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "redhat.vscode-yaml",
+        "bradlc.vscode-tailwindcss",
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+  "postCreateCommand": "pnpm install" // install dependencies
 }

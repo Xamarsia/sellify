@@ -19,7 +19,7 @@ This package is a React component library. It contains a collection of admin com
 
 ## Related Services
 
-- TODO: `admin-ui-components-example` - contains examples of how to use **@sellify/admin-ui-components**.
+- [`admin-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/admin-ui-components-example/README.md) - contains examples of how to use **@sellify/admin-ui-components**.
 
 ## Local Dependencies
 

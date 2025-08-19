@@ -10,7 +10,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,css,mjs,json}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "git clean -xdf node_modules .pnpm-store .turbo/cache .turbo/cookies"
   },

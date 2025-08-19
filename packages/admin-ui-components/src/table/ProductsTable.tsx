@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from "react";
 
 import Table from "./common/Table";
-import ProductStatusComponent from "../../statuses/ProductStatusComponent";
+import ProductStatusComponent from "../statuses/ProductStatusComponent";
 import ProductPreviewImage from "../ProductPreviewImage";
 
 type Props = {
