@@ -1,7 +1,7 @@
 type ProgressItemInfo = {
-    href: string;
-    title: string;
-    icon: ReactNode;
+  href: string;
+  title: string;
+  icon: ReactNode;
 };
 
 
@@ -24,6 +24,13 @@ type ProductPreview = {
   title: string;
   price: number;
 };
+
+type CartItem = {
+  product: ProductPreview;
+  amount: number;
+}
+
+
 
 // type Inventory = {
 //   image: string;
