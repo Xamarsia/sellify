@@ -30,8 +30,6 @@ type CartItem = {
   amount: number;
 }
 
-
-
 // type Inventory = {
 //   image: string;
 //   productTitle: string;
