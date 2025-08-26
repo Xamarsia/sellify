@@ -4,7 +4,6 @@ type ProgressItemInfo = {
   icon: ReactNode;
 };
 
-
 type Product = {
   image: string;
   title: string;
@@ -28,24 +27,4 @@ type ProductPreview = {
 type CartItem = {
   product: ProductPreview;
   amount: number;
-}
-
-// type Inventory = {
-//   image: string;
-//   productTitle: string;
-//   productId: number;
-//   quantity: number;
-// };
-
-// type Customer = {
-//   customerId: number;
-//   name: string;
-//   ordersCount: number;
-//   totalExpenses: number;
-//   status: CustomerStatus;
-// };
-
-// type Category = {
-//   title: string;
-//   relatedProductsCount: number;
-// };
+};
