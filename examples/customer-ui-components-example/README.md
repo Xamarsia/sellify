@@ -39,5 +39,5 @@ This is a Next.js application designed to showcase the usage of the **@sellify/c
 ## View
 
 <p align="center">
-    <img alt="image" src="https://github.com/user-attachments/assets/4e9a5105-cc94-4c4e-a06e-2c0665aa3e54" />
+    <img alt="image" src="https://github.com/user-attachments/assets/bb5fd522-2548-41c7-bc83-0f85f0cc8969" />
 </p>
