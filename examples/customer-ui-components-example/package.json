@@ -1,0 +1,32 @@
+{
+  "name": "customer-ui-components-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "check-types": "tsc --noEmit",
+    "clean": "git clean -xdf .cache .next .turbo dist node_modules"
+  },
+  "dependencies": {
+    "@sellify/customer-ui-components": "workspace:*",
+    "next": "15.3.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@sellify/common-ui-components": "workspace:*",
+    "@sellify/typescript-config": "workspace:*",
+    "@sellify/tailwind-config": "workspace:*",
+    "@tailwindcss/postcss": "~4.1.10",
+    "@types/node": "~22.15.3",
+    "@types/react": "~19.1.8",
+    "@types/react-dom": "~19.1.6",
+    "eslint": "^9.30.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "~4.1.10",
+    "typescript": "~5.8.3"
+  }
+}
