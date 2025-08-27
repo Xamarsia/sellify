@@ -2,7 +2,7 @@ type IconProps = {
   style?: string;
 };
 
-export default function MinusIcon({ style }: IconProps) {
+export default function ArrowLongRightIcon({ style }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,11 @@ export default function MinusIcon({ style }: IconProps) {
       stroke="currentColor"
       className={`${style}`}
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+      />
     </svg>
   );
 }

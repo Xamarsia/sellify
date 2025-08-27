@@ -1,20 +1,20 @@
 {
-    "name": "@sellify/common-icons",
-    "version": "0.0.0",
-    "private": true,
-    "exports": {
-        "./*": "./src/*.tsx"
-    },
-    "scripts": {
-        "check-types": "tsc --noEmit",
-        "clean": "git clean -xdf .cache .turbo dist node_modules"
-    },
-    "dependencies": {
-        "react": "19.1.0"
-    },
-    "devDependencies": {
-        "@sellify/typescript-config": "workspace:*",
-        "@types/react": "~19.1.8",
-        "typescript": "~5.8.3"
-    }
+  "name": "@sellify/common-icons",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.tsx"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "clean": "git clean -xdf .cache .turbo dist node_modules"
+  },
+  "dependencies": {
+    "react": "19.1.0"
+  },
+  "devDependencies": {
+    "@sellify/typescript-config": "workspace:*",
+    "@types/react": "~19.1.8",
+    "typescript": "~5.8.3"
+  }
 }
