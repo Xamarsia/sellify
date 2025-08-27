@@ -35,7 +35,7 @@ export default function Home() {
     price: 443,
     productId: 5447,
     title:
-      "Weary LongProduct Title | Weary LongProduct Title | Weary LongProduct Title | Weary Long Product Title | Weary Long Product Title | Weary Long Product Title | Weary Long Product Title | Weary Long Product Title | Weary Long Product Title",
+      "Long Product Title | Long Product Title | Long Product Title | Long Product Title | Long Product Title | Long Product Title | Long Product Title | Long Product Title | Long Product Title",
   };
 
   const productPreview3: ProductPreview = {
@@ -44,7 +44,7 @@ export default function Home() {
     price: 443,
     productId: 5447,
     title:
-      "WearyLongUnbreakableProductTitleWord|WearyLongUnbreakableProductTitleWordWearyLongUnbreakableProductTitleWord",
+      "LongUnbreakableProductTitleWord|LongUnbreakableProductTitleWordLongUnbreakableProductTitleWord",
   };
 
   const cartItem: CartItem = {
