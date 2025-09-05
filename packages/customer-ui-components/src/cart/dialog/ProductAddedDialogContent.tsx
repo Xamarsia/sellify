@@ -5,7 +5,7 @@ type Props = {
   onCheckout?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function AddedToCartDialogContent({
+export default function ProductAddedDialogContent({
   cartItem,
   onCheckout,
 }: Props) {

@@ -1,7 +1,9 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 
 import XMark from "@sellify/common-icons/x-mark";
-import AddedToCartDialogContent from "./AddedToCartDialogContent";
+import ProductAddedDialogContent from "./ProductAddedDialogContent";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 type DialogProps = {
@@ -11,7 +13,7 @@ type DialogProps = {
   onCheckout?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function AddedToCartDialog({
+export default function ProductAddedDialog({
   cartItem,
   dialogOpen,
   onDialogClose,
@@ -46,7 +48,10 @@ export default function AddedToCartDialog({
             <XMark style="size-6 stroke-current" />
           </TransparentIconButton>
         </div>
-        <AddedToCartDialogContent cartItem={cartItem} onCheckout={onCheckout} />
+        <ProductAddedDialogContent
+          cartItem={cartItem}
+          onCheckout={onCheckout}
+        />
       </div>
     </div>
   );

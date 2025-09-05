@@ -1,23 +1,22 @@
 import { useCallback } from "react";
 
-import ProductPreviewImage from "./ProductPreviewImage";
 import Button from "@sellify/common-ui-components/buttons/Button";
+
+import ProductPreviewImage from "./ProductPreviewImage";
 
 type Props = {
   productPreview: ProductPreview;
-  onProductAddedToCart: (productId: number) => void;
+  onAddProductToCart: (productPreview: ProductPreview) => void;
 };
 
 export default function ProductPreview({
   productPreview,
-  onProductAddedToCart,
+  onAddProductToCart,
 }: Props) {
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      onProductAddedToCart(productPreview.productId);
-    },
-    [onProductAddedToCart],
-  );
+
+  const onAddToCart = useCallback((): void => {
+    onAddProductToCart(productPreview);
+  }, [onAddProductToCart]);
 
   return (
     <div className="flex flex-row md:flex-col body gap-4 md:gap-0 justify-between wrap-anywhere not-md:border-b border-stroke not-md:py-4">
@@ -40,7 +39,7 @@ export default function ProductPreview({
         <Button
           variant="outline"
           size="small"
-          onClick={handleClick}
+          onClick={onAddToCart}
           fill="parent"
         >
           <p>Add to Cart</p>

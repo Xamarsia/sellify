@@ -2,7 +2,7 @@ import ProductPreview from "./ProductPreview";
 
 type Props = {
   previews: Array<ProductPreview>;
-  onProductAddedToCart: (productId: number) => void;
+  onProductAddedToCart: (productPreview: ProductPreview) => void;
 };
 
 export default function ProductPreviewFeed({
@@ -15,7 +15,7 @@ export default function ProductPreviewFeed({
         <li key={productPreview.productId.toString() + index}>
           <ProductPreview
             productPreview={productPreview}
-            onProductAddedToCart={onProductAddedToCart}
+            onAddProductToCart={onProductAddedToCart}
           />
         </li>
       ))}

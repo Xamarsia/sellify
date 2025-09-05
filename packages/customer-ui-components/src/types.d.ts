@@ -28,3 +28,9 @@ type CartItem = {
   product: ProductPreview;
   amount: number;
 };
+
+// contexts
+
+type DialogContext = {
+  addProductToCart: (cartItem: CartItem) => void;
+};
