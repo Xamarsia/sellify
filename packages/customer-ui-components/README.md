@@ -14,7 +14,7 @@ This package is a React component library. It contains a collection of customer 
 
 ## Related Services
 
-- TODO: `customer-ui-components-example` - contains examples of how to use **@sellify/customer-ui-components**.
+- [`customer-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/customer-ui-components-example/README.md) - contains examples of how to use **@sellify/customer-ui-components**.
 
 ## Local Dependencies
 
