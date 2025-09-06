@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useContext } from "react";
 
 import UserIcon from "@sellify/common-icons/user";
 import HeartIcon from "@sellify/common-icons/heart";
@@ -9,28 +9,18 @@ import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import CartPanel from "./cart/CartPanel";
+import { CartPanelContext } from "./common/contexts/cart-context";
 
 type HeaderProps = {
   cartItems: Array<CartItem>;
 };
 
 export default function Header({ cartItems }: HeaderProps) {
-  const [cartPanelOpened, setCartPanelOpened] = useState<boolean>(false);
+  const { openCartPanel } = useContext(CartPanelContext);
 
   const onCartPanelOpen = useCallback((): void => {
-    setCartPanelOpened(true);
+    openCartPanel(cartItems);
   }, []);
-
-  const onCartPanelClose = useCallback((): void => {
-    setCartPanelOpened(false);
-  }, []);
-
-  //TODO Implement onRemoveCartItem
-  const onRemoveCartItem = useCallback(
-    (productPreviewId: number): void => {},
-    [],
-  );
 
   return (
     <header
@@ -59,12 +49,6 @@ export default function Header({ cartItems }: HeaderProps) {
           <ShoppingBagIcon />
         </TransparentIconButton>
       </div>
-      <CartPanel
-        dialogOpen={cartPanelOpened}
-        onDialogClose={onCartPanelClose}
-        onItemRemove={onRemoveCartItem}
-        cartItems={cartItems}
-      />
     </header>
   );
 }

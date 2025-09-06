@@ -34,3 +34,7 @@ type CartItem = {
 type DialogContext = {
   addProductToCart: (cartItem: CartItem) => void;
 };
+
+type CartContext = {
+  openCartPanel: (cartItems: Array<CartItem>) => void;
+};

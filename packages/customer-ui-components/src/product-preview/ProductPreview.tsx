@@ -13,7 +13,6 @@ export default function ProductPreview({
   productPreview,
   onAddProductToCart,
 }: Props) {
-
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(productPreview);
   }, [onAddProductToCart]);

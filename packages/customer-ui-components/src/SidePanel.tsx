@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 import XMark from "@sellify/common-icons/x-mark";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
@@ -35,7 +35,7 @@ export default function SidePanel({
 
   return (
     <div
-      className={`fixed top-0 right-0 inset-y-0 size-full flex justify-end bg-black/20  ${open ? "" : "hidden"} ltr`}
+      className={`fixed top-0 right-0 inset-y-0 size-full flex justify-end bg-black/20 z-50 ${open ? "" : "hidden"} ltr`}
     >
       <div
         ref={modal}

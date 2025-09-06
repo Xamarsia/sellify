@@ -2,8 +2,8 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
-import ProductAddedDialog from "./ProductAddedDialog";
-import { ProductAddedDialogContext } from "../../common/contexts/cart-context";
+import ProductAddedDialog from "../../cart/dialog/ProductAddedDialog";
+import { ProductAddedDialogContext } from "../contexts/cart-context";
 
 export default function ProductAddedDialogProvider({
   children,
