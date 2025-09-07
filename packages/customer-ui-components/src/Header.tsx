@@ -9,7 +9,9 @@ import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import { CartPanelContext } from "./common/contexts/cart-context";
+
+import { CartPanelContext } from "../../../services/customer-frontend/src/common/contexts/cart-context";
+import { SearchPanelContext } from "../../../services/customer-frontend/src/common/contexts/search-context";
 
 type HeaderProps = {
   cartItems: Array<CartItem>;
@@ -17,6 +19,7 @@ type HeaderProps = {
 
 export default function Header({ cartItems }: HeaderProps) {
   const { openCartPanel } = useContext(CartPanelContext);
+  const { openSearchPanel } = useContext(SearchPanelContext);
 
   const onCartPanelOpen = useCallback((): void => {
     openCartPanel(cartItems);
@@ -36,7 +39,7 @@ export default function Header({ cartItems }: HeaderProps) {
       </div>
 
       <div className="flex gap-[16px]">
-        <TransparentIconButton>
+        <TransparentIconButton onClick={openSearchPanel}>
           <MagnifyingGlassIcon />
         </TransparentIconButton>
         <TransparentIconButton disabled>

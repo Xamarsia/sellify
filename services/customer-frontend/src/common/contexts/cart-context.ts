@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext } from "react";
+import { CartContext, DialogContext } from "../../types";
 
 export const ProductAddedDialogContext: React.Context<DialogContext> =
   createContext<DialogContext>({ addProductToCart: () => {} });

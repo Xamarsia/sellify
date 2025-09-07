@@ -6,8 +6,8 @@ import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
-import { addToCart, getProductPreviews } from "../actions/cart-actions";
-import { ProductAddedDialogContext } from "../../../../packages/customer-ui-components/src/common/contexts/cart-context";
+import { addToCart, getProductPreviews } from "../common/actions/cart-actions";
+import { ProductAddedDialogContext } from "../common/contexts/cart-context";
 
 export default function Home() {
   const [selectedKey, setSelectedKey] = useState<string>();

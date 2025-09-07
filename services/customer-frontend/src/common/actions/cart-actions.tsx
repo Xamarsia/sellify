@@ -35,7 +35,7 @@ const productPreview3: ProductPreview = {
 
 const cartItem: CartItem = {
   amount: 1,
-  product: productPreview2,
+  product: productPreview,
 };
 
 let cartItems: Array<CartItem> = [];

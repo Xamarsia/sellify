@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { getCartItems } from "../actions/cart-actions";
+import { getCartItems } from "../common/actions/cart-actions";
 
 import Header from "@sellify/customer-ui-components/Header";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
-import ProductAddedDialogProvider from "@sellify/customer-ui-components/common/providers/ProductAddedDialogProvider";
-import CartPanelProvider from "@sellify/customer-ui-components/common/providers/CartPanelProvider";
+import SearchPanelProvider from "../common/providers/SearchPanelProvider";
+import CartPanelProvider from "../common/providers/CartPanelProvider";
+import ProductAddedDialogProvider from "../common/providers/ProductAddedDialogProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,13 +35,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased size-full flex flex-col relative items-center`}
       >
-        <CartPanelProvider>
-          <Header cartItems={getCartItems()} />
-          <main className="flex flex-grow justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
-            <ProductAddedDialogProvider>{children}</ProductAddedDialogProvider>
-          </main>
-          <Footer copyright="Long company name" />
-        </CartPanelProvider>
+        <SearchPanelProvider>
+          <CartPanelProvider>
+            <Header cartItems={getCartItems()} />
+            <main className="flex flex-grow justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
+              <ProductAddedDialogProvider>
+                {children}
+              </ProductAddedDialogProvider>
+            </main>
+            <Footer copyright="Long company name" />
+          </CartPanelProvider>
+        </SearchPanelProvider>
       </body>
     </html>
   );

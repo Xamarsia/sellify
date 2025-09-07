@@ -4,6 +4,11 @@ type ProgressItemInfo = {
   icon: ReactNode;
 };
 
+type SearchNavigationItem = {
+  href: string;
+  title: string;
+};
+
 type Product = {
   image: string;
   title: string;
@@ -24,17 +29,13 @@ type ProductPreview = {
   price: number;
 };
 
+type SearchItem = {
+  productId: number;
+  image: string;
+  title: string;
+};
+
 type CartItem = {
   product: ProductPreview;
   amount: number;
-};
-
-// contexts
-
-type DialogContext = {
-  addProductToCart: (cartItem: CartItem) => void;
-};
-
-type CartContext = {
-  openCartPanel: (cartItems: Array<CartItem>) => void;
 };

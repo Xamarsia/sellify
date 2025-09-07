@@ -41,7 +41,7 @@ export default function SidePanel({
         ref={modal}
         className="relative flex flex-col bg-white w-full max-w-xl rounded-s-lg border border-stroke p-8 overflow-y-auto"
       >
-        <div className="flex flex-none justify-between items-center mb-5">
+        <div className="flex flex-none justify-between items-center mb-8">
           <h2>{title}</h2>
           <TransparentIconButton onClick={onClose}>
             <XMark style="size-6 stroke-current" />

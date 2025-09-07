@@ -2,8 +2,9 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
-import ProductAddedDialog from "../../cart/dialog/ProductAddedDialog";
+import ProductAddedDialog from "@sellify/customer-ui-components/cart/dialog/ProductAddedDialog";
 import { ProductAddedDialogContext } from "../contexts/cart-context";
+import { DialogContext } from "../../types";
 
 export default function ProductAddedDialogProvider({
   children,
