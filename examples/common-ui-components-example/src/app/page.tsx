@@ -23,24 +23,30 @@ import ComboboxUseExample from "../examples/ComboboxUseExample";
 import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
 import DialogExample from "../examples/DialogExample";
 import AlertDialogExample from "../examples/AlertDialogExample";
+import PagesExample from "../examples/PagesExample";
 
 import { ChangeEvent, useCallback, useState } from "react";
 import { usePathname } from "next/navigation";
-
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
   const [textareaValue, setTextareaValue] = useState<string>("");
 
-  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
-    const value: string = e.target.value;
-    setInputValue(value);
-  }, []);
+  const handleInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const value: string = e.target.value;
+      setInputValue(value);
+    },
+    [],
+  );
 
-  const handleTextaresChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>): void => {
-    const value: string = e.target.value;
-    setTextareaValue(value);
-  }, []);
+  const handleTextaresChange = useCallback(
+    (e: ChangeEvent<HTMLTextAreaElement>): void => {
+      const value: string = e.target.value;
+      setTextareaValue(value);
+    },
+    [],
+  );
 
   const pathname: string = usePathname();
 
@@ -51,35 +57,35 @@ export default function Home() {
     "banana",
     "cherry",
     "coconut",
-    "cranberry"
-  ]
+    "cranberry",
+  ];
 
   const comboboxItems = new Map<string, string>([
-    ["apple", 'Apple'],
-    ["apricot", 'Apricot'],
-    ["avocado", 'Avocado'],
-    ["banana", 'Banana'],
-    ["blueberry", 'Blueberry'],
-    ["cherry", 'Cherry'],
-    ["coconut", 'Coconut'],
-    ["cranberry", 'Cranberry'],
-    ["fig", 'Fig'],
-    ["grape", 'Grape'],
-    ["grapefruit", 'Grapefruit'],
-    ["guava", 'Guava']
+    ["apple", "Apple"],
+    ["apricot", "Apricot"],
+    ["avocado", "Avocado"],
+    ["banana", "Banana"],
+    ["blueberry", "Blueberry"],
+    ["cherry", "Cherry"],
+    ["coconut", "Coconut"],
+    ["cranberry", "Cranberry"],
+    ["fig", "Fig"],
+    ["grape", "Grape"],
+    ["grapefruit", "Grapefruit"],
+    ["guava", "Guava"],
   ]);
 
   const sidebarItem: Array<SidebarItemInfo> = [
-    { href: "/", title: 'Home' },
-    { href: "/orders", title: 'Orders' },
-    { href: "/products", title: 'Products' },
-    { href: "/category", title: 'Category' }
+    { href: "/", title: "Home" },
+    { href: "/orders", title: "Orders" },
+    { href: "/products", title: "Products" },
+    { href: "/category", title: "Category" },
   ];
 
   const tabs: Array<TabItemInfo> = [
-    { href: "/", title: 'Home' },
-    { href: "/description", title: 'Description' },
-    { href: "/info", title: 'Additional Information' },
+    { href: "/", title: "Home" },
+    { href: "/description", title: "Description" },
+    { href: "/info", title: "Additional Information" },
   ];
 
   return (
@@ -88,11 +94,11 @@ export default function Home() {
         <h1 className="text-white text-3xl">Common UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
-
-        <Section title={"Button"} >
+        <Section title={"Button"}>
           <SectionItem>
             <Button>
-              Default Button<PlusIcon style="size-6" />
+              Default Button
+              <PlusIcon style="size-6" />
             </Button>
 
             <Button variant="outline">
@@ -106,11 +112,13 @@ export default function Home() {
 
           <SectionItem>
             <Button disabled>
-              Disabled Default<PlusIcon style="size-6" />
+              Disabled Default
+              <PlusIcon style="size-6" />
             </Button>
 
             <Button disabled variant="outline">
-              Disabled Outline<PlusIcon style="size-6" />
+              Disabled Outline
+              <PlusIcon style="size-6" />
             </Button>
 
             <Button disabled variant="destructive">
@@ -128,16 +136,17 @@ export default function Home() {
             </Button>
 
             <Button variant="destructive" size="small">
-              Small Button<PlusIcon style="size-6" />
+              Small Button
+              <PlusIcon style="size-6" />
             </Button>
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Icon Button"} >
+        <Section title={"Icon Button"}>
           <SectionItem>
-            <IconButton >
+            <IconButton>
               <PlusIcon style="size-6" />
             </IconButton>
 
@@ -147,11 +156,11 @@ export default function Home() {
           </SectionItem>
 
           <SectionItem>
-            <IconButton disabled >
+            <IconButton disabled>
               <PlusIcon style="size-6" />
             </IconButton>
 
-            <IconButton variant="outline" disabled >
+            <IconButton variant="outline" disabled>
               <PlusIcon style="size-6" />
             </IconButton>
           </SectionItem>
@@ -159,72 +168,102 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Link Button"} >
+        <Section title={"Link Button"}>
           <SectionItem>
-            <LinkButton >
-              Link Button
-            </LinkButton>
-            <LinkButton >
+            <LinkButton>Link Button</LinkButton>
+            <LinkButton>
               Link Button <PlusIcon style="size-6" />
             </LinkButton>
-            <LinkButton >
+            <LinkButton>
               <PlusIcon style="size-6" /> Link Button
             </LinkButton>
             <div className="bg-black text-white">
-              <LinkButton >
-                Link Button
-              </LinkButton>
+              <LinkButton>Link Button</LinkButton>
             </div>
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Transparent Icon Button"} >
+        <Section title={"Transparent Icon Button"}>
           <SectionItem>
-            <TransparentIconButton >
+            <TransparentIconButton>
               <PlusIcon style="size-6" />
             </TransparentIconButton>
 
-            <TransparentIconButton variant="destructive" >
+            <TransparentIconButton variant="destructive">
               <PlusIcon style="size-6" />
             </TransparentIconButton>
           </SectionItem>
 
           <SectionItem>
-            <TransparentIconButton disabled >
+            <TransparentIconButton disabled>
               <PlusIcon style="size-6" />
             </TransparentIconButton>
 
-            <TransparentIconButton variant="destructive" disabled >
+            <TransparentIconButton variant="destructive" disabled>
               <PlusIcon style="size-6" />
             </TransparentIconButton>
-          </SectionItem>
-        </Section>
-
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Input"} >
-          <SectionItem>
-            <Input value={inputValue} placeholder="Required Input" title="Required Input" required onChange={handleInputChange} />
-            <Input title="Disabled Input" value="Disabled" disabled onChange={handleInputChange} />
-            <Input placeholder="Invalid Input" value="Invalid" title="Invalid Input" state="invalid" onChange={handleInputChange} />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Textarea"} >
+        <Section title={"Input"}>
           <SectionItem>
-            <Textarea value={textareaValue} placeholder="Required" title="Required Textarea" required onChange={handleTextaresChange} />
-            <Textarea value={textareaValue} title="Disabled Textarea" disabled onChange={handleTextaresChange} />
-            <Textarea placeholder="Invalid" value="Invalid" title="Invalid Textarea" state="invalid" onChange={handleTextaresChange} />
+            <Input
+              value={inputValue}
+              placeholder="Required Input"
+              title="Required Input"
+              required
+              onChange={handleInputChange}
+            />
+            <Input
+              title="Disabled Input"
+              value="Disabled"
+              disabled
+              onChange={handleInputChange}
+            />
+            <Input
+              placeholder="Invalid Input"
+              value="Invalid"
+              title="Invalid Input"
+              state="invalid"
+              onChange={handleInputChange}
+            />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Media Input Field"} >
+        <Section title={"Textarea"}>
+          <SectionItem>
+            <Textarea
+              value={textareaValue}
+              placeholder="Required"
+              title="Required Textarea"
+              required
+              onChange={handleTextaresChange}
+            />
+            <Textarea
+              value={textareaValue}
+              title="Disabled Textarea"
+              disabled
+              onChange={handleTextaresChange}
+            />
+            <Textarea
+              placeholder="Invalid"
+              value="Invalid"
+              title="Invalid Textarea"
+              state="invalid"
+              onChange={handleTextaresChange}
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Media Input Field"}>
           <SectionItem>
             <MediaInputField size="small" text="Small Media Input Field" />
             <MediaInputField text="Default Media Input Field" />
@@ -232,7 +271,7 @@ export default function Home() {
         </Section>
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Search Input"} >
+        <Section title={"Search Input"}>
           <SectionItem>
             <SearchBarExample />
           </SectionItem>
@@ -240,24 +279,34 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Checkbox & Radio buttons"} >
+        <Section title={"Checkbox & Radio buttons"}>
           <SectionItem>
             <Checkbox label="Default Checkbox" value="default" />
             <Checkbox checked label="Checked Checkbox" value="checked" />
             <Checkbox disabled label="Disabled Checkbox" value="disabled" />
-            <Checkbox disabled checked label="Disabled Checked Checkbox" value="disabled-checked" />
+            <Checkbox
+              disabled
+              checked
+              label="Disabled Checked Checkbox"
+              value="disabled-checked"
+            />
           </SectionItem>
           <SectionItem>
             <Radio label="Default Radio" value="default" />
             <Radio checked label="Checked Radio" value="checked" />
             <Radio disabled label="Disabled Radio" value="disabled" />
-            <Radio disabled checked label="Disabled Checked Radio" value="disabled-checked" />
+            <Radio
+              disabled
+              checked
+              label="Disabled Checked Radio"
+              value="disabled-checked"
+            />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Sidebar"} >
+        <Section title={"Sidebar"}>
           <SectionItem>
             <Sidebar items={sidebarItem} pathname={pathname} />
           </SectionItem>
@@ -265,7 +314,7 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Tab"} >
+        <Section title={"Tab"}>
           <SectionItem>
             <Tabs items={tabs} pathname={pathname} />
           </SectionItem>
@@ -273,40 +322,69 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Dropdown"} >
+        <Section title={"Dropdown"}>
           <SectionItem>
             <DropdownUseExample items={comboboxItems} title="Sort By" />
-            <DropdownUseExample items={comboboxItems} title="Sort By" disabled />
+            <DropdownUseExample
+              items={comboboxItems}
+              title="Sort By"
+              disabled
+            />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Combobox"} >
+        <Section title={"Combobox"}>
           <SectionItem>
-            <ComboboxUseExample items={comboboxItems} title="Required Combobox" required />
-            <ComboboxUseExample items={comboboxItems} title="Disabled Combobox" disabled defaultValue="Default value" />
+            <ComboboxUseExample
+              items={comboboxItems}
+              title="Required Combobox"
+              required
+            />
+            <ComboboxUseExample
+              items={comboboxItems}
+              title="Disabled Combobox"
+              disabled
+              defaultValue="Default value"
+            />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Multiple Selection Combobox"} >
+        <Section title={"Multiple Selection Combobox"}>
           <SectionItem>
-            <MultipleSelectionComboboxUseExample items={comboboxItems} title="Required Combobox" required />
-            <MultipleSelectionComboboxUseExample items={comboboxItems} title="Disabled Combobox" disabled defaultSelectedValues={comboboxDefaultSelectedValues} />
+            <MultipleSelectionComboboxUseExample
+              items={comboboxItems}
+              title="Required Combobox"
+              required
+            />
+            <MultipleSelectionComboboxUseExample
+              items={comboboxItems}
+              title="Disabled Combobox"
+              disabled
+              defaultSelectedValues={comboboxDefaultSelectedValues}
+            />
           </SectionItem>
         </Section>
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Dialog"} >
+        <Section title={"Dialog"}>
           <SectionItem>
             <DialogExample title="Dialog" />
             <AlertDialogExample title="Alert Dialog" />
           </SectionItem>
         </Section>
 
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Pagination"}>
+          <SectionItem>
+            <PagesExample />
+          </SectionItem>
+        </Section>
       </main>
     </div>
   );

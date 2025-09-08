@@ -4,6 +4,11 @@ type ProgressItemInfo = {
   icon: ReactNode;
 };
 
+type SearchNavigationItem = {
+  href: string;
+  title: string;
+};
+
 type Product = {
   image: string;
   title: string;
@@ -22,6 +27,12 @@ type ProductPreview = {
   hoveredImage: string;
   title: string;
   price: number;
+};
+
+type SearchItem = {
+  productId: number;
+  image: string;
+  title: string;
 };
 
 type CartItem = {

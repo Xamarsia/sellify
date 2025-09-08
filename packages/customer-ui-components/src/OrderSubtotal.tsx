@@ -5,10 +5,7 @@ type Props = {
   deliveryCharge: number;
 };
 
-export default function OrderSubtotal({
-  totalPrice,
-  deliveryCharge,
-}: Props) {
+export default function OrderSubtotal({ totalPrice, deliveryCharge }: Props) {
   return (
     <div className="flex flex-col justify-between bg-white h-[284px] w-[292px] p-4 rounded-lg border border-stroke">
       <div className="flex flex-col gap-4">

@@ -30,9 +30,7 @@ export default function CounterButton({
   }, [count, onCountChange]);
 
   return (
-    <div
-      className="flex items-center justify-evenly min-w-36 h-14 rounded-lg border border-stroke has-enabled:hover:border-black has-focus:border-black"
-    >
+    <div className="flex items-center justify-evenly min-w-36 h-14 rounded-lg border border-stroke has-enabled:hover:border-black has-focus:border-black">
       <TransparentIconButton
         onClick={decreaseCounter}
         disabled={(min && count <= min) || disabled}
