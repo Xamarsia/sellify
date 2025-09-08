@@ -178,6 +178,7 @@ The design process ensured that the layout, color schemes, typography, and overa
 
 These commands should be executed in the root directory of the `sellify` project.
 
+- `pnpm install` - installs all dependencies for the project.
 - `pnpm turbo dev` - starts the development server.
 - `pnpm turbo build` - builds the project for production.
 - `pnpm turbo start` - starts the production server.
