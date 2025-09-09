@@ -10,11 +10,11 @@ type SearchNavigationItem = {
 };
 
 type Product = {
-  image: string;
+  productId: number;
+  images: string[];
   title: string;
   shortDescription?: string;
   description?: string;
-  productId: number;
   status: number;
   quantity: number;
   category: string;
