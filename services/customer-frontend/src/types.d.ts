@@ -3,6 +3,8 @@ import {
   CartItem,
 } from "@sellify/customer-ui-components/types.d.ts";
 
+import { SidebarItemInfo } from "@sellify/common-ui-components/types.d.ts";
+
 type DialogContext = {
   addProductToCart: (cartItem: CartItem) => void;
 };

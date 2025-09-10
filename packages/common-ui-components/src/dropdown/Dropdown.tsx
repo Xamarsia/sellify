@@ -9,10 +9,10 @@ type DropdownProps = {
   title: string;
   items: Map<string, string>;
   selectedKey?: string;
-  isExtended: boolean;
+  isExtended?: boolean;
   disabled?: boolean;
   onItemSelected: (key: string, value: string) => void;
-  setIsExtended: (isExpanded: boolean) => void;
+  setIsExtended?: (isExpanded: boolean) => void;
 };
 
 export default function Dropdown({
@@ -35,11 +35,15 @@ export default function Dropdown({
   }, [selectedKey]);
 
   const onDropdownClick = useCallback(() => {
-    setIsExtended(!isExtended);
+    if (setIsExtended) {
+      setIsExtended(!isExtended);
+    }
   }, [isExtended, setIsExtended]);
 
   const onOutsideClicked = useCallback(() => {
-    setIsExtended(false);
+    if (setIsExtended) {
+      setIsExtended(false);
+    }
   }, [setIsExtended]);
 
   useEffect(() => {

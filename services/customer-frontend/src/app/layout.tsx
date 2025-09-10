@@ -6,8 +6,9 @@ import { getCartItems } from "../common/actions/cart-actions";
 
 import Header from "@sellify/customer-ui-components/Header";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
-import SearchPanelProvider from "../common/providers/SearchPanelProvider";
+
 import CartPanelProvider from "../common/providers/CartPanelProvider";
+import SearchPanelProvider from "../common/providers/SearchPanelProvider";
 import ProductAddedDialogProvider from "../common/providers/ProductAddedDialogProvider";
 
 const geistSans = Geist({
@@ -38,7 +39,7 @@ export default function RootLayout({
         <SearchPanelProvider>
           <CartPanelProvider>
             <Header cartItems={getCartItems()} />
-            <main className="flex flex-grow justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
+            <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
               <ProductAddedDialogProvider>
                 {children}
               </ProductAddedDialogProvider>

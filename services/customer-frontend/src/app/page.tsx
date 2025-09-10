@@ -2,9 +2,9 @@
 
 import { useCallback, useContext, useState } from "react";
 
-import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
+import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
 import { addToCart, getProductPreviews } from "../common/actions/cart-actions";
 import { ProductAddedDialogContext } from "../common/contexts/cart-context";
@@ -13,6 +13,7 @@ export default function Home() {
   const [selectedKey, setSelectedKey] = useState<string>();
   const [isExtended, setIsExtended] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
+
   const { addProductToCart } = useContext(ProductAddedDialogContext);
 
   const onItemSelected = useCallback((key: string) => {
@@ -22,7 +23,6 @@ export default function Home() {
 
   const onPageChanged = useCallback((newPage: number): void => {
     setPage(newPage);
-    // router.push(`/page=${newPage}`);
   }, []);
 
   const comboboxItems = new Map<string, string>([
@@ -41,8 +41,8 @@ export default function Home() {
   );
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex w-full justify-end pb-6">
+    <div className="flex w-full flex-col items-center">
+      <div className="relative flex grow w-full justify-end pb-6">
         <Dropdown
           title={"Sort By"}
           items={comboboxItems}
