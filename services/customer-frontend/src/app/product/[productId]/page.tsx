@@ -1,10 +1,8 @@
 import "server-only";
 
-import {
-  getProduct,
-  getProduct2,
-} from "../../../common/actions/product-actions";
-import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
+import { getProduct } from "../../../common/actions/product-actions";
+
+import ProductPageContent from "../../../components/ProductPageContent";
 
 type Props = {
   params: Promise<{ productId: number }>;
@@ -13,11 +11,6 @@ type Props = {
 export default async function ProductPage({ params }: Props) {
   const productId: number = (await params).productId;
   const product: Product = getProduct(productId);
-  const product2: Product = getProduct2(productId);
 
-  return (
-    <div>
-      <ProductDetails product={product} />
-    </div>
-  );
+  return <ProductPageContent product={product} />;
 }

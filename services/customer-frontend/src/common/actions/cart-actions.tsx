@@ -35,10 +35,25 @@ const productPreview3: ProductPreview = {
 
 const cartItem: CartItem = {
   amount: 1,
-  product: productPreview,
+  product: productPreview2,
 };
 
-let cartItems: Array<CartItem> = [];
+let cartItems: Array<CartItem> = [
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+];
 
 // TODO  make it React Action
 export function getCartItems(): Array<CartItem> {

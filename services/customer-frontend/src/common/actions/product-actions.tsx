@@ -50,3 +50,12 @@ export function getProduct(productId: number): Product {
 export function getProduct2(productId: number): Product {
   return product;
 }
+
+export function getProductOverviewTabs(): Array<TabItemInfo> {
+  const tabs: Array<TabItemInfo> = [
+    { href: "/", title: "Description" },
+    { href: "/care", title: "Care" }, // Light, Watering, Humidity
+    { href: "/pot", title: "Pot details" },
+  ];
+  return tabs;
+}
