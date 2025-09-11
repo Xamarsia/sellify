@@ -1,3 +1,6 @@
+import { Product } from "@sellify/customer-ui-components/types.ts";
+import { TabItemInfo } from "@sellify/common-ui-components/types.ts";
+
 import image from "./../../resources/1/image.jpg";
 import image2 from "./../../resources/1/image2.jpg";
 
@@ -45,10 +48,6 @@ const product2: Product = {
 // TODO  make it React Action
 export function getProduct(productId: number): Product {
   return product2;
-}
-
-export function getProduct2(productId: number): Product {
-  return product;
 }
 
 export function getProductOverviewTabs(): Array<TabItemInfo> {

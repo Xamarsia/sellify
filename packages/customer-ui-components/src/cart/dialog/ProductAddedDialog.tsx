@@ -3,8 +3,10 @@
 import { useEffect, useRef } from "react";
 
 import XMark from "@sellify/common-icons/x-mark";
-import ProductAddedDialogContent from "./ProductAddedDialogContent";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
+
+import ProductAddedDialogContent from "./ProductAddedDialogContent";
+import { CartItem } from "../../types";
 
 type DialogProps = {
   dialogOpen: boolean;

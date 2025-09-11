@@ -5,6 +5,7 @@ import CreditCard from "@sellify/common-icons/credit-card";
 import Clipboard from "@sellify/common-icons/clipboard";
 
 import ProgressBar from "./ProgressBar";
+import { ProgressItemInfo } from "../types";
 
 type ProgressBarProps = {
   currentPathname: string;

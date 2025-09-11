@@ -44,7 +44,7 @@
   }
 
   progress::-webkit-progress-bar {
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
   }
 
   progress::-webkit-progress-value {
@@ -61,14 +61,14 @@
 
   .product-scrollbar::-webkit-scrollbar-track {
     border-radius: 9999px;
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
     margin-top: 8px;
     margin-bottom: 8px;
   }
 
   .product-scrollbar::-webkit-scrollbar-thumb {
     border-radius: 9999px;
-    background-color: #A9A8AA;
+    background-color: #a9a8aa;
   }
 }
 
@@ -102,22 +102,20 @@
 }
 
 @theme default {
-  --color-placeholder: #A9A8AA;
-  --color-disabled: #A9A8AA;
+  --color-placeholder: #a9a8aa;
+  --color-disabled: #a9a8aa;
 
-  --color-stroke: #E1E1E1;
-  --color-hovered: #F9FAFB;
+  --color-stroke: #e1e1e1;
+  --color-hovered: #f9fafb;
 
+  --color-primary: #ffffff;
 
-  --color-primary: #FFFFFF;
+  --color-table-heading: #f7f7f7;
+  --color-combobox-item: #f8f8f8;
 
-  --color-table-heading: #F7F7F7;
-  --color-combobox-item: #F8F8F8;
-
-  --color-destructive: #F14141;
-  --color-destructive-disabled: #FAC0C0;
-  --color-destructive-hovered: #D93A3A;
-
+  --color-destructive: #f14141;
+  --color-destructive-disabled: #fac0c0;
+  --color-destructive-hovered: #d93a3a;
 }
 
 :root:has(.no-doc-scroll) {

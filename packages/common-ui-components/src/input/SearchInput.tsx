@@ -9,7 +9,11 @@ type SearchInputProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function SearchInput({ value, onChange, fill = "default" }: SearchInputProps) {
+export default function SearchInput({
+  value,
+  onChange,
+  fill = "default",
+}: SearchInputProps) {
   const fillStyle = {
     default: "w-94",
     parent: "w-full",

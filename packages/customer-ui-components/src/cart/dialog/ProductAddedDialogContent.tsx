@@ -1,5 +1,7 @@
 import Button from "@sellify/common-ui-components/buttons/Button";
 
+import { CartItem, ProductPreview } from "../../types";
+
 type Props = {
   cartItem: CartItem;
   onCheckout?: (e: React.MouseEvent<HTMLButtonElement>) => void;

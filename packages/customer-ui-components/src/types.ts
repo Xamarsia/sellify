@@ -1,15 +1,19 @@
-type ProgressItemInfo = {
+import { ReactNode } from "react";
+
+import { OrderStatus } from "@sellify/common-ui-components/types.ts";
+
+export type ProgressItemInfo = {
   href: string;
   title: string;
   icon: ReactNode;
 };
 
-type SearchNavigationItem = {
+export type SearchNavigationItem = {
   href: string;
   title: string;
 };
 
-type Product = {
+export type Product = {
   productId: number;
   images: string[];
   title: string;
@@ -21,7 +25,16 @@ type Product = {
   price: number;
 };
 
-type ProductPreview = {
+export type Order = {
+  orderId: number;
+  date: string;
+  customerName: string;
+  total: number;
+  status: OrderStatus;
+  items: number;
+};
+
+export type ProductPreview = {
   productId: number;
   image: string;
   hoveredImage: string;
@@ -29,13 +42,13 @@ type ProductPreview = {
   price: number;
 };
 
-type SearchItem = {
+export type SearchItem = {
   productId: number;
   image: string;
   title: string;
 };
 
-type CartItem = {
+export type CartItem = {
   product: ProductPreview;
   amount: number;
 };

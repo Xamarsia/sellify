@@ -1,7 +1,13 @@
 "use client";
 
-import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 import { ReactNode, useCallback, useState } from "react";
+
+import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
+import {
+  SearchItem,
+  SearchNavigationItem,
+} from "@sellify/customer-ui-components/types.ts";
+
 import { SearchPanelContext } from "../contexts/search-context";
 import { search } from "../actions/search-actions";
 import { SearchContext } from "../../types";

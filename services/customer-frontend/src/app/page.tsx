@@ -4,6 +4,7 @@ import { useCallback, useContext, useState } from "react";
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
+import { CartItem, ProductPreview } from "@sellify/customer-ui-components/types.ts";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
 import { addToCart, getProductPreviews } from "../common/actions/cart-actions";
@@ -26,10 +27,10 @@ export default function Home() {
   }, []);
 
   const comboboxItems = new Map<string, string>([
-    ["apple", "Bestsellers"],
-    ["banana", "Rating"],
-    ["apricot", "Rank by lowest price"],
-    ["avocado", "Rank by highest price"],
+    ["bestseller", "Bestsellers"],
+    ["rating", "Rating"],
+    ["byLowestPrice", "Rank by lowest price"],
+    ["byHighestPrice", "Rank by highest price"],
   ]);
 
   const handleAddToCartClick = useCallback(

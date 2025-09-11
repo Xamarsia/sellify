@@ -2,7 +2,9 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
+import { CartItem } from "@sellify/customer-ui-components/types.ts";
 import ProductAddedDialog from "@sellify/customer-ui-components/cart/dialog/ProductAddedDialog";
+
 import { ProductAddedDialogContext } from "../contexts/cart-context";
 import { DialogContext } from "../../types";
 

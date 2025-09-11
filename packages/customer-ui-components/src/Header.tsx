@@ -13,6 +13,8 @@ import TransparentIconButton from "@sellify/common-ui-components/buttons/Transpa
 import { CartPanelContext } from "../../../services/customer-frontend/src/common/contexts/cart-context";
 import { SearchPanelContext } from "../../../services/customer-frontend/src/common/contexts/search-context";
 
+import { CartItem } from "./types";
+
 type HeaderProps = {
   cartItems: Array<CartItem>;
 };

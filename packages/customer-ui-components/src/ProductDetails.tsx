@@ -6,6 +6,7 @@ import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductIma
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import CounterButton from "./CounterButton";
+import { Product } from "./types";
 
 type Props = {
   product: Product;

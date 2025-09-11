@@ -1,8 +1,10 @@
 import ProductPreview from "./ProductPreview";
 
+import { ProductPreview as ProductPreviewType } from "./../types";
+
 type Props = {
-  previews: Array<ProductPreview>;
-  onProductAddedToCart: (productPreview: ProductPreview) => void;
+  previews: Array<ProductPreviewType>;
+  onProductAddedToCart: (productPreview: ProductPreviewType) => void;
 };
 
 export default function ProductPreviewFeed({

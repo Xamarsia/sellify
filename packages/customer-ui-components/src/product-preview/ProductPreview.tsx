@@ -4,9 +4,11 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 
 import ProductPreviewImage from "./ProductPreviewImage";
 
+import { ProductPreview as ProductPreviewType } from "./../types";
+
 type Props = {
-  productPreview: ProductPreview;
-  onAddProductToCart: (productPreview: ProductPreview) => void;
+  productPreview: ProductPreviewType;
+  onAddProductToCart: (productPreview: ProductPreviewType) => void;
 };
 
 export default function ProductPreview({

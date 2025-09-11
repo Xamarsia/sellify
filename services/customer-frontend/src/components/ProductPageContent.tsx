@@ -4,6 +4,12 @@ import { useCallback, useContext } from "react";
 
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
+import { TabItemInfo } from "@sellify/common-ui-components/types.ts";
+import {
+  CartItem,
+  Product,
+  ProductPreview,
+} from "@sellify/customer-ui-components/types.ts";
 
 import { addToCart } from "../common/actions/cart-actions";
 import { getProductOverviewTabs } from "../common/actions/product-actions";

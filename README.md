@@ -58,7 +58,7 @@ The following examples illustrate the practical use of custom React component li
 
 - [`common-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/common-ui-components-example/README.md) - demonstrates component integration from the [`@sellify/common-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/common-ui-components/README.md) package.
 - [`admin-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/admin-ui-components-example/README.md) - demonstrates component integration from the [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/admin-ui-components/README.md) package.
-- [`customer-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/customer-ui-components-example/README.md) -  demonstrates component integration from the [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/customer-ui-components/README.md) package.
+- [`customer-ui-components-example`](https://github.com/Xamarsia/sellify/tree/main/examples/customer-ui-components-example/README.md) - demonstrates component integration from the [`@sellify/customer-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/customer-ui-components/README.md) package.
 
 ## Project Packages
 

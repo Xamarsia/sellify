@@ -4,6 +4,8 @@ import { Fragment, useEffect, useState } from "react";
 
 import ProgressBarItem from "./ProgressBarItem";
 
+import { ProgressItemInfo } from "../types";
+
 type ProgressBarProps = {
   barItems: Array<ProgressItemInfo>;
   currentPathname: string;

@@ -29,9 +29,9 @@ export default function ProgressBarItem({
         <button
           disabled={!selected}
           className={`flex justify-center items-center rounded-lg enabled:cursor-pointer disabled:cursor-not-allowed
-                            body size-10 min-w-10 ring-stroke focus:ring-4 text-white bg-[#383838] enabled:hover:bg-[#242424]
-                            focus:bg-[#383838] disabled:text-disabled disabled:bg-primary disabled:border disabled:border-stroke
-                        `}
+              body size-10 min-w-10 ring-stroke focus:ring-4 text-white bg-[#383838] enabled:hover:bg-[#242424]
+              focus:bg-[#383838] disabled:text-disabled disabled:bg-primary disabled:border disabled:border-stroke
+          `}
         >
           <div className="size-6 stroke-2">{icon}</div>
         </button>

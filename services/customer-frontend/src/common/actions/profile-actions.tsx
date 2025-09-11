@@ -1,3 +1,5 @@
+import { SidebarItemInfo } from "@sellify/common-ui-components/types.ts";
+
 export function getSidebarItems(): Array<SidebarItemInfo> {
   const items: Array<SidebarItemInfo> = [
     { href: "/profile/", title: "Profile" },

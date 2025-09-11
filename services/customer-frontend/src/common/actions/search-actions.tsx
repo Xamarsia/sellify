@@ -1,3 +1,8 @@
+import {
+  ProductPreview,
+  SearchItem,
+} from "@sellify/customer-ui-components/types.ts";
+
 import image from "./../../resources/1/image.jpg";
 import image2 from "./../../resources/1/image2.jpg";
 
