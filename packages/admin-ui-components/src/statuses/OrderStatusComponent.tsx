@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { OrderStatus } from "../constants";
-import { OrderStatus as OrderStatusType } from "../types";
+import { OrderStatus } from "@sellify/common-ui-components/constants.ts";
+import { OrderStatus as OrderStatusType } from "@sellify/common-ui-components/types.ts";
 
 type Props = {
   status: OrderStatusType;

@@ -4,9 +4,9 @@
   "private": true,
   "license": "MIT",
   "exports": {
-    "./styles.css": "./styles/globals.css",
-    "./types.d.ts": "./src/types.d.ts",
+    "./types.ts": "./src/types.ts",
     "./constants.ts": "./src/constants.ts",
+    "./styles.css": "./styles/globals.css",
     "./*": "./src/*.tsx",
     "./**/*": "./src/**/*.tsx"
   },

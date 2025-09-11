@@ -2,8 +2,8 @@ import { ReactNode, useMemo } from "react";
 
 import Table from "@sellify/common-ui-components/table/Table";
 
-import ProductPreviewImage from "../ProductPreviewImage";
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
+import ProductPreviewImage from "../ProductPreviewImage";
 
 type Props = {
   content: Array<Inventory>;
