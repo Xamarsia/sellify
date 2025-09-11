@@ -1,6 +1,8 @@
 import { ReactNode, useMemo } from "react";
+
+import Table from "@sellify/common-ui-components/table/Table";
+
 import AdminStatusComponent from "../statuses/AdminStatusComponent";
-import Table from "./common/Table";
 
 type Props = {
   content: Array<Admin>;

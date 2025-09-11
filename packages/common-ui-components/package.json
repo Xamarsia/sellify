@@ -6,6 +6,7 @@
   "exports": {
     "./styles.css": "./styles/globals.css",
     "./types.d.ts": "./src/types.d.ts",
+    "./constants.ts": "./src/constants.ts",
     "./*": "./src/*.tsx",
     "./**/*": "./src/**/*.tsx"
   },

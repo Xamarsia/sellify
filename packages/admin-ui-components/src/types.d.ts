@@ -1,5 +1,3 @@
-type OrderStatus = "NEW" | "IN_PROGRESS" | "SHIPPED" | "CANCELED";
-type ProductStatus = "ACTIVE" | "ARCHIVED";
 type AdminStatus = "ACTIVE" | "INVITED" | "DISABLED";
 type CustomerStatus = "ACTIVE" | "ARCHIVED";
 
@@ -21,7 +19,9 @@ type Order = {
 type Product = {
   image: string;
   title: string;
-  productId: ReactNode;
+  shortDescription?: string;
+  description?: string;
+  productId: number;
   status: ProductStatus;
   quantity: number;
   category: string;
@@ -31,7 +31,7 @@ type Product = {
 type Inventory = {
   image: string;
   productTitle: string;
-  productId: ReactNode;
+  productId: number;
   quantity: number;
 };
 

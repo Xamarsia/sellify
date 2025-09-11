@@ -17,6 +17,7 @@
     "@sellify/admin-ui-components": "workspace:*"
   },
   "devDependencies": {
+    "@sellify/common-ui-components": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
     "@sellify/tailwind-config": "workspace:*",
     "@tailwindcss/postcss": "~4.1.10",

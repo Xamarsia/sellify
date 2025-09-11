@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AddAmountButton from "../../AddAmountButton";
+import AddAmountButton from "../AddAmountButton";
 
 type Props = {
   onSubmit: (value: number) => void;

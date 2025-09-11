@@ -79,10 +79,10 @@ export default function AddAmountButton({
         onClick={onQuantitySubmit}
         disabled={disabled || value === undefined}
         className={`
-                    ${disabled ? "text-disabled" : "group-has-hover:border-black peer-focus:border-black "} 
-                    ${value !== undefined && !disabled && "bg-[#383838] text-white border-black enabled:hover:bg-black"} 
-                    enabled:cursor-pointer disabled:cursor-not-allowed flex-1 border-l rounded-r-md border-stroke 
-                `}
+            ${disabled ? "text-disabled" : "group-has-hover:border-black peer-focus:border-black "} 
+            ${value !== undefined && !disabled && "bg-[#383838] text-white border-black enabled:hover:bg-black"} 
+            enabled:cursor-pointer disabled:cursor-not-allowed flex-1 border-l rounded-r-md border-stroke 
+        `}
       >
         Add
       </button>
