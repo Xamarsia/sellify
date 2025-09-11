@@ -2,6 +2,7 @@ import { ReactNode, useMemo } from "react";
 
 import Table from "@sellify/common-ui-components/table/Table";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+import { Order } from "../types";
 
 type Props = {
   content: Array<Order>;

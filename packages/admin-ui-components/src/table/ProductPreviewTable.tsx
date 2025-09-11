@@ -3,6 +3,7 @@ import { ReactNode, useMemo } from "react";
 import Table from "@sellify/common-ui-components/table/Table";
 
 import ProductPreviewImage from "../ProductPreviewImage";
+import { ProductPreview } from "../types";
 
 type Props = {
   content: Array<ProductPreview>;

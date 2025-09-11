@@ -4,6 +4,7 @@ import Table from "@sellify/common-ui-components/table/Table";
 import ProductStatusComponent from "@sellify/common-ui-components/statuses/ProductStatusComponent";
 
 import ProductPreviewImage from "../ProductPreviewImage";
+import { Product } from "../types";
 
 type Props = {
   content: Array<Product>;

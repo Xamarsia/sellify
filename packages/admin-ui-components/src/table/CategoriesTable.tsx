@@ -1,6 +1,7 @@
 import { ReactNode, useMemo } from "react";
 
 import Table from "@sellify/common-ui-components/table/Table";
+import { Category } from "../types";
 
 type Props = {
   content: Array<Category>;

@@ -1,8 +1,10 @@
 import { useMemo } from "react";
+
 import { AdminStatus } from "../constants";
+import { AdminStatus as AdminStatusType } from "../types";
 
 type Props = {
-  status: AdminStatus;
+  status: AdminStatusType;
 };
 
 export default function AdminStatusComponent({ status }: Props) {

@@ -1,8 +1,10 @@
 import { useMemo } from "react";
+
 import { CustomerStatus } from "../constants";
+import { CustomerStatus as CustomerStatusType } from "../types";
 
 type Props = {
-  status: CustomerStatus;
+  status: CustomerStatusType;
 };
 
 export default function CustomerStatusComponent({ status }: Props) {

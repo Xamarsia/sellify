@@ -3,6 +3,7 @@ import { ReactNode, useMemo } from "react";
 import Table from "@sellify/common-ui-components/table/Table";
 
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
+import { Customer } from "../types";
 
 type Props = {
   content: Array<Customer>;

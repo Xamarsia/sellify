@@ -2,11 +2,24 @@
 
 import { useState } from "react";
 
-import { OrderStatus } from "@sellify/common-ui-components/constants.ts";
+import {
+  Role,
+  Admin,
+  AdminPreview,
+  Category,
+  Customer,
+  Inventory,
+  Order,
+  Product,
+  ProductPreview,
+} from "@sellify/admin-ui-components/types.ts";
+
 import {
   AdminStatus,
   CustomerStatus,
 } from "@sellify/admin-ui-components/constants.ts";
+
+import { OrderStatus } from "@sellify/common-ui-components/constants.ts";
 
 import image from "./../../resources/image.jpg";
 import Section from "./components/Section";

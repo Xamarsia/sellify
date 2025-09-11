@@ -4,6 +4,7 @@ import Table from "@sellify/common-ui-components/table/Table";
 
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
 import ProductPreviewImage from "../ProductPreviewImage";
+import { Inventory } from "../types";
 
 type Props = {
   content: Array<Inventory>;

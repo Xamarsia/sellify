@@ -1,13 +1,20 @@
-type AdminStatus = "ACTIVE" | "INVITED" | "DISABLED";
-type CustomerStatus = "ACTIVE" | "ARCHIVED";
+import { ReactNode } from "react";
 
-type ProgressItemInfo = {
+import {
+  OrderStatus,
+  ProductStatus,
+} from "@sellify/common-ui-components/types.ts";
+
+export type AdminStatus = "ACTIVE" | "INVITED" | "DISABLED";
+export type CustomerStatus = "ACTIVE" | "ARCHIVED";
+
+export type ProgressItemInfo = {
   href: string;
   title: string;
   icon: ReactNode;
 };
 
-type Order = {
+export type Order = {
   orderId: number;
   date: string;
   customerName: string;
@@ -16,7 +23,7 @@ type Order = {
   items: number;
 };
 
-type Product = {
+export type Product = {
   image: string;
   title: string;
   shortDescription?: string;
@@ -28,14 +35,14 @@ type Product = {
   price: number;
 };
 
-type Inventory = {
+export type Inventory = {
   image: string;
   productTitle: string;
   productId: number;
   quantity: number;
 };
 
-type Customer = {
+export type Customer = {
   customerId: number;
   name: string;
   ordersCount: number;
@@ -43,12 +50,12 @@ type Customer = {
   status: CustomerStatus;
 };
 
-type Category = {
+export type Category = {
   title: string;
   relatedProductsCount: number;
 };
 
-type Admin = {
+export type Admin = {
   adminId: number;
   name: string;
   role: string;
@@ -56,18 +63,18 @@ type Admin = {
   status: AdminStatus;
 };
 
-type Role = {
+export type Role = {
   title: string;
   relatedUsersCount: number;
 };
 
-type ProductPreview = {
+export type ProductPreview = {
   image: string;
   title: string;
   productId: number;
 };
 
-type AdminPreview = {
+export type AdminPreview = {
   adminId: number;
   name: string;
   role: string;
