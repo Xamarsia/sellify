@@ -17,6 +17,7 @@ import CartItem from "@sellify/customer-ui-components/cart/CartItem";
 import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import ProgressBarComponent from "@sellify/customer-ui-components/progress/ProgressBarComponent";
+import { ProductPreview, CartItem as CartItemType } from "@sellify/customer-ui-components/types.ts";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
@@ -47,7 +48,7 @@ export default function Home() {
       "LongUnbreakableProductTitleWord|LongUnbreakableProductTitleWordLongUnbreakableProductTitleWord",
   };
 
-  const cartItem: CartItem = {
+  const cartItem: CartItemType = {
     amount: 1,
     product: productPreview2,
   };
