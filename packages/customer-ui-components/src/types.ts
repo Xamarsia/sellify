@@ -28,10 +28,8 @@ export type Product = {
 export type Order = {
   orderId: number;
   date: string;
-  customerName: string;
   total: number;
   status: OrderStatus;
-  items: number;
 };
 
 export type ProductPreview = {

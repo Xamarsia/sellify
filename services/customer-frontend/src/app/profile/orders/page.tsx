@@ -1,0 +1,80 @@
+"use client";
+
+import { ChangeEvent, useCallback, useState } from "react";
+
+import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
+import SearchInput from "@sellify/common-ui-components/input/SearchInput";
+import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
+import { Order } from "@sellify/customer-ui-components/types.ts";
+
+import { filterOrdersHistory, getOrderHistory } from "../../../common/actions/order-actions";
+
+export default function OrdersHistoryPage() {
+  const defaultOrdersPerPageAmount: string = "10";
+  const oderHistory: Array<Order> = getOrderHistory();
+
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>("");
+  const [sortByKey, setSortByKey] = useState<string>();
+  const [orders, setOrders] = useState<Array<Order>>(oderHistory);
+  const [ordersPerPageQuantity, setOrdersPerPageQuantity] = useState<string>(defaultOrdersPerPageAmount);
+
+  const comboboxQuantityItems = new Map<string, string>([
+    ["24", "24 orders per page"],
+    ["50", "50 orders per page"],
+    ["60", "60 orders per page"],
+  ]);
+
+  const comboboxSortItems = new Map<string, string>([
+    ["newest", "Rank by newest date"],
+    ["oldest", "Rank by oldest date"],
+    ["status", "Rank by status"],
+    ["byLowestPrice", "Rank by lowest price"],
+    ["byHighestPrice", "Rank by highest price"],
+  ]);
+
+  const onPageChanged = useCallback((newPage: number): void => {
+    setPage(newPage);
+  }, []);
+
+  const onSearchChanged = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      e.preventDefault();
+      const query: string = e.target.value;
+      setQuery(query);
+      setOrders(query ? filterOrdersHistory(query) : oderHistory);
+    }, []
+  );
+
+  return (
+    <div className="flex w-full flex-col items-end gap-6">
+      <div className="relative flex w-full justify-between items-start gap-4">
+        <SearchInput value={query} onChange={onSearchChanged} />
+        <div className="not-lg:hidden">
+          <Dropdown
+            title={"select orders amount per page"}
+            items={comboboxQuantityItems}
+            selectedKey={ordersPerPageQuantity}
+            onKeySelected={setOrdersPerPageQuantity}
+          />
+        </div>
+        <Dropdown
+          title={"sort by"}
+          items={comboboxSortItems}
+          selectedKey={sortByKey}
+          onKeySelected={setSortByKey}
+        />
+      </div>
+      <div className="flex w-full max-h-fit">
+        <OrdersTable content={orders} />
+      </div>
+      <Pagination
+        currentPage={page}
+        pagesAmount={20}
+        pagesBarLength={3}
+        onPageChanged={onPageChanged}
+      />
+    </div>
+  );
+}

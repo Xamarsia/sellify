@@ -11,16 +11,10 @@ import { addToCart, getProductPreviews } from "../common/actions/cart-actions";
 import { ProductAddedDialogContext } from "../common/contexts/cart-context";
 
 export default function Home() {
-  const [selectedKey, setSelectedKey] = useState<string>();
-  const [isExtended, setIsExtended] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
+  const [selectedKey, setSelectedKey] = useState<string>();
 
   const { addProductToCart } = useContext(ProductAddedDialogContext);
-
-  const onItemSelected = useCallback((key: string) => {
-    setSelectedKey(key);
-    setIsExtended(false);
-  }, []);
 
   const onPageChanged = useCallback((newPage: number): void => {
     setPage(newPage);
@@ -37,9 +31,7 @@ export default function Home() {
     (productPreview: ProductPreview): void => {
       const cartItem: CartItem = addToCart(productPreview);
       addProductToCart(cartItem);
-    },
-    [],
-  );
+    }, []);
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -48,9 +40,7 @@ export default function Home() {
           title={"Sort By"}
           items={comboboxItems}
           selectedKey={selectedKey}
-          isExtended={isExtended}
-          onItemSelected={onItemSelected}
-          setIsExtended={setIsExtended}
+          onKeySelected={setSelectedKey}
         />
       </div>
       <ProductPreviewFeed

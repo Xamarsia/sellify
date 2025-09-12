@@ -1,9 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
-import DropdownItem from "./DropdownItem";
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
+
+import DropdownItem from "./DropdownItem";
 
 type DropdownProps = {
   title: string;
@@ -11,7 +13,7 @@ type DropdownProps = {
   selectedKey?: string;
   isExtended?: boolean;
   disabled?: boolean;
-  onItemSelected: (key: string, value: string) => void;
+  onKeySelected: (key: string) => void;
   setIsExtended?: (isExpanded: boolean) => void;
 };
 
@@ -19,11 +21,10 @@ export default function Dropdown({
   title,
   items,
   selectedKey,
-  isExtended,
   disabled,
-  setIsExtended,
-  onItemSelected,
+  onKeySelected,
 }: DropdownProps) {
+  const [isExtended, setIsExtended] = useState<boolean>(false);
   const dropdown = useRef<HTMLDivElement>(null);
 
   const getCurrentText = useCallback((): string => {
@@ -58,6 +59,11 @@ export default function Dropdown({
       document.removeEventListener("mousedown", onClickOutside);
     }
   }, [isExtended, onOutsideClicked]);
+
+  const onItemSelected = useCallback((key: string) => {
+    setIsExtended(false);
+    onKeySelected(key);
+  }, [onKeySelected]);
 
   return (
     <div className="relative" ref={dropdown}>

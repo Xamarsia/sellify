@@ -10,7 +10,7 @@ type Props = {
 
 export default function Table({ head, content }: Props) {
   return (
-    <div className="relative overflow-x-auto bg-white border border-stroke rounded-lg body py-2">
+    <div className="relative w-full overflow-x-auto bg-white border border-stroke rounded-lg body py-2">
       <table className="w-full table-auto text-left">
         <TableHeader head={head} />
         <TableContent body={content} />

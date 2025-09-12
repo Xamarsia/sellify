@@ -8,7 +8,7 @@ import CountryCombobox from "../../components/CountryCombobox";
 export default function ProfilePage() {
   return (
     <div className="flex w-full flex-col items-end gap-6">
-      <Button variant="outline">Edit Profile</Button>
+      <Button variant="default" disabled>Edit Profile</Button>
       <div className="flex w-full flex-col md:flex-row gap-6">
         <div className="flex basis-1/2 flex-col gap-4 w-full">
           <Input title="First Name" required />

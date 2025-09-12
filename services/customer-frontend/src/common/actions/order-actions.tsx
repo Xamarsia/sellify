@@ -39,5 +39,9 @@ const order4: Order = {
 };
 
 export function getOrderHistory(): Array<Order> {
-  return [order, order2, order3, order4];
+  return [order, order2, order3, order4, order, order2, order3, order4, order, order2, order3, order4, order, order2, order3, order4, order, order2, order3, order4, order, order2, order3, order4];
+}
+
+export function filterOrdersHistory(query: string): Array<Order> {
+  return [order3, order4];
 }
