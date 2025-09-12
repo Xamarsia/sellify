@@ -11,7 +11,7 @@ import { Order } from "@sellify/customer-ui-components/types.ts";
 import { filterOrdersHistory, getOrderHistory } from "../../../common/actions/order-actions";
 
 export default function OrdersHistoryPage() {
-  const defaultOrdersPerPageAmount: string = "10";
+  const defaultOrdersPerPageAmount: string = "24";
   const oderHistory: Array<Order> = getOrderHistory();
 
   const [page, setPage] = useState<number>(1);
