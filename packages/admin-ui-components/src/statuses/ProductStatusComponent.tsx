@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { ProductStatus } from "@sellify/common-ui-components/constants.ts";
-import { ProductStatus as ProductStatusType } from "@sellify/common-ui-components/types.ts";
+import { ProductStatus } from "@sellify/common-ui-components/constants";
+import { ProductStatus as ProductStatusType } from "@sellify/common-ui-components/types";
 
 type Props = {
   status: ProductStatusType;

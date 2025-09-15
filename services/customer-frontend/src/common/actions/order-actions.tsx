@@ -1,4 +1,4 @@
-import { OrderStatus } from "@sellify/common-ui-components/constants.ts";
+import { OrderStatus } from "@sellify/common-ui-components/constants";
 
 import { Order } from "../../types";
 

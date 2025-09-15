@@ -2,11 +2,12 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
+import { Order } from "@sellify/customer-ui-components/types";
+import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
+
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
-import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
-import { Order } from "@sellify/customer-ui-components/types.ts";
 
 import { filterOrdersHistory, getOrderHistory } from "../../../common/actions/order-actions";
 

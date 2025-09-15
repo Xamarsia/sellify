@@ -1,32 +1,37 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { ChangeEvent, useCallback, useState } from "react";
+
 import PlusIcon from "@sellify/common-icons/plus";
+
+import {
+  SidebarItemInfo,
+  TabItemInfo,
+} from "@sellify/common-ui-components/types";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import Input from "@sellify/common-ui-components/input/Input";
-import Textarea from "@sellify/common-ui-components/input/Textarea";
-import Radio from "@sellify/common-ui-components/input/Radio";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import Input from "@sellify/common-ui-components/input/Input";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
+import Radio from "@sellify/common-ui-components/input/Radio";
+import Textarea from "@sellify/common-ui-components/input/Textarea";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 
 import Section from "../components/Section";
 import SectionItem from "../components/SectionItem";
 
-import SearchBarExample from "../examples/SearchBarExample";
-import DropdownUseExample from "../examples/DropdownUseExample";
-import ComboboxUseExample from "../examples/ComboboxUseExample";
-import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
-import DialogExample from "../examples/DialogExample";
 import AlertDialogExample from "../examples/AlertDialogExample";
+import ComboboxUseExample from "../examples/ComboboxUseExample";
+import DialogExample from "../examples/DialogExample";
+import DropdownUseExample from "../examples/DropdownUseExample";
+import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
 import PagesExample from "../examples/PagesExample";
-
-import { ChangeEvent, useCallback, useState } from "react";
-import { usePathname } from "next/navigation";
+import SearchBarExample from "../examples/SearchBarExample";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -40,7 +45,7 @@ export default function Home() {
     [],
   );
 
-  const handleTextaresChange = useCallback(
+  const handleTextareaChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>): void => {
       const value: string = e.target.value;
       setTextareaValue(value);
@@ -243,20 +248,20 @@ export default function Home() {
               placeholder="Required"
               title="Required Textarea"
               required
-              onChange={handleTextaresChange}
+              onChange={handleTextareaChange}
             />
             <Textarea
               value={textareaValue}
               title="Disabled Textarea"
               disabled
-              onChange={handleTextaresChange}
+              onChange={handleTextareaChange}
             />
             <Textarea
               placeholder="Invalid"
               value="Invalid"
               title="Invalid Textarea"
               state="invalid"
-              onChange={handleTextaresChange}
+              onChange={handleTextareaChange}
             />
           </SectionItem>
         </Section>

@@ -1,5 +1,6 @@
 "use client";
 
+import { SidebarItemInfo } from "../types";
 import SidebarItem from "./SidebarItem";
 
 type Props = {

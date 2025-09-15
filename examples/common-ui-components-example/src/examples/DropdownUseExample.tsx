@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 type DropdownProps = {
@@ -17,7 +18,7 @@ export default function DropdownUseExample({
   const [selectedKey, setSelectedKey] = useState<string>();
   const [isExtended, setIsExtended] = useState<boolean>(false);
 
-  const onItemSelected = useCallback((key: string) => {
+  const onKeySelected = useCallback((key: string) => {
     setSelectedKey(key);
     setIsExtended(false);
   }, []);
@@ -29,7 +30,7 @@ export default function DropdownUseExample({
       selectedKey={selectedKey}
       disabled={disabled}
       isExtended={isExtended}
-      onItemSelected={onItemSelected}
+      onKeySelected={onKeySelected}
       setIsExtended={setIsExtended}
     />
   );

@@ -1,13 +1,14 @@
-import Button from "@sellify/common-ui-components/buttons/Button";
+import { ReactNode } from "react";
 
 type Props = {
   totalPrice: number;
   deliveryCharge: number;
+  children?: ReactNode;
 };
 
-export default function OrderSubtotal({ totalPrice, deliveryCharge }: Props) {
+export default function OrderSubtotal({ totalPrice, deliveryCharge, children }: Props) {
   return (
-    <div className="flex flex-col justify-between bg-white h-[284px] w-[292px] p-4 rounded-lg border border-stroke">
+    <div className="flex flex-col justify-between bg-white h-72 min-w-80 w-full p-4 rounded-lg border border-stroke">
       <div className="flex flex-col gap-4">
         <div className="w-full flex justify-between">
           <h4>Subtotal</h4>
@@ -23,7 +24,7 @@ export default function OrderSubtotal({ totalPrice, deliveryCharge }: Props) {
           <h3>Grand Total</h3>
           <h3>${totalPrice + deliveryCharge}</h3>
         </div>
-        <Button fill="parent">Continue</Button>
+        {children}
       </div>
     </div>
   );

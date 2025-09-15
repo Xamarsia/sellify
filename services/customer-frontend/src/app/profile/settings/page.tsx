@@ -35,7 +35,7 @@ export default function SettingsPage() {
           title={"Language"}
           items={languageItems}
           selectedKey={language}
-          onItemSelected={onLanguageSelected}
+          onKeySelected={onLanguageSelected}
           disabled
         />
       </SettingsItem>
@@ -48,7 +48,7 @@ export default function SettingsPage() {
           title={"Light"}
           items={appearanceItems}
           selectedKey={appearance}
-          onItemSelected={onAppearanceSelected}
+          onKeySelected={onAppearanceSelected}
           disabled
         />
       </SettingsItem>

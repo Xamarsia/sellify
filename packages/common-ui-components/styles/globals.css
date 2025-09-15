@@ -1,3 +1,2 @@
-@import "tailwindcss";
-@import "@sellify/tailwind-config/styles.css";
+@import "@sellify/tailwind-config/styles";
 @source "../**/*.{ts,tsx}";

@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import {
-  Role,
   Admin,
   AdminPreview,
   Category,
@@ -12,51 +11,35 @@ import {
   Order,
   Product,
   ProductPreview,
-} from "@sellify/admin-ui-components/types.ts";
+  Role,
+} from "@sellify/admin-ui-components/types";
 
 import {
   AdminStatus,
   CustomerStatus,
-} from "@sellify/admin-ui-components/constants.ts";
+} from "@sellify/admin-ui-components/constants";
 
-import { OrderStatus } from "@sellify/common-ui-components/constants.ts";
+import { OrderStatus } from "@sellify/common-ui-components/constants";
 
+import AddAmountButton from "@sellify/admin-ui-components/AddAmountButton";
+import Card from "@sellify/admin-ui-components/card/Card";
+import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
+import ProductImage from "@sellify/admin-ui-components/ProductImage";
+import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
+import AdminsTable from "@sellify/admin-ui-components/table/AdminsTable";
+import CategoriesTable from "@sellify/admin-ui-components/table/CategoriesTable";
+import CustomersTable from "@sellify/admin-ui-components/table/CustomersTable";
+import InventoryTable from "@sellify/admin-ui-components/table/InventoryTable";
+import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
+import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
+import ProductsTable from "@sellify/admin-ui-components/table/ProductsTable";
+import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
 import image from "./../../resources/image.jpg";
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
-import AddAmountButton from "@sellify/admin-ui-components/AddAmountButton";
-import ProductImage from "@sellify/admin-ui-components/ProductImage";
-import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
-import ProductsTable from "@sellify/admin-ui-components/table/ProductsTable";
-import InventoryTable from "@sellify/admin-ui-components/table/InventoryTable";
-import CustomersTable from "@sellify/admin-ui-components/table/CustomersTable";
-import CategoriesTable from "@sellify/admin-ui-components/table/CategoriesTable";
-import AdminsTable from "@sellify/admin-ui-components/table/AdminsTable";
-import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
-import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
-import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
-import Card from "@sellify/admin-ui-components/card/Card";
-import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
-
-  const tableHeader: Array<string> = [
-    "Order ID",
-    "Date",
-    "Customer",
-    "Total",
-    "Status",
-    "Items",
-  ];
-  const tableContent: Array<string> = [
-    "#546545454",
-    "Jan 10, 2020",
-    "Ronald Jones",
-    "$253.82",
-    "New",
-    "1 item",
-  ];
 
   const order: Order = {
     orderId: 2343,
@@ -116,6 +99,7 @@ export default function Home() {
     productId: 43545445,
     quantity: 2,
   };
+
   const customer: Customer = {
     customerId: 213234,
     name: "Ronald Jones",

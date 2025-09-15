@@ -60,10 +60,13 @@ export default function Dropdown({
     }
   }, [isExtended, onOutsideClicked]);
 
-  const onItemSelected = useCallback((key: string) => {
-    setIsExtended(false);
-    onKeySelected(key);
-  }, [onKeySelected]);
+  const onItemSelected = useCallback(
+    (key: string) => {
+      setIsExtended(false);
+      onKeySelected(key);
+    },
+    [onKeySelected],
+  );
 
   return (
     <div className="relative" ref={dropdown}>

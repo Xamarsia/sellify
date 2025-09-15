@@ -1,5 +1,6 @@
 "use client";
 
+import { TabItemInfo } from "../types";
 import Tab from "./Tab";
 
 type TabsProps = {

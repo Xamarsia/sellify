@@ -10,23 +10,22 @@
     "check-types": "tsc --noEmit",
     "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },
-  "dependencies": {
-    "next": "15.3.4",
+  "peerDependencies": {
+    "next": "15.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "@sellify/admin-ui-components": "workspace:*"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "@sellify/common-ui-components": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
     "@sellify/tailwind-config": "workspace:*",
-    "@tailwindcss/postcss": "~4.1.10",
+    "@sellify/admin-ui-components": "workspace:*",
+    "@sellify/common-ui-components": "workspace:*",
+    "@tailwindcss/postcss": "~4.1.13",
     "@types/node": "~22.15.3",
     "@types/react": "~19.1.8",
     "@types/react-dom": "~19.1.6",
-    "eslint": "^9.30.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "~4.1.10",
-    "typescript": "~5.8.3"
+    "tailwindcss": "~4.1.13",
+    "typescript": "~5.9.2"
   }
 }

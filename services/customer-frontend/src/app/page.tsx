@@ -2,13 +2,14 @@
 
 import { useCallback, useContext, useState } from "react";
 
+import { CartItem, ProductPreview } from "@sellify/customer-ui-components/types";
+
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
-import { CartItem, ProductPreview } from "@sellify/customer-ui-components/types.ts";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
-import { addToCart, getProductPreviews } from "../common/actions/cart-actions";
-import { ProductAddedDialogContext } from "../common/contexts/cart-context";
+import { ProductAddedDialogContext } from "common/contexts/cart-context";
+import { addToCart, getProductPreviews } from "common/actions/cart-actions";
 
 export default function Home() {
   const [page, setPage] = useState<number>(1);

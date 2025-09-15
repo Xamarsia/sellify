@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
-
-import { OrderStatus } from "@sellify/common-ui-components/types.ts";
+import { OrderStatus } from "@sellify/common-ui-components/types";
 
 export type ProgressItemInfo = {
   href: string;

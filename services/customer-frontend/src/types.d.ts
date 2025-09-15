@@ -1,5 +1,5 @@
-import { OrderStatus } from "@sellify/common-ui-components/types.ts";
-import { CartItem } from "@sellify/customer-ui-components/types.ts";
+import type { OrderStatus } from "@sellify/common-ui-components/types";
+import type { CartItem } from "@sellify/customer-ui-components/types";
 
 export type DialogContext = {
   addProductToCart: (cartItem: CartItem) => void;

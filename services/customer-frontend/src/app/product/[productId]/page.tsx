@@ -1,7 +1,8 @@
 import "server-only";
 
-import { getProduct } from "../../../common/actions/product-actions";
+import { Product } from "@sellify/customer-ui-components/types";
 
+import { getProduct } from "../../../common/actions/product-actions";
 import ProductPageContent from "../../../components/ProductPageContent";
 
 type Props = {

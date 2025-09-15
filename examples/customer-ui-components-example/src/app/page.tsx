@@ -12,12 +12,16 @@ import image4 from "./../../resources/2/image2.jpg";
 import image5 from "./../../resources/3/image.jpg";
 import image6 from "./../../resources/3/image2.jpg";
 
-import CounterButton from "@sellify/customer-ui-components/CounterButton";
+import {
+  CartItem as CartItemType,
+  ProductPreview,
+} from "@sellify/customer-ui-components/types";
+
 import CartItem from "@sellify/customer-ui-components/cart/CartItem";
+import CounterButton from "@sellify/customer-ui-components/CounterButton";
 import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import ProgressBarComponent from "@sellify/customer-ui-components/progress/ProgressBarComponent";
-import { ProductPreview, CartItem as CartItemType } from "@sellify/customer-ui-components/types.ts";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
@@ -53,9 +57,12 @@ export default function Home() {
     product: productPreview2,
   };
 
-  const handleAddToCartClick = useCallback((productPreviewId: number): void => {
-    console.log("ProductPreviewId: " + productPreviewId);
-  }, []);
+  const handleAddToCartClick = useCallback(
+    (productPreview: ProductPreview): void => {
+      console.log("ProductPreviewId: " + productPreview);
+    },
+    [],
+  );
 
   const handleRemoveFromCartClick = useCallback(
     (productPreviewId: number): void => {

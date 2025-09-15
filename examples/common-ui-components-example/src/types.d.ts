@@ -1,1 +1,0 @@
-import { SidebarItemInfo } from "@sellify/common-ui-components/types.d.ts";

@@ -1,5 +1,5 @@
-import { Product } from "@sellify/customer-ui-components/types.ts";
-import { TabItemInfo } from "@sellify/common-ui-components/types.ts";
+import { Product } from "@sellify/customer-ui-components/types";
+import { TabItemInfo } from "@sellify/common-ui-components/types";
 
 import image from "./../../resources/1/image.jpg";
 import image2 from "./../../resources/1/image2.jpg";

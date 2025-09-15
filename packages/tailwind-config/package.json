@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./styles.css": "./shared-styles.css"
+    "./styles": "./shared-styles.css"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "postcss": "^8.5.3",
-    "tailwindcss": "~4.1.10"
+    "tailwindcss": "~4.1.13"
   }
 }
