@@ -2,15 +2,15 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
-import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 import {
   SearchItem,
   SearchNavigationItem,
-} from "@sellify/customer-ui-components/types.ts";
+} from "@sellify/customer-ui-components/types";
+import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 
-import { SearchPanelContext } from "../contexts/search-context";
-import { search } from "../actions/search-actions";
-import { SearchContext } from "../../types";
+import { SearchContext } from "types";
+import { SearchPanelContext } from "common/contexts/search-context";
+import { search } from "common/actions/search-actions";
 
 export default function SearchPanelProvider({
   children,

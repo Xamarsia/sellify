@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { getCartItems } from "../common/actions/cart-actions";
-
 import Header from "@sellify/customer-ui-components/Header";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
 
-import CartPanelProvider from "../common/providers/CartPanelProvider";
-import SearchPanelProvider from "../common/providers/SearchPanelProvider";
-import ProductAddedDialogProvider from "../common/providers/ProductAddedDialogProvider";
+import { getCartItems } from "common/actions/cart-actions";
+import SearchPanelProvider from "common/providers/SearchPanelProvider";
+import CartPanelProvider from "common/providers/CartPanelProvider";
+import ProductAddedDialogProvider from "common/providers/ProductAddedDialogProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

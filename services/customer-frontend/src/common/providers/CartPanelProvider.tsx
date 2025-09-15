@@ -2,11 +2,11 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
+import { CartItem } from "@sellify/customer-ui-components/types";
 import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
-import { CartItem } from "@sellify/customer-ui-components/types.ts";
 
-import { CartPanelContext } from "../contexts/cart-context";
-import { CartContext } from "../../types";
+import { CartContext } from "types";
+import { CartPanelContext } from "common/contexts/cart-context";
 
 export default function CartPanelProvider({
   children,

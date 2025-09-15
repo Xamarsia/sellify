@@ -2,18 +2,19 @@
 
 import { useCallback, useContext } from "react";
 
+import { TabItemInfo } from "@sellify/common-ui-components/types";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
-import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
-import { TabItemInfo } from "@sellify/common-ui-components/types.ts";
+
 import {
   CartItem,
   Product,
   ProductPreview,
-} from "@sellify/customer-ui-components/types.ts";
+} from "@sellify/customer-ui-components/types";
+import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
 
-import { addToCart } from "../common/actions/cart-actions";
-import { getProductOverviewTabs } from "../common/actions/product-actions";
-import { ProductAddedDialogContext } from "../common/contexts/cart-context";
+import { addToCart } from "common/actions/cart-actions";
+import { getProductOverviewTabs } from "common/actions/product-actions";
+import { ProductAddedDialogContext } from "common/contexts/cart-context";
 
 type Props = {
   product: Product;

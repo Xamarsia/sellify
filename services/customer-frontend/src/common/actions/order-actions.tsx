@@ -1,6 +1,6 @@
 import { OrderStatus } from "@sellify/common-ui-components/constants";
 
-import { Order } from "../../types";
+import { Order } from "types";
 
 const order: Order = {
   orderId: 2343,
