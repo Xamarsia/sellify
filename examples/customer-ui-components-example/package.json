@@ -20,6 +20,7 @@
     "@sellify/tailwind-config": "workspace:*",
     "@sellify/common-ui-components": "workspace:*",
     "@sellify/customer-ui-components": "workspace:*",
+    "@sellify/common-icons": "workspace:*",
     "@tailwindcss/postcss": "~4.1.13",
     "@types/node": "~22.15.3",
     "@types/react": "~19.1.8",

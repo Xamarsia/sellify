@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
@@ -12,19 +12,33 @@ import image4 from "./../../resources/2/image2.jpg";
 import image5 from "./../../resources/3/image.jpg";
 import image6 from "./../../resources/3/image2.jpg";
 
+import HomeIcon from "@sellify/common-icons/home";
+import CreditCard from "@sellify/common-icons/credit-card";
+import Clipboard from "@sellify/common-icons/clipboard";
+
 import {
   CartItem as CartItemType,
   ProductPreview,
+  ProgressItemInfo,
 } from "@sellify/customer-ui-components/types";
 
 import CartItem from "@sellify/customer-ui-components/cart/CartItem";
 import CounterButton from "@sellify/customer-ui-components/CounterButton";
 import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
-import ProgressBarComponent from "@sellify/customer-ui-components/progress/ProgressBarComponent";
+import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
+
+  const barItems: Array<ProgressItemInfo> = useMemo(() => {
+    const progressBarItems: Array<ProgressItemInfo> = [
+      { href: "/", title: "Delivery Info", icon: <HomeIcon /> },
+      { href: "/orders", title: "Payment Method", icon: <CreditCard /> },
+      { href: "/review", title: "Review", icon: <Clipboard /> },
+    ];
+    return progressBarItems;
+  }, []);
 
   const productPreview: ProductPreview = {
     image: image.src,
@@ -55,6 +69,7 @@ export default function Home() {
   const cartItem: CartItemType = {
     amount: 1,
     product: productPreview2,
+    cartItemId: 0
   };
 
   const handleAddToCartClick = useCallback(
@@ -99,7 +114,7 @@ export default function Home() {
 
         <Section title={"Progress Bar"}>
           <SectionItem>
-            <ProgressBarComponent currentPathname={"/"} />
+            <ProgressBar barItems={barItems} currentPathname={"/"} />
           </SectionItem>
         </Section>
 
