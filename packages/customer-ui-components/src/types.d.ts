@@ -45,6 +45,7 @@ export type SearchItem = {
 };
 
 export type CartItem = {
+  cartItemId: number;
   product: ProductPreview;
   amount: number;
 };

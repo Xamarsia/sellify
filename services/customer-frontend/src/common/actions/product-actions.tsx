@@ -58,3 +58,7 @@ export function getProductOverviewTabs(): Array<TabItemInfo> {
   ];
   return tabs;
 }
+
+export function getProductMaxQuantity(productId: number): number {
+  return 5;
+}

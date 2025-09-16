@@ -3,7 +3,7 @@
 import { SidebarItemInfo } from "@sellify/common-ui-components/types";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 
-import { getSidebarItems } from "../../common/actions/profile-actions";
+import { getSidebarItems } from "common/actions/profile-actions";
 
 export default function EditProfileLayout({
   children,

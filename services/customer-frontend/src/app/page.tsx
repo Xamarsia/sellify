@@ -2,7 +2,10 @@
 
 import { useCallback, useContext, useState } from "react";
 
-import { CartItem, ProductPreview } from "@sellify/customer-ui-components/types";
+import {
+  CartItem,
+  ProductPreview,
+} from "@sellify/customer-ui-components/types";
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
@@ -32,7 +35,9 @@ export default function Home() {
     (productPreview: ProductPreview): void => {
       const cartItem: CartItem = addToCart(productPreview);
       addProductToCart(cartItem);
-    }, []);
+    },
+    [],
+  );
 
   return (
     <div className="flex w-full flex-col items-center">

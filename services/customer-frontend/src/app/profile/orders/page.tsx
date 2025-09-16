@@ -9,7 +9,10 @@ import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 
-import { filterOrdersHistory, getOrderHistory } from "../../../common/actions/order-actions";
+import {
+  filterOrdersHistory,
+  getOrderHistory,
+} from "common/actions/order-actions";
 
 export default function OrdersHistoryPage() {
   const defaultOrdersPerPageAmount: string = "24";
@@ -19,7 +22,9 @@ export default function OrdersHistoryPage() {
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
   const [orders, setOrders] = useState<Array<Order>>(oderHistory);
-  const [ordersPerPageQuantity, setOrdersPerPageQuantity] = useState<string>(defaultOrdersPerPageAmount);
+  const [ordersPerPageQuantity, setOrdersPerPageQuantity] = useState<string>(
+    defaultOrdersPerPageAmount,
+  );
 
   const comboboxQuantityItems = new Map<string, string>([
     ["24", "24 orders per page"],
@@ -45,7 +50,8 @@ export default function OrdersHistoryPage() {
       const query: string = e.target.value;
       setQuery(query);
       setOrders(query ? filterOrdersHistory(query) : oderHistory);
-    }, []
+    },
+    [],
   );
 
   return (

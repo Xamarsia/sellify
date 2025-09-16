@@ -39,8 +39,9 @@ const productPreview3: ProductPreview = {
 };
 
 const cartItem: CartItem = {
-  amount: 1,
+  amount: 2,
   product: productPreview2,
+  cartItemId: 0,
 };
 
 let cartItems: Array<CartItem> = [
@@ -80,10 +81,16 @@ export function addToCart(product: ProductPreview): CartItem {
   const newCartItem: CartItem = {
     amount: 1,
     product: product,
+    cartItemId: 0,
   };
   cartItems.push(newCartItem);
   return newCartItem;
 }
+
+export function onCartItemQuantityChanged(
+  cartItemId: number,
+  quantity: number,
+): void {}
 
 export function getProductPreviews(): Array<ProductPreview> {
   const previews: Array<ProductPreview> = [
