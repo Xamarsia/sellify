@@ -2,17 +2,17 @@
 
 import { ReactNode } from "react";
 
-type SettingsItemProps = {
+type SettingsSectionProps = {
   title: string;
   description: string;
   children: ReactNode;
 };
 
-export default function SettingsItem({
+export default function SettingsSection({
   title,
   description,
   children,
-}: SettingsItemProps) {
+}: SettingsSectionProps) {
   return (
     <div className="flex w-full flex-col">
       <h3>{title}</h3>

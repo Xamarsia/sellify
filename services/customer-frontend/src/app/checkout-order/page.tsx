@@ -26,7 +26,7 @@ export default function CheckoutPage() {
   return (
     <div className="flex w-full flex-col gap-9 ">
       <h1>Checkout</h1>
-      <div className="flex w-full justify-between gap-9 xl:gap-16 xl:flex-row flex-col-reverse">
+      <div className="flex w-full justify-between gap-9 xl:gap-16 flex-col xl:flex-row">
         <div className="grow">
           <OrderProductsTable
             content={cartItems}
@@ -36,7 +36,7 @@ export default function CheckoutPage() {
         </div>
         <div className="xl:w-min">
           <OrderSubtotal totalPrice={totalPrice} deliveryCharge={5}>
-            <Button fill="parent">Continue</Button>
+            <Button fill="parent">Proceed to Checkout</Button>
           </OrderSubtotal>
         </div>
       </div>

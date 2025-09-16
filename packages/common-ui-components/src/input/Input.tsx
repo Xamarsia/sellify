@@ -28,7 +28,7 @@ export default function Input({
   return (
     <div className="flex flex-col w-full">
       <label
-        className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
+        className={`label text-black m-1 capitalize ${required && "after:content-['*'] after:ml-0.5"}`}
       >
         {title}
       </label>
