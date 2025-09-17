@@ -87,6 +87,10 @@ export function addToCart(product: ProductPreview): CartItem {
   return newCartItem;
 }
 
+export function onRemoveCartItem(productPreviewId: number): void {
+  //TODO Implement onRemoveCartItem
+}
+
 export function onCartItemQuantityChanged(
   cartItemId: number,
   quantity: number,

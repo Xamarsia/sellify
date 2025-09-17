@@ -2,8 +2,7 @@
 
 import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
-
-import CountryCombobox from "components/CountryCombobox";
+import CountryCombobox from "@sellify/customer-ui-components/CountryCombobox";
 
 export default function ProfilePage() {
   return (

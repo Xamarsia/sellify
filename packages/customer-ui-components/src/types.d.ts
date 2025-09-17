@@ -49,3 +49,15 @@ export type CartItem = {
   product: ProductPreview;
   amount: number;
 };
+
+export type ContactInfo = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+};
+
+export type DeliveryAddress = {
+  country: string;
+  address: string;
+};

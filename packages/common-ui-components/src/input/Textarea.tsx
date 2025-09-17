@@ -37,11 +37,10 @@ export default function Textarea({
         disabled={disabled}
         maxLength={maxLength}
         placeholder={placeholder}
-        className={`resize-none h-40 p-4 border border-stroke placeholder-placeholder rounded-lg focus:outline-hidden 
-                disabled:text-disabled disabled:cursor-not-allowed
-                body text-black bg-white enabled:hover:border-black focus:border-black
-                ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus)]:border-destructive"}
-                `}
+        className={`resize-none h-40 p-4 border border-stroke placeholder-placeholder rounded-lg 
+          focus:outline-hidden disabled:text-disabled disabled:cursor-not-allowed
+          body text-black bg-white enabled:hover:border-black focus:border-black
+          ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus)]:border-destructive"}`}
       />
     </div>
   );

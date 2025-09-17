@@ -12,6 +12,7 @@ import { getProductMaxQuantity } from "common/actions/product-actions";
 import {
   getCartItems,
   onCartItemQuantityChanged,
+  onRemoveCartItem,
 } from "common/actions/cart-actions";
 
 export default function CheckoutPage() {
@@ -30,6 +31,7 @@ export default function CheckoutPage() {
         <div className="grow">
           <OrderProductsTable
             content={cartItems}
+            onItemRemove={onRemoveCartItem}
             getProductMaxQuantity={getProductMaxQuantity}
             onCartItemQuantityChanged={onCartItemQuantityChanged}
           />

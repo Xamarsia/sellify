@@ -6,7 +6,11 @@ type Props = {
   children?: ReactNode;
 };
 
-export default function OrderSubtotal({ totalPrice, deliveryCharge, children }: Props) {
+export default function OrderSubtotal({
+  totalPrice,
+  deliveryCharge,
+  children,
+}: Props) {
   return (
     <div className="flex flex-col justify-between bg-white h-72 min-w-80 w-full p-4 rounded-lg border border-stroke">
       <div className="flex flex-col gap-4">

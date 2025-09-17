@@ -82,10 +82,8 @@ export default function MediaInputField({
       onDragLeave={onDragLeave}
       onDragOver={onDragOver}
       className={`peer flex items-center justify-center h-56 text-center rounded-lg border 
-                     border-placeholder border-dashed accent-stroke hover:border-black
-                     ${sizeStyle[size]} 
-                    ${dragActive ? "border-black bg-hovered" : "bg-white"}
-        `}
+        border-placeholder border-dashed accent-stroke hover:border-black
+        ${sizeStyle[size]} ${dragActive ? "border-black bg-hovered" : "bg-white"}`}
     >
       <span>{text}</span>
       <input

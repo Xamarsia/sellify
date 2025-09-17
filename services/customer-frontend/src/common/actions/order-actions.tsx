@@ -1,4 +1,11 @@
-import { OrderStatus } from "@sellify/common-ui-components/constants";
+import {
+  OrderStatus,
+  PaymentProvider,
+} from "@sellify/common-ui-components/constants";
+import {
+  PaymentMethodInfo,
+  PaymentProvider as PaymentProviderType,
+} from "@sellify/common-ui-components/types";
 
 import { Order } from "types";
 
@@ -69,4 +76,22 @@ export function getOrderHistory(): Array<Order> {
 
 export function filterOrdersHistory(query: string): Array<Order> {
   return [order3, order4];
+}
+
+export function getPaymentProviders(): Map<
+  PaymentProviderType,
+  PaymentMethodInfo
+> {
+  const paymentProviders: Map<PaymentProviderType, PaymentMethodInfo> = new Map(
+    [
+      [
+        PaymentProvider.Balance,
+        { title: "Balance ($1050.06)", isAvailable: true },
+      ],
+      [PaymentProvider.Card, { title: "Debit/Credit Card", isAvailable: true }],
+      [PaymentProvider.GooglePay, { title: "Google Pay", isAvailable: false }],
+      [PaymentProvider.Paypal, { title: "Paypal", isAvailable: false }],
+    ],
+  );
+  return paymentProviders;
 }

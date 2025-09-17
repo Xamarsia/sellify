@@ -7,6 +7,7 @@ import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
 
 import { CartContext } from "types";
 import { CartPanelContext } from "common/contexts/cart-context";
+import { onRemoveCartItem } from "common/actions/cart-actions";
 
 export default function CartPanelProvider({
   children,
@@ -18,10 +19,6 @@ export default function CartPanelProvider({
 
   const onCartPanelClose = useCallback((): void => {
     setCartPanelOpened(false);
-  }, []);
-
-  const onRemoveCartItem = useCallback((productPreviewId: number): void => {
-    //TODO Implement onRemoveCartItem
   }, []);
 
   const contextValue: CartContext = {

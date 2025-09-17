@@ -1,9 +1,5 @@
-import { useCallback } from "react";
-
-import TrashIcon from "@sellify/common-icons/trash";
-import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-
 import { CartItem } from "./../types";
+import RemoveFromCartButton from "../table/RemoveFromCartButton";
 
 type Props = {
   cartItem: CartItem;
@@ -11,13 +7,6 @@ type Props = {
 };
 
 export default function CartItemComponent({ cartItem, onItemRemove }: Props) {
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      onItemRemove(cartItem.product.productId);
-    },
-    [onItemRemove],
-  );
-
   return (
     <div className="flex gap-4 justify-between items-top">
       <div className="flex size-24 aspect-square rounded-md">
@@ -41,9 +30,10 @@ export default function CartItemComponent({ cartItem, onItemRemove }: Props) {
             <h4>$ {cartItem.product.price}</h4>
           </div>
         </div>
-        <TransparentIconButton variant="destructive" onClick={handleClick}>
-          <TrashIcon />
-        </TransparentIconButton>
+        <RemoveFromCartButton
+          cartItemId={cartItem.cartItemId}
+          onCartItemRemove={onItemRemove}
+        />
       </div>
     </div>
   );

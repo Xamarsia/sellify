@@ -21,10 +21,8 @@ export default function SearchInput({
 
   return (
     <div
-      className={`flex items-center justify-center h-13 p-4 gap-4
-            rounded-lg border border-stroke has-focus:border-black hover:border-black
-            ${fillStyle}
-        `}
+      className={`flex items-center justify-center h-13 p-4 gap-4 ${fillStyle}
+        rounded-lg border border-stroke has-focus:border-black hover:border-black`}
     >
       <label className="text-placeholder">
         <MagnifyingGlass style="size-5" />

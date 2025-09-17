@@ -16,10 +16,13 @@ export default function CounterButtonTableItem({
 }: Props) {
   const [count, setCount] = useState<number>(cartItem.amount);
 
-  const onQuantityChanged = useCallback((quantity: number): void => {
-    setCount(quantity);
-    onCartItemQuantityChanged(cartItem.cartItemId, quantity);
-  }, [setCount, onCartItemQuantityChanged]);
+  const onQuantityChanged = useCallback(
+    (quantity: number): void => {
+      setCount(quantity);
+      onCartItemQuantityChanged(cartItem.cartItemId, quantity);
+    },
+    [setCount, onCartItemQuantityChanged],
+  );
 
   return (
     <CounterButton
