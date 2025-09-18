@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
-import { Order } from "@sellify/customer-ui-components/types";
+import { OrderPreview } from "@sellify/customer-ui-components/types";
 import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
@@ -16,12 +16,12 @@ import {
 
 export default function OrdersHistoryPage() {
   const defaultOrdersPerPageAmount: string = "24";
-  const oderHistory: Array<Order> = getOrderHistory();
+  const oderHistory: Array<OrderPreview> = getOrderHistory();
 
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
-  const [orders, setOrders] = useState<Array<Order>>(oderHistory);
+  const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
   const [ordersPerPageQuantity, setOrdersPerPageQuantity] = useState<string>(
     defaultOrdersPerPageAmount,
   );

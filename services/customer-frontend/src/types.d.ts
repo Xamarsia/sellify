@@ -12,12 +12,3 @@ export type CartContext = {
 export type SearchContext = {
   openSearchPanel: () => void;
 };
-
-export type Order = {
-  orderId: number;
-  date: string;
-  customerName: string;
-  total: number;
-  status: OrderStatus;
-  items: number;
-};

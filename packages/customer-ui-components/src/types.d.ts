@@ -1,4 +1,7 @@
-import { OrderStatus } from "@sellify/common-ui-components/types";
+import {
+  OrderStatus,
+  ShippingProvider,
+} from "@sellify/common-ui-components/types";
 
 export type ProgressItemInfo = {
   href: string;
@@ -23,12 +26,58 @@ export type Product = {
   price: number;
 };
 
-export type Order = {
+export type OrderPreview = {
   orderId: number;
   date: string;
   total: number;
   status: OrderStatus;
 };
+
+export type Order = {
+  orderId: number;
+  customerId: number;
+  status: OrderStatus;
+  purchaseDate: string;
+  contactInfo: ContactInfo;
+  deliveryAddress: DeliveryAddress;
+  paymentProvider: PaymentProvider;
+  products: Array<CartItem>;
+  deliveryCharge: number;
+  deliveryProvider?: DeliveryProvider;
+  trackingDeliveryId?: string;
+  deliveryDate?: string;
+  itemsSubtotal: number;
+  grandTotal: number;
+};
+
+// export type Order = {
+//   orderId: number;
+//   customerId: number;
+//   status: OrderStatus;
+//   purchaseDate: string;
+//   contactInfo: ContactInfo;
+//   deliveryAddress: DeliveryAddress
+//   paymentProvider: PaymentProvider
+//   total: number;
+//   products: Array<CartItem>;
+//   shippingInfo: ShippingInfo;
+// };
+
+// export type ShippingInfo = {
+//   trackingNumber?: string;
+//   deliveryDate?: string;
+//   deliveryCharge: number;
+//   shippingProvider?: ShippingProvider;
+// }
+
+// export type DeliveryInfo = {
+//   deliveryId: number; // orderId + providerId
+//   contactInfo: ContactInfo;
+//   deliveryCharge: number;
+//   estimatedDeliveryDate: string;  // estimated if not delivered yet
+//   deliveryAddress: DeliveryAddress;
+//   isDelivered?: boolean;
+// };
 
 export type ProductPreview = {
   productId: number;

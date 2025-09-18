@@ -6,76 +6,74 @@ import {
   PaymentMethodInfo,
   PaymentProvider as PaymentProviderType,
 } from "@sellify/common-ui-components/types";
+import {
+  CartItem,
+  ContactInfo,
+  DeliveryAddress,
+  Order,
+  OrderPreview,
+} from "@sellify/customer-ui-components/types";
+import { getCartItems } from "./cart-actions";
 
-import { Order } from "types";
-
-const order: Order = {
+const orderPreview: OrderPreview = {
   orderId: 2343,
   date: "June 23, 2024",
-  customerName: "John Thomson",
   total: 23.46,
   status: OrderStatus.Shipped,
-  items: 1,
 };
 
-const order2: Order = {
+const orderPreview2: OrderPreview = {
   orderId: 67843,
   date: "Aug 7, 2024",
-  customerName: "John Thomson",
   total: 64.32,
   status: OrderStatus.InProgress,
-  items: 5,
 };
 
-const order3: Order = {
+const orderPreview3: OrderPreview = {
   orderId: 56736784,
   date: "Jan 13, 2025",
-  customerName: "John Thomson",
   total: 345.46,
   status: OrderStatus.Shipped,
-  items: 3,
 };
 
-const order4: Order = {
+const orderPreview4: OrderPreview = {
   orderId: 245,
   date: "Aug 18, 2025",
-  customerName: "John Thomson",
   total: 253.82,
   status: OrderStatus.New,
-  items: 10,
 };
 
-export function getOrderHistory(): Array<Order> {
+export function getOrderHistory(): Array<OrderPreview> {
   return [
-    order,
-    order2,
-    order3,
-    order4,
-    order,
-    order2,
-    order3,
-    order4,
-    order,
-    order2,
-    order3,
-    order4,
-    order,
-    order2,
-    order3,
-    order4,
-    order,
-    order2,
-    order3,
-    order4,
-    order,
-    order2,
-    order3,
-    order4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
   ];
 }
 
-export function filterOrdersHistory(query: string): Array<Order> {
-  return [order3, order4];
+export function filterOrdersHistory(query: string): Array<OrderPreview> {
+  return [orderPreview3, orderPreview4];
 }
 
 export function getPaymentProviders(): Map<
@@ -94,4 +92,52 @@ export function getPaymentProviders(): Map<
     ],
   );
   return paymentProviders;
+}
+
+const contactInfo: ContactInfo = {
+  firstName: "Robert",
+  lastName: "Fox",
+  email: "robertfox@example.com",
+  phoneNumber: "+1 (416) 555-0123",
+};
+
+const deliveryAddress: DeliveryAddress = {
+  address: "123 Maple Street, Toronto, ON, M5A 1A1",
+  country: "Canada",
+};
+
+const cartItems: Array<CartItem> = getCartItems();
+
+const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> =
+  getPaymentProviders();
+
+export function getPaymentMethodInfo(
+  paymentProvider: PaymentProviderType,
+): PaymentMethodInfo | undefined {
+  const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> =
+    getPaymentProviders();
+
+  return paymentMethods.get(paymentProvider);
+}
+
+const order: Order = {
+  orderId: 2343,
+  customerId: 567456456,
+  status: OrderStatus.Shipped,
+  purchaseDate: "June 23, 2024",
+  contactInfo: contactInfo,
+  deliveryAddress: deliveryAddress,
+  paymentProvider: PaymentProvider.Balance,
+  grandTotal: 35.46,
+  itemsSubtotal: 23.46,
+  products: cartItems,
+  deliveryCharge: 56,
+  deliveryProvider: "DHL",
+  trackingDeliveryId: "567334565434566ft",
+  deliveryDate: "June 28, 2024",
+};
+
+// TODO  make it React Action
+export function getOrder(orderId: number): Order {
+  return order;
 }
