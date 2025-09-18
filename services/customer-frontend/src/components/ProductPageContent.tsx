@@ -22,7 +22,7 @@ type Props = {
 
 export default function ProductPageContent({ product }: Props) {
   const tabs: Array<TabItemInfo> = getProductOverviewTabs();
-  const { addProductToCart } = useContext(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
 
   const handleAddToCartClick = useCallback((product: Product): void => {
     const preview: ProductPreview = {
@@ -33,7 +33,7 @@ export default function ProductPageContent({ product }: Props) {
       price: product.price,
     };
     const cartItem: CartItem = addToCart(preview);
-    addProductToCart(cartItem);
+    openProductAddedDialog(cartItem);
   }, []);
 
   return (

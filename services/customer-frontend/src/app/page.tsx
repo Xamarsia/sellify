@@ -18,7 +18,7 @@ export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [selectedKey, setSelectedKey] = useState<string>();
 
-  const { addProductToCart } = useContext(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
 
   const onPageChanged = useCallback((newPage: number): void => {
     setPage(newPage);
@@ -34,7 +34,7 @@ export default function Home() {
   const handleAddToCartClick = useCallback(
     (productPreview: ProductPreview): void => {
       const cartItem: CartItem = addToCart(productPreview);
-      addProductToCart(cartItem);
+      openProductAddedDialog(cartItem);
     },
     [],
   );

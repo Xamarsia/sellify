@@ -26,7 +26,7 @@ export default function ProductAddedDialogProvider({
   const onCheckout = useCallback((): void => {}, []);
 
   const contextValue: DialogContext = {
-    addProductToCart: (cartItem) => {
+    openProductAddedDialog: (cartItem) => {
       setDialogOpened(true);
       setCurrentCartItem(cartItem);
     },

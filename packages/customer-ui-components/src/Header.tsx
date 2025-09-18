@@ -34,10 +34,10 @@ export default function Header({ cartItems }: HeaderProps) {
     >
       <p className="body">LOGO</p>
       <div className="flex gap-[36px] not-md:hidden">
-        <LinkButton>Home</LinkButton>
-        <LinkButton>New</LinkButton>
-        <LinkButton>Bestsellers</LinkButton>
-        <LinkButton>Gifts</LinkButton>
+        <LinkButton href="/home">Home</LinkButton>
+        <LinkButton href="/new" >New</LinkButton>
+        <LinkButton href="/bestsellers">Bestsellers</LinkButton>
+        <LinkButton href="/gifts">Gifts</LinkButton>
       </div>
 
       <div className="flex gap-[16px]">
@@ -47,9 +47,11 @@ export default function Header({ cartItems }: HeaderProps) {
         <TransparentIconButton disabled>
           <HeartIcon />
         </TransparentIconButton>
-        <TransparentIconButton>
-          <UserIcon />
-        </TransparentIconButton>
+        <a href="/profile">
+          <TransparentIconButton>
+            <UserIcon />
+          </TransparentIconButton>
+        </a>
         <TransparentIconButton onClick={onCartPanelOpen}>
           <ShoppingBagIcon />
         </TransparentIconButton>
