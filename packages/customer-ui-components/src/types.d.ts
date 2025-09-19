@@ -39,6 +39,7 @@ export type Order = {
   status: OrderStatus;
   purchaseDate: string;
   contactInfo: ContactInfo;
+  labels?: Array<ProductLabel>;
   deliveryAddress: DeliveryAddress;
   paymentProvider: PaymentProvider;
   products: Array<CartItem>;

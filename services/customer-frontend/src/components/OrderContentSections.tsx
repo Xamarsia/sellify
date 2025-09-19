@@ -10,9 +10,7 @@ import OrderInfo from "@sellify/customer-ui-components/order-details/OrderInfo";
 import PaymentInfo from "@sellify/customer-ui-components/order-details/PaymentInfo";
 import OrderProductsTableFinal from "@sellify/customer-ui-components/table/OrderProductsTableFinal";
 
-import {
-  getPaymentMethodInfo,
-} from "common/actions/order-actions";
+import { getPaymentMethodInfo } from "common/actions/order-actions";
 
 type Props = {
   order: Order;

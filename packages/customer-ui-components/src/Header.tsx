@@ -35,7 +35,7 @@ export default function Header({ cartItems }: HeaderProps) {
       <p className="body">LOGO</p>
       <div className="flex gap-[36px] not-md:hidden">
         <LinkButton href="/home">Home</LinkButton>
-        <LinkButton href="/new" >New</LinkButton>
+        <LinkButton href="/new">New</LinkButton>
         <LinkButton href="/bestsellers">Bestsellers</LinkButton>
         <LinkButton href="/gifts">Gifts</LinkButton>
       </div>

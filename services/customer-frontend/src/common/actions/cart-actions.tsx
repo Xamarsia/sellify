@@ -96,7 +96,9 @@ export function onCartItemQuantityChanged(
   quantity: number,
 ): void {}
 
-export function getProductPreviews(): Array<ProductPreview> {
+export function getProductPreviews(
+  productLabel: string,
+): Array<ProductPreview> {
   const previews: Array<ProductPreview> = [
     productPreview,
     productPreview2,

@@ -26,10 +26,10 @@ export default function CheckoutProgressBar({
         title: "Payment Method",
         icon: <CreditCard />,
       },
-      { 
-        href: "/checkout-order/review", 
-        title: "Review", 
-        icon: <Clipboard /> 
+      {
+        href: "/checkout-order/review",
+        title: "Review",
+        icon: <Clipboard />,
       },
     ];
     return progressBarItems;

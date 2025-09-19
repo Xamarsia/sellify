@@ -62,3 +62,7 @@ export function getProductOverviewTabs(): Array<TabItemInfo> {
 export function getProductMaxQuantity(productId: number): number {
   return 5;
 }
+
+export function getFeedLabels(): Array<string> {
+  return ["home", "new", "bestsellers", "gifts"];
+}
