@@ -10,22 +10,13 @@ import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
-import { CartPanelContext } from "../../../services/customer-frontend/src/common/contexts/cart-context";
-import { SearchPanelContext } from "../../../services/customer-frontend/src/common/contexts/search-context";
+import { CartPanelContext } from "common/contexts/cart-context";
+import { SearchPanelContext } from "common/contexts/search-context";
 
-import { CartItem } from "./types";
 
-type HeaderProps = {
-  cartItems: Array<CartItem>;
-};
-
-export default function Header({ cartItems }: HeaderProps) {
+export default function Header() {
   const { openCartPanel } = useContext(CartPanelContext);
   const { openSearchPanel } = useContext(SearchPanelContext);
-
-  const onCartPanelOpen = useCallback((): void => {
-    openCartPanel(cartItems);
-  }, []);
 
   return (
     <header
@@ -52,7 +43,7 @@ export default function Header({ cartItems }: HeaderProps) {
             <UserIcon />
           </TransparentIconButton>
         </a>
-        <TransparentIconButton onClick={onCartPanelOpen}>
+        <TransparentIconButton onClick={openCartPanel}>
           <ShoppingBagIcon />
         </TransparentIconButton>
       </div>

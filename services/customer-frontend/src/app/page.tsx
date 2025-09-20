@@ -41,7 +41,8 @@ export default function Home() {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="relative flex grow w-full justify-end pb-6">
+      <div>Page</div>
+      {/* <div className="relative flex grow w-full justify-end pb-6">
         <Dropdown
           title={"Sort By"}
           items={comboboxItems}
@@ -68,7 +69,7 @@ export default function Home() {
           pagesBarLength={3}
           onPageChanged={onPageChanged}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

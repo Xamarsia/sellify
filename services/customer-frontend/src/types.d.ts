@@ -6,7 +6,7 @@ export type DialogContext = {
 };
 
 export type CartContext = {
-  openCartPanel: (cartItems: Array<CartItem>) => void;
+  openCartPanel: () => void;
 };
 
 export type SearchContext = {

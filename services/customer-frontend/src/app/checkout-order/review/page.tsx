@@ -9,7 +9,7 @@ import {
 
 import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import FormSection from "@sellify/customer-ui-components/forms/FormSection";
-import ShippingInfo from "@sellify/customer-ui-components/ShippingInfo";
+import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
 import OrderProductsTableFinal from "@sellify/customer-ui-components/table/OrderProductsTableFinal";
 import {
   CartItem,
@@ -67,7 +67,7 @@ export default function ReviewPage() {
           </div>
         </div>
         <div className="xl:w-min">
-          <OrderSubtotal totalPrice={32} deliveryCharge={5}>
+          <OrderSubtotal itemsSubtotal={32} deliveryCharge={5}>
             <Button fill="parent">Final Confirm</Button>
           </OrderSubtotal>
         </div>

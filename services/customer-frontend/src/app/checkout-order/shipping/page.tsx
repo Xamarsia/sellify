@@ -42,7 +42,7 @@ export default function ProfilePage() {
           </div>
         </div>
         <div className="xl:w-min">
-          <OrderSubtotal totalPrice={32} deliveryCharge={5}>
+          <OrderSubtotal itemsSubtotal={32} deliveryCharge={5}>
             <Button fill="parent">Proceed to Checkout</Button>
           </OrderSubtotal>
         </div>

@@ -41,7 +41,7 @@ export default function PaymentPage() {
           </div>
         </div>
         <div className="xl:w-min">
-          <OrderSubtotal totalPrice={32} deliveryCharge={5}>
+          <OrderSubtotal itemsSubtotal={32} deliveryCharge={5}>
             <Button fill="parent">Continue</Button>
           </OrderSubtotal>
         </div>

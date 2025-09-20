@@ -69,7 +69,7 @@ export default function Home() {
   const cartItem: CartItemType = {
     amount: 1,
     product: productPreview2,
-    cartItemId: 0
+    cartItemId: 0,
   };
 
   const handleAddToCartClick = useCallback(
@@ -151,7 +151,7 @@ export default function Home() {
 
         <Section title={"Order Subtotal Card"}>
           <SectionItem>
-            <OrderSubtotal totalPrice={345} deliveryCharge={5} />
+            <OrderSubtotal itemsSubtotal={345} deliveryCharge={5} />
           </SectionItem>
         </Section>
       </main>

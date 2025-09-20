@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import Header from "@sellify/customer-ui-components/Header";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
 
 import { getCartItems } from "common/actions/cart-actions";
 import SearchPanelProvider from "common/providers/SearchPanelProvider";
 import CartPanelProvider from "common/providers/CartPanelProvider";
 import ProductAddedDialogProvider from "common/providers/ProductAddedDialogProvider";
+import Header from "components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <SearchPanelProvider>
           <CartPanelProvider>
-            <Header cartItems={getCartItems()} />
+            <Header />
             <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
               <ProductAddedDialogProvider>
                 {children}
