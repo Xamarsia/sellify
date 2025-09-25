@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 import ProgressBarItem from "./ProgressBarItem";
 
@@ -8,34 +8,32 @@ import { ProgressItemInfo } from "../types";
 
 type ProgressBarProps = {
   barItems: Array<ProgressItemInfo>;
-  currentPathname: string;
+  currentItem: number;
 };
 
 export default function ProgressBar({
   barItems,
-  currentPathname,
+  currentItem,
 }: ProgressBarProps) {
-  const [currentBarItem, setCurrentBarItem] = useState<number>(-1);
+  // const [currentBarItem, setCurrentBarItem] = useState<number>(-1);
 
-  useEffect(() => {
-    const isHrefCurrent = (item: ProgressItemInfo): boolean => {
-      return item.href === currentPathname;
-    };
-    setCurrentBarItem(barItems.findIndex(isHrefCurrent));
-  }, [currentPathname, barItems]);
+  // useEffect(() => {
+  //   const isHrefCurrent = (item: ProgressItemInfo): boolean => {
+  //     return item.href === currentPathname;
+  //   };
+  //   setCurrentBarItem(barItems.findIndex(isHrefCurrent));
+  // }, [currentPathname, barItems]);
 
   return (
     <nav className="w-full flex justify-between items-top h-16">
-      {barItems.map(({ href, title, icon }, index) => {
-        const isSelected = currentBarItem >= index;
+      {barItems.map(({href, title, icon }, index) => {
+        const isSelected = currentItem > index;
         return (
           <Fragment key={"ProgressBarItem-" + index}>
-            {index > 0 ? (
+            {index > 0 && (
               <div
                 className={`grow h-5 border-b border-dashed ${isSelected ? "border-black" : "border-stroke"}`}
               />
-            ) : (
-              <></>
             )}
             <ProgressBarItem
               label={title}
