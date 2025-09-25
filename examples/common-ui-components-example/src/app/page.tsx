@@ -88,9 +88,9 @@ export default function Home() {
   ];
 
   const tabs: Array<TabItemInfo> = [
-    { href: "/", title: "Home" },
-    { href: "/description", title: "Description" },
-    { href: "/info", title: "Additional Information" },
+    { href: "/", title: "Home", content: (<p>Here we show information about the client.</p>) },
+    { href: "/description", title: "Description", content: (<p>Here we show description.</p>) },
+    { href: "/info", title: "Additional Information", content: (<p>Here we show additional information.</p>) },
   ];
 
   return (

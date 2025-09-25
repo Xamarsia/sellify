@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 import { TabItemInfo } from "@sellify/common-ui-components/types";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
@@ -21,8 +21,17 @@ type Props = {
 };
 
 export default function ProductPageContent({ product }: Props) {
+  const [hash, setHash] = useState(window.location.hash);
+
   const tabs: Array<TabItemInfo> = getProductOverviewTabs();
   const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
+
+  useEffect(() => {
+    window.addEventListener('hashchange', () => setHash(window.location.hash));
+    return () => {
+      window.removeEventListener('hashchange', () => setHash(window.location.hash));
+    };
+  }, [hash]);
 
   const handleAddToCartClick = useCallback((product: Product): void => {
     const preview: ProductPreview = {
@@ -42,7 +51,7 @@ export default function ProductPageContent({ product }: Props) {
         product={product}
         onAddProductToCart={handleAddToCartClick}
       />
-      <Tabs items={tabs} pathname="/" />
+      <Tabs items={tabs} pathname={hash} />
     </div>
   );
 }

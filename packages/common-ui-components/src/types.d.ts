@@ -12,6 +12,7 @@ export type SidebarItemInfo = {
 export type TabItemInfo = {
   href: string;
   title: string;
+  content: ReactNode;
 };
 
 export type PaymentMethodInfo = {

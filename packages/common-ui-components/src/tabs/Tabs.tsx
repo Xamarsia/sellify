@@ -10,17 +10,22 @@ type TabsProps = {
 
 export default function Tabs({ items, pathname }: TabsProps) {
   return (
-    <nav className="w-full flex flex-wrap border-b border-stroke">
-      {items.map(({ href, title }) => {
-        return (
+    <div className="w-full flex flex-col">
+      <nav className="w-full flex flex-wrap border-b border-stroke">
+        {items.map(({ href, title }) => (
           <Tab
-            key={title}
+            key={"TabHeader" + title}
             href={href}
             text={title}
             selected={pathname == href}
           />
-        );
-      })}
-    </nav>
+        ))}
+      </nav>
+      {items.map((item, index) => (
+        <div key={"TabContent" + index} className={`w-full py-6 ${pathname === item.href ? " " : "hidden"} `}>
+          {item.content}
+        </div>
+      ))}
+    </div>
   );
 }
