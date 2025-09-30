@@ -8,25 +8,19 @@ import OrderProductsTable from "@sellify/customer-ui-components/table/OrderProdu
 import { getProductMaxQuantity } from "common/actions/product-actions";
 import {
   getCartItems,
-  onCartItemQuantityChanged,
-  onRemoveCartItem,
+  changeCartItemQuantity,
+  removeCartItem,
 } from "common/actions/cart-actions";
 
 export default function CheckoutPage() {
   const cartItems: Array<CartItem> = getCartItems();
 
-  const totalPrice = useMemo((): number => {
-    return cartItems.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.product.price * currentValue.amount;
-    }, 0);
-  }, [cartItems]);
-
   return (
     <OrderProductsTable
       content={cartItems}
-      onItemRemove={onRemoveCartItem}
+      onItemRemove={removeCartItem}
       getProductMaxQuantity={getProductMaxQuantity}
-      onCartItemQuantityChanged={onCartItemQuantityChanged}
+      onCartItemQuantityChanged={changeCartItemQuantity}
     />
   );
 }

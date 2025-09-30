@@ -9,8 +9,9 @@ import {
 import {
   CartItem,
   ContactInfo,
+  OrderRequest,
   DeliveryAddress,
-  Order,
+  OrderDetails,
   OrderPreview,
 } from "@sellify/customer-ui-components/types";
 import { getCartItems } from "./cart-actions";
@@ -108,9 +109,6 @@ const deliveryAddress: DeliveryAddress = {
 
 const cartItems: Array<CartItem> = getCartItems();
 
-const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> =
-  getPaymentProviders();
-
 export function getPaymentMethodInfo(
   paymentProvider: PaymentProviderType,
 ): PaymentMethodInfo | undefined {
@@ -120,24 +118,30 @@ export function getPaymentMethodInfo(
   return paymentMethods.get(paymentProvider);
 }
 
-const order: Order = {
-  orderId: 2343,
-  customerId: 567456456,
-  status: OrderStatus.Shipped,
-  purchaseDate: "June 23, 2024",
-  contactInfo: contactInfo,
-  deliveryAddress: deliveryAddress,
-  paymentProvider: PaymentProvider.Balance,
-  grandTotal: 35.46,
-  itemsSubtotal: 23.46,
-  products: cartItems,
-  deliveryCharge: 56,
-  deliveryProvider: "DHL",
-  trackingDeliveryId: "567334565434566ft",
-  deliveryDate: "June 28, 2024",
-};
-
 // TODO  make it React Action
-export function getOrder(orderId: number): Order {
+export function getOrder(orderId: number): OrderDetails {
+  const order: OrderDetails = {
+    orderId: 2343,
+    customerId: 567456456,
+    status: OrderStatus.Shipped,
+    purchaseDate: "June 23, 2024",
+    contactInfo: contactInfo,
+    deliveryAddress: deliveryAddress,
+    paymentProvider: PaymentProvider.Balance,
+    totalPrice: 35.46,
+    itemsSubtotal: 23.46,
+    products: cartItems,
+    deliveryFee: 56,
+    deliveryProvider: "DHL",
+    trackingDeliveryId: "567334565434566ft",
+    deliveryDate: "June 28, 2024",
+  };
   return order;
+}
+
+export function getDeliveryFee(): number {
+  return 134;
+}
+
+export function order(orderRequest: OrderRequest): void {
 }

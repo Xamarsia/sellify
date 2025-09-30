@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useContext } from "react";
+import { useContext } from "react";
 
 import UserIcon from "@sellify/common-icons/user";
 import HeartIcon from "@sellify/common-icons/heart";
@@ -12,11 +12,12 @@ import TransparentIconButton from "@sellify/common-ui-components/buttons/Transpa
 
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
+import { CartContext, SearchContext } from "types";
 
 
 export default function Header() {
-  const { openCartPanel } = useContext(CartPanelContext);
-  const { openSearchPanel } = useContext(SearchPanelContext);
+  const { openCartPanel } = useContext<CartContext>(CartPanelContext);
+  const { openSearchPanel } = useContext<SearchContext>(SearchPanelContext);
 
   return (
     <header

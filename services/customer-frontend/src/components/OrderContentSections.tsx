@@ -1,9 +1,9 @@
 "use client";
 
+import FormSection from "@sellify/common-ui-components/FormSection";
 import { PaymentMethodInfo } from "@sellify/common-ui-components/types";
 
-import { Order } from "@sellify/customer-ui-components/types";
-import FormSection from "@sellify/customer-ui-components/forms/FormSection";
+import { OrderDetails } from "@sellify/customer-ui-components/types";
 import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
 import DeliveryInfo from "@sellify/customer-ui-components/order-details/DeliveryInfo";
 import OrderInfo from "@sellify/customer-ui-components/order-details/OrderInfo";
@@ -13,7 +13,7 @@ import OrderProductsTableFinal from "@sellify/customer-ui-components/table/Order
 import { getPaymentMethodInfo } from "common/actions/order-actions";
 
 type Props = {
-  order: Order;
+  order: OrderDetails;
 };
 
 export default function OrderContentSections({ order }: Props) {

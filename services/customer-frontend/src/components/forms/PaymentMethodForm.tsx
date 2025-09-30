@@ -9,17 +9,20 @@ import {
   PaymentProvider as PaymentProviderType,
 } from "@sellify/common-ui-components/types";
 
+import { getPaymentProviders } from "common/actions/order-actions";
+
 type PaymentMethodProps = {
-  paymentMethods: Map<PaymentProviderType, PaymentMethodInfo>;
   currentMethod: PaymentProviderType;
-  onPaymentMethodChange: (provider: PaymentProviderType) => void;
+  onPaymentMethodChange: (provider: PaymentProviderType, isValid: boolean) => void;
 };
 
 export default function PaymentMethodForm({
   currentMethod,
   onPaymentMethodChange,
-  paymentMethods,
 }: PaymentMethodProps) {
+
+  const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> = getPaymentProviders();
+
   const getPaymentProvider = useCallback(
     (value: string): PaymentProviderType => {
       switch (value) {
@@ -32,17 +35,13 @@ export default function PaymentMethodForm({
         default:
           return PaymentProvider.Balance;
       }
-    },
-    [],
-  );
+    }, []);
 
-  const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value = e.target.value;
-      onPaymentMethodChange(getPaymentProvider(value));
-    },
-    [onPaymentMethodChange],
-  );
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
+    const paymentProvider: PaymentProviderType = getPaymentProvider(e.target.value);
+    //TODO Add Validation function here
+    onPaymentMethodChange(paymentProvider, false);
+  }, [onPaymentMethodChange]);
 
   return (
     <div className="flex w-full flex-col">

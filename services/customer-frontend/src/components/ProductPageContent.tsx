@@ -7,7 +7,7 @@ import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 
 import {
   CartItem,
-  Product,
+  ProductDetails as ProductDetailsType,
   ProductPreview,
 } from "@sellify/customer-ui-components/types";
 import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
@@ -17,7 +17,7 @@ import { getProductOverviewTabs } from "common/actions/product-actions";
 import { ProductAddedDialogContext } from "common/contexts/cart-context";
 
 type Props = {
-  product: Product;
+  product: ProductDetailsType;
 };
 
 export default function ProductPageContent({ product }: Props) {
@@ -33,7 +33,7 @@ export default function ProductPageContent({ product }: Props) {
     };
   }, [hash]);
 
-  const handleAddToCartClick = useCallback((product: Product): void => {
+  const handleAddToCartClick = useCallback((product: ProductDetailsType): void => {
     const preview: ProductPreview = {
       productId: product.productId,
       title: product.title,

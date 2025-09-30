@@ -1,6 +1,6 @@
 import "server-only";
 
-import { Order } from "@sellify/customer-ui-components/types";
+import { OrderDetails } from "@sellify/customer-ui-components/types";
 import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 
 import { getOrder } from "common/actions/order-actions";
@@ -12,7 +12,7 @@ type Props = {
 
 export default async function OrderPage({ params }: Props) {
   const orderId: number = (await params).orderId;
-  const order: Order = getOrder(orderId);
+  const order: OrderDetails = getOrder(orderId);
 
   return (
     <div className="flex w-full flex-col gap-9 ">
@@ -25,8 +25,8 @@ export default async function OrderPage({ params }: Props) {
         <div className="xl:w-min">
           <OrderSubtotal
             itemsSubtotal={order.itemsSubtotal}
-            deliveryCharge={order.deliveryCharge}
-            grandTotal={order.grandTotal}
+            deliveryFee={order.deliveryFee}
+            totalPrice={order.totalPrice}
           />
         </div>
       </div>

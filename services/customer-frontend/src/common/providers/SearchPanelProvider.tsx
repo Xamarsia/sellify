@@ -4,7 +4,7 @@ import { ReactNode, useCallback, useState } from "react";
 
 import {
   SearchItem,
-  SearchNavigationItem,
+  NavigationLink,
 } from "@sellify/customer-ui-components/types";
 import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 
@@ -35,7 +35,7 @@ export default function SearchPanelProvider({
     },
   };
 
-  const popularQuickLinks: Array<SearchNavigationItem> = [
+  const popularQuickLinks: Array<NavigationLink> = [
     { href: "/", title: "Indoor Plants" },
     { href: "/", title: "Flowering Plants" },
     { href: "/", title: "Tropical Plants" },

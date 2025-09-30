@@ -13,6 +13,7 @@ import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/
 
 import { ProductAddedDialogContext } from "common/contexts/cart-context";
 import { addToCart, getProductPreviews } from "common/actions/cart-actions";
+import { DialogContext } from "types";
 
 type Props = {
   productLabel: string;
@@ -22,7 +23,7 @@ export default function ProductFeedContent({ productLabel }: Props) {
   const [page, setPage] = useState<number>(1);
   const [selectedKey, setSelectedKey] = useState<string>();
 
-  const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext<DialogContext>(ProductAddedDialogContext);
 
   const onPageChanged = useCallback((newPage: number): void => {
     setPage(newPage);

@@ -1,61 +1,44 @@
 "use client"
 
 import { useMemo } from "react";
-import { usePathname } from "next/navigation";
 
 import TruckIcon from "@sellify/common-icons/truck";
 import CubeIcon from "@sellify/common-icons/cube";
 import CreditCard from "@sellify/common-icons/credit-card";
 import Clipboard from "@sellify/common-icons/clipboard";
 
-import { ProgressItemInfo } from "@sellify/customer-ui-components/types";
+import { ProgressStepInfo } from "@sellify/customer-ui-components/types";
 import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
+import { CheckoutStep } from "enums";
 
-export default function CheckoutProgressBar() {
-  const pathname: string = usePathname();
+type CheckoutProgressBarProps = {
+  currentStep: CheckoutStep;
+  onStepClick: (step: CheckoutStep) => void;
+};
 
-  enum ProgressBarItemOrder {
-    SELECTED_PRODUCTS = 1,
-    DELIVERY_INFO = 2,
-    PAYMENT_METHOD = 3,
-    REVIEW = 4,
-  }
-
-  const currentBarItemOrder = useMemo((): number | undefined => {
-    switch (pathname) {
-      case "/checkout-order":
-        return ProgressBarItemOrder.SELECTED_PRODUCTS;
-      case "/checkout-order/shipping":
-        return ProgressBarItemOrder.DELIVERY_INFO;
-      case "/checkout-order/payment":
-        return ProgressBarItemOrder.PAYMENT_METHOD;
-      case "/checkout-order/review":
-        return ProgressBarItemOrder.REVIEW;
-      default:
-        return undefined;
-    }
-  }, [pathname]);
-
-
-  const barItems: Array<ProgressItemInfo> = useMemo(() => {
-    const progressBarItems: Array<ProgressItemInfo> = [
+export default function CheckoutProgressBar({
+  currentStep,
+  onStepClick,
+}: CheckoutProgressBarProps) {
+  const barItems = useMemo<Array<ProgressStepInfo>>(() => {
+    const progressBarItems = [
       {
-        href: "/checkout-order",
-        title: "Selected Products",
+        step: CheckoutStep.SELECTED_PRODUCTS,
+        title: "Products",
         icon: <CubeIcon />,
       },
       {
-        href: "/checkout-order/shipping",
+        step: CheckoutStep.DELIVERY_INFO,
         title: "Delivery Info",
         icon: <TruckIcon />,
       },
       {
-        href: "/checkout-order/payment",
+        step: CheckoutStep.PAYMENT_METHOD,
         title: "Payment Method",
         icon: <CreditCard />,
       },
       {
-        href: "/checkout-order/review",
+        step: CheckoutStep.REVIEW,
         title: "Review",
         icon: <Clipboard />,
       },
@@ -63,5 +46,5 @@ export default function CheckoutProgressBar() {
     return progressBarItems;
   }, []);
 
-  return (currentBarItemOrder && <ProgressBar barItems={barItems} currentItem={currentBarItemOrder} />);
+  return <ProgressBar steps={barItems} currentStep={currentStep} onStepClick={onStepClick} />;
 }

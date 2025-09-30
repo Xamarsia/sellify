@@ -7,7 +7,7 @@ import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
 
 import { CartContext } from "types";
 import { CartPanelContext } from "common/contexts/cart-context";
-import { getCartItems, onRemoveCartItem } from "common/actions/cart-actions";
+import { getCartItems, removeCartItem } from "common/actions/cart-actions";
 
 export default function CartPanelProvider({
   children,
@@ -33,7 +33,7 @@ export default function CartPanelProvider({
       <CartPanel
         dialogOpen={cartPanelOpened}
         onDialogClose={onCartPanelClose}
-        onItemRemove={onRemoveCartItem}
+        onItemRemove={removeCartItem}
         cartItems={cartItems}
       />
       {children}

@@ -1,4 +1,4 @@
-import { Product } from "@sellify/customer-ui-components/types";
+import { ProductDetails } from "@sellify/customer-ui-components/types";
 import { TabItemInfo } from "@sellify/common-ui-components/types";
 
 import image from "resources/1/image.jpg";
@@ -10,7 +10,7 @@ import image4 from "resources/2/image2.jpg";
 import image5 from "resources/3/image.jpg";
 import image6 from "resources/3/image2.jpg";
 
-const product: Product = {
+const product: ProductDetails = {
   productId: 12323,
   images: [image3.src, image4.src, image5.src],
   title: "Product Title",
@@ -24,7 +24,7 @@ const product: Product = {
   price: 443,
 };
 
-const product2: Product = {
+const product2: ProductDetails = {
   productId: 2344,
   images: [
     image.src,
@@ -46,7 +46,7 @@ const product2: Product = {
 };
 
 // TODO  make it React Action
-export function getProduct(productId: number): Product {
+export function getProduct(productId: number): ProductDetails {
   return product2;
 }
 
