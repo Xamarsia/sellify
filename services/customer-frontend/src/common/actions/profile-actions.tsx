@@ -1,5 +1,8 @@
 import { SidebarItemInfo } from "@sellify/common-ui-components/types";
-import { ContactInfo, DeliveryAddress } from "@sellify/customer-ui-components/types";
+import {
+  ContactInfo,
+  DeliveryAddress,
+} from "@sellify/customer-ui-components/types";
 
 export function getSidebarItems(): Array<SidebarItemInfo> {
   const items: Array<SidebarItemInfo> = [
@@ -11,13 +14,11 @@ export function getSidebarItems(): Array<SidebarItemInfo> {
   return items;
 }
 
-export function updateDefaultContactInfo(contactInfo: ContactInfo): void {
+export function updateDefaultContactInfo(contactInfo: ContactInfo): void {}
 
-}
-
-export function updateDefaultDeliveryAddress(deliveryAddress: DeliveryAddress): void {
-
-}
+export function updateDefaultDeliveryAddress(
+  deliveryAddress: DeliveryAddress,
+): void {}
 
 export function getDefaultContactInfo(): ContactInfo | undefined {
   const contactInfo: ContactInfo = {

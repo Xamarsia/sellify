@@ -23,7 +23,9 @@ export default function ProductFeedContent({ productLabel }: Props) {
   const [page, setPage] = useState<number>(1);
   const [selectedKey, setSelectedKey] = useState<string>();
 
-  const { openProductAddedDialog } = useContext<DialogContext>(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext<DialogContext>(
+    ProductAddedDialogContext,
+  );
 
   const onPageChanged = useCallback((newPage: number): void => {
     setPage(newPage);

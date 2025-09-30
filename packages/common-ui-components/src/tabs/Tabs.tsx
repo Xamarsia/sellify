@@ -22,7 +22,10 @@ export default function Tabs({ items, pathname }: TabsProps) {
         ))}
       </nav>
       {items.map((item, index) => (
-        <div key={"TabContent" + index} className={`w-full py-6 ${pathname === item.href ? " " : "hidden"} `}>
+        <div
+          key={"TabContent" + index}
+          className={`w-full py-6 ${pathname === item.href ? " " : "hidden"} `}
+        >
           {item.content}
         </div>
       ))}

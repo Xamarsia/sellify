@@ -17,7 +17,6 @@ export default function ProgressBar({
   currentStep,
   onStepClick,
 }: ProgressBarProps) {
-
   return (
     <nav className="w-full flex justify-between items-top h-16 ">
       {steps.map(({ step, title, icon }, index) => {

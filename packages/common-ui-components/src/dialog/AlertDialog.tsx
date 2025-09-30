@@ -31,14 +31,12 @@ export default function AlertDialog({
         {/* Body */}
         <div className="grow flex flex-col justify-between gap-4">
           <h2 className="text-justify wrap-break-word self-center">{title}</h2>
-          {description && <p className="text-justify wrap-break-word">
-            {description}
-          </p>}
+          {description && (
+            <p className="text-justify wrap-break-word">{description}</p>
+          )}
         </div>
         {/* Control Panel */}
-        <div className="flex justify-between gap-6">
-          {controlPanel}
-        </div>
+        <div className="flex justify-between gap-6">{controlPanel}</div>
       </div>
     </DialogBase>
   );

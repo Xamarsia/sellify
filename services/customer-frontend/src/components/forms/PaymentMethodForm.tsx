@@ -13,15 +13,18 @@ import { getPaymentProviders } from "common/actions/order-actions";
 
 type PaymentMethodProps = {
   currentMethod: PaymentProviderType;
-  onPaymentMethodChange: (provider: PaymentProviderType, isValid: boolean) => void;
+  onPaymentMethodChange: (
+    provider: PaymentProviderType,
+    isValid: boolean,
+  ) => void;
 };
 
 export default function PaymentMethodForm({
   currentMethod,
   onPaymentMethodChange,
 }: PaymentMethodProps) {
-
-  const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> = getPaymentProviders();
+  const paymentMethods: Map<PaymentProviderType, PaymentMethodInfo> =
+    getPaymentProviders();
 
   const getPaymentProvider = useCallback(
     (value: string): PaymentProviderType => {
@@ -35,13 +38,20 @@ export default function PaymentMethodForm({
         default:
           return PaymentProvider.Balance;
       }
-    }, []);
+    },
+    [],
+  );
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
-    const paymentProvider: PaymentProviderType = getPaymentProvider(e.target.value);
-    //TODO Add Validation function here
-    onPaymentMethodChange(paymentProvider, false);
-  }, [onPaymentMethodChange]);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const paymentProvider: PaymentProviderType = getPaymentProvider(
+        e.target.value,
+      );
+      //TODO Add Validation function here
+      onPaymentMethodChange(paymentProvider, false);
+    },
+    [onPaymentMethodChange],
+  );
 
   return (
     <div className="flex w-full flex-col">

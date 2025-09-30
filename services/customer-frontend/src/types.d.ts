@@ -12,7 +12,7 @@ export type AlertDialogContent = {
   icon: ReactNode;
   description?: string;
   controlPanel: ReactNode;
-}
+};
 
 export type DialogContext = {
   openProductAddedDialog: (cartItem: CartItem) => void;

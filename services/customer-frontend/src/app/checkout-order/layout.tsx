@@ -3,18 +3,13 @@ import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import CheckoutLayout from "components/CheckoutLayout";
 import CheckoutProgressBar from "components/CheckoutProgressBar";
 
-
 export default async function OrderCheckoutLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   return (
-    <CheckoutLayout>
-      {children}
-    </CheckoutLayout>
-
+    <CheckoutLayout>{children}</CheckoutLayout>
 
     // <div className="flex w-full flex-col gap-9 ">
     //   <h1>Shipping Details</h1>
@@ -32,5 +27,5 @@ export default async function OrderCheckoutLayout({
     //     </div>
     //   </div>
     // </div>
-  )
+  );
 }

@@ -27,23 +27,28 @@ export default function ProductPageContent({ product }: Props) {
   const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
 
   useEffect(() => {
-    window.addEventListener('hashchange', () => setHash(window.location.hash));
+    window.addEventListener("hashchange", () => setHash(window.location.hash));
     return () => {
-      window.removeEventListener('hashchange', () => setHash(window.location.hash));
+      window.removeEventListener("hashchange", () =>
+        setHash(window.location.hash),
+      );
     };
   }, [hash]);
 
-  const handleAddToCartClick = useCallback((product: ProductDetailsType): void => {
-    const preview: ProductPreview = {
-      productId: product.productId,
-      title: product.title,
-      image: product.images[0],
-      hoveredImage: product.images[1],
-      price: product.price,
-    };
-    const cartItem: CartItem = addToCart(preview);
-    openProductAddedDialog(cartItem);
-  }, []);
+  const handleAddToCartClick = useCallback(
+    (product: ProductDetailsType): void => {
+      const preview: ProductPreview = {
+        productId: product.productId,
+        title: product.title,
+        image: product.images[0],
+        hoveredImage: product.images[1],
+        price: product.price,
+      };
+      const cartItem: CartItem = addToCart(preview);
+      openProductAddedDialog(cartItem);
+    },
+    [],
+  );
 
   return (
     <div className="flex flex-col gap-9">

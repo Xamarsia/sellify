@@ -115,7 +115,11 @@ export default function Home() {
 
         <Section title={"Progress Bar"}>
           <SectionItem>
-            <ProgressBar steps={barItems} currentStep={currentStep} onStepClick={setCurrentStep} />
+            <ProgressBar
+              steps={barItems}
+              currentStep={currentStep}
+              onStepClick={setCurrentStep}
+            />
           </SectionItem>
         </Section>
 
@@ -152,7 +156,11 @@ export default function Home() {
 
         <Section title={"Order Subtotal Card"}>
           <SectionItem>
-            <OrderSubtotal itemsSubtotal={345} deliveryFee={5} totalPrice={350} />
+            <OrderSubtotal
+              itemsSubtotal={345}
+              deliveryFee={5}
+              totalPrice={350}
+            />
           </SectionItem>
         </Section>
       </main>

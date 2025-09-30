@@ -14,7 +14,6 @@ import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
 import { CartContext, SearchContext } from "types";
 
-
 export default function Header() {
   const { openCartPanel } = useContext<CartContext>(CartPanelContext);
   const { openSearchPanel } = useContext<SearchContext>(SearchPanelContext);

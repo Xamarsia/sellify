@@ -143,5 +143,4 @@ export function getDeliveryFee(): number {
   return 134;
 }
 
-export function order(orderRequest: OrderRequest): void {
-}
+export function order(orderRequest: OrderRequest): void {}

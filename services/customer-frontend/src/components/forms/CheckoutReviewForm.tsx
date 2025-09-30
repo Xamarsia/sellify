@@ -5,7 +5,11 @@ import { PaymentProvider } from "@sellify/common-ui-components/types";
 
 import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
 import OrderProductsTableFinal from "@sellify/customer-ui-components/table/OrderProductsTableFinal";
-import { CartItem, ContactInfo, DeliveryAddress } from "@sellify/customer-ui-components/types";
+import {
+  CartItem,
+  ContactInfo,
+  DeliveryAddress,
+} from "@sellify/customer-ui-components/types";
 
 import { getPaymentMethodInfo } from "common/actions/order-actions";
 
@@ -20,9 +24,8 @@ export default function CheckoutReviewForm({
   contactInfo,
   deliveryAddress,
   paymentProvider,
-  cartItems
+  cartItems,
 }: ContactInfoProps) {
-
   return (
     <>
       <FormSection title="Shipping Info">

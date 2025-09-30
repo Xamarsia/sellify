@@ -15,7 +15,7 @@ type Props = {
 
 export default function ProductDetails({ product, onAddProductToCart }: Props) {
   const [quantity, setQuantity] = useState<number>(1);
-  
+
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(product);
   }, [onAddProductToCart]);

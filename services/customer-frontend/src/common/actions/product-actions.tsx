@@ -52,9 +52,9 @@ export function getProduct(productId: number): ProductDetails {
 
 export function getProductOverviewTabs(): Array<TabItemInfo> {
   const tabs: Array<TabItemInfo> = [
-    { href: "#description", title: "Description", content: (<p>Description</p>) },
-    { href: "#care", title: "Care", content: (<p>Care</p>)  }, // Light, Watering, Humidity
-    { href: "#pot", title: "Pot details", content: (<p>Pot details</p>)  },
+    { href: "#description", title: "Description", content: <p>Description</p> },
+    { href: "#care", title: "Care", content: <p>Care</p> }, // Light, Watering, Humidity
+    { href: "#pot", title: "Pot details", content: <p>Pot details</p> },
   ];
   return tabs;
 }

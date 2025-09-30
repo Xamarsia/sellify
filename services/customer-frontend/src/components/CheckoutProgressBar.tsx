@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useMemo } from "react";
 
@@ -46,5 +46,11 @@ export default function CheckoutProgressBar({
     return progressBarItems;
   }, []);
 
-  return <ProgressBar steps={barItems} currentStep={currentStep} onStepClick={onStepClick} />;
+  return (
+    <ProgressBar
+      steps={barItems}
+      currentStep={currentStep}
+      onStepClick={onStepClick}
+    />
+  );
 }

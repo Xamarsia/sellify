@@ -20,7 +20,7 @@ export default function AlertDialogProvider({
   }, []);
 
   // TODO Implement onCheckout
-  const onCheckout = useCallback((): void => { }, []);
+  const onCheckout = useCallback((): void => {}, []);
 
   const contextValue: AlertContext = {
     openAlertDialog: (alertDialogContent) => {
