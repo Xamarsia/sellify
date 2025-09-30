@@ -4,7 +4,7 @@ type Props = {
 
 export default function ProductPreviewTableImage({ src }: Props) {
   return (
-    <div className="relative size-[76px] rounded-md shrink-0">
+    <div className="relative size-24 rounded-md shrink-0">
       <img
         src={src}
         alt="Product preview image"

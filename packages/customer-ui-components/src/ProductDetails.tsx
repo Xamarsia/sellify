@@ -6,15 +6,16 @@ import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductIma
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import CounterButton from "./CounterButton";
-import { Product } from "./types";
+import { ProductDetails as ProductDetailsType } from "./types";
 
 type Props = {
-  product: Product;
-  onAddProductToCart: (product: Product) => void;
+  product: ProductDetailsType;
+  onAddProductToCart: (product: ProductDetailsType) => void;
 };
 
 export default function ProductDetails({ product, onAddProductToCart }: Props) {
-  const [count, setCount] = useState<number>(1);
+  const [quantity, setQuantity] = useState<number>(1);
+  
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(product);
   }, [onAddProductToCart]);
@@ -25,14 +26,14 @@ export default function ProductDetails({ product, onAddProductToCart }: Props) {
       <div className="h-[536px] flex flex-col gap-8 h-full justify-between">
         <div className="flex flex-col gap-8 ">
           <h2 className="text-justify break-all">{product.title}</h2>
-          <p>${product.price}</p>
+          <p>${product.price.toFixed(2)}</p>
           <p>{product.category}</p>
           <p>{product.shortDescription}</p>
         </div>
         <div className="flex w-full gap-4 justify-between items-center">
           <CounterButton
-            count={count}
-            onCountChange={setCount}
+            count={quantity}
+            onCountChange={setQuantity}
             min={1}
             max={product.quantity}
           />

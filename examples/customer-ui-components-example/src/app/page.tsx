@@ -19,7 +19,7 @@ import Clipboard from "@sellify/common-icons/clipboard";
 import {
   CartItem as CartItemType,
   ProductPreview,
-  ProgressItemInfo,
+  ProgressStepInfo,
 } from "@sellify/customer-ui-components/types";
 
 import CartItem from "@sellify/customer-ui-components/cart/CartItem";
@@ -30,12 +30,13 @@ import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
-  const barItems: Array<ProgressItemInfo> = useMemo(() => {
-    const progressBarItems: Array<ProgressItemInfo> = [
-      { href: "/", title: "Delivery Info", icon: <HomeIcon /> },
-      { href: "/orders", title: "Payment Method", icon: <CreditCard /> },
-      { href: "/review", title: "Review", icon: <Clipboard /> },
+  const barItems: Array<ProgressStepInfo> = useMemo(() => {
+    const progressBarItems: Array<ProgressStepInfo> = [
+      { step: 0, title: "Delivery Info", icon: <HomeIcon /> },
+      { step: 1, title: "Payment Method", icon: <CreditCard /> },
+      { step: 2, title: "Review", icon: <Clipboard /> },
     ];
     return progressBarItems;
   }, []);
@@ -114,7 +115,7 @@ export default function Home() {
 
         <Section title={"Progress Bar"}>
           <SectionItem>
-            <ProgressBar barItems={barItems} currentPathname={"/"} />
+            <ProgressBar steps={barItems} currentStep={currentStep} onStepClick={setCurrentStep} />
           </SectionItem>
         </Section>
 
@@ -151,7 +152,7 @@ export default function Home() {
 
         <Section title={"Order Subtotal Card"}>
           <SectionItem>
-            <OrderSubtotal itemsSubtotal={345} deliveryCharge={5} />
+            <OrderSubtotal itemsSubtotal={345} deliveryFee={5} totalPrice={350} />
           </SectionItem>
         </Section>
       </main>

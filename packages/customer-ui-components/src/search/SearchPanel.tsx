@@ -8,14 +8,14 @@ import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
 
 import SearchItem from "./SearchItem";
 import SidePanel from "../SidePanel";
-import { SearchItem as SearchItemType, SearchNavigationItem } from "../types";
+import { SearchItem as SearchItemType, NavigationLink } from "../types";
 
 type SearchPanelProps = {
   query: string;
   dialogOpen: boolean;
   onDialogClose: () => void;
   onSearch: (query: string) => Array<SearchItemType>;
-  popularQuickLinks: Array<SearchNavigationItem>;
+  popularQuickLinks: Array<NavigationLink>;
 };
 
 export default function SearchPanel({

@@ -1,7 +1,7 @@
-import { Order } from "../types";
+import { OrderDetails } from "../types";
 
 type DeliveryInfoProps = {
-  order: Order;
+  order: OrderDetails;
 };
 
 export default function DeliveryInfo({ order }: DeliveryInfoProps) {
@@ -9,7 +9,7 @@ export default function DeliveryInfo({ order }: DeliveryInfoProps) {
     <div className="flex flex-col w-full gap-4">
       <p>{`Tracking ID: ${order.trackingDeliveryId}`}</p>
       <p>{`Estimated delivery date: ${order.deliveryDate}`}</p>
-      <p>{`Delivery charge: $${order.deliveryCharge}`}</p>
+      <p>{`Delivery charge: $${order.deliveryFee}`}</p>
     </div>
   );
 }

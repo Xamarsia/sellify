@@ -9,7 +9,7 @@ type Props = {
   content: Array<CartItem>;
 };
 
-export default function OrderProductsTable({ content }: Props) {
+export default function OrderProductsTableFinal({ content }: Props) {
   const tableHeader: Array<string> = [
     "Product",
     "Price",

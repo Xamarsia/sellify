@@ -1,9 +1,9 @@
-import { Order } from "../types";
+import { OrderDetails } from "../types";
 
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 
 type OrderInfoProps = {
-  order: Order;
+  order: OrderDetails;
 };
 
 export default function OrderInfo({ order }: OrderInfoProps) {

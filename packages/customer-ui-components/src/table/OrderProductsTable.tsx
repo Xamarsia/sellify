@@ -30,9 +30,9 @@ export default function OrderProductsTable({
 
   const getContentArray = useMemo((): Array<Array<ReactNode>> => {
     return content.map((item) => [
-      <div className="flex gap-4 items-center shrink-0">
+      <div className="flex gap-4 items-center">
         <ProductTableImage src={item.product.image} />
-        <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3 min-w-40 max-w-96">
+        <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3 min-w-20 max-w-96">
           {item.product.title}
         </h4>
       </div>,

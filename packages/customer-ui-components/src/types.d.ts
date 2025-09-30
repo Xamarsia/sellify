@@ -3,18 +3,18 @@ import {
   ShippingProvider,
 } from "@sellify/common-ui-components/types";
 
-export type ProgressItemInfo = {
-  href: string;
+export type ProgressStepInfo = {
+  step: number;
   title: string;
   icon: ReactNode;
 };
 
-export type SearchNavigationItem = {
+export type NavigationLink = {
   href: string;
   title: string;
 };
 
-export type Product = {
+export type ProductDetails = {
   productId: number;
   images: string[];
   title: string;
@@ -33,7 +33,7 @@ export type OrderPreview = {
   status: OrderStatus;
 };
 
-export type Order = {
+export type OrderDetails = {
   orderId: number;
   customerId: number;
   status: OrderStatus;
@@ -43,12 +43,22 @@ export type Order = {
   deliveryAddress: DeliveryAddress;
   paymentProvider: PaymentProvider;
   products: Array<CartItem>;
-  deliveryCharge: number;
+  deliveryFee: number;
   deliveryProvider?: DeliveryProvider;
   trackingDeliveryId?: string;
   deliveryDate?: string;
   itemsSubtotal: number;
-  grandTotal: number;
+  totalPrice: number;
+};
+
+export type OrderRequest = {
+  contactInfo: ContactInfo;
+  deliveryAddress: DeliveryAddress;
+  paymentProvider: PaymentProvider;
+  products: Array<CartItem>;
+  deliveryFee: number;
+  itemsSubtotal: number;
+  totalPrice: number;
 };
 
 // export type Order = {
