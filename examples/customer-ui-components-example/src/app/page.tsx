@@ -24,7 +24,6 @@ import {
 
 import CartItem from "@sellify/customer-ui-components/cart/CartItem";
 import CounterButton from "@sellify/customer-ui-components/CounterButton";
-import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
 
@@ -148,18 +147,6 @@ export default function Home() {
                 productPreview2,
                 productPreview3,
               ]}
-            />
-          </SectionItem>
-        </Section>
-
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Order Subtotal Card"}>
-          <SectionItem>
-            <OrderSubtotal
-              itemsSubtotal={345}
-              deliveryFee={5}
-              totalPrice={350}
             />
           </SectionItem>
         </Section>

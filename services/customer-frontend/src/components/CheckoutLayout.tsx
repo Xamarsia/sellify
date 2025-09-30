@@ -6,10 +6,10 @@ import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import FormSection from "@sellify/common-ui-components/FormSection";
+import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import { PaymentProvider } from "@sellify/common-ui-components/constants";
 import { PaymentProvider as PaymentProviderType } from "@sellify/common-ui-components/types";
 
-import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 import OrderProductsTable from "@sellify/customer-ui-components/table/OrderProductsTable";
 import {
   CartItem,

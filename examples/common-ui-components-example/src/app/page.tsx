@@ -21,6 +21,7 @@ import Radio from "@sellify/common-ui-components/input/Radio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
+import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 
 import Section from "../components/Section";
 import SectionItem from "../components/SectionItem";
@@ -400,6 +401,17 @@ export default function Home() {
         <Section title={"Pagination"}>
           <SectionItem>
             <PagesExample />
+          </SectionItem>
+        </Section>
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Order Subtotal Card"}>
+          <SectionItem>
+            <OrderSubtotal
+              itemsSubtotal={345}
+              deliveryFee={5}
+              totalPrice={350}
+            />
           </SectionItem>
         </Section>
       </main>
