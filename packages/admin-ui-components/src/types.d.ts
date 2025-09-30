@@ -6,12 +6,6 @@ import {
 export type AdminStatus = "ACTIVE" | "INVITED" | "DISABLED";
 export type CustomerStatus = "ACTIVE" | "ARCHIVED";
 
-export type ProgressItemInfo = {
-  href: string;
-  title: string;
-  icon: ReactNode;
-};
-
 export type Order = {
   orderId: number;
   date: string;
