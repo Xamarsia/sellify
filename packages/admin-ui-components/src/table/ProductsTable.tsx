@@ -20,7 +20,7 @@ export default function ProductsTable({ content }: Props) {
     "Price",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((product) => [
       <div className="flex gap-4 items-center">
         <ProductPreviewImage src={product.image} />

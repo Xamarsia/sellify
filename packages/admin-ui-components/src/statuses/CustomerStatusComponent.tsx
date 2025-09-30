@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function CustomerStatusComponent({ status }: Props) {
-  const color = useMemo(() => {
+  const color = useMemo<string>(() => {
     switch (status) {
       case CustomerStatus.Active:
         return "text-[#279F51]";
@@ -18,7 +18,7 @@ export default function CustomerStatusComponent({ status }: Props) {
     }
   }, [status]);
 
-  const valueLabel = useMemo(() => {
+  const valueLabel = useMemo<string>(() => {
     switch (status) {
       case CustomerStatus.Active:
         return "Active";

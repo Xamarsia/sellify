@@ -20,7 +20,7 @@ export default function InventoryTable({ disabled, content, onSubmit }: Props) {
     "Actions",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((inventory) => [
       <div className="flex gap-4 items-center">
         <ProductPreviewImage src={inventory.image} />

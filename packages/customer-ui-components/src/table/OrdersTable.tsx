@@ -17,7 +17,7 @@ export default function OrdersTable({ content }: Props) {
     "Total",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
       <h4 key={"orderid" + order.orderId}>{"#" + order.orderId}</h4>,
       <OrderStatusComponent status={order.status} />,

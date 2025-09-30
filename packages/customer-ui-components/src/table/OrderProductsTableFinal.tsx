@@ -17,7 +17,7 @@ export default function OrderProductsTableFinal({ content }: Props) {
     "Subtotal",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <div className="flex gap-4 items-center shrink-0">
         <ProductTableImage src={item.product.image} />

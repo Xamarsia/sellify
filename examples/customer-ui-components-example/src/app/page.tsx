@@ -31,7 +31,7 @@ export default function Home() {
   const [count, setCount] = useState<number>(1);
   const [currentStep, setCurrentStep] = useState<number>(1);
 
-  const barItems: Array<ProgressStepInfo> = useMemo(() => {
+  const barItems = useMemo<Array<ProgressStepInfo>>(() => {
     const progressBarItems: Array<ProgressStepInfo> = [
       { step: 0, title: "Delivery Info", icon: <HomeIcon /> },
       { step: 1, title: "Payment Method", icon: <CreditCard /> },

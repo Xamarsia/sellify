@@ -10,7 +10,7 @@ type Props = {
 export default function CategoriesTable({ content }: Props) {
   const tableHeader: Array<string> = ["Category", "Related products"];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((category) => [
       <p>{category.title}</p>,
       <p>

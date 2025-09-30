@@ -18,7 +18,7 @@ export default function CustomersTable({ content }: Props) {
     "Status",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((customer) => [
       <h4>{"#" + customer.customerId}</h4>,
       <p>{customer.name}</p>,

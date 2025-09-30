@@ -17,7 +17,7 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
     Neutral,
   }
 
-  const trend = useMemo((): Trend => {
+  const trend = useMemo<Trend>(() => {
     if (trendValue > 0) {
       return Trend.Positive;
     } else if (trendValue < 0) {
@@ -26,7 +26,7 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
     return Trend.Neutral;
   }, [trendValue]);
 
-  const trendColor = useMemo((): string => {
+  const trendColor = useMemo<string>(() => {
     switch (trend) {
       case Trend.Positive:
         return "text-[#279F51]";
@@ -37,7 +37,7 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
     }
   }, [trend]);
 
-  const chart = useMemo((): ReactNode => {
+  const chart = useMemo<ReactNode>(() => {
     switch (trend) {
       case Trend.Positive:
         return <PositiveChart />;
@@ -48,7 +48,7 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
     }
   }, [trend]);
 
-  const valueLabel = useMemo((): string => {
+  const valueLabel = useMemo<string>(() => {
     switch (trend) {
       case Trend.Positive:
         return "+" + trendValue + "%";

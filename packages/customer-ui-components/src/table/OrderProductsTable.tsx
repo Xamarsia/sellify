@@ -28,7 +28,7 @@ export default function OrderProductsTable({
     "Actions",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <div className="flex gap-4 items-center">
         <ProductTableImage src={item.product.image} />

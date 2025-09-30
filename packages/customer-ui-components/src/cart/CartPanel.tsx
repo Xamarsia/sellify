@@ -21,7 +21,7 @@ export default function CartPanel({
   onDialogClose,
   onItemRemove,
 }: DialogProps) {
-  const totalPrice = useMemo((): number => {
+  const totalPrice = useMemo<number>(() => {
     return cartItems.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.product.price * currentValue.amount;
     }, 0);
