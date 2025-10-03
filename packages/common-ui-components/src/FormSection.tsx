@@ -9,9 +9,11 @@ type FormSectionProps = {
 
 export default function FormSection({ title, children }: FormSectionProps) {
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col gap-4">
       <h3>{title}</h3>
-      <div className="flex grow items-start py-9 ">{children}</div>
+      <div className="flex grow items-start flex-col gap-4">
+        {children}
+      </div>
     </div>
   );
 }

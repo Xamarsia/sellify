@@ -1,7 +1,8 @@
 import "server-only";
 
+import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+
 import { OrderDetails } from "@sellify/customer-ui-components/types";
-import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
 
 import { getOrder } from "common/actions/order-actions";
 import OrderContentSections from "components/OrderContentSections";

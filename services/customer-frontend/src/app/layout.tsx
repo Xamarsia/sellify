@@ -39,7 +39,7 @@ export default function RootLayout({
           <SearchPanelProvider>
             <CartPanelProvider>
               <Header />
-              <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
+              <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pt-14 pb-16 max-w-7xl">
                 <ProductAddedDialogProvider>
                   {children}
                 </ProductAddedDialogProvider>

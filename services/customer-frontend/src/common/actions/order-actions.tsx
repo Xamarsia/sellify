@@ -96,9 +96,7 @@ export function getPaymentProviders(): Map<
 }
 
 const contactInfo: ContactInfo = {
-  firstName: "Robert",
-  lastName: "Fox",
-  email: "robertfox@example.com",
+  fullName: "Robert Fox",
   phoneNumber: "+1 (416) 555-0123",
 };
 

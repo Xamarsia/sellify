@@ -14,9 +14,9 @@ export default function SettingsSection({
   children,
 }: SettingsSectionProps) {
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col gap-4">
       <h3>{title}</h3>
-      <div className="flex grow justify-between items-start gap-16 py-9 ">
+      <div className="flex grow justify-between items-start gap-16 ">
         <p className="flex w-7/9">{description}</p>
         <div className="flex w-2/9 justify-center">{children}</div>
       </div>

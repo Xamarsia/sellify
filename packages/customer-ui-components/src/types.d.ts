@@ -111,10 +111,8 @@ export type CartItem = {
 };
 
 export type ContactInfo = {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   phoneNumber: string;
-  email: string;
 };
 
 export type DeliveryAddress = {

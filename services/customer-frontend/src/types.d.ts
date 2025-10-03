@@ -29,3 +29,9 @@ export type SearchContext = {
 export type AlertContext = {
   openAlertDialog: (content: AlertDialogContent) => void;
 };
+
+
+export type EditProfileRequest = {
+  contactInfo: ContactInfo;
+  deliveryAddress: DeliveryAddress;
+};

@@ -1,30 +1,18 @@
-import { SidebarItemInfo } from "@sellify/common-ui-components/types";
 import {
   ContactInfo,
   DeliveryAddress,
 } from "@sellify/customer-ui-components/types";
+import { EditProfileRequest } from "types";
 
-export function getSidebarItems(): Array<SidebarItemInfo> {
-  const items: Array<SidebarItemInfo> = [
-    { href: "/profile/", title: "Profile" },
-    { href: "/profile/orders", title: "Order History" },
-    // { href: "/profile/wishlist", title: "Wishlist" },
-    { href: "/profile/settings", title: "Settings" },
-  ];
-  return items;
-}
-
-export function updateDefaultContactInfo(contactInfo: ContactInfo): void {}
+export function updateDefaultContactInfo(contactInfo: ContactInfo): void { }
 
 export function updateDefaultDeliveryAddress(
   deliveryAddress: DeliveryAddress,
-): void {}
+): void { }
 
 export function getDefaultContactInfo(): ContactInfo | undefined {
   const contactInfo: ContactInfo = {
-    firstName: "Robert",
-    lastName: "Fox",
-    email: "robertfox@example.com",
+    fullName: "Robert Fox",
     phoneNumber: "+1 (416) 555-0123",
   };
   return contactInfo;
@@ -45,4 +33,12 @@ export function getAvailableCountries(): Map<string, string> {
     ["ukraine", "Ukraine"],
   ]);
   return countries;
+}
+
+export function deleteUserAccount(): void {
+
+}
+
+export function editProfile(editProfileRequest: EditProfileRequest): void {
+
 }

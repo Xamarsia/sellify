@@ -20,42 +20,22 @@ export default function ContactInfoForm({
   contactInfo,
   onChange,
 }: ContactInfoProps) {
-  const [firstName, setFirstName] = useState<string>(
-    contactInfo?.firstName ?? "",
-  );
-  const [lastName, setLastName] = useState<string>(contactInfo?.lastName ?? "");
-  const [phoneNumber, setPhoneNumber] = useState<string>(
-    contactInfo?.phoneNumber ?? "",
-  );
-  const [email, setEmail] = useState<string>(contactInfo?.email ?? "");
+  const [fullName, setFullName] = useState<string>(contactInfo?.fullName ?? "");
+  const [phoneNumber, setPhoneNumber] = useState<string>(contactInfo?.phoneNumber ?? "");
   const [useAsDefault, setUseAsDefault] = useState<boolean>(false);
 
-  const onFirstNameChange = useCallback(
+  const onFullNameChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
-      setFirstName(e.target.value);
+      setFullName(e.target.value);
     },
-    [setFirstName],
-  );
-
-  const onLastNameChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setLastName(e.target.value);
-    },
-    [setLastName],
+    [setFullName],
   );
 
   const onPhoneNumberChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       setPhoneNumber(e.target.value);
     },
-    [email],
-  );
-
-  const onEmailChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setEmail(e.target.value);
-    },
-    [setEmail],
+    [setPhoneNumber],
   );
 
   const onUseAsDefaultChange = useCallback(
@@ -68,45 +48,31 @@ export default function ContactInfoForm({
   const onContactInfoFormChange = useCallback(
     (e: FormEvent<HTMLFormElement>): void => {
       const contactInfo: ContactInfo = {
-        firstName: firstName,
-        lastName: lastName,
+        fullName: fullName,
         phoneNumber: phoneNumber,
-        email: email,
       };
       //TODO Add Validation function here
       onChange(contactInfo, false, useAsDefault);
     },
-    [firstName, lastName, phoneNumber, email, onChange],
+    [fullName, phoneNumber, onChange],
   );
 
   return (
     <form
       onChange={onContactInfoFormChange}
-      className="flex flex-col w-full gap-5"
+      className="flex flex-col w-full gap-4"
     >
       <Input
-        value={firstName}
-        title="first name"
+        value={fullName}
+        title="full name"
         required
-        onChange={onFirstNameChange}
-      />
-      <Input
-        value={lastName}
-        title="last name"
-        required
-        onChange={onLastNameChange}
+        onChange={onFullNameChange}
       />
       <Input
         value={phoneNumber}
         title="phone number"
         required
         onChange={onPhoneNumberChange}
-      />
-      <Input
-        value={email}
-        title="email address"
-        required
-        onChange={onEmailChange}
       />
       <Checkbox
         label="Use as my default contact information"

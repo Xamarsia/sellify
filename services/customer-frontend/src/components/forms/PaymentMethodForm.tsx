@@ -54,18 +54,17 @@ export default function PaymentMethodForm({
   );
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col gap-8 pt-4">
       {Array.from(paymentMethods).map(([provider, info]) => {
         return (
-          <div className="border-b border-stroke py-8" key={provider}>
-            <Radio
-              label={info.title}
-              value={provider}
-              checked={currentMethod == provider}
-              onChange={handleChange}
-              disabled={!info.isAvailable}
-            />
-          </div>
+          <Radio
+            key={provider}
+            label={info.title}
+            value={provider}
+            checked={currentMethod == provider}
+            onChange={handleChange}
+            disabled={!info.isAvailable}
+          />
         );
       })}
     </div>

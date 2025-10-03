@@ -269,7 +269,7 @@ export default function CheckoutPage() {
   }, [currentStepContent, currentStep]);
 
   return (
-    <div className="flex w-full flex-col gap-9 ">
+    <div className="flex w-full flex-col gap-12">
       <h1>{currentTitle}</h1>
       <div className="flex w-full justify-between gap-12 xl:gap-16 xl:flex-row flex-col">
         <div className="flex w-full flex-col gap-12 xl:gap-16">
@@ -277,11 +277,11 @@ export default function CheckoutPage() {
             currentStep={currentStep}
             onStepClick={setCurrentStep}
           />
-          <div className="flex w-full flex-col divide-y divide-stroke gap-6">
+          <div className="flex w-full flex-col gap-12" >
             {currentStepContent?.content}
           </div>
         </div>
-        <div className="xl:w-min">
+        <div className="xl:w-min" >
           <OrderSubtotal
             itemsSubtotal={itemsSubtotalPrice}
             totalPrice={totalPrice}

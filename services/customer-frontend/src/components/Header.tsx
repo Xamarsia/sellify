@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header
       className="fixed top-0 flex-shrink-0 flex items-center justify-between w-full 
-            border-y bg-white border-stroke h-20 z-20 px-12"
+            border-y bg-white border-stroke h-20 z-20 px-8 xl:px-12"
     >
       <p className="body">LOGO</p>
       <div className="flex gap-[36px] not-md:hidden">

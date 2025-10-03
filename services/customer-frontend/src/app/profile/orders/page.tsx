@@ -6,13 +6,13 @@ import { OrderPreview } from "@sellify/customer-ui-components/types";
 import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
-import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 
 import {
   filterOrdersHistory,
   getOrderHistory,
 } from "common/actions/order-actions";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 export default function OrdersHistoryPage() {
   const defaultOrdersPerPageAmount: string = "24";
@@ -56,7 +56,7 @@ export default function OrdersHistoryPage() {
 
   return (
     <div className="flex w-full flex-col items-end gap-6">
-      <div className="relative flex w-full justify-between items-start gap-4">
+      <div className="relative flex w-full justify-between items-start gap-4 ">
         <SearchInput value={query} onChange={onSearchChanged} />
         <div className="not-lg:hidden">
           <Dropdown
