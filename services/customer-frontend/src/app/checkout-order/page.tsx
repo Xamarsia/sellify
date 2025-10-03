@@ -43,7 +43,6 @@ import {
   updateDefaultDeliveryAddress,
 } from "common/actions/profile-actions";
 
-
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState<Array<CartItem>>(getCartItems());
   const [paymentProvider, setPaymentProvider] = useState<PaymentProviderType>(
@@ -277,11 +276,11 @@ export default function CheckoutPage() {
             currentStep={currentStep}
             onStepClick={setCurrentStep}
           />
-          <div className="flex w-full flex-col gap-12" >
+          <div className="flex w-full flex-col gap-12">
             {currentStepContent?.content}
           </div>
         </div>
-        <div className="xl:w-min" >
+        <div className="xl:w-min">
           <OrderSubtotal
             itemsSubtotal={itemsSubtotalPrice}
             totalPrice={totalPrice}

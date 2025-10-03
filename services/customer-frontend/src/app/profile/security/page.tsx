@@ -18,13 +18,18 @@ export default function SettingsPage() {
     const alertDialogContent: AlertDialogContent = {
       icon: <FireIcon />,
       title: "Delete Account",
-      description: "Are you sure you want to delete your account? This will delete your account, purchase history and all information connected to it.",
+      description:
+        "Are you sure you want to delete your account? This will delete your account, purchase history and all information connected to it.",
       controlPanel: (
         <>
           <Button variant="outline" fill="parent">
             Go Back
           </Button>
-          <Button variant="destructive" fill="parent" onClick={deleteUserAccount}>
+          <Button
+            variant="destructive"
+            fill="parent"
+            onClick={deleteUserAccount}
+          >
             Delete Account
           </Button>
         </>
@@ -36,7 +41,9 @@ export default function SettingsPage() {
   return (
     <div className="flex w-full flex-col gap-12">
       <SettingsSection title="Password" description="Reset password.">
-        <Button fill="parent" min-w-48 >Update</Button>
+        <Button fill="parent" min-w-48>
+          Update
+        </Button>
       </SettingsSection>
 
       <SettingsSection title="Email" description="Reset email.">
@@ -51,6 +58,6 @@ export default function SettingsPage() {
           Delete Account
         </Button>
       </SettingsSection>
-    </div >
+    </div>
   );
 }

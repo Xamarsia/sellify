@@ -5,8 +5,5 @@ export default function EditProfileLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  return (
-    <ProfileLayout>{children}</ProfileLayout>
-  );
+  return <ProfileLayout>{children}</ProfileLayout>;
 }

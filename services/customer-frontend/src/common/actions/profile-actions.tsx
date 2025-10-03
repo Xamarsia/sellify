@@ -4,11 +4,11 @@ import {
 } from "@sellify/customer-ui-components/types";
 import { EditProfileRequest } from "types";
 
-export function updateDefaultContactInfo(contactInfo: ContactInfo): void { }
+export function updateDefaultContactInfo(contactInfo: ContactInfo): void {}
 
 export function updateDefaultDeliveryAddress(
   deliveryAddress: DeliveryAddress,
-): void { }
+): void {}
 
 export function getDefaultContactInfo(): ContactInfo | undefined {
   const contactInfo: ContactInfo = {
@@ -35,10 +35,6 @@ export function getAvailableCountries(): Map<string, string> {
   return countries;
 }
 
-export function deleteUserAccount(): void {
+export function deleteUserAccount(): void {}
 
-}
-
-export function editProfile(editProfileRequest: EditProfileRequest): void {
-
-}
+export function editProfile(editProfileRequest: EditProfileRequest): void {}
