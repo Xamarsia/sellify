@@ -20,19 +20,18 @@ import { EditProfileRequest } from "types";
 export default function ProfilePage() {
   const [language, setLanguage] = useState<string>("english");
 
-  const [deliveryAddress, setDeliveryAddress] = useState<DeliveryAddress | undefined>(getDefaultDeliveryAddress());
-  const [contactInfo, setContactInfo] = useState<ContactInfo | undefined>(getDefaultContactInfo());
+  const availableCountries: Map<string, string> = getAvailableCountries();
+  const deliveryAddress: DeliveryAddress | undefined = getDefaultDeliveryAddress();
+  const contactInfo: ContactInfo | undefined = getDefaultContactInfo();
 
   const [isContactInfoValid, setIsContactInfoValid] = useState<boolean>(true);
   const [isDeliveryAddressValid, setIsDeliveryAddressValid] = useState<boolean>(true);
 
-  const availableCountries: Map<string, string> = getAvailableCountries();
   const [fullName, setFullName] = useState<string>(contactInfo?.fullName ?? "");
-  const [phoneNumber, setPhoneNumber] = useState<string>(contactInfo?.phoneNumber ?? "");
+  const [phoneNumber, setPhoneNumber] = useState<string>( contactInfo?.phoneNumber ?? "" );
 
-
-  const [country, setCountry] = useState<string>(deliveryAddress?.country ?? "");
-  const [address, setAddress] = useState<string>(deliveryAddress?.address ?? "");
+  const [country, setCountry] = useState<string>( deliveryAddress?.country ?? "" );
+  const [address, setAddress] = useState<string>( deliveryAddress?.address ?? "" );
 
   const onAddressChangeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -55,15 +54,11 @@ export default function ProfilePage() {
 
     const editProfileRequest: EditProfileRequest = {
       contactInfo: contactInfo,
-      deliveryAddress: deliveryAddress
-    }
+      deliveryAddress: deliveryAddress,
+    };
     //TODO Add Validation function here
     editProfile(editProfileRequest);
-
-  },
-    [fullName, phoneNumber],
-  );
-
+  }, [fullName, phoneNumber]);
 
   const onFullNameChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -140,7 +135,12 @@ export default function ProfilePage() {
 
       <div className="flex w-full justify-end">
         <div className="w-2/9">
-          <Button variant="default" fill="parent" disabled={!isContactInfoValid || !isDeliveryAddressValid}>
+          <Button
+            variant="default"
+            fill="parent"
+            onClick={onEditProfile}
+            disabled={!isContactInfoValid || !isDeliveryAddressValid}
+          >
             Edit Profile
           </Button>
         </div>

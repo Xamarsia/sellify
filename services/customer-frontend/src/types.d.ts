@@ -14,20 +14,31 @@ export type AlertDialogContent = {
   controlPanel: ReactNode;
 };
 
-export type DialogContext = {
+export type RiskDialogContent = {
+  title: string;
+  description?: string;
+  buttonActionTitle: string;
+  onPasswordConfirmed: (password: string) => void;
+};
+
+export type ProductAddedDialogController = {
   openProductAddedDialog: (cartItem: CartItem) => void;
 };
 
-export type CartContext = {
+export type CartPanelController = {
   openCartPanel: () => void;
 };
 
-export type SearchContext = {
+export type SearchPanelController = {
   openSearchPanel: () => void;
 };
 
-export type AlertContext = {
-  openAlertDialog: (content: AlertDialogContent) => void;
+export type AlertDialogController = {
+  showAlertDialog: (content: AlertDialogContent) => void;
+};
+
+export type RiskDialogController = {
+  showDangerAlertDialog: (content: RiskDialogContent) => void;
 };
 
 export type EditProfileRequest = {

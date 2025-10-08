@@ -4,7 +4,7 @@ import { ReactNode, useCallback, useState } from "react";
 
 import AlertDialog from "@sellify/common-ui-components/dialog/AlertDialog";
 
-import { AlertDialogContent, AlertContext } from "types";
+import { AlertDialogContent, AlertDialogController } from "types";
 import { AlertDialogContext } from "common/contexts/common-context";
 
 export default function AlertDialogProvider({
@@ -19,14 +19,11 @@ export default function AlertDialogProvider({
     setDialogOpened(false);
   }, []);
 
-  // TODO Implement onCheckout
-  const onCheckout = useCallback((): void => {}, []);
-
-  const contextValue: AlertContext = {
-    openAlertDialog: (alertDialogContent) => {
+  const contextValue: AlertDialogController = {
+    showAlertDialog: useCallback((alertDialogContent) => {
       setDialogOpened(true);
       setContent(alertDialogContent);
-    },
+    }, []),
   };
 
   return (

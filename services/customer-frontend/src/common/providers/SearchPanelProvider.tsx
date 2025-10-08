@@ -8,7 +8,7 @@ import {
 } from "@sellify/customer-ui-components/types";
 import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 
-import { SearchContext } from "types";
+import { SearchPanelController } from "types";
 import { SearchPanelContext } from "common/contexts/search-context";
 import { search } from "common/actions/search-actions";
 
@@ -29,7 +29,7 @@ export default function SearchPanelProvider({
     return search(query);
   }, []);
 
-  const contextValue: SearchContext = {
+  const contextValue: SearchPanelController = {
     openSearchPanel: () => {
       setSearchPanelOpened(true);
     },

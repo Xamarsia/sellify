@@ -19,7 +19,7 @@ import {
 } from "@sellify/customer-ui-components/types";
 
 import { CheckoutStep } from "enums";
-import { AlertContext, AlertDialogContent, ProgressBarContent } from "types";
+import { AlertDialogController, AlertDialogContent, ProgressBarContent } from "types";
 
 import CheckoutProgressBar from "components/CheckoutProgressBar";
 import CheckoutReviewForm from "components/forms/CheckoutReviewForm";
@@ -70,7 +70,8 @@ export default function CheckoutPage() {
     CheckoutStep.SELECTED_PRODUCTS,
   );
 
-  const { openAlertDialog } = useContext<AlertContext>(AlertDialogContext);
+  const { showAlertDialog } =
+    useContext<AlertDialogController>(AlertDialogContext);
 
   const itemsSubtotalPrice = useMemo<number>(() => {
     return cartItems.reduce((accumulator, currentValue) => {
@@ -119,7 +120,7 @@ export default function CheckoutPage() {
       ),
     };
 
-    openAlertDialog(alertDialogContent);
+    showAlertDialog(alertDialogContent);
   }, [
     contactInfo,
     deliveryAddress,

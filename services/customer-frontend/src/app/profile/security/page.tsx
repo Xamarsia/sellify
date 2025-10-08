@@ -2,52 +2,40 @@
 
 import { useCallback, useContext } from "react";
 
-import FireIcon from "@sellify/common-icons/fire";
-
 import Button from "@sellify/common-ui-components/buttons/Button";
 import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
 
-import { AlertContext, AlertDialogContent } from "types";
-import { AlertDialogContext } from "common/contexts/common-context";
+import { RiskDialogController, RiskDialogContent } from "types";
+import { RiskDialogContext } from "common/contexts/common-context";
 import { deleteUserAccount } from "common/actions/profile-actions";
 
 export default function SettingsPage() {
-  const { openAlertDialog } = useContext<AlertContext>(AlertDialogContext);
+  const { showDangerAlertDialog } =
+    useContext<RiskDialogController>(RiskDialogContext);
 
   const onDeleteAccount = useCallback((): void => {
-    const alertDialogContent: AlertDialogContent = {
-      icon: <FireIcon />,
+    const alertDialogContent: RiskDialogContent = {
       title: "Delete Account",
+      buttonActionTitle: "Delete Account",
       description:
         "Are you sure you want to delete your account? This will delete your account, purchase history and all information connected to it.",
-      controlPanel: (
-        <>
-          <Button variant="outline" fill="parent">
-            Go Back
-          </Button>
-          <Button
-            variant="destructive"
-            fill="parent"
-            onClick={deleteUserAccount}
-          >
-            Delete Account
-          </Button>
-        </>
-      ),
+      onPasswordConfirmed: deleteUserAccount,
     };
-    openAlertDialog(alertDialogContent);
-  }, [openAlertDialog]);
+    showDangerAlertDialog(alertDialogContent);
+  }, [showDangerAlertDialog]);
 
   return (
     <div className="flex w-full flex-col gap-12">
       <SettingsSection title="Password" description="Reset password.">
-        <Button fill="parent" min-w-48>
+        <Button fill="parent" >
           Update
         </Button>
       </SettingsSection>
 
       <SettingsSection title="Email" description="Reset email.">
-        <Button fill="parent">Update</Button>
+        <Button fill="parent">
+          Update
+        </Button>
       </SettingsSection>
 
       <SettingsSection
