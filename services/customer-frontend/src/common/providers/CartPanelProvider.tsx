@@ -5,7 +5,7 @@ import { ReactNode, useCallback, useState } from "react";
 import { CartItem } from "@sellify/customer-ui-components/types";
 import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
 
-import { CartContext } from "types";
+import { CartPanelController } from "types";
 import { CartPanelContext } from "common/contexts/cart-context";
 import { getCartItems, removeCartItem } from "common/actions/cart-actions";
 
@@ -21,7 +21,7 @@ export default function CartPanelProvider({
     setCartPanelOpened(false);
   }, []);
 
-  const contextValue: CartContext = {
+  const contextValue: CartPanelController = {
     openCartPanel: () => {
       setCartPanelOpened(true);
       setCartItems(cartItems);
