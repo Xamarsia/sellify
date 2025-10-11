@@ -41,6 +41,10 @@ export type RiskDialogController = {
   showDangerAlertDialog: (content: RiskDialogContent) => void;
 };
 
+export type NavbarDrawerController = {
+  openNavbarDrawer: (navItems: Array<NavMenuItem>) => void;
+};
+
 export type EditProfileRequest = {
   contactInfo: ContactInfo;
   deliveryAddress: DeliveryAddress;

@@ -4,7 +4,7 @@ export type PaymentProvider = "BALANCE" | "CARD" | "GOOGLE_PAY" | "PAYPAL";
 export type DeliveryProvider = "DHL" | "UPS" | "PUROLATOR";
 export type ProductLabel = "NEW" | "BESTSELLER" | "GIFT";
 
-export type SidebarItemInfo = {
+export type NavMenuItem = {
   href: string;
   title: string;
 };

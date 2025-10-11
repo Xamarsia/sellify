@@ -1,10 +1,10 @@
 "use client";
 
-import { SidebarItemInfo } from "../types";
+import { NavMenuItem } from "../types";
 import SidebarItem from "./SidebarItem";
 
 type Props = {
-  items: Array<SidebarItemInfo>;
+  items: Array<NavMenuItem>;
   pathname: string;
 };
 

@@ -18,7 +18,7 @@ export default function SidePanel({
   open,
   onClose,
   children,
-  side = "right"
+  side = "right",
 }: SidePanelProps) {
   const modal = useRef<HTMLDivElement>(null);
 

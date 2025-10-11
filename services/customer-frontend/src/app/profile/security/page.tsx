@@ -27,15 +27,11 @@ export default function SettingsPage() {
   return (
     <div className="flex w-full flex-col gap-12">
       <SettingsSection title="Password" description="Reset password.">
-        <Button fill="parent" >
-          Update
-        </Button>
+        <Button fill="parent">Update</Button>
       </SettingsSection>
 
       <SettingsSection title="Email" description="Reset email.">
-        <Button fill="parent">
-          Update
-        </Button>
+        <Button fill="parent">Update</Button>
       </SettingsSection>
 
       <SettingsSection

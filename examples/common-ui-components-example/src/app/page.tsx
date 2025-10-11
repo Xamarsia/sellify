@@ -5,10 +5,7 @@ import { ChangeEvent, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
 
-import {
-  SidebarItemInfo,
-  TabItemInfo,
-} from "@sellify/common-ui-components/types";
+import { NavMenuItem, TabItemInfo } from "@sellify/common-ui-components/types";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
@@ -81,7 +78,7 @@ export default function Home() {
     ["guava", "Guava"],
   ]);
 
-  const sidebarItem: Array<SidebarItemInfo> = [
+  const sidebarItem: Array<NavMenuItem> = [
     { href: "/", title: "Home" },
     { href: "/orders", title: "Orders" },
     { href: "/products", title: "Products" },
