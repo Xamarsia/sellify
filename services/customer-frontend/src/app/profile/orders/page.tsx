@@ -15,22 +15,12 @@ import {
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 export default function OrdersHistoryPage() {
-  const defaultOrdersPerPageAmount: string = "24";
   const oderHistory: Array<OrderPreview> = getOrderHistory();
 
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
   const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
-  const [ordersPerPageQuantity, setOrdersPerPageQuantity] = useState<string>(
-    defaultOrdersPerPageAmount,
-  );
-
-  const comboboxQuantityItems = new Map<string, string>([
-    ["24", "24 orders per page"],
-    ["50", "50 orders per page"],
-    ["60", "60 orders per page"],
-  ]);
 
   const comboboxSortItems = new Map<string, string>([
     ["newest", "Rank by newest date"],
@@ -50,22 +40,12 @@ export default function OrdersHistoryPage() {
       const query: string = e.target.value;
       setQuery(query);
       setOrders(query ? filterOrdersHistory(query) : oderHistory);
-    },
-    [],
-  );
+    }, []);
 
   return (
     <div className="flex w-full flex-col items-end gap-6">
-      <div className="relative flex w-full justify-between items-start gap-4 ">
+      <div className="relative flex w-full justify-between items-start gap-4">
         <SearchInput value={query} onChange={onSearchChanged} />
-        <div className="not-lg:hidden">
-          <Dropdown
-            title={"select orders amount per page"}
-            items={comboboxQuantityItems}
-            selectedKey={ordersPerPageQuantity}
-            onKeySelected={setOrdersPerPageQuantity}
-          />
-        </div>
         <Dropdown
           title={"sort by"}
           items={comboboxSortItems}
