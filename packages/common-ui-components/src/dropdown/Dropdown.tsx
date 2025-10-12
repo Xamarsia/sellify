@@ -30,7 +30,7 @@ export default function Dropdown({
   const getCurrentText = useCallback((): string => {
     if (selectedKey) {
       const selectedOptionText = items.get(selectedKey);
-      return selectedOptionText ? selectedOptionText : title;
+      return selectedOptionText ?? title;
     }
     return title;
   }, [selectedKey]);
