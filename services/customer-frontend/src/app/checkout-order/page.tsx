@@ -10,7 +10,8 @@ import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import { PaymentProvider } from "@sellify/common-ui-components/constants";
 import { PaymentProvider as PaymentProviderType } from "@sellify/common-ui-components/types";
 
-import OrderProductsTable from "@sellify/customer-ui-components/table/OrderProductsTable";
+import CheckoutProductsView from "@sellify/customer-ui-components/data-view/CheckoutProductsView";
+
 import {
   CartItem,
   ContactInfo,
@@ -179,7 +180,7 @@ export default function CheckoutPage() {
           isValid: cartItems.length > 0,
           content: (
             <FormSection title="Products List">
-              <OrderProductsTable
+              <CheckoutProductsView
                 content={cartItems}
                 onItemRemove={removeCartItem}
                 getProductMaxQuantity={getProductMaxQuantity}
