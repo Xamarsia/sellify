@@ -1,15 +1,14 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "@sellify/common-ui-components/table/Table";
-
 import { CartItem } from "../types";
-import ProductTableImage from "./ProductTableImage";
+import ProductImagePreview from "../product-preview/ProductImagePreview";
+import TableView from "@sellify/common-ui-components/view/TableView";
 
 type Props = {
   content: Array<CartItem>;
 };
 
-export default function OrderProductsTableFinal({ content }: Props) {
+export default function FinalProductsView({ content }: Props) {
   const tableHeader: Array<string> = [
     "Product",
     "Price",
@@ -20,7 +19,7 @@ export default function OrderProductsTableFinal({ content }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <div className="flex gap-4 items-center shrink-0">
-        <ProductTableImage src={item.product.image} />
+        <ProductImagePreview src={item.product.image} />
         <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3 min-w-40 max-w-96">
           {item.product.title}
         </h4>
@@ -31,5 +30,5 @@ export default function OrderProductsTableFinal({ content }: Props) {
     ]);
   }, [content]);
 
-  return <Table head={tableHeader} content={getContentArray} />;
+  return <TableView head={tableHeader} content={getContentArray} />;
 }

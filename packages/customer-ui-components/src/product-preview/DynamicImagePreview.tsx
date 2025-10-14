@@ -5,7 +5,7 @@ type Props = {
   hoveredSrc?: string;
 };
 
-export default function ProductPreviewImage({ src, hoveredSrc }: Props) {
+export default function DynamicImagePreview({ src, hoveredSrc }: Props) {
   const [imageSrc, setImageSrc] = useState<string>(src);
 
   const onMouseEnter = useCallback(

@@ -9,7 +9,7 @@ type Props = {
   onCartItemQuantityChanged: (cartItemId: number, quantity: number) => void;
 };
 
-export default function CounterButtonTableItem({
+export default function CartItemQuantitySelector({
   cartItem,
   getProductMaxQuantity,
   onCartItemQuantityChanged,

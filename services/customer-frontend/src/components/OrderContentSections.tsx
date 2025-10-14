@@ -8,7 +8,7 @@ import ShippingInfo from "@sellify/customer-ui-components/order-details/Shipping
 import DeliveryInfo from "@sellify/customer-ui-components/order-details/DeliveryInfo";
 import OrderInfo from "@sellify/customer-ui-components/order-details/OrderInfo";
 import PaymentInfo from "@sellify/customer-ui-components/order-details/PaymentInfo";
-import OrderProductsTableFinal from "@sellify/customer-ui-components/table/OrderProductsTableFinal";
+import FinalProductsView from "@sellify/customer-ui-components/data-view/FinalProductsView";
 
 import { getPaymentMethodInfo } from "common/actions/order-actions";
 
@@ -44,7 +44,7 @@ export default function OrderContentSections({ order }: Props) {
         </FormSection>
       )}
       <FormSection title="Products">
-        <OrderProductsTableFinal content={order.products} />
+        <FinalProductsView content={order.products} />
       </FormSection>
     </>
   );

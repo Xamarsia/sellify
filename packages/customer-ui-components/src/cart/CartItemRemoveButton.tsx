@@ -8,7 +8,7 @@ type Props = {
   onCartItemRemove: (cartItemId: number) => void;
 };
 
-export default function RemoveFromCartButton({
+export default function CartItemRemoveButton({
   cartItemId,
   onCartItemRemove,
 }: Props) {

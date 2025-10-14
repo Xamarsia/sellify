@@ -2,9 +2,8 @@ import { useCallback } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 
-import ProductPreviewImage from "./ProductPreviewImage";
-
 import { ProductPreview as ProductPreviewType } from "./../types";
+import DynamicImagePreview from "./DynamicImagePreview";
 
 type Props = {
   productPreview: ProductPreviewType;
@@ -22,7 +21,7 @@ export default function ProductPreview({
   return (
     <div className="flex flex-row md:flex-col body gap-4 md:gap-0 justify-between wrap-anywhere not-md:border-b border-stroke not-md:py-4">
       <div className="flex not-md:basis-64">
-        <ProductPreviewImage
+        <DynamicImagePreview
           src={productPreview.image}
           hoveredSrc={productPreview.hoveredImage}
         />

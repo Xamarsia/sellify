@@ -1,11 +1,11 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "@sellify/common-ui-components/table/Table";
+import TableView from "@sellify/common-ui-components/view/TableView";
 
 import { CartItem } from "../types";
-import ProductTableImage from "./ProductTableImage";
-import CounterButtonTableItem from "./CounterButtonTableItem";
-import RemoveFromCartButton from "./RemoveFromCartButton";
+import ProductImagePreview from "../product-preview/ProductImagePreview";
+import CartItemRemoveButton from "../cart/CartItemRemoveButton";
+import CartItemQuantitySelector from "../cart/CartItemQuantitySelector";
 
 type Props = {
   content: Array<CartItem>;
@@ -14,7 +14,7 @@ type Props = {
   onCartItemQuantityChanged: (cartItemId: number, quantity: number) => void;
 };
 
-export default function OrderProductsTable({
+export default function CheckoutProductsView({
   content,
   onItemRemove,
   getProductMaxQuantity,
@@ -31,24 +31,24 @@ export default function OrderProductsTable({
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <div className="flex gap-4 items-center">
-        <ProductTableImage src={item.product.image} />
+        <ProductImagePreview src={item.product.image} />
         <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3 min-w-20 max-w-96">
           {item.product.title}
         </h4>
       </div>,
       <p>{"$" + item.product.price}</p>,
-      <CounterButtonTableItem
+      <CartItemQuantitySelector
         cartItem={item}
         getProductMaxQuantity={getProductMaxQuantity}
         onCartItemQuantityChanged={onCartItemQuantityChanged}
       />,
       <p>{"$" + item.product.price * item.amount}</p>,
-      <RemoveFromCartButton
+      <CartItemRemoveButton
         cartItemId={item.cartItemId}
         onCartItemRemove={onItemRemove}
       />,
     ]);
   }, [content]);
 
-  return <Table head={tableHeader} content={getContentArray} />;
+  return <TableView head={tableHeader} content={getContentArray} />;
 }

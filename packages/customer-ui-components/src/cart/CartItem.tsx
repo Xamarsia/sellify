@@ -1,5 +1,5 @@
 import { CartItem } from "./../types";
-import RemoveFromCartButton from "../table/RemoveFromCartButton";
+import CartItemRemoveButton from "./CartItemRemoveButton";
 
 type Props = {
   cartItem: CartItem;
@@ -30,7 +30,7 @@ export default function CartItemComponent({ cartItem, onItemRemove }: Props) {
             <h4>$ {cartItem.product.price}</h4>
           </div>
         </div>
-        <RemoveFromCartButton
+        <CartItemRemoveButton
           cartItemId={cartItem.cartItemId}
           onCartItemRemove={onItemRemove}
         />

@@ -4,7 +4,8 @@ import FormSection from "@sellify/common-ui-components/FormSection";
 import { PaymentProvider } from "@sellify/common-ui-components/types";
 
 import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
-import OrderProductsTableFinal from "@sellify/customer-ui-components/table/OrderProductsTableFinal";
+import FinalProductsView from "@sellify/customer-ui-components/data-view/FinalProductsView";
+
 import {
   CartItem,
   ContactInfo,
@@ -40,7 +41,7 @@ export default function CheckoutReviewForm({
       </FormSection>
 
       <FormSection title="Products">
-        <OrderProductsTableFinal content={cartItems} />
+        <FinalProductsView content={cartItems} />
       </FormSection>
     </>
   );
