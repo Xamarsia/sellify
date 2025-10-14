@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "@sellify/common-ui-components/table/Table";
+import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 
 import { OrderPreview } from "../types";
@@ -9,7 +9,7 @@ type Props = {
   content: Array<OrderPreview>;
 };
 
-export default function OrdersTable({ content }: Props) {
+export default function OrdersView({ content }: Props) {
   const tableHeader: Array<string> = [
     "Order Number",
     "Status",
@@ -26,5 +26,5 @@ export default function OrdersTable({ content }: Props) {
     ]);
   }, [content]);
 
-  return <Table head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
 }

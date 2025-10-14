@@ -43,9 +43,7 @@ const selectedItem = useMemo<NavMenuItem>(() => {
         )}
       </button>
 
-      {isExtended && 
-        <Sidebar items={sidebarItems} pathname={pathname} />
-      }
+      {isExtended && <Sidebar items={sidebarItems} pathname={pathname} />}
     </div>
   );
 }

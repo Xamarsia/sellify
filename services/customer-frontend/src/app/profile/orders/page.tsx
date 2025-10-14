@@ -3,7 +3,7 @@
 import { ChangeEvent, useCallback, useState } from "react";
 
 import { OrderPreview } from "@sellify/customer-ui-components/types";
-import OrdersTable from "@sellify/customer-ui-components/table/OrdersTable";
+import OrdersView from "@sellify/customer-ui-components/data-view/OrdersView";
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
@@ -54,7 +54,7 @@ export default function OrdersHistoryPage() {
         />
       </div>
       <div className="flex w-full max-h-fit">
-        <OrdersTable content={orders} />
+        <OrdersView content={orders} />
       </div>
       <Pagination
         currentPage={page}
