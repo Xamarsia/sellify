@@ -22,7 +22,7 @@ export default function OrderContentSections({ order }: Props) {
   );
 
   return (
-    <>
+    <div className="flex w-full flex-col items-end gap-12">
       <FormSection title="Order Details">
         <OrderInfo order={order} />
       </FormSection>
@@ -46,6 +46,6 @@ export default function OrderContentSections({ order }: Props) {
       <FormSection title="Products">
         <FinalProductsView content={order.products} />
       </FormSection>
-    </>
+    </div>
   );
 }

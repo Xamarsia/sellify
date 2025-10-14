@@ -19,10 +19,7 @@ export default async function OrderPage({ params }: Props) {
     <div className="flex w-full flex-col gap-9 ">
       <h1>{`Order #${order.orderId}`}</h1>
       <div className="flex w-full justify-between gap-12 xl:gap-24 xl:flex-row flex-col">
-        <div className="flex w-full flex-col divide-y divide-stroke gap-6">
-          <OrderContentSections order={order} />
-        </div>
-
+        <OrderContentSections order={order} />
         <div className="xl:w-min">
           <OrderSubtotal
             itemsSubtotal={order.itemsSubtotal}
