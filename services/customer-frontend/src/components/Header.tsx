@@ -13,19 +13,13 @@ import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
-import {
-  CartPanelController,
-  NavbarDrawerController,
-  SearchPanelController,
-} from "types";
+import { CartPanelController, NavbarDrawerController, SearchPanelController} from "types";
 import { NavbarDrawerContext } from "common/contexts/common-context";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);
-  const { openSearchPanel } =
-    useContext<SearchPanelController>(SearchPanelContext);
-  const { openNavbarDrawer } =
-    useContext<NavbarDrawerController>(NavbarDrawerContext);
+  const { openSearchPanel } = useContext<SearchPanelController>(SearchPanelContext);
+  const { openNavbarDrawer } = useContext<NavbarDrawerController>(NavbarDrawerContext);
 
   const menuItem: Array<NavMenuItem> = [
     { href: "/home", title: "Home" },
