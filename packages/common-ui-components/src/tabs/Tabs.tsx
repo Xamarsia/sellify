@@ -5,10 +5,10 @@ import Tab from "./Tab";
 
 type TabsProps = {
   items: Array<TabItemInfo>;
-  pathname: string;
+  hash: string;
 };
 
-export default function Tabs({ items, pathname }: TabsProps) {
+export default function Tabs({ items, hash }: TabsProps) {
   return (
     <div className="w-full flex flex-col">
       <nav className="w-full flex flex-wrap border-b border-stroke">
@@ -17,14 +17,14 @@ export default function Tabs({ items, pathname }: TabsProps) {
             key={"TabHeader" + title}
             href={href}
             text={title}
-            selected={pathname == href}
+            selected={hash == href}
           />
         ))}
       </nav>
       {items.map((item, index) => (
         <div
           key={"TabContent" + index}
-          className={`w-full py-6 ${pathname === item.href ? " " : "hidden"} `}
+          className={`w-full py-6 ${hash === item.href ? " " : "hidden"} `}
         >
           {item.content}
         </div>

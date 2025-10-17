@@ -5,20 +5,16 @@ import Slide from "./SliderItem";
 
 type SliderProps = {
   images: Array<string>;
-  // selectedSlide: number;
-  // onSlideSelected: (index: number) => void;
 };
 
 export default function ProductImagesSlider({
   images,
-  // selectedSlide,
-  // onSlideSelected
 }: SliderProps) {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   return (
-    <div className="flex gap-3 h-[536px]">
-      <ul className="flex grow flex-col gap-1 shrink-0 overflow-x-hidden overflow-y-auto h-[520px] product-scrollbar">
+    <div className="flex gap-3 h-[536px] items-center">
+      <ul className="flex flex-col gap-1 shrink-0 overflow-x-hidden overflow-y-auto h-[528px] product-scrollbar">
         {images.map((image, index) => (
           <li key={image.toString() + index}>
             <Slide
