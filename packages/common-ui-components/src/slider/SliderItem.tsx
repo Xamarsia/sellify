@@ -7,7 +7,7 @@ type SlideProps = {
   onSlideSelected: (index: number) => void;
 };
 
-export default function Slide({
+export default function SliderItem({
   image,
   index,
   selected,

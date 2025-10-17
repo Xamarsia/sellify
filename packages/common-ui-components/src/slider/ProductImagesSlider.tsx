@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Slide from "./SliderItem";
+import SliderItem from "./SliderItem";
 
 type SliderProps = {
   images: Array<string>;
@@ -17,7 +17,7 @@ export default function ProductImagesSlider({
       <ul className="flex flex-col gap-1 shrink-0 overflow-x-hidden overflow-y-auto h-[528px] product-scrollbar">
         {images.map((image, index) => (
           <li key={image.toString() + index}>
-            <Slide
+            <SliderItem
               image={image}
               index={index}
               onSlideSelected={setCurrentSlide}
