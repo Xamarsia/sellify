@@ -13,8 +13,15 @@ export default function ProductImagesSlider({
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   return (
-    <div className="flex gap-3 h-[536px] items-center">
-      <ul className="flex flex-col gap-1 shrink-0 overflow-x-hidden overflow-y-auto h-[528px] product-scrollbar">
+    <div className="flex flex-col md:flex-row gap-2 md:gap-3 not-md:w-full lg:h-[536px] shrink-0">
+      <div className="flex md:order-2  ">
+        <img
+          src={images[currentSlide]}
+          alt="Product image"
+          className={`aspect-1/1 size-full object-cover rounded-md`}
+        />
+      </div>
+      <ul className="flex h-full flex-row md:flex-col md:shrink-0 gap-1 overflow-x-auto md:overflow-y-auto md:order-1 product-scrollbar">
         {images.map((image, index) => (
           <li key={image.toString() + index}>
             <SliderItem
@@ -26,14 +33,6 @@ export default function ProductImagesSlider({
           </li>
         ))}
       </ul>
-
-      <div className="flex size-[520px] aspect-square rounded-md shrink-0 my-2">
-        <img
-          src={images[currentSlide]}
-          alt="Product image"
-          className={`size-full object-cover rounded-md`}
-        />
-      </div>
     </div>
   );
 }

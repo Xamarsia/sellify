@@ -21,9 +21,9 @@ export default function ProductDetails({ product, onAddProductToCart }: Props) {
   }, [onAddProductToCart]);
 
   return (
-    <div className="flex gap-8">
+    <div className="flex gap-8 items-center flex-col lg:flex-row w-full">
       <ProductImagesSlider images={product.images} />
-      <div className="h-[536px] flex flex-col gap-8 h-full justify-between">
+      <div className="w-full flex flex-col gap-8 h-full justify-between">
         <div className="flex flex-col gap-8 ">
           <h2 className="text-justify break-all">{product.title}</h2>
           <p>${product.price.toFixed(2)}</p>

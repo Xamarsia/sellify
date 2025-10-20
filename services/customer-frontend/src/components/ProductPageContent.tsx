@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 import { TabItemInfo } from "@sellify/common-ui-components/types";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
@@ -21,19 +21,29 @@ type Props = {
 };
 
 export default function ProductPageContent({ product }: Props) {
-  const [hash, setHash] = useState(window.location.hash);
-
-  const tabs: Array<TabItemInfo> = getProductOverviewTabs();
+  const [tabs] = useState<Array<TabItemInfo>>(getProductOverviewTabs());
+  const [hash, setHash] = useState<string | undefined>();
   const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
 
   useEffect(() => {
-    window.addEventListener("hashchange", () => setHash(window.location.hash));
+    const onWindowHashChange = () => setHash(window.location.hash)
+
+    window.addEventListener('hashchange', onWindowHashChange)
+
     return () => {
-      window.removeEventListener("hashchange", () =>
-        setHash(window.location.hash),
-      );
-    };
-  }, [hash]);
+      window.removeEventListener('hashchange', onWindowHashChange)
+    }
+  }, [])
+
+  const validHash = useMemo<string>(() => {
+    if (!tabs[0]) {
+      return "#";
+    } else if (hash && tabs.find(tab => (tab.href == hash))) {
+      return hash;
+    }
+
+    return tabs[0].href;
+  }, [hash, tabs]);
 
   const handleAddToCartClick = useCallback(
     (product: ProductDetailsType): void => {
@@ -51,12 +61,14 @@ export default function ProductPageContent({ product }: Props) {
   );
 
   return (
-    <div className="flex flex-col gap-9">
+    <div className="flex flex-1 flex-col gap-12 w-full">
       <ProductDetails
         product={product}
         onAddProductToCart={handleAddToCartClick}
       />
-      <Tabs items={tabs} pathname={hash} />
+      {tabs.length != 0 &&
+        <Tabs items={tabs} hash={validHash} />
+      }
     </div>
   );
 }
