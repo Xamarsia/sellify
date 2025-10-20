@@ -57,6 +57,7 @@
 
   .product-scrollbar::-webkit-scrollbar {
     width: 2px;
+    height: 2px;
   }
 
   .product-scrollbar::-webkit-scrollbar-track {
