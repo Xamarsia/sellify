@@ -32,7 +32,7 @@ export default function RiskDialog({
     (e: ChangeEvent<HTMLInputElement>): void => {
       const value: string = e.target.value;
       setPassword(value);
-    }, [setPassword]);
+  }, [setPassword]);
 
   const confirmPassword = useCallback((): void => {
     onPasswordConfirmed(password);

@@ -7,9 +7,7 @@ type SliderProps = {
   images: Array<string>;
 };
 
-export default function ProductImagesSlider({
-  images,
-}: SliderProps) {
+export default function ProductImagesSlider({ images }: SliderProps) {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   return (

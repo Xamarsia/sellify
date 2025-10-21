@@ -17,7 +17,6 @@ import { addToCart } from "common/actions/cart-actions";
 import { getProductOverviewTabs } from "common/actions/product-actions";
 import { ProductAddedDialogContext } from "common/contexts/cart-context";
 
-
 type Props = {
   product: ProductDetailsType;
 };
@@ -36,19 +35,19 @@ export default function ProductPageContent({ product }: Props) {
   }, [product]);
 
   useEffect(() => {
-    const onWindowHashChange = () => setHash(window.location.hash)
+    const onWindowHashChange = () => setHash(window.location.hash);
 
-    window.addEventListener('hashchange', onWindowHashChange)
+    window.addEventListener("hashchange", onWindowHashChange);
 
     return () => {
-      window.removeEventListener('hashchange', onWindowHashChange)
-    }
-  }, [])
+      window.removeEventListener("hashchange", onWindowHashChange);
+    };
+  }, []);
 
   const validHash = useMemo<string>(() => {
     if (!tabs[0]) {
       return "#";
-    } else if (hash && tabs.find(tab => (tab.href == hash))) {
+    } else if (hash && tabs.find((tab) => tab.href == hash)) {
       return hash;
     }
 
@@ -80,9 +79,7 @@ export default function ProductPageContent({ product }: Props) {
         />
       </div>
 
-      {tabs.length != 0 &&
-        <Tabs items={tabs} hash={validHash} />
-      }
+      {tabs.length != 0 && <Tabs items={tabs} hash={validHash} />}
     </div>
   );
 }

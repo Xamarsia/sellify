@@ -32,7 +32,7 @@ export default function CheckoutProductsView({
     return header;
   }, []);
 
-  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+  const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <ProductImagePreview src={item.product.image} />,
       <h4 className="text-justify line-clamp-3 break-all hover:underline underline-offset-3 min-w-20 max-w-96 not-sm:pl-14">
@@ -50,9 +50,9 @@ export default function CheckoutProductsView({
           cartItemId={item.cartItemId}
           onCartItemRemove={onItemRemove}
         />
-      </div>
+      </div>,
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={contentArray} />;
 }

@@ -20,12 +20,12 @@ export default function TableView({ head, content }: Props) {
         </thead>
         <tbody className="w-full px-9 py-5">
           {content.map((row, index) => (
-            <tr key={`Row_${index}`}
+            <tr
+              key={`Row_${index}`}
               className="body min-h-16 max-h-24 hover:bg-[#F8F8F8]"
             >
               {row.map((component, index) => (
-                <td key={`Cell_${index}`}
-                  className="px-3 lg:px-6 py-3 mx-2">
+                <td key={`Cell_${index}`} className="px-3 lg:px-6 py-3 mx-2">
                   {component}
                 </td>
               ))}

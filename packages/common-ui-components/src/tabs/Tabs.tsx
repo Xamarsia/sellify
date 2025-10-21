@@ -1,6 +1,5 @@
 "use client";
 
-import FormSection from "../FormSection";
 import { TabItemInfo } from "../types";
 import Tab from "./Tab";
 
@@ -31,18 +30,20 @@ export default function Tabs({ items, hash }: TabsProps) {
             {item.content}
           </div>
         ))}
-
       </div>
       <div className="flex w-full flex-col gap-9 lg:hidden">
-        {items.map((item, index) =>
-          <div className="flex w-full flex-col gap-4" key={"TabSection" + index}>
+        {items.map((item, index) => (
+          <div
+            className="flex w-full flex-col gap-4"
+            key={"TabSection" + index}
+          >
             <h4 className="tab_header">{item.title}</h4>
-            <div className="flex grow items-start flex-col gap-4">{item.content}</div>
+            <div className="flex grow items-start flex-col gap-4">
+              {item.content}
+            </div>
           </div>
-        )}
-
+        ))}
       </div>
     </>
-
   );
 }
