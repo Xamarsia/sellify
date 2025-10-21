@@ -1,5 +1,8 @@
 {
   "extends": "@sellify/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,4 +1,4 @@
-import { OrderDetails } from "../types";
+import { OrderDetails } from "types";
 
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 

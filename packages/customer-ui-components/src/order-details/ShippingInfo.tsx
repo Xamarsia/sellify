@@ -1,4 +1,4 @@
-import { ContactInfo, DeliveryAddress } from "../types";
+import { ContactInfo, DeliveryAddress } from "types";
 
 type ShippingInfoProps = {
   contactInfo: ContactInfo;

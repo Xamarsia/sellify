@@ -1,4 +1,4 @@
-import { OrderDetails } from "../types";
+import { OrderDetails } from "types";
 
 type DeliveryInfoProps = {
   order: OrderDetails;

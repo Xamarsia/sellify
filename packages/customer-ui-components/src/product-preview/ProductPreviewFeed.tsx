@@ -1,6 +1,6 @@
 import ProductPreview from "./ProductPreview";
 
-import { ProductPreview as ProductPreviewType } from "./../types";
+import { ProductPreview as ProductPreviewType } from "types";
 
 type Props = {
   previews: Array<ProductPreviewType>;

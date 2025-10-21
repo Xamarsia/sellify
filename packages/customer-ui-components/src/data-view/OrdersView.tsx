@@ -3,21 +3,19 @@ import { ReactNode, useMemo } from "react";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 
-import { OrderPreview } from "../types";
+import { OrderPreview } from "types";
 
 type Props = {
   content: Array<OrderPreview>;
 };
 
 export default function OrdersView({ content }: Props) {
-  const tableHeader: Array<string> = [
-    "Order Number",
-    "Status",
-    "Date",
-    "Total",
-  ];
+  const tableHeader = useMemo<Array<string>>(() => {
+    const header: Array<string> = ["Order Number", "Status", "Date", "Total"];
+    return header;
+  }, []);
 
-  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+  const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
       <h4 key={"orderid" + order.orderId}>{"#" + order.orderId}</h4>,
       <OrderStatusComponent status={order.status} />,
@@ -26,5 +24,5 @@ export default function OrdersView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={contentArray} />;
 }

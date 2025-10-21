@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 import ProgressBarItem from "./ProgressBarItem";
 
-import { ProgressStepInfo } from "../types";
+import { ProgressStepInfo } from "types";
 
 type ProgressBarProps = {
   steps: Array<ProgressStepInfo>;
