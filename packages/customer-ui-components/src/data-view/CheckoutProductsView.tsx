@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 
-import TableView from "@sellify/common-ui-components/view/TableView";
+import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 
 import { CartItem } from "../types";
 import ProductImagePreview from "../product-preview/ProductImagePreview";
@@ -20,35 +20,39 @@ export default function CheckoutProductsView({
   getProductMaxQuantity,
   onCartItemQuantityChanged,
 }: Props) {
-  const tableHeader: Array<string> = [
-    "Product",
-    "Price",
-    "Quantity",
-    "Subtotal",
-    "Actions",
-  ];
+  const tableHeader = useMemo<Array<string>>(() => {
+    const header: Array<string> = [
+      "",
+      "Product",
+      "Quantity",
+      "Price",
+      "Subtotal",
+      "",
+    ];
+    return header;
+  }, []);
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
-      <div className="flex gap-4 items-center">
-        <ProductImagePreview src={item.product.image} />
-        <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3 min-w-20 max-w-96">
-          {item.product.title}
-        </h4>
-      </div>,
-      <p>{"$" + item.product.price}</p>,
+      <ProductImagePreview src={item.product.image} />,
+      <h4 className="text-justify line-clamp-3 break-all hover:underline underline-offset-3 min-w-20 max-w-96 not-sm:pl-14">
+        {item.product.title}
+      </h4>,
       <CartItemQuantitySelector
         cartItem={item}
         getProductMaxQuantity={getProductMaxQuantity}
         onCartItemQuantityChanged={onCartItemQuantityChanged}
       />,
+      <p>{"$" + item.product.price}</p>,
       <p>{"$" + item.product.price * item.amount}</p>,
-      <CartItemRemoveButton
-        cartItemId={item.cartItemId}
-        onCartItemRemove={onItemRemove}
-      />,
+      <div className="flex w-full justify-end sm:justify-center">
+        <CartItemRemoveButton
+          cartItemId={item.cartItemId}
+          onCartItemRemove={onItemRemove}
+        />
+      </div>
     ]);
   }, [content]);
 
-  return <TableView head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
 }

@@ -20,10 +20,8 @@ export default function CartItemRemoveButton({
   );
 
   return (
-    <div className="flex w-full justify-center">
-      <TransparentIconButton variant="destructive" onClick={handleClick}>
-        <TrashIcon />
-      </TransparentIconButton>
-    </div>
+    <TransparentIconButton variant="destructive" onClick={handleClick}>
+      <TrashIcon />
+    </TransparentIconButton>
   );
 }
