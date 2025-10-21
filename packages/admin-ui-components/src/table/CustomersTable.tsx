@@ -1,6 +1,9 @@
 import { ReactNode, useMemo } from "react";
-import Table from "./common/Table";
+
+import Table from "@sellify/common-ui-components/table/Table";
+
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
+import { Customer } from "../types";
 
 type Props = {
   content: Array<Customer>;
@@ -15,7 +18,7 @@ export default function CustomersTable({ content }: Props) {
     "Status",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((customer) => [
       <h4>{"#" + customer.customerId}</h4>,
       <p>{customer.name}</p>,

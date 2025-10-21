@@ -1,5 +1,7 @@
 import { ReactNode, useMemo } from "react";
-import Table from "./common/Table";
+
+import Table from "@sellify/common-ui-components/table/Table";
+import { Category } from "../types";
 
 type Props = {
   content: Array<Category>;
@@ -8,7 +10,7 @@ type Props = {
 export default function CategoriesTable({ content }: Props) {
   const tableHeader: Array<string> = ["Category", "Related products"];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((category) => [
       <p>{category.title}</p>,
       <p>

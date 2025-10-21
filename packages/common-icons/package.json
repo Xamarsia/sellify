@@ -15,6 +15,6 @@
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
     "@types/react": "~19.1.8",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
   }
 }

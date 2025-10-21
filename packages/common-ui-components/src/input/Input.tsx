@@ -28,7 +28,7 @@ export default function Input({
   return (
     <div className="flex flex-col w-full">
       <label
-        className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
+        className={`label text-black m-1 capitalize ${required && "after:content-['*'] after:ml-0.5"}`}
       >
         {title}
       </label>
@@ -41,11 +41,10 @@ export default function Input({
         maxLength={maxLength}
         placeholder={placeholder}
         className={`h-13 p-4 border border-stroke placeholder-placeholder rounded-lg
-                disabled:text-disabled disabled:cursor-not-allowed
-                text-black body bg-white enabled:hover:border-black  
-                focus:outline-hidden focus:border-black 
-                ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus)]:border-destructive"}
-                `}
+          disabled:text-disabled disabled:cursor-not-allowed
+          text-black body bg-white enabled:hover:border-black  
+          focus:outline-hidden focus:border-black 
+          ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus)]:border-destructive"}`}
       />
     </div>
   );

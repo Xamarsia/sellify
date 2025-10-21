@@ -35,7 +35,7 @@ export default function DialogBase({
     >
       <div
         ref={modal}
-        className="bg-white w-full max-w-xl h-fit max-h-screen m-4 px-9 py-6 rounded-lg border border-stroke"
+        className="bg-white w-full max-w-xl h-fit max-h-screen m-4 p-8 rounded-lg border border-stroke"
       >
         {content}
       </div>

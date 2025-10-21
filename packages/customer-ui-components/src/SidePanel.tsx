@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useMemo, useRef } from "react";
 
 import XMark from "@sellify/common-icons/x-mark";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
@@ -10,6 +10,7 @@ type SidePanelProps = {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  side?: "left" | "right";
 };
 
 export default function SidePanel({
@@ -17,6 +18,7 @@ export default function SidePanel({
   open,
   onClose,
   children,
+  side = "right",
 }: SidePanelProps) {
   const modal = useRef<HTMLDivElement>(null);
 
@@ -33,9 +35,18 @@ export default function SidePanel({
     }
   }, [onClose, open]);
 
+  const panelSide = useMemo<string>(() => {
+    switch (side) {
+      case "left":
+        return "justify-start";
+      case "right":
+        return "justify-end";
+    }
+  }, [side]);
+
   return (
     <div
-      className={`fixed top-0 right-0 inset-y-0 size-full flex justify-end bg-black/20 z-50 ${open ? "" : "hidden"} ltr`}
+      className={`fixed top-0 right-0 inset-y-0 size-full flex  bg-black/20 z-50 ${!open && "hidden"} ${panelSide} ltr`}
     >
       <div
         ref={modal}

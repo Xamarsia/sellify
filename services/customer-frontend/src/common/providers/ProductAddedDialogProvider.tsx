@@ -2,9 +2,11 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
+import { CartItem } from "@sellify/customer-ui-components/types";
 import ProductAddedDialog from "@sellify/customer-ui-components/cart/dialog/ProductAddedDialog";
-import { ProductAddedDialogContext } from "../contexts/cart-context";
-import { DialogContext } from "../../types";
+
+import { ProductAddedDialogController } from "types";
+import { ProductAddedDialogContext } from "common/contexts/cart-context";
 
 export default function ProductAddedDialogProvider({
   children,
@@ -23,8 +25,8 @@ export default function ProductAddedDialogProvider({
   // TODO Implement onCheckout
   const onCheckout = useCallback((): void => {}, []);
 
-  const contextValue: DialogContext = {
-    addProductToCart: (cartItem) => {
+  const contextValue: ProductAddedDialogController = {
+    openProductAddedDialog: (cartItem) => {
       setDialogOpened(true);
       setCurrentCartItem(cartItem);
     },

@@ -1,12 +1,14 @@
 import { useMemo } from "react";
+
 import { AdminStatus } from "../constants";
+import { AdminStatus as AdminStatusType } from "../types";
 
 type Props = {
-  status: AdminStatus;
+  status: AdminStatusType;
 };
 
 export default function AdminStatusComponent({ status }: Props) {
-  const color = useMemo(() => {
+  const color = useMemo<string>(() => {
     switch (status) {
       case AdminStatus.Active:
         return "text-[#279F51]";
@@ -18,7 +20,7 @@ export default function AdminStatusComponent({ status }: Props) {
     }
   }, [status]);
 
-  const valueLabel = useMemo(() => {
+  const valueLabel = useMemo<string>(() => {
     switch (status) {
       case AdminStatus.Active:
         return "Active";

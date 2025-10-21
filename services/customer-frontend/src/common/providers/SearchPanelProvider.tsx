@@ -1,10 +1,16 @@
 "use client";
 
-import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 import { ReactNode, useCallback, useState } from "react";
-import { SearchPanelContext } from "../contexts/search-context";
-import { search } from "../actions/search-actions";
-import { SearchContext } from "../../types";
+
+import {
+  SearchItem,
+  NavigationLink,
+} from "@sellify/customer-ui-components/types";
+import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
+
+import { SearchPanelController } from "types";
+import { SearchPanelContext } from "common/contexts/search-context";
+import { search } from "common/actions/search-actions";
 
 export default function SearchPanelProvider({
   children,
@@ -23,13 +29,13 @@ export default function SearchPanelProvider({
     return search(query);
   }, []);
 
-  const contextValue: SearchContext = {
+  const contextValue: SearchPanelController = {
     openSearchPanel: () => {
       setSearchPanelOpened(true);
     },
   };
 
-  const popularQuickLinks: Array<SearchNavigationItem> = [
+  const popularQuickLinks: Array<NavigationLink> = [
     { href: "/", title: "Indoor Plants" },
     { href: "/", title: "Flowering Plants" },
     { href: "/", title: "Tropical Plants" },

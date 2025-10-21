@@ -1,5 +1,7 @@
+import { SearchItem as SearchItemType } from "../types";
+
 type Props = {
-  searchItem: SearchItem;
+  searchItem: SearchItemType;
 };
 
 export default function SearchItem({ searchItem }: Props) {

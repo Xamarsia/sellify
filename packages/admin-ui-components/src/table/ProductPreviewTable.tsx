@@ -1,7 +1,9 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "./common/Table";
+import Table from "@sellify/common-ui-components/table/Table";
+
 import ProductPreviewImage from "../ProductPreviewImage";
+import { ProductPreview } from "../types";
 
 type Props = {
   content: Array<ProductPreview>;
@@ -10,7 +12,7 @@ type Props = {
 export default function ProductPreviewTable({ content }: Props) {
   const tableHeader: Array<string> = ["Product", "Product ID"];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((product) => [
       <div className="flex gap-4 items-center">
         <ProductPreviewImage src={product.image} />

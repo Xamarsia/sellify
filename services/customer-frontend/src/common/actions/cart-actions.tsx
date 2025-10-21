@@ -1,11 +1,16 @@
-import image from "./../../resources/1/image.jpg";
-import image2 from "./../../resources/1/image2.jpg";
+import {
+  CartItem,
+  ProductPreview,
+} from "@sellify/customer-ui-components/types";
 
-import image3 from "./../../resources/2/image.jpg";
-import image4 from "./../../resources/2/image2.jpg";
+import image from "resources/1/image.jpg";
+import image2 from "resources/1/image2.jpg";
 
-import image5 from "./../../resources/3/image.jpg";
-import image6 from "./../../resources/3/image2.jpg";
+import image3 from "resources/2/image.jpg";
+import image4 from "resources/2/image2.jpg";
+
+import image5 from "resources/3/image.jpg";
+import image6 from "resources/3/image2.jpg";
 
 const productPreview: ProductPreview = {
   image: image.src,
@@ -34,11 +39,27 @@ const productPreview3: ProductPreview = {
 };
 
 const cartItem: CartItem = {
-  amount: 1,
-  product: productPreview,
+  amount: 2,
+  product: productPreview2,
+  cartItemId: 0,
 };
 
-let cartItems: Array<CartItem> = [];
+let cartItems: Array<CartItem> = [
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+  cartItem,
+];
 
 // TODO  make it React Action
 export function getCartItems(): Array<CartItem> {
@@ -60,12 +81,26 @@ export function addToCart(product: ProductPreview): CartItem {
   const newCartItem: CartItem = {
     amount: 1,
     product: product,
+    cartItemId: 0,
   };
   cartItems.push(newCartItem);
   return newCartItem;
 }
 
-export function getProductPreviews(): Array<ProductPreview> {
+export function removeCartItem(productPreviewId: number): void {
+  // TODO Implement
+}
+
+export function changeCartItemQuantity(
+  cartItemId: number,
+  quantity: number,
+): void {
+  // TODO Implement
+}
+
+export function getProductPreviews(
+  productLabel: string,
+): Array<ProductPreview> {
   const previews: Array<ProductPreview> = [
     productPreview,
     productPreview2,

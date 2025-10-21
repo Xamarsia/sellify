@@ -1,45 +1,50 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
-import DropdownItem from "./DropdownItem";
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
+
+import DropdownItem from "./DropdownItem";
 
 type DropdownProps = {
   title: string;
   items: Map<string, string>;
   selectedKey?: string;
-  isExtended: boolean;
+  isExtended?: boolean;
   disabled?: boolean;
-  onItemSelected: (key: string, value: string) => void;
-  setIsExtended: (isExpanded: boolean) => void;
+  onKeySelected: (key: string) => void;
+  setIsExtended?: (isExpanded: boolean) => void;
 };
 
 export default function Dropdown({
   title,
   items,
   selectedKey,
-  isExtended,
   disabled,
-  setIsExtended,
-  onItemSelected,
+  onKeySelected,
 }: DropdownProps) {
+  const [isExtended, setIsExtended] = useState<boolean>(false);
   const dropdown = useRef<HTMLDivElement>(null);
 
   const getCurrentText = useCallback((): string => {
     if (selectedKey) {
       const selectedOptionText = items.get(selectedKey);
-      return selectedOptionText ? selectedOptionText : title;
+      return selectedOptionText ?? title;
     }
     return title;
   }, [selectedKey]);
 
   const onDropdownClick = useCallback(() => {
-    setIsExtended(!isExtended);
+    if (setIsExtended) {
+      setIsExtended(!isExtended);
+    }
   }, [isExtended, setIsExtended]);
 
   const onOutsideClicked = useCallback(() => {
-    setIsExtended(false);
+    if (setIsExtended) {
+      setIsExtended(false);
+    }
   }, [setIsExtended]);
 
   useEffect(() => {
@@ -54,6 +59,14 @@ export default function Dropdown({
       document.removeEventListener("mousedown", onClickOutside);
     }
   }, [isExtended, onOutsideClicked]);
+
+  const onItemSelected = useCallback(
+    (key: string) => {
+      setIsExtended(false);
+      onKeySelected(key);
+    },
+    [onKeySelected],
+  );
 
   return (
     <div className="relative" ref={dropdown}>

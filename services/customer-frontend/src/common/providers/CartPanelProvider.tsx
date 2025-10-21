@@ -1,9 +1,13 @@
 "use client";
 
 import { ReactNode, useCallback, useState } from "react";
-import { CartPanelContext } from "../contexts/cart-context";
+
+import { CartItem } from "@sellify/customer-ui-components/types";
 import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
-import { CartContext } from "../../types";
+
+import { CartPanelController } from "types";
+import { CartPanelContext } from "common/contexts/cart-context";
+import { getCartItems, removeCartItem } from "common/actions/cart-actions";
 
 export default function CartPanelProvider({
   children,
@@ -11,18 +15,14 @@ export default function CartPanelProvider({
   children: ReactNode;
 }) {
   const [cartPanelOpened, setCartPanelOpened] = useState<boolean>(false);
-  const [cartItems, setCartItems] = useState<Array<CartItem>>([]);
+  const [cartItems, setCartItems] = useState<Array<CartItem>>(getCartItems());
 
   const onCartPanelClose = useCallback((): void => {
     setCartPanelOpened(false);
   }, []);
 
-  const onRemoveCartItem = useCallback((productPreviewId: number): void => {
-    //TODO Implement onRemoveCartItem
-  }, []);
-
-  const contextValue: CartContext = {
-    openCartPanel: (cartItems) => {
+  const contextValue: CartPanelController = {
+    openCartPanel: () => {
       setCartPanelOpened(true);
       setCartItems(cartItems);
     },
@@ -33,7 +33,7 @@ export default function CartPanelProvider({
       <CartPanel
         dialogOpen={cartPanelOpened}
         onDialogClose={onCartPanelClose}
-        onItemRemove={onRemoveCartItem}
+        onItemRemove={removeCartItem}
         cartItems={cartItems}
       />
       {children}

@@ -1,12 +1,14 @@
 import { useMemo } from "react";
-import { OrderStatus } from "../constants";
+
+import { OrderStatus } from "@sellify/common-ui-components/constants";
+import { OrderStatus as OrderStatusType } from "@sellify/common-ui-components/types";
 
 type Props = {
-  status: OrderStatus;
+  status: OrderStatusType;
 };
 
 export default function OrderStatusComponent({ status }: Props) {
-  const color = useMemo(() => {
+  const color = useMemo<string>(() => {
     switch (status) {
       case OrderStatus.New:
         return "text-[#279F51]";
@@ -21,7 +23,7 @@ export default function OrderStatusComponent({ status }: Props) {
     }
   }, [status]);
 
-  const valueLabel = useMemo(() => {
+  const valueLabel = useMemo<string>(() => {
     switch (status) {
       case OrderStatus.New:
         return "New";

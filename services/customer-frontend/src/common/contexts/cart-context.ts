@@ -1,10 +1,12 @@
 "use client";
 
 import { createContext } from "react";
-import { CartContext, DialogContext } from "../../types";
+import { CartPanelController, ProductAddedDialogController } from "types";
 
-export const ProductAddedDialogContext: React.Context<DialogContext> =
-  createContext<DialogContext>({ addProductToCart: () => {} });
+export const ProductAddedDialogContext: React.Context<ProductAddedDialogController> =
+  createContext<ProductAddedDialogController>({
+    openProductAddedDialog: () => {},
+  });
 
-export const CartPanelContext: React.Context<CartContext> =
-  createContext<CartContext>({ openCartPanel: () => {} });
+export const CartPanelContext: React.Context<CartPanelController> =
+  createContext<CartPanelController>({ openCartPanel: () => {} });

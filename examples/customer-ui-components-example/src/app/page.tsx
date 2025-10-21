@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
@@ -12,14 +12,33 @@ import image4 from "./../../resources/2/image2.jpg";
 import image5 from "./../../resources/3/image.jpg";
 import image6 from "./../../resources/3/image2.jpg";
 
-import CounterButton from "@sellify/customer-ui-components/CounterButton";
+import HomeIcon from "@sellify/common-icons/home";
+import CreditCard from "@sellify/common-icons/credit-card";
+import Clipboard from "@sellify/common-icons/clipboard";
+
+import {
+  CartItem as CartItemType,
+  ProductPreview,
+  ProgressStepInfo,
+} from "@sellify/customer-ui-components/types";
+
 import CartItem from "@sellify/customer-ui-components/cart/CartItem";
-import OrderSubtotal from "@sellify/customer-ui-components/OrderSubtotal";
+import CounterButton from "@sellify/customer-ui-components/CounterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
-import ProgressBarComponent from "@sellify/customer-ui-components/progress/ProgressBarComponent";
+import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(1);
+
+  const barItems = useMemo<Array<ProgressStepInfo>>(() => {
+    const progressBarItems: Array<ProgressStepInfo> = [
+      { step: 0, title: "Delivery Info", icon: <HomeIcon /> },
+      { step: 1, title: "Payment Method", icon: <CreditCard /> },
+      { step: 2, title: "Review", icon: <Clipboard /> },
+    ];
+    return progressBarItems;
+  }, []);
 
   const productPreview: ProductPreview = {
     image: image.src,
@@ -47,14 +66,18 @@ export default function Home() {
       "LongUnbreakableProductTitleWord|LongUnbreakableProductTitleWordLongUnbreakableProductTitleWord",
   };
 
-  const cartItem: CartItem = {
+  const cartItem: CartItemType = {
     amount: 1,
     product: productPreview2,
+    cartItemId: 0,
   };
 
-  const handleAddToCartClick = useCallback((productPreviewId: number): void => {
-    console.log("ProductPreviewId: " + productPreviewId);
-  }, []);
+  const handleAddToCartClick = useCallback(
+    (productPreview: ProductPreview): void => {
+      console.log("ProductPreviewId: " + productPreview);
+    },
+    [],
+  );
 
   const handleRemoveFromCartClick = useCallback(
     (productPreviewId: number): void => {
@@ -91,7 +114,11 @@ export default function Home() {
 
         <Section title={"Progress Bar"}>
           <SectionItem>
-            <ProgressBarComponent currentPathname={"/"} />
+            <ProgressBar
+              steps={barItems}
+              currentStep={currentStep}
+              onStepClick={setCurrentStep}
+            />
           </SectionItem>
         </Section>
 
@@ -121,14 +148,6 @@ export default function Home() {
                 productPreview3,
               ]}
             />
-          </SectionItem>
-        </Section>
-
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Order Subtotal Card"}>
-          <SectionItem>
-            <OrderSubtotal totalPrice={345} deliveryCharge={5} />
           </SectionItem>
         </Section>
       </main>

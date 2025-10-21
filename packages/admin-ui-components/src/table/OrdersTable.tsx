@@ -1,6 +1,8 @@
 import { ReactNode, useMemo } from "react";
-import Table from "./common/Table";
-import OrderStatusComponent from "../statuses/OrderStatusComponent";
+
+import Table from "@sellify/common-ui-components/table/Table";
+import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+import { Order } from "../types";
 
 type Props = {
   content: Array<Order>;
@@ -16,7 +18,7 @@ export default function OrdersTable({ content }: Props) {
     "Items",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
       <h4 key={"orderid" + order.orderId}>{"#" + order.orderId}</h4>,
       <p>{order.date}</p>,

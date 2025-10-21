@@ -1,8 +1,10 @@
 import ProductPreview from "./ProductPreview";
 
+import { ProductPreview as ProductPreviewType } from "./../types";
+
 type Props = {
-  previews: Array<ProductPreview>;
-  onProductAddedToCart: (productPreview: ProductPreview) => void;
+  previews: Array<ProductPreviewType>;
+  onProductAddedToCart: (productPreview: ProductPreviewType) => void;
 };
 
 export default function ProductPreviewFeed({
@@ -10,7 +12,7 @@ export default function ProductPreviewFeed({
   onProductAddedToCart,
 }: Props) {
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+    <ul className="w-full grid grid-cols-1 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
       {previews.map((productPreview, index) => (
         <li key={productPreview.productId.toString() + index}>
           <ProductPreview

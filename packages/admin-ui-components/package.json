@@ -4,8 +4,9 @@
   "private": true,
   "license": "MIT",
   "exports": {
-    "./styles.css": "./styles/globals.css",
-    "./types.d.ts": "./src/types.d.ts",
+    "./types": "./src/types.d.ts",
+    "./constants": "./src/constants.ts",
+    "./styles": "./styles/globals.css",
     "./*": "./src/*.tsx",
     "./**/*": "./src/**/*.tsx"
   },
@@ -14,20 +15,16 @@
     "lint": "eslint src --max-warnings 0",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "@sellify/common-icons": "workspace:*",
-    "@sellify/common-ui-components": "workspace:*"
+  "peerDependencies": {
+    "react": "19.1.0"
   },
   "devDependencies": {
     "@sellify/tailwind-config": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
+    "@sellify/common-icons": "workspace:*",
+    "@sellify/common-ui-components": "workspace:*",
     "@types/react": "~19.1.8",
-    "@types/react-dom": "~19.1.6",
-    "typescript": "~5.8.3",
-    "tailwindcss": "~4.1.10",
-    "@tailwindcss/postcss": "~4.1.10",
-    "postcss": "^8.5.3"
+    "typescript": "~5.9.2",
+    "tailwindcss": "~4.1.13"
   }
 }

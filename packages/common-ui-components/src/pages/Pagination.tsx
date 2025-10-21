@@ -22,7 +22,7 @@ export default function Pagination({
 }: Props) {
   const pagesBarHalfLength = Math.floor(navBarLength / 2);
 
-  const currentPagesArray = useMemo((): Array<number> => {
+  const currentPagesArray = useMemo<Array<number>>(() => {
     if (pagesAmount <= navBarLength) {
       return Array.from({ length: pagesAmount }, (_v, i) => i + 1);
     }
@@ -51,12 +51,12 @@ export default function Pagination({
     return Array.from({ length: navBarLength }, (_v, i) => minPage + i);
   }, [currentPage, pagesAmount, pagesBarHalfLength, navBarLength]);
 
-  const isMinPageVisible = useMemo((): boolean => {
+  const isMinPageVisible = useMemo<boolean>(() => {
     const minValue: number | undefined = currentPagesArray[0];
     return minValue ? minValue > pagesBarHalfLength : false;
   }, [currentPagesArray, pagesBarHalfLength]);
 
-  const isMaxPageVisible = useMemo((): boolean => {
+  const isMaxPageVisible = useMemo<boolean>(() => {
     const maxValue: number | undefined = currentPagesArray.at(-1);
     return maxValue ? maxValue <= pagesAmount - pagesBarHalfLength : false;
   }, [currentPagesArray, pagesBarHalfLength, pagesAmount]);

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Dialog from "@sellify/common-ui-components/dialog/Dialog";

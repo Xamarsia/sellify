@@ -1,12 +1,14 @@
 import { useMemo } from "react";
-import { ProductStatus } from "../constants";
+
+import { ProductStatus } from "@sellify/common-ui-components/constants";
+import { ProductStatus as ProductStatusType } from "@sellify/common-ui-components/types";
 
 type Props = {
-  status: ProductStatus;
+  status: ProductStatusType;
 };
 
 export default function ProductStatusComponent({ status }: Props) {
-  const color = useMemo(() => {
+  const color = useMemo<string>(() => {
     switch (status) {
       case ProductStatus.Active:
         return "text-[#279F51]";
@@ -16,7 +18,7 @@ export default function ProductStatusComponent({ status }: Props) {
     }
   }, [status]);
 
-  const valueLabel = useMemo(() => {
+  const valueLabel = useMemo<string>(() => {
     switch (status) {
       case ProductStatus.Active:
         return "Active";

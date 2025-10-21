@@ -1,6 +1,9 @@
 import { ReactNode, useMemo } from "react";
+
+import Table from "@sellify/common-ui-components/table/Table";
+
 import AdminStatusComponent from "../statuses/AdminStatusComponent";
-import Table from "./common/Table";
+import { Admin } from "../types";
 
 type Props = {
   content: Array<Admin>;
@@ -15,7 +18,7 @@ export default function AdminsTable({ content }: Props) {
     "Status",
   ];
 
-  const getContentArray = useMemo((): Array<Array<ReactNode>> => {
+  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((admin) => [
       <h4>{"#" + admin.adminId}</h4>,
       <p>{admin.name}</p>,

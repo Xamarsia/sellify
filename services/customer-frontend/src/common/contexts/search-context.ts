@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext } from "react";
-import { SearchContext } from "../../types";
+import { SearchPanelController } from "types";
 
-export const SearchPanelContext: React.Context<SearchContext> =
-  createContext<SearchContext>({ openSearchPanel: () => {} });
+export const SearchPanelContext: React.Context<SearchPanelController> =
+  createContext<SearchPanelController>({ openSearchPanel: () => {} });

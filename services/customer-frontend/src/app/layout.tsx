@@ -1,14 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-import { getCartItems } from "../common/actions/cart-actions";
-
-import Header from "@sellify/customer-ui-components/Header";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
-import SearchPanelProvider from "../common/providers/SearchPanelProvider";
-import CartPanelProvider from "../common/providers/CartPanelProvider";
-import ProductAddedDialogProvider from "../common/providers/ProductAddedDialogProvider";
+
+import Header from "components/Header";
+import SearchPanelProvider from "common/providers/SearchPanelProvider";
+import CartPanelProvider from "common/providers/CartPanelProvider";
+import AlertDialogProvider from "common/providers/AlertDialogProvider";
+import ProductAddedDialogProvider from "common/providers/ProductAddedDialogProvider";
+import DestructiveAlertDialogProvider from "common/providers/RiskDialogProvider";
+import NavbarDrawerProvider from "common/providers/NavbarDrawerProvider";
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-heading-family",
+  subsets: ["latin"],
+  style: "normal",
+  weight: "400",
+});
+
+const playfairDisplayMedium = Playfair_Display({
+  variable: "--font-heading-family-medium",
+  subsets: ["latin"],
+  style: "normal",
+  weight: "500",
+});
+
+const DMSans = DM_Sans({
+  variable: "--font-body-family",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,21 +52,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="size-full">
+    <html
+      lang="en"
+      className={`size-full ${playfairDisplay.variable} ${DMSans.variable} ${playfairDisplayMedium.variable}`}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased size-full flex flex-col relative items-center`}
+        className={` antialiased size-full flex flex-col relative items-center`}
       >
-        <SearchPanelProvider>
-          <CartPanelProvider>
-            <Header cartItems={getCartItems()} />
-            <main className="flex flex-grow justify-center relative flex-shrink-0 mt-20 px-9 md:px-14 pt-9 pb-14 max-w-7xl">
-              <ProductAddedDialogProvider>
-                {children}
-              </ProductAddedDialogProvider>
-            </main>
-            <Footer copyright="Long company name" />
-          </CartPanelProvider>
-        </SearchPanelProvider>
+        <DestructiveAlertDialogProvider>
+          <AlertDialogProvider>
+            <NavbarDrawerProvider>
+              <SearchPanelProvider>
+                <CartPanelProvider>
+                  <Header />
+                  <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pt-14 pb-16 max-w-7xl">
+                    <ProductAddedDialogProvider>
+                      {children}
+                    </ProductAddedDialogProvider>
+                  </main>
+                  <Footer copyright="Long company name" />
+                </CartPanelProvider>
+              </SearchPanelProvider>
+            </NavbarDrawerProvider>
+          </AlertDialogProvider>
+        </DestructiveAlertDialogProvider>
       </body>
     </html>
   );
