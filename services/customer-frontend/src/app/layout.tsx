@@ -19,6 +19,13 @@ const playfairDisplay = Playfair_Display({
   weight: "400",
 });
 
+const playfairDisplayMedium = Playfair_Display({
+  variable: "--font-heading-family-medium",
+  subsets: ["latin"],
+  style: "normal",
+  weight: "500",
+});
+
 const DMSans = DM_Sans({
   variable: "--font-body-family",
   subsets: ["latin"],
@@ -47,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`size-full ${playfairDisplay.variable} ${DMSans.variable}`}
+      className={`size-full ${playfairDisplay.variable} ${DMSans.variable} ${playfairDisplayMedium.variable}`}
     >
       <body
         className={` antialiased size-full flex flex-col relative items-center`}
