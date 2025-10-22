@@ -18,7 +18,7 @@ export default function Radio({
   onChange,
 }: RadioProps) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 group">
       <label className="relative flex items-center">
         <input
           type="radio"
@@ -26,9 +26,10 @@ export default function Radio({
           disabled={disabled}
           onChange={onChange}
           checked={checked}
-          className="peer size-5 appearance-none rounded-full border border-[#424242] 
+          id={`radio-${value}`}
+          className="peer size-5 appearance-none rounded-full border border-stroke group-hover:border-black
             bg-primary enabled:hover:border-black focus:border-black disabled:border-disabled
-            ring-stroke ring-offset-0 enabled:hover:ring-4 enabled:cursor-pointer disabled:cursor-not-allowed"
+            enabled:checked:border-black enabled:cursor-pointer disabled:cursor-not-allowed"
         />
         <span
           className="absolute pointer-events-none bg-black peer-disabled:bg-disabled 
@@ -36,7 +37,10 @@ export default function Radio({
             transform -translate-x-1/2 -translate-y-1/2"
         />
       </label>
-      <label className={`body ${disabled ? "text-disabled" : "text-black"}`}>
+      <label
+        htmlFor={`radio-${value}`}
+        className={`body ${disabled ? "text-disabled" : "text-black"}`}
+      >
         {label}
       </label>
     </div>
