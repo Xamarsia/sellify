@@ -20,16 +20,16 @@ import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 
-import Section from "../components/Section";
-import SectionItem from "../components/SectionItem";
+import Section from "components/Section";
+import SectionItem from "components/SectionItem";
 
-import AlertDialogExample from "../examples/AlertDialogExample";
-import ComboboxUseExample from "../examples/ComboboxUseExample";
-import DialogExample from "../examples/DialogExample";
-import DropdownUseExample from "../examples/DropdownUseExample";
-import MultipleSelectionComboboxUseExample from "../examples/MultipleSelectionComboboxUseExample";
-import PagesExample from "../examples/PagesExample";
-import SearchBarExample from "../examples/SearchBarExample";
+import AlertDialogExample from "examples/AlertDialogExample";
+import ComboboxUseExample from "examples/ComboboxUseExample";
+import DialogExample from "examples/DialogExample";
+import DropdownUseExample from "examples/DropdownUseExample";
+import MultipleSelectionComboboxUseExample from "examples/MultipleSelectionComboboxUseExample";
+import PagesExample from "examples/PagesExample";
+import SearchBarExample from "examples/SearchBarExample";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -331,7 +331,7 @@ export default function Home() {
 
         <Section title={"Tab"}>
           <SectionItem>
-            <Tabs items={tabs} pathname={pathname} />
+            <Tabs items={tabs} hash={""}  />
           </SectionItem>
         </Section>
 

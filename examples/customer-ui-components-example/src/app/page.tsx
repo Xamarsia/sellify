@@ -5,12 +5,12 @@ import { useCallback, useMemo, useState } from "react";
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
 
-import image from "./../../resources/1/image.jpg";
-import image2 from "./../../resources/1/image2.jpg";
-import image3 from "./../../resources/2/image.jpg";
-import image4 from "./../../resources/2/image2.jpg";
-import image5 from "./../../resources/3/image.jpg";
-import image6 from "./../../resources/3/image2.jpg";
+import image from "resources/1/image.jpg";
+import image2 from "resources/1/image2.jpg";
+import image3 from "resources/2/image.jpg";
+import image4 from "resources/2/image2.jpg";
+import image5 from "resources/3/image.jpg";
+import image6 from "resources/3/image2.jpg";
 
 import HomeIcon from "@sellify/common-icons/home";
 import CreditCard from "@sellify/common-icons/credit-card";

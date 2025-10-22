@@ -34,7 +34,8 @@ import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
 import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
 import ProductsTable from "@sellify/admin-ui-components/table/ProductsTable";
 import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
-import image from "./../../resources/image.jpg";
+
+import image from "resources/image.jpg";
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
 
