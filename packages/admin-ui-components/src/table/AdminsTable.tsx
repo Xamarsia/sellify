@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "@sellify/common-ui-components/table/Table";
+import TableView from "@sellify/common-ui-components/view/TableView";
 
 import AdminStatusComponent from "../statuses/AdminStatusComponent";
 import { Admin } from "../types";
@@ -28,5 +28,5 @@ export default function AdminsTable({ content }: Props) {
     ]);
   }, [content]);
 
-  return <Table head={tableHeader} content={getContentArray} />;
+  return <TableView head={tableHeader} content={getContentArray} />;
 }

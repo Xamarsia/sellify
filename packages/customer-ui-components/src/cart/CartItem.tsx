@@ -1,4 +1,4 @@
-import { CartItem } from "types";
+import { CartItem } from "../types";
 import CartItemRemoveButton from "./CartItemRemoveButton";
 
 type Props = {

@@ -5,8 +5,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
 
-import TransparentIconButton from "buttons/TransparentIconButton";
-import DropdownItem from "dropdown/DropdownItem";
+import TransparentIconButton from "../buttons/TransparentIconButton";
+import DropdownItem from "../dropdown/DropdownItem";
 
 type ComboboxProps = {
   title: string;
@@ -35,9 +35,7 @@ export default function Combobox({
     (key: string, newValue: string) => {
       setIsExtended(false);
       onItemSelected(key, newValue);
-    },
-    [onItemSelected],
-  );
+  }, [onItemSelected]);
 
   const getSuggestedItems = useCallback(
     (query: string): Map<string, string> => {
@@ -52,9 +50,7 @@ export default function Combobox({
           return value.toLowerCase().includes(lowerCaseQuery); // query is substring
         }),
       );
-    },
-    [items],
-  );
+  }, [items]);
 
   useEffect(() => {
     if (value !== undefined) {
@@ -75,9 +71,7 @@ export default function Combobox({
         const lowerCaseValue: string = value.toLowerCase();
         return lowerCaseValue == lowerCaseQuery;
       });
-    },
-    [items],
-  );
+  }, [items]);
 
   const onValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -91,9 +85,7 @@ export default function Combobox({
       }
 
       onItemSelected(foundedItem[0], foundedItem[1]);
-    },
-    [isSelected, onItemSelected],
-  );
+  }, [isSelected, onItemSelected]);
 
   const onInputInFocus = useCallback((): void => {
     setIsExtended(true);

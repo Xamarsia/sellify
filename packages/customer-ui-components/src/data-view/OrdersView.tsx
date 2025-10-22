@@ -3,7 +3,7 @@ import { ReactNode, useMemo } from "react";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 
-import { OrderPreview } from "types";
+import { OrderPreview } from "../types";
 
 type Props = {
   content: Array<OrderPreview>;

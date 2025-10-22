@@ -5,8 +5,8 @@ import { useMemo } from "react";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import CartItem from "./CartItem";
-import SidePanel from "SidePanel";
-import { CartItem as CartItemType } from "types";
+import SidePanel from "../SidePanel";
+import { CartItem as CartItemType } from "../types";
 
 type DialogProps = {
   dialogOpen: boolean;

@@ -5,8 +5,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
 
-import TransparentIconButton from "buttons/TransparentIconButton";
-import DropdownItem from "dropdown/DropdownItem";
+import TransparentIconButton from "../buttons/TransparentIconButton";
+import DropdownItem from "../dropdown/DropdownItem";
 import ComboboxItem from "./ComboboxItem";
 
 type MultipleSelectionComboboxProps = {

@@ -3,7 +3,7 @@ import { useCallback, useMemo } from "react";
 import ChevronRightMini from "@sellify/common-icons/chevron-right-mini";
 import ChevronLeftMini from "@sellify/common-icons/chevron-left-mini";
 
-import TransparentIconButton from "buttons/TransparentIconButton";
+import TransparentIconButton from "../buttons/TransparentIconButton";
 import PageButton from "./PageButton";
 import PageItem from "./PageItem";
 

@@ -1,4 +1,4 @@
-import { SearchItem as SearchItemType } from "types";
+import { SearchItem as SearchItemType } from "../types";
 
 type Props = {
   searchItem: SearchItemType;

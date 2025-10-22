@@ -2,10 +2,10 @@ import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 
-import { CartItem } from "types";
-import ProductImagePreview from "product-preview/ProductImagePreview";
-import CartItemRemoveButton from "cart/CartItemRemoveButton";
-import CartItemQuantitySelector from "cart/CartItemQuantitySelector";
+import { CartItem } from "../types";
+import ProductImagePreview from "../product-preview/ProductImagePreview";
+import CartItemRemoveButton from "../cart/CartItemRemoveButton";
+import CartItemQuantitySelector from "../cart/CartItemQuantitySelector";
 
 type Props = {
   content: Array<CartItem>;

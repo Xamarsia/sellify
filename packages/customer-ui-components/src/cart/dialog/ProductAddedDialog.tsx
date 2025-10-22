@@ -6,7 +6,7 @@ import XMark from "@sellify/common-icons/x-mark";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 import ProductAddedDialogContent from "./ProductAddedDialogContent";
-import { CartItem } from "types";
+import { CartItem } from "../../types";
 
 type DialogProps = {
   dialogOpen: boolean;

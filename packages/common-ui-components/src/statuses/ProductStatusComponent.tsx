@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { ProductStatus } from "constants";
-import { ProductStatus as ProductStatusType } from "types";
+import { ProductStatus } from "../constants";
+import { ProductStatus as ProductStatusType } from "../types";
 
 type Props = {
   status: ProductStatusType;

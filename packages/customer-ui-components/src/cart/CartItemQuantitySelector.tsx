@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
-import { CartItem } from "types";
-import CounterButton from "CounterButton";
+import { CartItem } from "../types";
+import CounterButton from "../CounterButton";
 
 type Props = {
   cartItem: CartItem;

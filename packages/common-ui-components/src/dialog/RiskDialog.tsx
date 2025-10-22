@@ -7,8 +7,8 @@ import FireIcon from "@sellify/common-icons/fire";
 import DialogBase from "./DialogBase";
 import AlertDialogIcon from "./AlertDialogIcon";
 
-import Input from "input/Input";
-import Button from "buttons/Button";
+import Input from "../input/Input";
+import Button from "../buttons/Button";
 
 type DialogProps = {
   title: string;

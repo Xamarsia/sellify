@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import XMark from "@sellify/common-icons/x-mark";
 
 import DialogBase from "./DialogBase";
-import TransparentIconButton from "buttons/TransparentIconButton";
+import TransparentIconButton from "../buttons/TransparentIconButton";
 
 type DialogProps = {
   title: string;
