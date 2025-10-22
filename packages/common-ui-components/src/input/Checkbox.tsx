@@ -7,7 +7,7 @@ import CheckIcon from "@sellify/common-icons/check";
 type CheckboxProps = {
   checked?: boolean;
   disabled?: boolean;
-  value?: string;
+  value: string;
   label?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };

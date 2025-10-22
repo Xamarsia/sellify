@@ -23,12 +23,8 @@ export default function DeliveryAddressForm({
   deliveryAddress,
   onChange,
 }: DeliveryAddressProps) {
-  const [country, setCountry] = useState<string>(
-    deliveryAddress?.country ?? "",
-  );
-  const [address, setAddress] = useState<string>(
-    deliveryAddress?.address ?? "",
-  );
+  const [country, setCountry] = useState<string>(deliveryAddress?.country ?? "");
+  const [address, setAddress] = useState<string>(deliveryAddress?.address ?? "");
   const [useAsDefault, setUseAsDefault] = useState<boolean>(false);
 
   const availableCountries: Map<string, string> = getAvailableCountries();
@@ -84,6 +80,7 @@ export default function DeliveryAddressForm({
         onChange={onAddressChangeHandler}
       />
       <Checkbox
+        value="use_as_default_address"
         label="Use as my default address"
         checked={useAsDefault}
         onChange={onUseAsDefaultChangeHandler}

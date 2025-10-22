@@ -75,6 +75,7 @@ export default function ContactInfoForm({
         onChange={onPhoneNumberChange}
       />
       <Checkbox
+        value="use_as_default_contact_information"
         label="Use as my default contact information"
         checked={useAsDefault}
         onChange={onUseAsDefaultChange}
