@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { OrderStatus } from "../constants";
-import { OrderStatus as OrderStatusType } from "../types";
+import { OrderStatus } from "constants";
+import { OrderStatus as OrderStatusType } from "types";
 
 type Props = {
   status: OrderStatusType;

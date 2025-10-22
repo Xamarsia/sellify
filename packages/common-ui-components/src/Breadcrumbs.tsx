@@ -1,6 +1,6 @@
 "use client";
 
-import { NavMenuItem } from "./types";
+import { NavMenuItem } from "types";
 
 type BreadcrumbsProps = {
   items: Array<NavMenuItem>;

@@ -3,7 +3,8 @@
 import { useCallback } from "react";
 
 import XMark from "@sellify/common-icons/x-mark";
-import TransparentIconButton from "../buttons/TransparentIconButton";
+
+import TransparentIconButton from "buttons/TransparentIconButton";
 
 type ComboboxItemProps = {
   value: string;
@@ -24,9 +25,7 @@ export default function ComboboxItem({
       if (onRemove) {
         onRemove(value, label);
       }
-    },
-    [value, label, onRemove],
-  );
+  }, [value, label, onRemove]);
 
   return (
     <div className="flex justify-center items-center bg-[#F8F8F8] rounded-lg px-4 h-8 gap-2">

@@ -1,7 +1,8 @@
 "use client";
 
-import MagnifyingGlass from "@sellify/common-icons/magnifying-glass";
 import { ChangeEvent } from "react";
+
+import MagnifyingGlass from "@sellify/common-icons/magnifying-glass";
 
 type SearchInputProps = {
   value: string;

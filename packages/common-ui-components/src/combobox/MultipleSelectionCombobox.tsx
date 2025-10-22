@@ -5,8 +5,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
 
-import TransparentIconButton from "../buttons/TransparentIconButton";
-import DropdownItem from "../dropdown/DropdownItem";
+import TransparentIconButton from "buttons/TransparentIconButton";
+import DropdownItem from "dropdown/DropdownItem";
 import ComboboxItem from "./ComboboxItem";
 
 type MultipleSelectionComboboxProps = {
@@ -48,27 +48,21 @@ export default function MultipleSelectionCombobox({
           ); // only not selected items unique elements are allowed
         }),
       );
-    },
-    [items, selectedItems],
-  );
+  }, [items, selectedItems]);
 
   const onSelected = useCallback(
     (key: string, value: string) => {
       setIsExtended(false);
       setQuery("");
       onItemSelected(key, value);
-    },
-    [onItemSelected],
-  );
+  }, [onItemSelected]);
 
   const onValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       e.preventDefault();
       const newValue: string = e.target.value;
       setQuery(newValue);
-    },
-    [setQuery],
-  );
+  }, [setQuery]);
 
   const onInputInFocus = useCallback((): void => {
     setIsExtended(true);
@@ -127,8 +121,8 @@ export default function MultipleSelectionCombobox({
                 disabled={disabled}
                 placeholder={selectedItems?.size == 0 ? "--" : ""}
                 className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
-                                focus:outline-hidden accent-transparent appearance-none 
-                                `}
+                  focus:outline-hidden accent-transparent appearance-none 
+                `}
               />
             </div>
           </div>
