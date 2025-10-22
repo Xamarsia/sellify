@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent } from "react";
+
 import CheckIcon from "@sellify/common-icons/check";
 
 type CheckboxProps = {

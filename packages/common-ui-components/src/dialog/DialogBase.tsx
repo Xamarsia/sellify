@@ -30,8 +30,8 @@ export default function DialogBase({
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 size-full bg-black/20 flex justify-center items-center backdrop-blur-xs 
-            ${dialogOpen ? "no-doc-scroll" : "hidden"}`}
+      className={`fixed top-0 left-0 z-50 size-full bg-black/20 flex justify-center 
+        items-center backdrop-blur-xs ${dialogOpen ? "no-doc-scroll" : "hidden"}`}
     >
       <div
         ref={modal}

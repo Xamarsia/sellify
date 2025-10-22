@@ -21,25 +21,19 @@ export default function MediaInputField({
     (e: React.DragEvent<HTMLLabelElement>): void => {
       e.preventDefault();
       setDragActive(false);
-    },
-    [],
-  );
+  }, []);
 
   const onDragOver = useCallback(
     (e: React.DragEvent<HTMLLabelElement>): void => {
       e.preventDefault();
       setDragActive(true);
-    },
-    [],
-  );
+  }, []);
 
   const onDragEnter = useCallback(
     (e: React.DragEvent<HTMLLabelElement>): void => {
       e.preventDefault();
       setDragActive(true);
-    },
-    [],
-  );
+  }, []);
 
   const onDrop = useCallback(
     (e: React.DragEvent<HTMLLabelElement>): void => {
@@ -53,9 +47,7 @@ export default function MediaInputField({
       if (onImageSelected) {
         onImageSelected(e.dataTransfer.files);
       }
-    },
-    [onImageSelected],
-  );
+  }, [onImageSelected]);
 
   const onImageChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -66,9 +58,7 @@ export default function MediaInputField({
       if (onImageSelected) {
         onImageSelected(e.target.files);
       }
-    },
-    [onImageSelected],
-  );
+  }, [onImageSelected]);
 
   const sizeStyle = {
     default: "w-full px-16",

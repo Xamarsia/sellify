@@ -23,7 +23,6 @@ export default function ProfileDrawer({ sidebarItems, pathname }: Props) {
     }
   }, [isExtended, setIsExtended]);
 
-
   const selectedItem = useMemo<NavMenuItem>(() => {
    return sidebarItems.find(item => { return item.href === pathname }) ?? notFound();
   }, []);

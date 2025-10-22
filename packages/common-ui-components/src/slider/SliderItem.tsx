@@ -23,9 +23,8 @@ export default function SliderItem({
     <button
       onClick={handleSlideSelection}
       className={`flex size-28 aspect-square rounded-md hover:outline
-         focus:outline-disabled outline-stroke outline-offset-2 m-2
-          ${selected ? `outline` : ``}
-         `}
+        focus:outline-disabled outline-stroke outline-offset-2 m-2
+        ${selected ? `outline` : ``}`}
     >
       <img
         src={image}

@@ -45,11 +45,9 @@ export default function Button({
     <div className={`${fillStyle}`}>
       <button
         type={type}
-        className={`flex justify-center body items-center px-6 gap-x-4 rounded-lg active:ring-4 group enabled:cursor-pointer disabled:cursor-not-allowed
-                    ${variantStyle} 
-                    ${sizeStyle}
-                    ${fillStyle}
-            `}
+        className={`flex justify-center body items-center px-6 gap-x-4 rounded-lg active:ring-4 group 
+          enabled:cursor-pointer disabled:cursor-not-allowed ${variantStyle} ${sizeStyle} ${fillStyle}
+        `}
         disabled={disabled}
         onClick={onClick}
       >

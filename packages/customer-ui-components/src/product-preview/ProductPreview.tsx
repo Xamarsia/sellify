@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 
-import { ProductPreview as ProductPreviewType } from "./../types";
+import { ProductPreview as ProductPreviewType } from "../types";
 import DynamicImagePreview from "./DynamicImagePreview";
 
 type Props = {

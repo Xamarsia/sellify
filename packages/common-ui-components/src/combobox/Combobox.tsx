@@ -35,9 +35,7 @@ export default function Combobox({
     (key: string, newValue: string) => {
       setIsExtended(false);
       onItemSelected(key, newValue);
-    },
-    [onItemSelected],
-  );
+  }, [onItemSelected]);
 
   const getSuggestedItems = useCallback(
     (query: string): Map<string, string> => {
@@ -52,9 +50,7 @@ export default function Combobox({
           return value.toLowerCase().includes(lowerCaseQuery); // query is substring
         }),
       );
-    },
-    [items],
-  );
+  }, [items]);
 
   useEffect(() => {
     if (value !== undefined) {
@@ -75,9 +71,7 @@ export default function Combobox({
         const lowerCaseValue: string = value.toLowerCase();
         return lowerCaseValue == lowerCaseQuery;
       });
-    },
-    [items],
-  );
+  }, [items]);
 
   const onValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -91,9 +85,7 @@ export default function Combobox({
       }
 
       onItemSelected(foundedItem[0], foundedItem[1]);
-    },
-    [isSelected, onItemSelected],
-  );
+  }, [isSelected, onItemSelected]);
 
   const onInputInFocus = useCallback((): void => {
     setIsExtended(true);
@@ -137,8 +129,8 @@ export default function Combobox({
             disabled={disabled}
             placeholder="--"
             className={`w-full h-full min-w-8 placeholder-placeholder disabled:text-disabled
-                                focus:outline-hidden accent-transparent appearance-none 
-                                `}
+              focus:outline-hidden accent-transparent appearance-none 
+            `}
           />
 
           <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>

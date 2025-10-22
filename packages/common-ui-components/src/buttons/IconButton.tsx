@@ -27,11 +27,10 @@ export default function IconButton({
   return (
     <button
       type={type}
-      className={`flex justify-center items-center rounded-lg enabled:cursor-pointer disabled:cursor-not-allowed
-                    body size-10 min-w-10
-                    ring-stroke active:ring-4
-                    ${variantStyle}
-            `}
+      className={`flex justify-center items-center rounded-lg 
+        enabled:cursor-pointer disabled:cursor-not-allowed body size-10 min-w-10
+        ring-stroke active:ring-4 ${variantStyle}
+      `}
       disabled={disabled}
       onClick={onClick}
     >

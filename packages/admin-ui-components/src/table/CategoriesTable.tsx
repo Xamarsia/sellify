@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 
-import Table from "@sellify/common-ui-components/table/Table";
+import TableView from "@sellify/common-ui-components/view/TableView";
 import { Category } from "../types";
 
 type Props = {
@@ -20,5 +20,5 @@ export default function CategoriesTable({ content }: Props) {
     ]);
   }, [content]);
 
-  return <Table head={tableHeader} content={getContentArray} />;
+  return <TableView head={tableHeader} content={getContentArray} />;
 }
