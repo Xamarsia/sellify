@@ -45,6 +45,10 @@ export type NavbarDrawerController = {
   openNavbarDrawer: (navItems: Array<NavMenuItem>) => void;
 };
 
+export type FilterPanelController = {
+  openFilterPanel: () => void;
+};
+
 export type EditProfileRequest = {
   contactInfo: ContactInfo;
   deliveryAddress: DeliveryAddress;

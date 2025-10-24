@@ -119,3 +119,20 @@ export type DeliveryAddress = {
   country: string;
   address: string;
 };
+
+export type FilterProperty = {
+  key: string;
+  value: string;
+  amount?: number
+};
+
+export type FilterSection = {
+  key: string;
+  value: string;
+  filterProperties: Array<FilterProperty>
+};
+
+export type Filter = {
+  key: string;
+  sections: FilterSection
+};

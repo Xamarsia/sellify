@@ -9,17 +9,17 @@ import SidePanel from "../SidePanel";
 import { CartItem as CartItemType } from "../types";
 
 type DialogProps = {
-  dialogOpen: boolean;
+  open: boolean;
   cartItems: Array<CartItemType>;
-  onDialogClose: () => void;
-  onItemRemove: (productId: number) => void;
+  onClose: () => void;
+  onCartItemRemove: (productId: number) => void;
 };
 
 export default function CartPanel({
-  dialogOpen,
+  open,
   cartItems,
-  onDialogClose,
-  onItemRemove,
+  onClose,
+  onCartItemRemove,
 }: DialogProps) {
   const totalPrice = useMemo<number>(() => {
     return cartItems.reduce((accumulator, currentValue) => {
@@ -28,13 +28,13 @@ export default function CartPanel({
   }, [cartItems]);
 
   return (
-    <SidePanel open={dialogOpen} onClose={onDialogClose} title="Cart">
+    <SidePanel open={open} onClose={onClose} title="Cart">
       {cartItems.length ? (
         <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
           <ul className="flex grow flex-col gap-4 overflow-y-auto">
             {cartItems.map((item, index) => (
               <li key={item.product.productId.toString() + index}>
-                <CartItem cartItem={item} onItemRemove={onItemRemove} />
+                <CartItem cartItem={item} onItemRemove={onCartItemRemove} />
               </li>
             ))}
           </ul>

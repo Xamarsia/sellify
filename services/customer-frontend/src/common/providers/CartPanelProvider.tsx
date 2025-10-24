@@ -31,9 +31,9 @@ export default function CartPanelProvider({
   return (
     <CartPanelContext.Provider value={contextValue}>
       <CartPanel
-        dialogOpen={cartPanelOpened}
-        onDialogClose={onCartPanelClose}
-        onItemRemove={removeCartItem}
+        open={cartPanelOpened}
+        onClose={onCartPanelClose}
+        onCartItemRemove={removeCartItem}
         cartItems={cartItems}
       />
       {children}
