@@ -120,16 +120,47 @@ export type DeliveryAddress = {
   address: string;
 };
 
+// export interface FilterProperty {
+//   readonly key: string;
+//   readonly type: string;
+//   // value: boolean | number;
+// };
+
+// export interface CheckboxFilterProperty extends FilterProperty {
+//   readonly type: "checkbox";
+//   value: boolean;
+// };
+
+// export interface RangeFilterProperty extends FilterProperty {
+//   readonly type: "range";
+//   readonly min: number;
+//   readonly max: number;
+//   value: number;
+// };
+
+
 export type FilterProperty = {
   key: string;
-  value: string;
-  amount?: number
+  // value: string;
+  // amount?: number
+  type: "checkbox" | "range"
+  properties?: RangeProperty
+  defaultValue: boolean,
 };
+
+export type PropertyValue = {
+  key: string,
+  value: boolean,
+}
+
+// export type RangeProperty = {
+//   min: number
+//   max: number
+// }
 
 export type FilterSection = {
   key: string;
-  value: string;
-  filterProperties: Array<FilterProperty>
+  properties: Array<FilterProperty>
 };
 
 export type Filter = {

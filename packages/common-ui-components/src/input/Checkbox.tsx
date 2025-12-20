@@ -5,7 +5,7 @@ import { ChangeEvent } from "react";
 import CheckIcon from "@sellify/common-icons/check";
 
 type CheckboxProps = {
-  checked?: boolean;
+  checked: boolean;
   disabled?: boolean;
   value: string;
   label?: string;
@@ -27,7 +27,7 @@ export default function Checkbox({
           value={value}
           disabled={disabled}
           onChange={onChange}
-          defaultChecked={checked}
+          checked={checked}
           id={`checkbox-${value}`}
           className="peer size-5 appearance-none rounded-md border border-stroke bg-primary group-hover:border-black 
             enabled:hover:border-black focus:border-black checked:bg-black checked:border-black checked:disabled:bg-disabled
