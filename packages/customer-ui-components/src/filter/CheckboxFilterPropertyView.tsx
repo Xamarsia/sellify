@@ -1,34 +1,31 @@
 import { ChangeEvent, useCallback } from "react";
 
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
 
-import { FilterProperty } from "../types";
 
 type FilterParameterProps = {
   propertyKey: string,
-  value: boolean;
-  // filterProperty: FilterProperty;
-  onFilterPropertyChange: (propertyKey: string, selected: boolean) => void;
+  value: CheckboxFilterPropertyValue;
+  onFilterPropertyChange: (propertyKey: string, value: CheckboxFilterPropertyValue) => void;
 };
 
-export default function FilterPropertyComponent({
+export default function CheckboxFilterPropertyView({
   propertyKey,
   value,
   onFilterPropertyChange
 }: FilterParameterProps) {
-
   const onChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
-    onFilterPropertyChange(propertyKey, e.target.checked);
-  }, [propertyKey]);
+    onFilterPropertyChange(propertyKey, new CheckboxFilterPropertyValue(e.target.checked));
+  }, [propertyKey, onFilterPropertyChange]);
 
   return (
     <div className="flex gap-1">
       <Checkbox
-        checked={value}
+        checked={value.value}
         onChange={onChange}
         value={propertyKey}
         label={propertyKey} />
-      {/* <label className="label text-placeholder self-end">{`(${filterProperty.amount})`}</label> */}
     </div>
   );
 }

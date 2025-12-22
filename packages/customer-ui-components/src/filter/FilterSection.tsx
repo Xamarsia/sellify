@@ -1,34 +1,52 @@
 'use client'
 
-import { useCallback, useEffect, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
 import MinusIcon from "@sellify/common-icons/minus";
 
-import { PropertyValue } from "../types";
-import FilterProperty from "./FilterProperty";
-
-
+import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
+import RangeFilterPropertyView from "./RangeFilterPropertyView";
+import { CheckboxFilterProperty, FilterProperty, RangeFilterProperty } from "./common/Property";
+import { CheckboxFilterPropertyValue, FilterPropertyValue, RangeFilterPropertyValue } from "./common/PropertyValues";
 
 type FilterSectionProps = {
   sectionKey: string,
-  properties: Array<PropertyValue>,
-  onFilterSectionChange: (sectionKey: string, propertyKey: string, selected: boolean) => void;
+  properties: Array<FilterProperty>,
+  modifiedProperties?: Map<string, FilterPropertyValue>,
+  onFilterSectionChange: (sectionKey: string, propertyKey: string, value: FilterPropertyValue) => void;
 };
 
-export default function FilterSectionComponent({ sectionKey, properties, onFilterSectionChange }: FilterSectionProps) {
-  useEffect(() => {
-    console.log("selectedProperties ", properties);
-  }, [properties]);
+export default function FilterSectionComponent({ sectionKey, properties, modifiedProperties, onFilterSectionChange }: FilterSectionProps) {
   const [isExtended, setIsExtended] = useState<boolean>(false);
 
   const onSectionClick = useCallback(() => {
     setIsExtended(!isExtended);
   }, [isExtended]);
 
-  const onFilterPropertyChange = useCallback((propertyKey: string, selected: boolean) => {
-    onFilterSectionChange(sectionKey, propertyKey, selected);
-  }, [sectionKey]);
+  const onFilterPropertyChange = useCallback((propertyKey: string, value: FilterPropertyValue) => {
+    onFilterSectionChange(sectionKey, propertyKey, value);
+  }, [sectionKey, onFilterSectionChange]);
+
+  const getPropertyComponent = useCallback((property: FilterProperty): ReactNode => {
+    let modifiedProperty = modifiedProperties?.get(property.key);
+    
+    if (property instanceof CheckboxFilterProperty) {
+      return <CheckboxFilterPropertyView
+        propertyKey={property.key}
+        value={modifiedProperty instanceof CheckboxFilterPropertyValue ? modifiedProperty : property.defaultValue}
+        onFilterPropertyChange={onFilterPropertyChange}
+        key={`CheckboxFilterProperty_${sectionKey}_${property.key}`} />;
+    } else if (property instanceof RangeFilterProperty) {
+      return <RangeFilterPropertyView
+        propertyKey={property.key}
+        value={modifiedProperty instanceof RangeFilterPropertyValue ? modifiedProperty : property.defaultValue}
+        min={property.min}
+        max={property.max}
+        onFilterPropertyChange={onFilterPropertyChange}
+        key={`RangeFilterProperty_${sectionKey}_${property.key}`} />;
+    }
+  }, [modifiedProperties, onFilterPropertyChange]);
 
   return (
     <div className="flex flex-col w-full">
@@ -46,11 +64,7 @@ export default function FilterSectionComponent({ sectionKey, properties, onFilte
       </button>
       {isExtended && <div className="flex flex-col gap-3">
         {properties.map((property) =>
-          <FilterProperty
-            propertyKey={property.key}
-            value={property.value}
-            onFilterPropertyChange={onFilterPropertyChange}
-            key={`FilterProperty_${sectionKey}_${property.key}`} />
+          getPropertyComponent(property)
         )}
       </div>}
     </div>
