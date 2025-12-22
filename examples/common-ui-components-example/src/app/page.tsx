@@ -331,7 +331,7 @@ export default function Home() {
 
         <Section title={"Tab"}>
           <SectionItem>
-            <Tabs items={tabs} hash={""}  />
+            <Tabs items={tabs} hash={""} />
           </SectionItem>
         </Section>
 

@@ -119,3 +119,8 @@ export type DeliveryAddress = {
   country: string;
   address: string;
 };
+
+export type Filter = {
+  key: string;
+  sections: FilterSection
+};
