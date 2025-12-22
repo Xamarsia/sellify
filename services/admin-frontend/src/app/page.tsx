@@ -22,7 +22,17 @@ import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPrevi
 import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
 import Card from "@sellify/admin-ui-components/card/Card";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
-import { Admin, AdminPreview, Category, Customer, Inventory, Order, Product, ProductPreview, Role } from "@sellify/admin-ui-components/types";
+import {
+  Admin,
+  AdminPreview,
+  Category,
+  Customer,
+  Inventory,
+  Order,
+  Product,
+  ProductPreview,
+  Role,
+} from "@sellify/admin-ui-components/types";
 import { OrderStatus } from "@sellify/common-ui-components/constants";
 
 export default function Home() {
