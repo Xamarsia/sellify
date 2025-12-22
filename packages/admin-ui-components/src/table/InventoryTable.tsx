@@ -2,10 +2,9 @@ import { ReactNode, useMemo } from "react";
 
 import TableView from "@sellify/common-ui-components/view/TableView";
 
-// import DynamicImagePreview from "@sellify/customer-ui-components/product-preview/DynamicImagePreview";
-
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
 import { Inventory } from "../types";
+import ProductImagePreview from "../product/ProductImagePreview";
 
 type Props = {
   content: Array<Inventory>;
@@ -24,7 +23,7 @@ export default function InventoryTable({ disabled, content, onSubmit }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((inventory) => [
       <div className="flex gap-4 items-center">
-        <DynamicImagePreview src={inventory.image} />
+        <ProductImagePreview src={inventory.image} />
         <h4>{inventory.productTitle}</h4>
       </div>,
       <h4>{"#" + inventory.productId}</h4>,
