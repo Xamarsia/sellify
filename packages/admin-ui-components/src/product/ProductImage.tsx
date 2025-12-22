@@ -8,7 +8,7 @@ type Props = {
 
 export default function ProductImage({ src, onClick }: Props) {
   return (
-    <div className="relative size-56 rounded-md">
+    <div className="relative size-56 rounded-md shrink-0">
       <div className="absolute hover:bg-black/20 hover:backdrop-blur-[2px] size-56 rounded-md ">
         <div className="absolute top-0 right-0 m-1">
           <TransparentIconButton onClick={onClick} variant="white">
