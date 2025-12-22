@@ -3,8 +3,9 @@
 import { useState } from "react";
 import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
 import Button from "@sellify/common-ui-components/buttons/Button";
-import image from "./../resources/image1.jpg";
-import image2 from "./../resources/image2.jpg";
+
+import image from "./../resources/1/image.jpg";
+import image2 from "./../resources/2/image.jpg";
 
 import {
   AdminStatus,
@@ -20,20 +21,12 @@ import AdminsTable from "@sellify/admin-ui-components/table/AdminsTable";
 import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
 import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
 import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
-import Card from "@sellify/admin-ui-components/card/Card";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
-import {
-  Admin,
-  AdminPreview,
-  Category,
-  Customer,
-  Inventory,
-  Order,
-  Product,
-  ProductPreview,
-  Role,
-} from "@sellify/admin-ui-components/types";
-import { OrderStatus } from "@sellify/common-ui-components/constants";
+import { Admin, AdminPreview, Category, Customer, Inventory, Product, Role } from "@sellify/admin-ui-components/types";
+import { getOrders } from "common/actions/order-actions";
+import { getProductPreviews } from "common/actions/product-actions";
+
+import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
@@ -55,42 +48,6 @@ export default function Home() {
     "1 item",
   ];
 
-  const order: Order = {
-    orderId: 2343,
-    date: "June 23, 2024",
-    customerName: "John Thomson",
-    total: 23.46,
-    status: OrderStatus.Shipped,
-    items: 1,
-  };
-
-  const order2: Order = {
-    orderId: 67843,
-    date: "Aug 7, 2024",
-    customerName: "John Thomson",
-    total: 64.32,
-    status: OrderStatus.InProgress,
-    items: 5,
-  };
-
-  const order3: Order = {
-    orderId: 56736784,
-    date: "Jan 13, 2025",
-    customerName: "John Thomson",
-    total: 345.46,
-    status: OrderStatus.Shipped,
-    items: 3,
-  };
-
-  const order4: Order = {
-    orderId: 245,
-    date: "Aug 18, 2025",
-    customerName: "John Thomson",
-    total: 253.82,
-    status: OrderStatus.New,
-    items: 10,
-  };
-
   const product: Product = {
     image: image.src,
     title: "Product Title",
@@ -99,12 +56,6 @@ export default function Home() {
     quantity: 12,
     category: "Rings",
     price: 60,
-  };
-
-  const productPreview: ProductPreview = {
-    image: image.src,
-    title: "Product Title",
-    productId: 43545445,
   };
 
   const inventory: Inventory = {
@@ -170,7 +121,9 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col m-16 gap-10">
-        <OrdersTable content={[order, order2, order3, order4]} />
+        <OrdersTable content={getOrders()} />
+        <OrdersView content={getOrders()} />
+
         <ProductsTable
           content={[product, product, product, product, product]}
         />
@@ -184,15 +137,7 @@ export default function Home() {
         />
         <AdminsTable content={[admin, admin, admin, admin, admin, admin]} />
         <RolesTable content={[role, role, role, role, role, role]} />
-        <ProductPreviewTable
-          content={[
-            productPreview,
-            productPreview,
-            productPreview,
-            productPreview,
-            productPreview,
-          ]}
-        />
+        <ProductPreviewTable content={getProductPreviews()} />
         <AdminsPreviewTable
           content={[
             adminPreview,
