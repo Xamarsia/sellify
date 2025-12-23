@@ -122,5 +122,16 @@ export type DeliveryAddress = {
 
 export type Filter = {
   key: string;
-  sections: FilterSection
+  sections: FilterSection;
+};
+
+export type CollectionPreview = {
+  title: string;
+  image: string;
+};
+
+export type Collection = {
+  image?: string; // banner image
+  title: string; // banner title
+  description: string; // banner description
 };

@@ -18,6 +18,7 @@ import Clipboard from "@sellify/common-icons/clipboard";
 
 import {
   CartItem as CartItemType,
+  CollectionPreview,
   ProductPreview,
   ProgressStepInfo,
 } from "@sellify/customer-ui-components/types";
@@ -26,6 +27,8 @@ import CartItem from "@sellify/customer-ui-components/cart/CartItem";
 import CounterButton from "@sellify/customer-ui-components/CounterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
+
+import CollectionCard from "@sellify/customer-ui-components/CollectionCard";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
@@ -85,6 +88,23 @@ export default function Home() {
     },
     [],
   );
+
+  const collectionPreviews: Array<CollectionPreview> = [
+    { image: image.src, title: "Collection Card" },
+    {
+      image: image2.src,
+      title:
+        "Collection Card Collection Card Collection Card Collection Card CollectionCardCollectionCardCollectionCard",
+    },
+    {
+      image: image3.src,
+      title: "Collection Card Collection Card Collection Card",
+    },
+    {
+      image: image4.src,
+      title: "CollectionCardCollectionCardCollectionCardCollectionCard",
+    },
+  ];
 
   return (
     <div className="min-h-full">
@@ -148,6 +168,20 @@ export default function Home() {
                 productPreview3,
               ]}
             />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Collections"}>
+          <SectionItem>
+            <ul className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:grid-cols-4">
+              {collectionPreviews.map((preview, index) => (
+                <li key={preview.title.toString() + index}>
+                  <CollectionCard href="/" collectionPreview={preview} />
+                </li>
+              ))}
+            </ul>
           </SectionItem>
         </Section>
       </main>

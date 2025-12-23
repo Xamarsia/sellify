@@ -7,13 +7,13 @@ import {
 } from "types";
 
 export const AlertDialogContext: React.Context<AlertDialogController> =
-  createContext<AlertDialogController>({ showAlertDialog: () => { } });
+  createContext<AlertDialogController>({ showAlertDialog: () => {} });
 
 export const RiskDialogContext: React.Context<RiskDialogController> =
-  createContext<RiskDialogController>({ showDangerAlertDialog: () => { } });
+  createContext<RiskDialogController>({ showDangerAlertDialog: () => {} });
 
 export const NavbarDrawerContext: React.Context<NavbarDrawerController> =
-  createContext<NavbarDrawerController>({ openNavbarDrawer: () => { } });
+  createContext<NavbarDrawerController>({ openNavbarDrawer: () => {} });
 
 export const FilterPanelContext: React.Context<FilterPanelController> =
-  createContext<FilterPanelController>({ openFilterPanel: () => { } });
+  createContext<FilterPanelController>({ openFilterPanel: () => {} });
