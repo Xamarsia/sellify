@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import image from "./../resources/1/image.jpg";
@@ -11,42 +11,32 @@ import {
   AdminStatus,
   CustomerStatus,
 } from "@sellify/admin-ui-components/constants";
-
-import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
-import ProductsTable from "@sellify/admin-ui-components/table/ProductsTable";
-import InventoryTable from "@sellify/admin-ui-components/table/InventoryTable";
-import CustomersTable from "@sellify/admin-ui-components/table/CustomersTable";
-import CategoriesTable from "@sellify/admin-ui-components/table/CategoriesTable";
-import AdminsTable from "@sellify/admin-ui-components/table/AdminsTable";
-import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
-import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
-import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
+import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
+import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
+import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
+import CustomersView from "@sellify/admin-ui-components/data-view/CustomersView";
+import InventoryView from "@sellify/admin-ui-components/data-view/InventoryView";
+import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
+import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPreviewView";
+import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
+import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
-import { Admin, AdminPreview, Category, Customer, Inventory, Product, Role } from "@sellify/admin-ui-components/types";
+import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
+
+import {
+  Admin,
+  AdminPreview,
+  Category,
+  Customer,
+  Inventory,
+  Product,
+  Role,
+} from "@sellify/admin-ui-components/types";
 import { getOrders } from "common/actions/order-actions";
 import { getProductPreviews } from "common/actions/product-actions";
 
-import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
-
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
-
-  const tableHeader: Array<string> = [
-    "Order ID",
-    "Date",
-    "Customer",
-    "Total",
-    "Status",
-    "Items",
-  ];
-  const tableContent: Array<string> = [
-    "#546545454",
-    "Jan 10, 2020",
-    "Ronald Jones",
-    "$253.82",
-    "New",
-    "1 item",
-  ];
 
   const product: Product = {
     image: image.src,
@@ -121,24 +111,27 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col m-16 gap-10">
-        <OrdersTable content={getOrders()} />
         <OrdersView content={getOrders()} />
 
-        <ProductsTable
-          content={[product, product, product, product, product]}
-        />
-        <InventoryTable
+        <ProductsView content={[product, product, product, product, product]} />
+
+        <InventoryView
           content={[inventory, inventory, inventory, inventory, inventory]}
           onSubmit={setQuantity}
         />
-        <CustomersTable content={[customer, customer, customer, customer]} />
-        <CategoriesTable
+
+        <CustomersView content={[customer, customer, customer, customer]} />
+        <CategoriesView
           content={[category, category, category, category, category]}
         />
-        <AdminsTable content={[admin, admin, admin, admin, admin, admin]} />
-        <RolesTable content={[role, role, role, role, role, role]} />
-        <ProductPreviewTable content={getProductPreviews()} />
-        <AdminsPreviewTable
+
+        <AdminsView content={[admin, admin, admin, admin, admin, admin]} />
+
+        <RolesView content={[role, role, role, role, role, role]} />
+
+        <ProductPreviewView content={getProductPreviews()} />
+
+        <AdminsPreviewView
           content={[
             adminPreview,
             adminPreview,

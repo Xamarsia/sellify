@@ -1,6 +1,4 @@
-import {
-  OrderStatus,
-} from "@sellify/common-ui-components/constants";
+import { OrderStatus } from "@sellify/common-ui-components/constants";
 
 import { Order, OrderPreview } from "@sellify/admin-ui-components/types";
 
@@ -39,7 +37,6 @@ const order4: Order = {
   status: OrderStatus.New,
   items: 10,
 };
-
 
 export function getOrders(): Array<Order> {
   return [
