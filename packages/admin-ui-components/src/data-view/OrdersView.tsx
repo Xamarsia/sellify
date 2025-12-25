@@ -12,7 +12,13 @@ type Props = {
 
 export default function OrdersView({ content }: Props) {
   const tableHeader = useMemo<Array<string>>(() => {
-    const header: Array<string> = ["Order ID", "Date", "Customer", "Total", "Status"];
+    const header: Array<string> = [
+      "Order ID",
+      "Date",
+      "Customer",
+      "Total",
+      "Status",
+    ];
     return header;
   }, []);
 

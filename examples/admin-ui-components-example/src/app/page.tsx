@@ -140,7 +140,6 @@ export default function Home() {
         <h1 className="text-white text-3xl">Admin UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
-
         <Section title={"Add Amount Button"}>
           <SectionItem>
             <AddAmountButton
@@ -179,13 +178,14 @@ export default function Home() {
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Table"}>
-
           <SectionItem title="Orders Table">
             <OrdersView content={[order, order2, order3, order4]} />
           </SectionItem>
 
           <SectionItem title="Products Table">
-            <ProductsView content={[product, product, product, product, product]} />
+            <ProductsView
+              content={[product, product, product, product, product]}
+            />
           </SectionItem>
 
           <SectionItem title="Inventory Table">
@@ -196,9 +196,7 @@ export default function Home() {
           </SectionItem>
 
           <SectionItem title="Customers Table">
-            <CustomersView
-              content={[customer, customer, customer, customer]}
-            />
+            <CustomersView content={[customer, customer, customer, customer]} />
           </SectionItem>
 
           <SectionItem title="Categories Table">

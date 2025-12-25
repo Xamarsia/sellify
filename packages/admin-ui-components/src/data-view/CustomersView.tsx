@@ -1,4 +1,3 @@
-
 import { ReactNode, useMemo } from "react";
 
 import { Customer } from "../types";
