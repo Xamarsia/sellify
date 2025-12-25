@@ -1,6 +1,7 @@
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
-import { CollectionPreview } from "./types";
+
+import { CollectionPreview } from "../types";
 
 type Props = {
   collectionPreview: CollectionPreview;

@@ -2,7 +2,7 @@ import "server-only";
 
 import { CollectionPreview } from "@sellify/customer-ui-components/types";
 import { getCollectionPreviews } from "common/actions/collection-actions";
-import CollectionCard from "@sellify/customer-ui-components/CollectionCard";
+import CollectionCard from "@sellify/customer-ui-components/collection/CollectionCard";
 
 export default async function CollectionsPage() {
   const collections: Array<CollectionPreview> = getCollectionPreviews();

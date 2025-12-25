@@ -16,5 +16,12 @@ export default async function ProductsPage({ params }: Props) {
     notFound();
   }
 
-  return <ProductFeedContent productLabel={productLabel} />;
+  return (
+    <>
+      {/* TODO: Add Banner here */}
+      <div className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pb-16 max-w-7xl">
+        <ProductFeedContent productLabel={productLabel} />
+      </div>
+    </>
+  )
 }

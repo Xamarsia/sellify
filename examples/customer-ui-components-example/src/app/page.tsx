@@ -28,7 +28,7 @@ import CounterButton from "@sellify/customer-ui-components/CounterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
 
-import CollectionCard from "@sellify/customer-ui-components/CollectionCard";
+import CollectionCard from "@sellify/customer-ui-components/collection/CollectionCard";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);

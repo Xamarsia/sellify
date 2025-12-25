@@ -1,4 +1,4 @@
-import { CollectionPreview } from "@sellify/customer-ui-components/types";
+import { Collection, CollectionPreview } from "@sellify/customer-ui-components/types";
 
 import image from "resources/1/image.jpg";
 import image2 from "resources/1/image2.jpg";
@@ -22,6 +22,20 @@ const collectionPreviews: Array<CollectionPreview> = [
     },
 ];
 
+const collection: Collection = {
+    image: image2.src,
+    title: "Thoughtful Gifts They'll Love",
+    description: "Explore our diverse selection of indoor and outdoor plants to create your own green sanctuary."
+};
+
 export function getCollectionPreviews(): Array<CollectionPreview> {
     return collectionPreviews;
+}
+
+export function getCollection(title: string): Collection {
+    return collection;
+}
+
+export function isCollectionFound(title: string): boolean {
+    return true;
 }
