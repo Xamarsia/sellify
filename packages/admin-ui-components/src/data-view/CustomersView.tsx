@@ -1,18 +1,19 @@
 import { ReactNode, useMemo } from "react";
 
-import TableView from "@sellify/common-ui-components/view/TableView";
-
-import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
 import { Customer } from "../types";
+import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
+
+import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 type Props = {
   content: Array<Customer>;
 };
 
-export default function CustomersTable({ content }: Props) {
+export default function CustomersView({ content }: Props) {
   const tableHeader: Array<string> = [
-    "Customer ID",
     "Customer name",
+    "Customer ID",
     "Orders",
     "Total expenses",
     "Status",
@@ -20,8 +21,12 @@ export default function CustomersTable({ content }: Props) {
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((customer) => [
-      <h4>{"#" + customer.customerId}</h4>,
-      <p>{customer.name}</p>,
+      <LinkButton>
+        <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
+          {customer.name}
+        </p>
+      </LinkButton>,
+      <p>{"#" + customer.customerId}</p>,
       <p>
         {customer.ordersCount +
           `${customer.ordersCount > 1 ? " orders" : " order"}`}
@@ -31,5 +36,5 @@ export default function CustomersTable({ content }: Props) {
     ]);
   }, [content]);
 
-  return <TableView head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
 }

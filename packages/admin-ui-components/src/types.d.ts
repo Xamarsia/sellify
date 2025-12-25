@@ -63,6 +63,7 @@ export type Role = {
 export type ProductPreview = {
   image: string;
   title: string;
+  price: number;
   productId: number;
 };
 
@@ -70,4 +71,12 @@ export type AdminPreview = {
   adminId: number;
   name: string;
   role: string;
+};
+
+export type OrderPreview = {
+  orderId: number;
+  date: string;
+  total: number;
+  status: OrderStatus;
+  customerName: string;
 };

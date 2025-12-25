@@ -1,95 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
-import image from "./../resources/image1.jpg";
-import image2 from "./../resources/image2.jpg";
+
+import image from "./../resources/1/image.jpg";
+import image2 from "./../resources/2/image.jpg";
 
 import {
   AdminStatus,
   CustomerStatus,
 } from "@sellify/admin-ui-components/constants";
-
-import OrdersTable from "@sellify/admin-ui-components/table/OrdersTable";
-import ProductsTable from "@sellify/admin-ui-components/table/ProductsTable";
-import InventoryTable from "@sellify/admin-ui-components/table/InventoryTable";
-import CustomersTable from "@sellify/admin-ui-components/table/CustomersTable";
-import CategoriesTable from "@sellify/admin-ui-components/table/CategoriesTable";
-import AdminsTable from "@sellify/admin-ui-components/table/AdminsTable";
-import RolesTable from "@sellify/admin-ui-components/table/RolesTable";
-import ProductPreviewTable from "@sellify/admin-ui-components/table/ProductPreviewTable";
-import AdminsPreviewTable from "@sellify/admin-ui-components/table/AdminsPreviewTable";
-import Card from "@sellify/admin-ui-components/card/Card";
+import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
+import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
+import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
+import CustomersView from "@sellify/admin-ui-components/data-view/CustomersView";
+import InventoryView from "@sellify/admin-ui-components/data-view/InventoryView";
+import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
+import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPreviewView";
+import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
+import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
+import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
+
 import {
   Admin,
   AdminPreview,
   Category,
   Customer,
   Inventory,
-  Order,
   Product,
-  ProductPreview,
   Role,
 } from "@sellify/admin-ui-components/types";
-import { OrderStatus } from "@sellify/common-ui-components/constants";
+import { getOrders } from "common/actions/order-actions";
+import { getProductPreviews } from "common/actions/product-actions";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
-
-  const tableHeader: Array<string> = [
-    "Order ID",
-    "Date",
-    "Customer",
-    "Total",
-    "Status",
-    "Items",
-  ];
-  const tableContent: Array<string> = [
-    "#546545454",
-    "Jan 10, 2020",
-    "Ronald Jones",
-    "$253.82",
-    "New",
-    "1 item",
-  ];
-
-  const order: Order = {
-    orderId: 2343,
-    date: "June 23, 2024",
-    customerName: "John Thomson",
-    total: 23.46,
-    status: OrderStatus.Shipped,
-    items: 1,
-  };
-
-  const order2: Order = {
-    orderId: 67843,
-    date: "Aug 7, 2024",
-    customerName: "John Thomson",
-    total: 64.32,
-    status: OrderStatus.InProgress,
-    items: 5,
-  };
-
-  const order3: Order = {
-    orderId: 56736784,
-    date: "Jan 13, 2025",
-    customerName: "John Thomson",
-    total: 345.46,
-    status: OrderStatus.Shipped,
-    items: 3,
-  };
-
-  const order4: Order = {
-    orderId: 245,
-    date: "Aug 18, 2025",
-    customerName: "John Thomson",
-    total: 253.82,
-    status: OrderStatus.New,
-    items: 10,
-  };
 
   const product: Product = {
     image: image.src,
@@ -99,12 +46,6 @@ export default function Home() {
     quantity: 12,
     category: "Rings",
     price: 60,
-  };
-
-  const productPreview: ProductPreview = {
-    image: image.src,
-    title: "Product Title",
-    productId: 43545445,
   };
 
   const inventory: Inventory = {
@@ -170,30 +111,27 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col m-16 gap-10">
-        <OrdersTable content={[order, order2, order3, order4]} />
-        <ProductsTable
-          content={[product, product, product, product, product]}
-        />
-        <InventoryTable
+        <OrdersView content={getOrders()} />
+
+        <ProductsView content={[product, product, product, product, product]} />
+
+        <InventoryView
           content={[inventory, inventory, inventory, inventory, inventory]}
           onSubmit={setQuantity}
         />
-        <CustomersTable content={[customer, customer, customer, customer]} />
-        <CategoriesTable
+
+        <CustomersView content={[customer, customer, customer, customer]} />
+        <CategoriesView
           content={[category, category, category, category, category]}
         />
-        <AdminsTable content={[admin, admin, admin, admin, admin, admin]} />
-        <RolesTable content={[role, role, role, role, role, role]} />
-        <ProductPreviewTable
-          content={[
-            productPreview,
-            productPreview,
-            productPreview,
-            productPreview,
-            productPreview,
-          ]}
-        />
-        <AdminsPreviewTable
+
+        <AdminsView content={[admin, admin, admin, admin, admin, admin]} />
+
+        <RolesView content={[role, role, role, role, role, role]} />
+
+        <ProductPreviewView content={getProductPreviews()} />
+
+        <AdminsPreviewView
           content={[
             adminPreview,
             adminPreview,

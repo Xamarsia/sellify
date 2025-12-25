@@ -1,18 +1,24 @@
 import { ReactNode, useMemo } from "react";
 
-import TableView from "@sellify/common-ui-components/view/TableView";
 import { Category } from "../types";
+
+import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
+import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 
 type Props = {
   content: Array<Category>;
 };
 
-export default function CategoriesTable({ content }: Props) {
+export default function CategoriesView({ content }: Props) {
   const tableHeader: Array<string> = ["Category", "Related products"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((category) => [
-      <p>{category.title}</p>,
+      <LinkButton>
+        <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
+          {category.title}
+        </p>
+      </LinkButton>,
       <p>
         {category.relatedProductsCount +
           `${category.relatedProductsCount > 1 ? " products" : " product"}`}
@@ -20,5 +26,5 @@ export default function CategoriesTable({ content }: Props) {
     ]);
   }, [content]);
 
-  return <TableView head={tableHeader} content={getContentArray} />;
+  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
 }
