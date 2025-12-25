@@ -1,6 +1,7 @@
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
-import { CollectionPreview } from "./types";
+
+import { CollectionPreview } from "../types";
 
 type Props = {
   collectionPreview: CollectionPreview;
@@ -9,7 +10,7 @@ type Props = {
 
 export default function CollectionCard({ collectionPreview, href }: Props) {
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col gap-4 w-full not-md:border-b border-stroke not-md:py-4">
       <div className="relative md:aspect-square rounded-md  not-md:h-96 object-cover overflow-hidden">
         <img
           src={collectionPreview.image}
@@ -19,9 +20,9 @@ export default function CollectionCard({ collectionPreview, href }: Props) {
       </div>
       <div className="flex  flex-col justify-between">
         <LinkButton href={href}>
-          <label className="line-clamp-2 break-all hover:underline underline-offset-3">
+          <h4 className="line-clamp-2 break-all hover:underline">
             {collectionPreview.title}
-          </label>
+          </h4>
           <ArrowLongRightIcon style="size-5 shrink-0" />
         </LinkButton>
       </div>

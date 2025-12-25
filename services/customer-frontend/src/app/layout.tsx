@@ -8,7 +8,6 @@ import Header from "components/Header";
 import SearchPanelProvider from "common/providers/SearchPanelProvider";
 import CartPanelProvider from "common/providers/CartPanelProvider";
 import AlertDialogProvider from "common/providers/AlertDialogProvider";
-import ProductAddedDialogProvider from "common/providers/ProductAddedDialogProvider";
 import DestructiveAlertDialogProvider from "common/providers/RiskDialogProvider";
 import NavbarDrawerProvider from "common/providers/NavbarDrawerProvider";
 import FilterPanelProvider from "common/providers/FilterPanelProvider";
@@ -67,11 +66,7 @@ export default function RootLayout({
                 <FilterPanelProvider>
                   <CartPanelProvider>
                     <Header />
-                    <main className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pt-14 pb-16 max-w-7xl">
-                      <ProductAddedDialogProvider>
-                        {children}
-                      </ProductAddedDialogProvider>
-                    </main>
+                    {children}
                     <Footer copyright="Long company name" />
                   </CartPanelProvider>
                 </FilterPanelProvider>

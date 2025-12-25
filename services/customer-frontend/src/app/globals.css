@@ -10,6 +10,10 @@ h1 {
   font-family: var(--font-heading-family);
 }
 
+.title {
+  font-family: var(--font-heading-family);
+}
+
 .tab_header {
   font-family: var(--font-heading-family-medium);
 }
