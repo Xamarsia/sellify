@@ -9,8 +9,6 @@ export default function Home() {
 
   return (
     <div className="flex w-full justify-between">
-      <div>Page</div>
-      <FilterButton onClick={openFilterPanel}/>
     </div>
   );
 }

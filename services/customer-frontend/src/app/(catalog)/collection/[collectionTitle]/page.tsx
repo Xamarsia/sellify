@@ -25,7 +25,7 @@ export default async function CollectionProductsPage({ params }: Props) {
     <>
       {collection && <CollectionBanner collection={collection} />}
       <div className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pb-16 max-w-7xl">
-        <div className="flex w-full flex-col gap-9 ">
+        <div className="flex w-full flex-col gap-12">
           <h1>{collectionTitle}</h1>
           <ProductFeedContent productLabel={collectionTitle} />
         </div>
