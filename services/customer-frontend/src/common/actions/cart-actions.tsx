@@ -99,7 +99,7 @@ export function changeCartItemQuantity(
 }
 
 export function getProductPreviews(
-  productLabel: string,
+  productLabel?: string,
 ): Array<ProductPreview> {
   const previews: Array<ProductPreview> = [
     productPreview,
