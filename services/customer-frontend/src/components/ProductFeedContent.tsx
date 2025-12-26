@@ -18,7 +18,7 @@ import { addToCart, getProductPreviews } from "common/actions/cart-actions";
 import { FilterPanelController, ProductAddedDialogController } from "types";
 
 type Props = {
-  productLabel: string;
+  productLabel?: string;
 };
 
 export default function ProductFeedContent({ productLabel }: Props) {

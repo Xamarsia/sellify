@@ -13,7 +13,7 @@ import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
-import { CartPanelController, NavbarDrawerController, SearchPanelController} from "types";
+import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
 import { NavbarDrawerContext } from "common/contexts/common-context";
 
 export default function Header() {
@@ -22,10 +22,10 @@ export default function Header() {
   const { openNavbarDrawer } = useContext<NavbarDrawerController>(NavbarDrawerContext);
 
   const menuItem: Array<NavMenuItem> = [
-    { href: "/home", title: "Home" },
-    { href: "/new", title: "New" },
-    { href: "/bestsellers", title: "Bestsellers" },
-    { href: "/gifts", title: "Gifts" },
+    { href: "/all-products", title: "All Products" },
+    { href: "/collection", title: "Collections" },
+    { href: "/collection/bestsellers", title: "Bestsellers" },
+    { href: "/collection/gifts", title: "Gifts" },
   ];
 
   const openDrawer = useCallback((): void => {
