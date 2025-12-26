@@ -75,7 +75,7 @@ export default function FilterPanelProvider({
 
   return (
     <FilterPanelContext.Provider value={contextValue}>
-      <SidePanel open={filterPanelOpened} onClose={onFilterPanelClose} title="Cart">
+      <SidePanel open={filterPanelOpened} onClose={onFilterPanelClose} title="Filter">
         <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto">
           <div className="flex grow flex-col gap-4 overflow-y-auto">
             {filterSections.map((section) =>

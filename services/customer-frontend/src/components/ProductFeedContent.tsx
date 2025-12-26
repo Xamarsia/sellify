@@ -9,11 +9,13 @@ import {
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
+import FilterButton from "@sellify/customer-ui-components/filter/FilterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
+import { FilterPanelContext } from "common/contexts/common-context";
 import { ProductAddedDialogContext } from "common/contexts/cart-context";
 import { addToCart, getProductPreviews } from "common/actions/cart-actions";
-import { DialogContext } from "types";
+import { FilterPanelController, ProductAddedDialogController } from "types";
 
 type Props = {
   productLabel: string;
@@ -22,8 +24,9 @@ type Props = {
 export default function ProductFeedContent({ productLabel }: Props) {
   const [page, setPage] = useState<number>(1);
   const [selectedKey, setSelectedKey] = useState<string>();
+  const { openFilterPanel } = useContext<FilterPanelController>(FilterPanelContext);
 
-  const { openProductAddedDialog } = useContext<DialogContext>(
+  const { openProductAddedDialog } = useContext<ProductAddedDialogController>(
     ProductAddedDialogContext,
   );
 
@@ -48,7 +51,8 @@ export default function ProductFeedContent({ productLabel }: Props) {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="relative flex grow w-full justify-end pb-6">
+      <div className="relative flex grow w-full justify-between pb-6">
+        <FilterButton onClick={openFilterPanel} />
         <Dropdown
           title={"Sort By"}
           items={comboboxItems}
