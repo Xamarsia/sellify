@@ -8,7 +8,5 @@ import CollectionsPageContent from "components/pages-content/CollectionsPageCont
 export default async function CollectionsPage() {
   const collections: Array<CollectionPreview> = getCollectionPreviews();
 
-  return (
-    <CollectionsPageContent collections={collections} />
-  );
+  return <CollectionsPageContent collections={collections} />;
 }

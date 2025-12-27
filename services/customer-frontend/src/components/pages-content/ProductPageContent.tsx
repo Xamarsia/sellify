@@ -4,7 +4,6 @@ import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 import { NavMenuItem, TabItemInfo } from "@sellify/common-ui-components/types";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
-import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 
 import {
   CartItem,
@@ -16,6 +15,8 @@ import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
 import { addToCart } from "common/actions/cart-actions";
 import { getProductOverviewTabs } from "common/actions/product-actions";
 import { ProductAddedDialogContext } from "common/contexts/cart-context";
+import { BreadcrumbsContext } from "common/contexts/common-context";
+import { BreadcrumbsController, ProductAddedDialogController } from "types";
 
 type Props = {
   product: ProductDetailsType;
@@ -24,7 +25,8 @@ type Props = {
 export default function ProductPageContent({ product }: Props) {
   const [tabs] = useState<Array<TabItemInfo>>(getProductOverviewTabs());
   const [hash, setHash] = useState<string | undefined>();
-  const { openProductAddedDialog } = useContext(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext<ProductAddedDialogController>(ProductAddedDialogContext);
+  const { setNavItem } = useContext<BreadcrumbsController>(BreadcrumbsContext);
 
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {
     const crumbs: Array<NavMenuItem> = [
@@ -43,6 +45,10 @@ export default function ProductPageContent({ product }: Props) {
       window.removeEventListener("hashchange", onWindowHashChange);
     };
   }, []);
+
+  useEffect(() => {
+    setNavItem(breadcrumbs);
+  }, [breadcrumbs]);
 
   const validHash = useMemo<string>(() => {
     if (!tabs[0]) {
@@ -70,15 +76,11 @@ export default function ProductPageContent({ product }: Props) {
   );
 
   return (
-    <div className="flex flex-col gap-12 w-full">
-      <div className="flex flex-col gap-6 w-full">
-        <Breadcrumbs items={breadcrumbs} />
-        <ProductDetails
-          product={product}
-          onAddProductToCart={handleAddToCartClick}
-        />
-      </div>
-
+    <div className="flex flex-col gap-9 w-full">
+      <ProductDetails
+        product={product}
+        onAddProductToCart={handleAddToCartClick}
+      />
       {tabs.length != 0 && <Tabs items={tabs} hash={validHash} />}
     </div>
   );
