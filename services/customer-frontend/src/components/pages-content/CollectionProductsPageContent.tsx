@@ -32,11 +32,9 @@ export default function CollectionProductsPageContent({
     <>
       <CollectionBanner collection={collection} />
       <div className="flex grow w-full justify-center relative flex-shrink-0 mt-12 px-8 pb-16 max-w-7xl">
-        <div className="flex w-full flex-col gap-9">
-          <div className="flex w-full flex-col gap-6">
-            <Breadcrumbs items={breadcrumbs} />
-            <h1>{collectionTitle}</h1>
-          </div>
+        <div className="flex w-full flex-col gap-6">
+          <Breadcrumbs items={breadcrumbs} />
+          <h1 className="pb-3">{collectionTitle}</h1>
           <ProductFeedContent productLabel={collectionTitle} />
         </div>
       </div>

@@ -70,16 +70,15 @@ export default function ProductPageContent({ product }: Props) {
   );
 
   return (
-    <div className="flex flex-col gap-12 w-full">
-      <div className="flex flex-col gap-6 w-full">
-        <Breadcrumbs items={breadcrumbs} />
-        <ProductDetails
-          product={product}
-          onAddProductToCart={handleAddToCartClick}
-        />
+    <div className="flex flex-col gap-6 w-full">
+      <Breadcrumbs items={breadcrumbs} />
+      <ProductDetails
+        product={product}
+        onAddProductToCart={handleAddToCartClick}
+      />
+      <div className="flex flex-col pt-3 w-full">
+        {tabs.length != 0 && <Tabs items={tabs} hash={validHash} />}
       </div>
-
-      {tabs.length != 0 && <Tabs items={tabs} hash={validHash} />}
     </div>
   );
 }

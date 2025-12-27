@@ -17,12 +17,12 @@ export default function AllProductsPageContent() {
   }, []);
 
   return (
-    <div className="flex w-full flex-col gap-9">
+    <>
       <div className="flex w-full flex-col gap-6">
         <Breadcrumbs items={breadcrumbs} />
-        <h1>{"Shop all"}</h1>
+        <h1 className="pb-3">{"Shop all"}</h1>
+        <ProductFeedContent />
       </div>
-      <ProductFeedContent />
-    </div>
+    </>
   );
 }
