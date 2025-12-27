@@ -18,14 +18,14 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             {index < items.length - 1 ? (
               <a
                 href={item.href}
-                className={`bg-primary hover:text-[#555555] text-black`}
+                className={`hover:text-[#555555] text-black`}
               >
                 {item.title}
               </a>
             ) : (
               <>
                 <span className="text-[#555555] px-2">{"/"}</span>
-                <p className="bg-primary text-[#555555] ">{item.title}</p>
+                <p className="text-[#555555] ">{item.title}</p>
               </>
             )}
             {index < items.length - 2 && <span className="px-2">{"/"}</span>}

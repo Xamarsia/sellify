@@ -23,5 +23,5 @@ export default async function ProductsPage({ params }: Props) {
         <ProductFeedContent productLabel={productLabel} />
       </div>
     </>
-  )
+  );
 }
