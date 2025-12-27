@@ -71,7 +71,7 @@ export default function ProductPageContent({ product }: Props) {
 
   return (
     <div className="flex flex-col gap-12 w-full">
-      <div className="flex flex-col gap-8 w-full">
+      <div className="flex flex-col gap-6 w-full">
         <Breadcrumbs items={breadcrumbs} />
         <ProductDetails
           product={product}
