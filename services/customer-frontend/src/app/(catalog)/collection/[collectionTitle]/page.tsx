@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Collection } from "@sellify/customer-ui-components/types";
 
 import { getCollection, isCollectionFound } from "common/actions/collection-actions";
-import CollectionProductsPageContent from "components/CollectionProductsPageContent";
+import CollectionProductsPageContent from "components/pages-content/CollectionProductsPageContent";
 
 type Props = {
   params: Promise<{ collectionTitle: string }>;

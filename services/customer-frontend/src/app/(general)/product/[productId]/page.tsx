@@ -3,7 +3,7 @@ import "server-only";
 import { ProductDetails } from "@sellify/customer-ui-components/types";
 
 import { getProduct } from "common/actions/product-actions";
-import ProductPageContent from "components/ProductPageContent";
+import ProductPageContent from "components/pages-content/ProductPageContent";
 
 type Props = {
   params: Promise<{ productId: number }>;
