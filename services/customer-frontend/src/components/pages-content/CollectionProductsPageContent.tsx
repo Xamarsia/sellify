@@ -1,14 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
-
-import ProductFeedContent from "components/ProductFeedContent";
+import { useContext, useEffect, useMemo } from "react";
 
 import { NavMenuItem } from "@sellify/common-ui-components/types";
-import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 
 import { Collection } from "@sellify/customer-ui-components/types";
-import CollectionBanner from "@sellify/customer-ui-components/collection/CollectionBanner";
+
+import ProductFeedContent from "components/ProductFeedContent";
+import { BreadcrumbsContext } from "common/contexts/common-context";
+import { BreadcrumbsController } from "types";
 
 type Props = {
   collection: Collection;
@@ -16,9 +16,10 @@ type Props = {
 };
 
 export default function CollectionProductsPageContent({
-  collection,
   collectionTitle,
 }: Props) {
+  const { setNavItem } = useContext<BreadcrumbsController>(BreadcrumbsContext);
+
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {
     const crumbs: Array<NavMenuItem> = [
       { href: "/", title: "Home" },
@@ -28,16 +29,14 @@ export default function CollectionProductsPageContent({
     return crumbs;
   }, [collectionTitle]);
 
+  useEffect(() => {
+    setNavItem(breadcrumbs);
+  }, [breadcrumbs]);
+
   return (
     <>
-      <CollectionBanner collection={collection} />
-      <div className="flex grow w-full justify-center relative flex-shrink-0 mt-12 px-8 pb-16 max-w-7xl">
-        <div className="flex w-full flex-col gap-6">
-          <Breadcrumbs items={breadcrumbs} />
-          <h1 className="pb-3">{collectionTitle}</h1>
-          <ProductFeedContent productLabel={collectionTitle} />
-        </div>
-      </div>
+      <h1 className="pb-3">{collectionTitle}</h1>
+      <ProductFeedContent productLabel={collectionTitle} />
     </>
   );
 }

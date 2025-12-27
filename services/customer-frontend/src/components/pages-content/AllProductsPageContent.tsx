@@ -1,13 +1,16 @@
 "use client";
 
-import { useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import ProductFeedContent from "components/ProductFeedContent";
-import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
+import { BreadcrumbsContext } from "common/contexts/common-context";
+import { BreadcrumbsController } from "types";
 
 export default function AllProductsPageContent() {
+  const { setNavItem } = useContext<BreadcrumbsController>(BreadcrumbsContext);
+
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {
     const crumbs: Array<NavMenuItem> = [
       { href: "/", title: "Home" },
@@ -16,13 +19,14 @@ export default function AllProductsPageContent() {
     return crumbs;
   }, []);
 
+  useEffect(() => {
+    setNavItem(breadcrumbs);
+  }, [breadcrumbs]);
+
   return (
     <>
-      <div className="flex w-full flex-col gap-6">
-        <Breadcrumbs items={breadcrumbs} />
-        <h1 className="pb-3">{"Shop all"}</h1>
-        <ProductFeedContent />
-      </div>
+      <h1 className="pb-3">{"Shop all"}</h1>
+      <ProductFeedContent />
     </>
   );
 }

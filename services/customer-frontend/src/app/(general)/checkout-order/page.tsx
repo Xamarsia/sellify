@@ -20,7 +20,11 @@ import {
 } from "@sellify/customer-ui-components/types";
 
 import { CheckoutStep } from "enums";
-import { AlertDialogController, AlertDialogContent, ProgressBarContent } from "types";
+import {
+  AlertDialogController,
+  AlertDialogContent,
+  ProgressBarContent,
+} from "types";
 
 import CheckoutProgressBar from "components/CheckoutProgressBar";
 import CheckoutReviewForm from "components/forms/CheckoutReviewForm";

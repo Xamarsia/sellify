@@ -45,6 +45,10 @@ export type NavbarDrawerController = {
   openNavbarDrawer: (navItems: Array<NavMenuItem>) => void;
 };
 
+export type BreadcrumbsController = {
+  setNavItem: (navItems: Array<NavMenuItem>) => void;
+};
+
 export type FilterPanelController = {
   openFilterPanel: () => void;
 };

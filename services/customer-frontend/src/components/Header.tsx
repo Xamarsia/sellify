@@ -23,7 +23,7 @@ export default function Header() {
 
   const menuItem: Array<NavMenuItem> = [
     { href: "/all-products", title: "All Products" },
-    { href: "/collection", title: "Collections" },
+    { href: "/collections", title: "Collections" },
     { href: "/collection/bestsellers", title: "Bestsellers" },
     { href: "/collection/gifts", title: "Gifts" },
   ];
