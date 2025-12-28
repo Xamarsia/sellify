@@ -19,3 +19,8 @@ export type PaymentMethodInfo = {
   title: string;
   isAvailable?: boolean;
 };
+
+export type SliderRange = {
+  min: number;
+  max: number;
+};

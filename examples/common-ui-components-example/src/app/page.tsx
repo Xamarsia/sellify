@@ -5,7 +5,7 @@ import { ChangeEvent, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
 
-import { NavMenuItem, TabItemInfo } from "@sellify/common-ui-components/types";
+import { NavMenuItem, SliderRange, TabItemInfo } from "@sellify/common-ui-components/types";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
@@ -19,6 +19,7 @@ import Textarea from "@sellify/common-ui-components/input/Textarea";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
 
 import Section from "components/Section";
 import SectionItem from "components/SectionItem";
@@ -103,12 +104,25 @@ export default function Home() {
     },
   ];
 
+  const range: SliderRange = {
+    min: 200,
+    max: 1000,
+  }
+
   return (
     <div className="min-h-full">
       <header className="flex items-center h-32 bg-[#242424] px-4 sm:px-6 lg:px-8">
         <h1 className="text-white text-3xl">Common UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
+        <Section title={"Price Range Slider"}>
+          <SectionItem>
+            <PriceRangeSlider
+              range={range}
+            />
+          </SectionItem>
+        </Section>
+
         <Section title={"Button"}>
           <SectionItem>
             <Button>

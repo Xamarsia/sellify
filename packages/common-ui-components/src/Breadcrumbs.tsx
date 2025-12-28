@@ -16,10 +16,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             key={index}
           >
             {index < items.length - 1 ? (
-              <a
-                href={item.href}
-                className={`hover:text-[#555555] text-black`}
-              >
+              <a href={item.href} className={`hover:text-[#555555] text-black`}>
                 {item.title}
               </a>
             ) : (
