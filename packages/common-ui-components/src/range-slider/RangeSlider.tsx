@@ -90,7 +90,7 @@ export default function RangeSlider({
             onChange={handleMinValueChange}
             style={
               currentRange.min > range.max - 100 ||
-              currentRange.min === currentRange.max
+                currentRange.min === currentRange.max
                 ? "z-5"
                 : "z-3"
             }
@@ -103,10 +103,10 @@ export default function RangeSlider({
             style="z-4"
           />
           <div className="relative">
-            <div className="absolute rounded-sm h-[6px] w-full z-1 track-slider bg-[#cecece]" />
+            <div className="absolute rounded-sm h-[6px] w-full z-1 bg-[#e1e1e1]" />
             <div
               ref={selectedRange}
-              className="absolute rounded-sm h-[6px] z-2 range-slider bg-[#ff0303]"
+              className="absolute rounded-sm h-[6px] z-2 bg-[#383838]"
             />
           </div>
         </div>
