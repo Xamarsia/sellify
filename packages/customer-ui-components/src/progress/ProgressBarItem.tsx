@@ -31,8 +31,8 @@ export default function ProgressBarItem({
         onClick={() => onStepClick(step)}
         disabled={!isSelected}
         className={`flex justify-center items-center rounded-lg enabled:cursor-pointer disabled:cursor-not-allowed
-              body size-10 min-w-10 ring-stroke enabled:active:ring-4 text-white bg-[#383838] enabled:hover:bg-[#242424]
-              active:bg-[#383838] disabled:text-disabled disabled:bg-primary disabled:border disabled:border-stroke
+              body size-10 min-w-10 ring-primary-outline enabled:active:ring-4 text-white bg-primary-hover enabled:hover:bg-primary
+              active:bg-primary-hover disabled:text-disabled disabled:bg-white disabled:border disabled:border-stroke
           `}
       >
         <div className="size-6 stroke-2">{icon}</div>

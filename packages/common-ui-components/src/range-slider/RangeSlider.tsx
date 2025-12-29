@@ -120,10 +120,10 @@ export default function RangeSlider({
             style="z-4"
           />
           <div className="relative">
-            <div className="absolute rounded-sm h-[6px] w-full z-1 bg-[#e1e1e1]" />
+            <div className="absolute rounded-sm h-[6px] w-full z-1 bg-stroke" />
             <div
               ref={selectedRange}
-              className="absolute rounded-sm h-[6px] z-2 bg-[#383838]"
+              className="absolute rounded-sm h-[6px] z-2 bg-primary-hover"
             />
           </div>
         </div>

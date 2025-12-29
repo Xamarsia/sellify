@@ -19,11 +19,11 @@ export default function TransparentIconButton({
 }: IconButtonProps) {
   const variantStyle = {
     default:
-      "text-[#555555] enabled:hover:text-[#000000] active:text-[#000000] disabled:text-disabled",
+      "text-secondary enabled:hover:text-black disabled:text-disabled",
     white:
-      "text-white/90 enabled:hover:text-white active:text-white disabled:text-white/40",
+      "text-white/90 enabled:hover:text-white disabled:text-white/40",
     destructive:
-      "text-destructive enabled:hover:text-[#802A2A] active:text-[#802A2A] disabled:text-destructive-disabled",
+      "text-destructive enabled:hover:text-destructive-icon-hover disabled:text-destructive-disabled",
   }[variant];
 
   return (

@@ -28,8 +28,8 @@ export default function ComboboxItem({
   }, [value, label, onRemove]);
 
   return (
-    <div className="flex justify-center items-center bg-[#F8F8F8] rounded-lg px-4 h-8 gap-2">
-      <span className={`label text-left text-[#555555]`}>{label}</span>
+    <div className="flex justify-center items-center bg-combobox-item rounded-lg px-4 h-8 gap-2">
+      <span className={`label text-left text-secondary`}>{label}</span>
       {!disabled && (
         <TransparentIconButton onClick={onClick}>
           <XMark style="size-4" />

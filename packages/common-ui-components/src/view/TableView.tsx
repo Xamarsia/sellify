@@ -22,7 +22,7 @@ export default function TableView({ head, content }: Props) {
           {content.map((row, index) => (
             <tr
               key={`Row_${index}`}
-              className="body min-h-16 max-h-24 hover:bg-[#F8F8F8]"
+              className="body min-h-16 max-h-24 hover:bg-combobox-item"
             >
               {row.map((component, index) => (
                 <td key={`Cell_${index}`} className="px-3 lg:px-6 py-3 mx-2">

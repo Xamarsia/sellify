@@ -11,9 +11,9 @@ export default function AdminStatusComponent({ status }: Props) {
   const color = useMemo<string>(() => {
     switch (status) {
       case AdminStatus.Active:
-        return "text-[#279F51]";
+        return "text-essential-green";
       case AdminStatus.Invited:
-        return "text-[#FF392B]";
+        return "text-essential-red";
       case AdminStatus.Disabled:
       default:
         return "text-placeholder";

@@ -72,7 +72,7 @@ export default function Dropdown({
         onClick={onDropdownClick}
         disabled={disabled}
         className={`flex items-center gap-x-4 h-13 enabled:cursor-pointer disabled:cursor-not-allowed
-          bg-primary text-[#555555] enabled:hover:text-[#000000] disabled:text-disabled`}
+          bg-white text-secondary enabled:hover:text-black disabled:text-disabled`}
       >
         <span className="body">{getCurrentText().toUpperCase()}</span>
         {isExtended ? (

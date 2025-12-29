@@ -12,7 +12,7 @@ export default function PageButton({
   return (
     <button
       onClick={onPageSelected}
-      className={`flex size-10 items-center justify-center body bg-primary text-black rounded-lg
+      className={`flex size-10 items-center justify-center body bg-white text-black rounded-lg
         hover:border focus:border-black border-stroke ${selected ? `border` : ``}`}
     >
       {text}
