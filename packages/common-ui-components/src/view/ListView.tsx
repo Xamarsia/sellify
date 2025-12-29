@@ -11,7 +11,7 @@ export default function ListView({ head, content }: Props) {
       {content.map((rowData, rowIndex) => (
         <li
           key={`Content_${rowIndex}`}
-          className="flex flex-col hover:bg-[#F8F8F8]"
+          className="flex flex-col hover:bg-combobox-item"
         >
           <div className="flex flex-col px-4 py-6 gap-4">
             {head.map((header, colIndex) => (

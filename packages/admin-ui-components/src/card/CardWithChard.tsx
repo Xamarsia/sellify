@@ -30,11 +30,11 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
   const trendColor = useMemo<string>(() => {
     switch (trend) {
       case Trend.Positive:
-        return "text-[#279F51]";
+        return "text-essential-green";
       case Trend.Negative:
-        return "text-[#FF392B]";
+        return "text-essential-red";
       case Trend.Neutral:
-        return "text-[#FFA000]";
+        return "text-essential-orange";
     }
   }, [trend]);
 

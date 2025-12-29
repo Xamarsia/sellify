@@ -95,7 +95,7 @@
 
   .thumb::-webkit-slider-thumb:active {
     outline-width: 4px;
-    outline-color: rgb(36, 36, 36, 0.2);
+    outline-color: #38383833;
     outline-style: solid;
   }
 
@@ -140,20 +140,36 @@
 }
 
 @theme default {
+  /* placeholder */
   --color-placeholder: #a9a8aa;
+
   --color-disabled: #a9a8aa;
 
   --color-stroke: #e1e1e1;
   --color-hovered: #f9fafb;
 
-  --color-primary: #ffffff;
+  --color-primary: #242424;
+  --color-primary-hover: #383838;
+  --color-primary-outline: #38383833;
 
-  --color-table-heading: #f7f7f7;
+  /* text-secondary */
+  --color-secondary: #555555;
+  /* bg-secondary */
+  --color-secondary-bg: #1e1e1e;
+
   --color-combobox-item: #f8f8f8;
 
   --color-destructive: #f14141;
   --color-destructive-disabled: #fac0c0;
   --color-destructive-hovered: #d93a3a;
+  --color-destructive-outline: #d93a3a33;
+  --color-destructive-icon-hover: #802a2a;
+
+  /* essential colors */
+  --color-essential-green: #279f51;
+  --color-essential-orange: #ffa000;
+  --color-essential-blue: #2f80ed;
+  --color-essential-red: #ff392b;
 }
 
 :root:has(.no-doc-scroll) {

@@ -52,8 +52,8 @@ export default function FilterSectionComponent({ sectionKey, properties, modifie
     <div className="flex flex-col w-full">
       <button
         onClick={onSectionClick}
-        className={`flex items-center h-16 justify-between w-full bg-primary capitalize 
-          cursor-pointer ${isExtended ? "text-black" : "text-[#555555] hover:text-[#000000]"}`}
+        className={`flex items-center h-16 justify-between w-full bg-white capitalize 
+          cursor-pointer ${isExtended ? "text-black" : "text-secondary hover:text-black"}`}
       >
         <h4>{sectionKey}</h4>
         {isExtended ? (

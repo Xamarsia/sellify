@@ -32,7 +32,7 @@ export default function ProfileDrawer({ sidebarItems, pathname }: Props) {
       <button
         onClick={onDropdownClick}
         className={`flex w-full items-center justify-between cursor-pointer 
-        bg-primary text-[#555555] hover:text-[#000000]`}
+        bg-white text-secondary hover:text-black`}
       >
         <h3>{selectedItem?.title}</h3>
         {isExtended ? (

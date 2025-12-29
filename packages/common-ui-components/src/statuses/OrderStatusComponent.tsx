@@ -11,13 +11,13 @@ export default function OrderStatusComponent({ status }: Props) {
   const color = useMemo<string>(() => {
     switch (status) {
       case OrderStatus.New:
-        return "text-[#279F51]";
+        return "text-essential-green";
       case OrderStatus.InProgress:
-        return "text-[#FFA000]";
+        return "text-essential-orange";
       case OrderStatus.Shipped:
-        return "text-[#2F80ED]";
+        return "text-essential-blue";
       case OrderStatus.Canceled:
-        return "text-[#FF392B]";
+        return "text-essential-red";
       default:
         return "text-placeholder";
     }

@@ -11,7 +11,7 @@ export default function CustomerStatusComponent({ status }: Props) {
   const color = useMemo<string>(() => {
     switch (status) {
       case CustomerStatus.Active:
-        return "text-[#279F51]";
+        return "text-essential-green";
       case CustomerStatus.Archived:
       default:
         return "text-placeholder";

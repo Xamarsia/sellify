@@ -14,7 +14,7 @@ export default function FilterButton({ onClick }: ButtonProps) {
         type="button"
         onClick={onClick}
         className={`flex justify-center body items-center px-6 gap-x-4 rounded-lg group enabled:cursor-pointer h-13 uppercase
-          text-black bg-primary border border-stroke hover:text-white hover:bg-[#383838] active:hover:bg-[#242424]`}
+          text-black bg-white border border-stroke hover:text-white hover:bg-primary-hover active:hover:bg-primary`}
       >
         <AdjustmentsHorizontalIcon style="size-6" />
         <h4> filter </h4>

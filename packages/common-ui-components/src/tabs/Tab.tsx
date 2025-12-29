@@ -10,7 +10,7 @@ export default function Tab({ text, href, selected }: TabProps) {
   return (
     <a
       href={href}
-      className={`flex items-center px-6 h-13 bg-primary text-[#555555] border-b cursor-pointer hover:text-black 
+      className={`flex items-center px-6 h-13 bg-white text-secondary border-b cursor-pointer hover:text-black 
         hover:border-black tab_header ${selected ? `border-black text-black` : `body border-stroke`}`}
     >
       {text}

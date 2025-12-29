@@ -28,7 +28,7 @@ export default function Radio({
           checked={checked}
           id={`radio-${value}`}
           className="peer size-5 appearance-none rounded-full border border-stroke group-hover:border-black
-            bg-primary enabled:hover:border-black focus:border-black disabled:border-disabled
+            bg-white enabled:hover:border-black focus:border-black disabled:border-disabled
             enabled:checked:border-black enabled:cursor-pointer disabled:cursor-not-allowed"
         />
         <span
