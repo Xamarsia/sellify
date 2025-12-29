@@ -112,7 +112,7 @@ export default function Home() {
         <h1 className="text-white text-3xl">Customer UI Components</h1>
       </header>
       <main className="flex flex-col w-full ">
-        <Section title={"Add Amount Button"}>
+        <Section title={"Counter Button"}>
           <SectionItem>
             <CounterButton
               count={count}
