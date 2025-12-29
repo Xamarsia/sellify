@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import RangeSliderInput from "./RangeSliderInput";
 import { SliderRange } from "../types";
+import NumberInput from "./NumberInput";
 
 type Props = {
   range: SliderRange;
@@ -42,7 +43,7 @@ export default function RangeSlider({
     console.log("min: " + currentRange.min, "max: " + currentRange.max);
   }, [currentRange]);
 
-  // set width of the range to decrease from the left side
+  // Set range width to decrease from the left
   useEffect(() => {
     if (selectedRange.current) {
       selectedRange.current.style.left = `${minPercent}%`;
@@ -50,7 +51,7 @@ export default function RangeSlider({
     }
   }, [currentRange.min]);
 
-  // set the width of the range to decrease from right side
+  // Set range width to decrease from the right
   useEffect(() => {
     if (selectedRange.current) {
       selectedRange.current.style.width = `${maxPercent - minPercent}%`;
@@ -81,7 +82,24 @@ export default function RangeSlider({
 
   return (
     <>
-      <div className="relative w-full flex items-center justify-center flex-col space-y-14">
+      <div className="relative w-full flex items-center justify-center flex-col gap-6">
+        <div className="w-full flex items-center justify-between gap-x-10">
+          <NumberInput
+            min={range.min}
+            max={currentRange.max - 1}
+            value={currentRange.min}
+            title="From"
+            onChange={onMinValueChange}
+          />
+          <NumberInput
+            min={currentRange.min + 1}
+            max={range.max}
+            value={currentRange.max}
+            title="To"
+            onChange={onMaxValueChange}
+          />
+        </div>
+
         <div className="multi-slide-input-container w-full">
           <RangeSliderInput
             min={range.min}
@@ -89,8 +107,7 @@ export default function RangeSlider({
             value={currentRange.min}
             onChange={handleMinValueChange}
             style={
-              currentRange.min > range.max - 100 ||
-                currentRange.min === currentRange.max
+              currentRange.min > range.max - 100
                 ? "z-5"
                 : "z-3"
             }
