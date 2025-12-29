@@ -1,11 +1,11 @@
-import { ChangeEvent, useCallback } from "react";
+import { ChangeEvent } from "react";
 
 type Props = {
   min: number;
   max: number;
   value: number;
   style?: string;
-  onChange: (value: number) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function RangeSliderInput({
@@ -15,27 +15,13 @@ export default function RangeSliderInput({
   style,
   onChange,
 }: Props) {
-  const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const possibleNumber: string = e.target.value;
-      let num = parseInt(possibleNumber);
-      if (num > max) {
-        num = max;
-      } else if (num < min) {
-        num = min;
-      }
-      onChange(num);
-    },
-    [onChange, min, max],
-  );
-
   return (
     <input
       type="range"
       min={min}
       max={max}
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
       className={`thumb ${style} pointer-events-none absolute h-0 outline-none w-full cursor-pointer mt-[2px]`}
     />
   );

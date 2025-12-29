@@ -49,11 +49,5 @@ export default function NumberInput({
     setQuantity(value.toString());
   }, [value]);
 
-  return (
-    <Input
-      value={quantity}
-      title={title}
-      onChange={handleChange}
-    />
-  );
+  return <Input value={quantity} title={title} onChange={handleChange} />;
 }

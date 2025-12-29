@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useRef,
   useMemo,
+  ChangeEvent,
 } from "react";
 import RangeSliderInput from "./RangeSliderInput";
 import { SliderRange } from "../types";
@@ -57,6 +58,28 @@ export default function RangeSlider({
     }
   }, [currentRange.max]);
 
+  const handleMinValueChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const newMinValue: number = Math.min(
+        Number(e.target.value),
+        currentRange.max - 1,
+      );
+      onMinValueChange(newMinValue);
+    },
+    [currentRange.max],
+  );
+
+  const handleMaxValueChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const newMaxValue: number = Math.max(
+        Number(e.target.value),
+        currentRange.min + 1,
+      );
+      onMaxValueChange(newMaxValue);
+    },
+    [currentRange.min],
+  );
+
   return (
     <>
       <div className="relative w-full flex items-center justify-center flex-col gap-6">
@@ -80,16 +103,20 @@ export default function RangeSlider({
         <div className="multi-slide-input-container w-full">
           <RangeSliderInput
             min={range.min}
-            max={currentRange.max - 1}
+            max={range.max}
             value={currentRange.min}
-            onChange={onMinValueChange}
-            style={currentRange.min > range.max - 100 ? "z-5" : "z-3"}
+            onChange={handleMinValueChange}
+            style={
+              currentRange.min > range.max - 100
+                ? "z-5"
+                : "z-3"
+            }
           />
           <RangeSliderInput
-            min={currentRange.min + 1}
+            min={range.min}
             max={range.max}
             value={currentRange.max}
-            onChange={onMaxValueChange}
+            onChange={handleMaxValueChange}
             style="z-4"
           />
           <div className="relative">
