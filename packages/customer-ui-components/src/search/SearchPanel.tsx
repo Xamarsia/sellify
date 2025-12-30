@@ -40,18 +40,15 @@ export default function SearchPanel({
     <SidePanel open={dialogOpen} onClose={onDialogClose} title="Search">
       <SearchInput value={query} onChange={onSearchChanged} fill="parent" />
       {query ? (
-        <div className="flex flex-col py-9 gap-5">
-          <h4 className=" text-disabled capitalize">Product Results</h4>
-          <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
-            <ul className="flex grow flex-col gap-4 overflow-y-auto">
-              {searchResults.map((item, index) => (
-                <li key={"SearchResult:" + item.productId.toString() + index}>
-                  <SearchItem searchItem={item} />
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
+          <h4 className="text-disabled capitalize pt-5">Product Results</h4>
+          <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
+            {searchResults.map((item, index) => (
+              <li key={"SearchResult:" + item.productId.toString() + index}>
+                <SearchItem searchItem={item} />
+              </li>
+            ))}
+          </ul>
           <LinkButton>
             See More Results <ArrowLongRightIcon style="size-6" />
           </LinkButton>
