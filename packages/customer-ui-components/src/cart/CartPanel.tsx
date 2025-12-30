@@ -31,7 +31,7 @@ export default function CartPanel({
     <SidePanel open={open} onClose={onClose} title="Cart">
       {cartItems.length ? (
         <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
-          <ul className="flex grow flex-col gap-4 overflow-y-auto">
+          <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
             {cartItems.map((item, index) => (
               <li key={item.product.productId.toString() + index}>
                 <CartItem cartItem={item} onItemRemove={onCartItemRemove} />

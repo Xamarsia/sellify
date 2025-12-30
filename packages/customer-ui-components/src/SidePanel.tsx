@@ -46,7 +46,7 @@ export default function SidePanel({
 
   return (
     <div
-      className={`fixed top-0 right-0 inset-y-0 size-full flex  bg-black/20 z-50 ${!open && "hidden"} ${panelSide} ltr`}
+      className={`fixed top-0 right-0 inset-y-0 size-full flex bg-black/20 z-50 ${!open && "hidden"} ${panelSide} ltr no-doc-scroll`}
     >
       <div
         ref={modal}

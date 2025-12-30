@@ -21,7 +21,7 @@ export default function IconButton({
     default:
       "text-white bg-primary-hover enabled:hover:bg-primary active:bg-primary-hover disabled:bg-disabled",
     outline:
-      "text-black bg-white border border-stroke enabled:hover:border-black  enabled:active:border-black disabled:text-disabled",
+      "text-black bg-white border border-stroke enabled:hover:border-black enabled:active:border-black disabled:text-disabled",
   }[variant];
 
   return (

@@ -55,9 +55,19 @@
     background: #383838;
   }
 
-  .product-scrollbar::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
+  .scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb{
+    border-radius: 9999px;
+    background-color: #a9a8aa;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 9999px;
+    background-color: #e1e1e1;
+    margin-bottom: 8px;
   }
 
   .product-scrollbar::-webkit-scrollbar-track {
@@ -65,6 +75,11 @@
     background-color: #e1e1e1;
     margin-top: 8px;
     margin-bottom: 8px;
+  }
+
+  .product-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 2px;
   }
 
   .product-scrollbar::-webkit-scrollbar-thumb {
