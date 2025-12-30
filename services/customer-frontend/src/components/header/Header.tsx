@@ -7,19 +7,21 @@ import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 import Bars3Icon from "@sellify/common-icons/bars-3";
 
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
-import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
 import { NavbarDrawerContext } from "common/contexts/common-context";
+import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
+import { usePathname } from "next/navigation";
+import HeaderItem from "./HeaderItem";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);
   const { openSearchPanel } = useContext<SearchPanelController>(SearchPanelContext);
   const { openNavbarDrawer } = useContext<NavbarDrawerController>(NavbarDrawerContext);
+  const pathname: string = usePathname();
 
   const menuItem: Array<NavMenuItem> = [
     { href: "/all-products", title: "All Products" },
@@ -48,9 +50,7 @@ export default function Header() {
       <nav className="flex gap-[36px] not-md:hidden">
         {menuItem.map(({ href, title }, index) => {
           return (
-            <LinkButton key={`NavMenuItem-${index}`} href={href}>
-              {title}
-            </LinkButton>
+            <HeaderItem key={`NavMenuItem-${index}`} text={title} href={href} selected={href === pathname} />
           );
         })}
       </nav>

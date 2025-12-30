@@ -4,7 +4,7 @@ import "./globals.css";
 
 import Footer from "@sellify/customer-ui-components/footer/Footer";
 
-import Header from "components/Header";
+import Header from "components/header/Header";
 import SearchPanelProvider from "common/providers/SearchPanelProvider";
 import CartPanelProvider from "common/providers/CartPanelProvider";
 import AlertDialogProvider from "common/providers/AlertDialogProvider";
