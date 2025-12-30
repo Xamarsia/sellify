@@ -13,8 +13,8 @@ import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
-import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
 import { NavbarDrawerContext } from "common/contexts/common-context";
+import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);
