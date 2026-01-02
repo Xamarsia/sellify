@@ -6,8 +6,8 @@ export default function DefaultChart({ style }: ChartProps) {
   return (
     <svg
       width="78"
-      height="22"
-      viewBox="0 0 78 22"
+      height="32"
+      viewBox="0 -4 78 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${style}`}

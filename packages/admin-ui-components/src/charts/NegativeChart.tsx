@@ -7,7 +7,7 @@ export default function NegativeChart({ style }: ChartProps) {
     <svg
       width="90"
       height="39"
-      viewBox="0 0 90 39"
+      viewBox="0 -2 90 34"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${style}`}
