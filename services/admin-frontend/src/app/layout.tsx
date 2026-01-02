@@ -35,19 +35,18 @@ export default function RootLayout({
       <body
         className={`antialiased size-full flex flex-col relative items-center `}
       >
-        <main className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
-          <div className="flex w-72 not-md:hidden sticky top-0 py-4">
+        <div className="flex w-full md:hidden px-8 pt-12">
+          <MainMenuDrawer />
+        </div>
+        <div className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
+          <div className="flex w-72 not-md:hidden py-4">
             <MainMenu />
           </div>
-          <div className="flex flex-col w-full gap-8">
-            <div className="flex w-full md:hidden">
-              <MainMenuDrawer />
-            </div>
-
+          <main className="flex flex-col w-full gap-8">
             <PageTitle />
             {children}
-          </div>
-        </main>
+          </main>
+        </div>
         <Footer copyright="Long company name" />
       </body>
     </html>
