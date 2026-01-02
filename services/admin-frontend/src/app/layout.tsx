@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import Footer from "components/Footer";
-import MainMenu from "components/MainMenu";
+import MainMenu from "components/main-menu/MainMenu";
 import PageTitle from "components/PageTitle";
+import MainMenuDrawer from "components/main-menu/MainMenuDrawer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,10 +36,14 @@ export default function RootLayout({
         className={`antialiased size-full flex flex-col relative items-center `}
       >
         <main className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
-          <div className="flex w-72 not-sm:hidden sticky top-0 py-4">
+          <div className="flex w-72 not-md:hidden sticky top-0 py-4">
             <MainMenu />
           </div>
           <div className="flex flex-col w-full gap-8">
+            <div className="flex w-full md:hidden">
+              <MainMenuDrawer />
+            </div>
+
             <PageTitle />
             {children}
           </div>
