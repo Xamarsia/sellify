@@ -125,3 +125,7 @@ export function getOrderHistory(): Array<OrderPreview> {
     orderPreview4,
   ];
 }
+
+export function filterOrdersHistory(query: string): Array<OrderPreview> {
+  return [orderPreview3, orderPreview4];
+}
