@@ -9,7 +9,7 @@ import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataVie
 
 type Props = {
   content: Array<Inventory>;
-  onSubmit: (value: number) => void;
+  onSubmit: (productId: number, quantity: number) => void;
   disabled?: boolean;
 };
 
@@ -32,7 +32,7 @@ export default function InventoryView({ disabled, content, onSubmit }: Props) {
       </LinkButton>,
       <p>{"#" + inventory.productId}</p>,
       <p>{inventory.quantity + " in stock"}</p>,
-      <AddAmountButtonTableItem onSubmit={onSubmit} disabled={disabled} />,
+      <AddAmountButtonTableItem onSubmit={onSubmit} productId={inventory.productId} disabled={disabled} />,
     ]);
   }, [content, disabled]);
 
