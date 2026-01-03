@@ -21,7 +21,7 @@ export default function Home() {
           Jan 01 - Jan 28 <ChevronDown style="size-6" />
         </Button>
       </div>
-      <div className="flex w-full justify-start xl:justify-between gap-4 flex-wrap">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
         <CardWithChard label="Revenue" value="$7,823" trendValue={10} />
         <CardWithChard label="Revenue" value="$7,823" trendValue={-10} />
         <CardWithChard label="Revenue" value="$7,823" trendValue={0} />
