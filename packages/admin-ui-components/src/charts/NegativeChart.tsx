@@ -5,9 +5,9 @@ type ChartProps = {
 export default function NegativeChart({ style }: ChartProps) {
   return (
     <svg
-      width="90"
-      height="39"
-      viewBox="0 0 90 39"
+      width="84"
+      height="34"
+      viewBox="2 -2 84 34"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${style}`}
