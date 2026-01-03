@@ -15,8 +15,8 @@ export default function PageTitle() {
         return "Orders";
       case "/products":
         return "Products";
-      case "/category":
-        return "Category";
+      case "/categories":
+        return "Categories";
       case "/inventory":
         return "Inventory";
       case "/customers":
