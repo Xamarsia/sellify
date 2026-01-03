@@ -4,7 +4,7 @@ export const MainMenuItems: Array<NavMenuItem> = [
   { href: "/home", title: "Home" },
   { href: "/orders", title: "Orders" },
   { href: "/products", title: "Products" },
-  { href: "/category", title: "Category" },
+  { href: "/categories", title: "Categories" },
   { href: "/inventory", title: "Inventory" },
   { href: "/customers", title: "Customers" },
   { href: "/admins", title: "Admins" },
