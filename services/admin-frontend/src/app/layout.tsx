@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "components/Footer";
 import MainMenu from "components/main-menu/MainMenu";
-import PageTitle from "components/PageTitle";
 import MainMenuDrawer from "components/main-menu/MainMenuDrawer";
 
 const geistSans = Geist({
@@ -42,10 +41,7 @@ export default function RootLayout({
           <div className="flex w-72 not-lg:hidden py-4">
             <MainMenu />
           </div>
-          <main className="flex flex-col w-full gap-8">
-            <PageTitle />
-            {children}
-          </main>
+          <main className="flex flex-col w-full gap-8">{children}</main>
         </div>
         <Footer copyright="Long company name" />
       </body>

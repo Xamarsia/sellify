@@ -5,9 +5,9 @@ type ChartProps = {
 export default function DefaultChart({ style }: ChartProps) {
   return (
     <svg
-      width="78"
-      height="32"
-      viewBox="0 -4 78 32"
+      width="74"
+      height="30"
+      viewBox="0 -4 74 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${style}`}

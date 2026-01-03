@@ -41,11 +41,11 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
   const chart = useMemo<ReactNode>(() => {
     switch (trend) {
       case Trend.Positive:
-        return <PositiveChart style="not-md:basis-1/2 not-md:size-full"/>;
+        return <PositiveChart style="not-md:size-full max-w-32 max-h-12" />;
       case Trend.Negative:
-        return <NegativeChart style="not-md:basis-1/2 not-md:size-full"/>;
+        return <NegativeChart style="not-md:size-full max-w-32 max-h-12" />;
       case Trend.Neutral:
-        return <DefaultChart style="not-md:basis-1/2 not-md:size-full"/>;
+        return <DefaultChart style="not-md:size-full max-w-32 max-h-12" />;
     }
   }, [trend]);
 
@@ -62,7 +62,7 @@ export default function CardWithChard({ label, value, trendValue }: Props) {
   return (
     <Card label={label} value={value}>
       <div
-        className={`flex flex-col basis-1/2 justify-between items-end ${trendColor}`}
+        className={`flex size-full flex-col basis-1/2 justify-between gap-2 items-end ${trendColor}`}
       >
         <h3>{valueLabel}</h3>
         {chart}
