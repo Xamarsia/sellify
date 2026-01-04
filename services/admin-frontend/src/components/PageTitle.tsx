@@ -25,8 +25,8 @@ export default function PageTitle() {
         return "Roles";
       case "/admins":
         return "Admins";
-      case "/settings":
-        return "Settings";
+      case "/security":
+        return "Security";
     }
   }, [pathname]);
 
