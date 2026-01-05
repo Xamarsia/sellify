@@ -10,16 +10,19 @@ export default function ProfileLayout({
   return (
     <div className="flex w-full flex-col gap-9">
       <div className="flex w-full flex-col gap-6">
-        <section className="flex w-full sm:hidden">
+        <div className="w-full lg:hidden">
           <ProfileMenuDrawer />
-        </section>
+        </div>
         <PageTitle />
       </div>
-      <div className="relative flex grow w-full gap-12 not-sm:flex-col max-w-7xl ">
-        <section className="flex w-72 not-sm:hidden">
+
+      <div className="relative flex grow w-full gap-12 max-w-7xl ">
+        <div className="flex-none w-64 not-lg:hidden">
           <ProfileMenu />
-        </section>
-        <section className="flex w-full">{children}</section>
+        </div>
+        <div className="flex flex-1 overflow-x-auto">
+          {children}
+        </div>
       </div>
     </div>
   );
