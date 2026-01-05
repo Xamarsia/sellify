@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import { notFound } from "next/navigation";
+import { notFound, usePathname } from "next/navigation";
 
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
@@ -9,13 +9,11 @@ import ChevronUp from "@sellify/common-icons/chevron-up";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 
-type Props = {
-  sidebarItems: Array<NavMenuItem>;
-  pathname: string;
-};
+import { ProfileMenuItems } from "../constants";
 
-export default function ProfileDrawer({ sidebarItems, pathname }: Props) {
+export default function ProfileMenuDrawer() {
   const [isExtended, setIsExtended] = useState<boolean>(false);
+  const pathname: string = usePathname();
 
   const onDropdownClick = useCallback(() => {
     if (setIsExtended) {
@@ -24,7 +22,11 @@ export default function ProfileDrawer({ sidebarItems, pathname }: Props) {
   }, [isExtended, setIsExtended]);
 
   const selectedItem = useMemo<NavMenuItem>(() => {
-   return sidebarItems.find(item => { return item.href === pathname }) ?? notFound();
+    return (
+      ProfileMenuItems.find((item) => {
+        return item.href === pathname;
+      }) ?? notFound()
+    );
   }, []);
 
   return (
@@ -42,7 +44,7 @@ export default function ProfileDrawer({ sidebarItems, pathname }: Props) {
         )}
       </button>
 
-      {isExtended && <Sidebar items={sidebarItems} pathname={pathname} />}
+      {isExtended && <Sidebar items={ProfileMenuItems} pathname={pathname} />}
     </div>
   );
 }
