@@ -40,7 +40,9 @@ export default function OrdersHistoryPage() {
       const query: string = e.target.value;
       setQuery(query);
       setOrders(query ? filterOrdersHistory(query) : oderHistory);
-  }, []);
+    },
+    [],
+  );
 
   return (
     <div className="flex w-full flex-col items-end gap-6">

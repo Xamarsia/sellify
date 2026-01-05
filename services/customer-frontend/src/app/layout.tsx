@@ -57,7 +57,7 @@ export default function RootLayout({
       className={`size-full ${playfairDisplay.variable} ${DMSans.variable} ${playfairDisplayMedium.variable}`}
     >
       <body
-        className={` antialiased size-full flex flex-col relative items-center`}
+        className={`antialiased size-full flex flex-col relative items-center`}
       >
         <DestructiveAlertDialogProvider>
           <AlertDialogProvider>
