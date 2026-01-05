@@ -59,11 +59,17 @@
     width: 4px;
   }
 
-  .scrollbar::-webkit-scrollbar-thumb{
+  .scrollbar-horizontal::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .scrollbar-horizontal::-webkit-scrollbar-thumb,
+  .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 9999px;
     background-color: #a9a8aa;
   }
 
+  .scrollbar-horizontal::-webkit-scrollbar-track,
   .scrollbar::-webkit-scrollbar-track {
     border-radius: 9999px;
     background-color: #e1e1e1;

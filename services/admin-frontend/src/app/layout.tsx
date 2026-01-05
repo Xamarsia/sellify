@@ -38,10 +38,12 @@ export default function RootLayout({
           <MainMenuDrawer />
         </div>
         <div className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
-          <div className="flex w-72 not-lg:hidden py-4">
+          <div className="flex-none w-72 not-lg:hidden py-4">
             <MainMenu />
           </div>
-          <main className="flex flex-col w-full gap-8">{children}</main>
+          <main className="flex flex-1 flex-col gap-8 h-full overflow-x-auto">
+            {children}
+          </main>
         </div>
         <Footer copyright="Long company name" />
       </body>

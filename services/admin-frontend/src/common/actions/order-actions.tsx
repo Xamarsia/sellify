@@ -14,7 +14,7 @@ const order: Order = {
 const order2: Order = {
   orderId: 67843,
   date: "Aug 7, 2024",
-  customerName: "John Thomson",
+  customerName: "LongUnbreakableCustomerName|LongUnbreakableCustomerNameLongUnbreakableCustomerName",
   total: 64.32,
   status: OrderStatus.InProgress,
   items: 5,
@@ -23,7 +23,7 @@ const order2: Order = {
 const order3: Order = {
   orderId: 56736784,
   date: "Jan 13, 2025",
-  customerName: "John Thomson",
+  customerName: "Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name",
   total: 345.46,
   status: OrderStatus.Shipped,
   items: 3,
@@ -78,7 +78,7 @@ const orderPreview2: OrderPreview = {
   date: "Aug 7, 2024",
   total: 64.32,
   status: OrderStatus.InProgress,
-  customerName: "John Thomson",
+  customerName: "LongUnbreakableCustomerName|LongUnbreakableCustomerNameLongUnbreakableCustomerName",
 };
 
 const orderPreview3: OrderPreview = {
@@ -86,7 +86,7 @@ const orderPreview3: OrderPreview = {
   date: "Jan 13, 2025",
   total: 345.46,
   status: OrderStatus.Shipped,
-  customerName: "John Thomson",
+  customerName: "Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name",
 };
 
 const orderPreview4: OrderPreview = {
