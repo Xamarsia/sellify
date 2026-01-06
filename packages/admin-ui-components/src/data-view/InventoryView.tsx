@@ -32,7 +32,11 @@ export default function InventoryView({ disabled, content, onSubmit }: Props) {
       </LinkButton>,
       <p>{"#" + inventory.productId}</p>,
       <p>{inventory.quantity + " in stock"}</p>,
-      <AddAmountButtonTableItem onSubmit={onSubmit} productId={inventory.productId} disabled={disabled} />,
+      <AddAmountButtonTableItem
+        onSubmit={onSubmit}
+        productId={inventory.productId}
+        disabled={disabled}
+      />,
     ]);
   }, [content, disabled]);
 
