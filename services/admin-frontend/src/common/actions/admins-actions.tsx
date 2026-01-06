@@ -6,7 +6,7 @@ const admin: Admin = {
   name: "Ronald Jones",
   role: "Content Manager",
   createdOn: "Jan 10, 2020",
-  status: AdminStatus.Invited,
+  status: AdminStatus.Active,
 };
 
 const admin2: Admin = {
@@ -30,6 +30,10 @@ const adminPreview: AdminPreview = {
   name: "Ronald Jones",
   role: "Content Manager",
 };
+
+export function getAdminById(adminId: number): Admin {
+  return admin;
+}
 
 export function filterAdmins(query: string): Array<Admin> {
   return [admin, admin3];
