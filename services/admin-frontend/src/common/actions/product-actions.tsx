@@ -59,7 +59,8 @@ const product3: Product = {
   productId: 45456456,
   image: image.src,
   status: "ARCHIVED",
-  title: "LongUnbreakableProductTitle|LongUnbreakableProductTitleLongUnbreakableProductTitle",
+  title:
+    "LongUnbreakableProductTitle|LongUnbreakableProductTitleLongUnbreakableProductTitle",
   shortDescription: "Short description | Short description | Short description",
   description:
     "Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus, massa venenatis ornare aliquam, urna enim interdum nibh, non fermentum magna odio eget odio. Vivamus a egestas nulla. Donec ac ornare nunc, ut tristique risus. Nam faucibus imperdiet ante ut laoreet. Proin mollis pellentesque dictum. Integer sagittis nec mi sed dignissim. Curabitur consectetur elementum ligula, a vulputate arcu elementum quis. Nulla vehicula consectetur mauris vitae fringilla. Aliquam erat volutpat. Duis aliquam purus eget finibus bibendum. Proin viverra elit mauris, quis iaculis ex egestas bibendum. Proin hendrerit ligula id ipsum blandit, efficitur tempus est faucibus. In convallis tortor vitae aliquet fringilla. Morbi hendrerit efficitur urna, et porta sapien blandit nec.",
