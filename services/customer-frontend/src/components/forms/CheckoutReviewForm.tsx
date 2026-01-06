@@ -1,7 +1,7 @@
 "use client";
 
 import FormSection from "@sellify/common-ui-components/FormSection";
-import { PaymentProvider } from "@sellify/common-ui-components/types";
+import { PaymentMethodInfo, PaymentProvider } from "@sellify/common-ui-components/types";
 
 import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
 import FinalProductsView from "@sellify/customer-ui-components/data-view/FinalProductsView";
@@ -27,6 +27,10 @@ export default function CheckoutReviewForm({
   paymentProvider,
   cartItems,
 }: ContactInfoProps) {
+  const paymentMethodInfo: PaymentMethodInfo | undefined = getPaymentMethodInfo(
+    paymentProvider,
+  );
+
   return (
     <>
       <FormSection title="Shipping Info">
@@ -37,7 +41,7 @@ export default function CheckoutReviewForm({
       </FormSection>
 
       <FormSection title="Payment Method">
-        <p> {getPaymentMethodInfo(paymentProvider)?.title} </p>
+        <p> {paymentMethodInfo?.title} </p>
       </FormSection>
 
       <FormSection title="Products">

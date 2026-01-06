@@ -8,12 +8,12 @@ type OrderInfoProps = {
 
 export default function OrderInfo({ order }: OrderInfoProps) {
   return (
-    <div className="flex flex-col w-full gap-4">
+    <>
       <div className="flex w-full gap-4">
         <p>{`Status:`}</p>
         <OrderStatusComponent status={order.status} />
       </div>
       <p>{`Purchase date: ${order.purchaseDate}`}</p>
-    </div>
+    </>
   );
 }
