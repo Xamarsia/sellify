@@ -1,6 +1,6 @@
 import ProductAddedDialogProvider from "common/providers/ProductAddedDialogProvider";
 
-export default function RootLayout({
+export default function CatalogLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

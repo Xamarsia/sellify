@@ -23,8 +23,8 @@ export default function CollectionProductsPageContent({
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {
     const crumbs: Array<NavMenuItem> = [
       { href: "/", title: "Home" },
-      { href: "/collection/", title: "Collections" },
-      { href: `/collection/${collectionTitle}`, title: `${collectionTitle}` },
+      { href: "/collections/", title: "Collections" },
+      { href: `/collections/${collectionTitle}`, title: `${collectionTitle}` },
     ];
     return crumbs;
   }, [collectionTitle]);
