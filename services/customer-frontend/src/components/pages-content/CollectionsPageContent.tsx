@@ -20,7 +20,7 @@ export default function CollectionsPageContent({ collections }: Props) {
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {
     const crumbs: Array<NavMenuItem> = [
       { href: "/", title: "Home" },
-      { href: "/collection/", title: "Collections" },
+      { href: "/collections/", title: "Collections" },
     ];
     return crumbs;
   }, []);
