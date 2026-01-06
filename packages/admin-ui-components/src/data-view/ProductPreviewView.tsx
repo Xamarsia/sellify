@@ -18,7 +18,7 @@ export default function ProductPreviewView({ content }: Props) {
       <ProductImagePreview src={product.image} />,
 
       <LinkButton>
-        <h4 className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
+        <h4 className="line-clamp-3 break-all min-w-20 not-sm:pl-14">
           {product.title}
         </h4>
       </LinkButton>,
