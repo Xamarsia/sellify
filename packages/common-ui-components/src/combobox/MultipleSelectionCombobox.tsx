@@ -30,13 +30,13 @@ export default function MultipleSelectionCombobox({
 }: MultipleSelectionComboboxProps) {
   const dropdown = useRef<HTMLDivElement>(null);
   const [suggestedItems, setSuggestedItems] =
-    useState<Map<string, string>>(items);
+    useState<Map<string , string>>(items);
   const [isExtended, setIsExtended] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
 
   // returns not selected items with query as substring
   const getSuggestedItems = useCallback(
-    (query: string): Map<string, string> => {
+    (query: string): Map<string , string> => {
       const lowerCaseQuery: string = query.toLowerCase();
 
       return new Map(
@@ -51,7 +51,7 @@ export default function MultipleSelectionCombobox({
   }, [items, selectedItems]);
 
   const onSelected = useCallback(
-    (key: string, value: string) => {
+    (key: string , value: string) => {
       setIsExtended(false);
       setQuery("");
       onItemSelected(key, value);
@@ -126,14 +126,15 @@ export default function MultipleSelectionCombobox({
               />
             </div>
           </div>
-
-          <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
-            {isExtended ? (
-              <ChevronUp style="size-4" />
-            ) : (
-              <ChevronDown style="size-4" />
-            )}
-          </TransparentIconButton>
+          <div className={`${disabled && "hidden"}`}>
+            <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
+              {isExtended ? (
+                <ChevronUp style="size-4" />
+              ) : (
+                <ChevronDown style="size-4" />
+              )}
+            </TransparentIconButton>
+          </div>
         </div>
 
         {isExtended && (

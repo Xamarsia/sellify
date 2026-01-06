@@ -31,8 +31,33 @@ const adminPreview: AdminPreview = {
   role: "Content Manager",
 };
 
+const adminPreview2: AdminPreview = {
+  adminId: 233432,
+  name: "Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name",
+  role: "Content Manager",
+};
+
+const adminPreview3: AdminPreview = {
+  adminId: 233432,
+  name: "LongUnbreakableAdminName|LongUnbreakableAdminNameLongUnbreakableAdminName",
+  role: "Content Manager",
+};
+
 export function getAdminById(adminId: number): Admin {
   return admin;
+}
+
+export function getAdminsPreviews(): Array<AdminPreview> {
+  return [
+    adminPreview,
+    adminPreview2,
+    adminPreview3,
+    adminPreview,
+    adminPreview2,
+    adminPreview3,
+    adminPreview,
+    adminPreview2,
+  ];
 }
 
 export function filterAdmins(query: string): Array<Admin> {

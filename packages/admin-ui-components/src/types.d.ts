@@ -58,6 +58,7 @@ export type Admin = {
 export type Role = {
   title: string;
   relatedUsersCount: number;
+  permissions: number[]; 
 };
 
 export type ProductPreview = {
