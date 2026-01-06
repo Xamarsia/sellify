@@ -1,4 +1,5 @@
-import { Category } from "@sellify/admin-ui-components/types";
+import { Category, ProductPreview } from "@sellify/admin-ui-components/types";
+import { getProductPreviews } from "./product-actions";
 
 const category: Category = {
   title: "Ring",
@@ -48,4 +49,14 @@ export function getCategories(): Array<Category> {
     category2,
     category2,
   ];
+}
+
+export function getCategoryById(categoryId: number): Category {
+  return category;
+}
+
+export function getProductPreviewsByCategoryId(
+  categoryId: number,
+): Array<ProductPreview> {
+  return getProductPreviews();
 }
