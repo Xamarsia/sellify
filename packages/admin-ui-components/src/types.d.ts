@@ -39,7 +39,14 @@ export type Customer = {
   name: string;
   ordersCount: number;
   totalExpenses: number;
+  createdOn: string;
   status: CustomerStatus;
+  deliveryAddress: DeliveryAddress;
+};
+
+export type DeliveryAddress = {
+  country: string;
+  address: string;
 };
 
 export type Category = {

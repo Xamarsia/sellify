@@ -133,3 +133,15 @@ export function getOrderHistory(): Array<OrderPreview> {
 export function filterOrdersHistory(query: string): Array<OrderPreview> {
   return [orderPreview3, orderPreview4];
 }
+
+export function getOrdersByCustomerId(customerId: number): Array<OrderPreview> {
+  return [
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+    orderPreview4,
+    orderPreview,
+    orderPreview2,
+    orderPreview3,
+  ];
+}
