@@ -15,6 +15,43 @@ export type Order = {
   items: number;
 };
 
+export type OrderPreview = {
+  orderId: number;
+  date: string;
+  total: number;
+  status: OrderStatus;
+  customerName: string;
+};
+
+export type CartItem = {
+  cartItemId: number;
+  product: ProductPreview;
+  amount: number;
+};
+
+export type ContactInfo = {
+  fullName: string;
+  phoneNumber: string;
+};
+
+export type OrderDetails = {
+  orderId: number;
+  customerId: number;
+  status: OrderStatus;
+  purchaseDate: string;
+  contactInfo: ContactInfo;
+  labels?: Array<ProductLabel>;
+  deliveryAddress: DeliveryAddress;
+  paymentProvider: PaymentProvider;
+  products: Array<CartItem>;
+  deliveryFee: number;
+  deliveryProvider?: DeliveryProvider;
+  trackingDeliveryId?: string;
+  deliveryDate?: string;
+  itemsSubtotal: number;
+  totalPrice: number;
+};
+
 export type Product = {
   image: string;
   title: string;
@@ -78,12 +115,4 @@ export type AdminPreview = {
   adminId: number;
   name: string;
   role: string;
-};
-
-export type OrderPreview = {
-  orderId: number;
-  date: string;
-  total: number;
-  status: OrderStatus;
-  customerName: string;
 };

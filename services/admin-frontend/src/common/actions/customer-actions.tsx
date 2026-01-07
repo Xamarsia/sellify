@@ -44,6 +44,10 @@ export function getCustomerById(customerId: number): Customer {
   return customer;
 }
 
+export function getCustomerNameById(customerId: number): string {
+  return customer.name;
+}
+
 export function getCustomers(): Array<Customer> {
   return [
     customer3,
