@@ -1,5 +1,10 @@
 import { CustomerStatus } from "@sellify/admin-ui-components/constants";
-import { Customer } from "@sellify/admin-ui-components/types";
+import { Customer, DeliveryAddress } from "@sellify/admin-ui-components/types";
+
+const deliveryAddress: DeliveryAddress = {
+  address: "123 Maple Street, Toronto, ON, M5A 1A1",
+  country: "Canada",
+};
 
 const customer: Customer = {
   customerId: 213234,
@@ -7,6 +12,8 @@ const customer: Customer = {
   ordersCount: 0,
   totalExpenses: 234.43,
   status: CustomerStatus.Active,
+  createdOn: "22 Feb 2025",
+  deliveryAddress: deliveryAddress,
 };
 
 const customer2: Customer = {
@@ -15,6 +22,8 @@ const customer2: Customer = {
   ordersCount: 5,
   totalExpenses: 65656.43,
   status: CustomerStatus.Archived,
+  createdOn: "25 Feb 2025",
+  deliveryAddress: deliveryAddress,
 };
 
 const customer3: Customer = {
@@ -23,10 +32,16 @@ const customer3: Customer = {
   ordersCount: 2324,
   totalExpenses: 4545645656776,
   status: CustomerStatus.Active,
+  createdOn: "05 Feb 2025",
+  deliveryAddress: deliveryAddress,
 };
 
 export function filterCustomers(query: string): Array<Customer> {
   return [customer, customer3];
+}
+
+export function getCustomerById(customerId: number): Customer {
+  return customer;
 }
 
 export function getCustomers(): Array<Customer> {
