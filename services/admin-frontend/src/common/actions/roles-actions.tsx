@@ -1,7 +1,7 @@
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
+import { Permission } from "@sellify/admin-ui-components/enums";
 
 import { getAdminsPreviews } from "./admins-actions";
-import { Permission } from "enums";
 
 const role: Role = {
   title: "ContentManager",

@@ -5,14 +5,13 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import Card from "@sellify/admin-ui-components/card/Card";
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
 import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
+import PermissionsMultipleSelectionCombobox from "@sellify/admin-ui-components/PermissionsMultipleSelectionCombobox";
 
 import BackButton from "components/BackButton";
 import {
   getAdminsPreviewsByRoleId,
   getRoleById,
 } from "common/actions/roles-actions";
-import PermissionsCombobox from "components/PermissionsCombobox";
-import { Permissions } from "../../../../constants";
 
 type Props = {
   params: Promise<{ roleId: number }>;
@@ -23,14 +22,6 @@ export default async function RoleDetailsPage({ params }: Props) {
   const role: Role = getRoleById(roleId);
   const relatedAdmins: Array<AdminPreview> = getAdminsPreviewsByRoleId(roleId);
 
-  function getPermissions(): Map<string, string> {
-    return new Map(
-      Permissions.map((permission) => {
-        return [permission[0].toString(), permission[1]];
-      }),
-    );
-  }
-
   return (
     <>
       <BackButton />
@@ -39,11 +30,8 @@ export default async function RoleDetailsPage({ params }: Props) {
 
       <div className="flex flex-col w-full gap-6">
         <h2>{`Permissions List`}</h2>
-        <PermissionsCombobox
-          defaultSelectedPermissions={role.permissions.map((permission) =>
-            permission.toString(),
-          )}
-          items={getPermissions()}
+        <PermissionsMultipleSelectionCombobox
+          defaultSelectedPermissions={role.permissions}
         />
       </div>
 

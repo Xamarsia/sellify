@@ -4,24 +4,25 @@ import { useCallback, useEffect, useState } from "react";
 
 import MultipleSelectionCombobox from "@sellify/common-ui-components/combobox/MultipleSelectionCombobox";
 
+import { Permissions } from "@sellify/admin-ui-components/constants";
+
 type Props = {
-  items: Map<string, string>;
   required?: boolean;
   disabled?: boolean;
-  defaultSelectedPermissions?: string[];
+  defaultSelectedPermissions?: number[];
 };
 
-export default function PermissionsCombobox({
-  items,
+export default function PermissionsMultipleSelectionCombobox({
   required,
   disabled,
   defaultSelectedPermissions,
 }: Props) {
-  const [selectedItems, setSelectedItems] = useState<Map<string, string>>(
+  const items: Map<number, string> = new Map(Permissions);
+  const [selectedItems, setSelectedItems] = useState<Map<number, string>>(
     new Map(),
   );
   const onItemSelected = useCallback(
-    (key: string, value: string) => {
+    (key: number, value: string) => {
       const newSelectedItemsMap = new Map([...selectedItems, [key, value]]);
       setSelectedItems(newSelectedItemsMap);
     },
@@ -29,7 +30,7 @@ export default function PermissionsCombobox({
   );
 
   const onItemRemoved = useCallback(
-    (key: string, value: string) => {
+    (key: number, value: string) => {
       const newSelectedItemsMap = new Map([...selectedItems]);
       newSelectedItemsMap.delete(key);
       setSelectedItems(newSelectedItemsMap);
