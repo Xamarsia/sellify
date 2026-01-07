@@ -1,21 +1,40 @@
-import { Role } from "@sellify/admin-ui-components/types";
+import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
+import { Permission } from "@sellify/admin-ui-components/enums";
+
+import { getAdminsPreviews } from "./admins-actions";
 
 const role: Role = {
   title: "ContentManager",
   relatedUsersCount: 1,
+  permissions: [
+    Permission.VIEW_PRODUCT,
+    Permission.CREATE_PRODUCT,
+    Permission.ARCHIVE_PRODUCT,
+    Permission.EDIT_PRODUCT,
+  ],
 };
 
 const role2: Role = {
   title:
     "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
   relatedUsersCount: 1,
+  permissions: [Permission.ARCHIVE_ADMIN, Permission.CREATE_ADMIN],
 };
 
 const role3: Role = {
   title:
     "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
   relatedUsersCount: 1,
+  permissions: [Permission.ARCHIVE_ADMIN, Permission.CREATE_ADMIN],
 };
+
+export function getRoleById(roleId: number): Role {
+  return role;
+}
+
+export function getAdminsPreviewsByRoleId(roleId: number): Array<AdminPreview> {
+  return getAdminsPreviews();
+}
 
 export function filterRoles(query: string): Array<Role> {
   return [role, role2];

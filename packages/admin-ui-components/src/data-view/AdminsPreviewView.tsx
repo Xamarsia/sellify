@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function AdminsPreviewView({ content }: Props) {
-  const tableHeader: Array<string> = ["Name", "Admin ID", "Role"];
+  const tableHeader: Array<string> = ["Name", "Admin ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((admin) => [
@@ -20,11 +20,6 @@ export default function AdminsPreviewView({ content }: Props) {
         </p>
       </LinkButton>,
       <h4>{"#" + admin.adminId}</h4>,
-      <LinkButton>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {admin.role}
-        </p>
-      </LinkButton>,
     ]);
   }, [content]);
 

@@ -99,9 +99,21 @@ export type Admin = {
   status: AdminStatus;
 };
 
+export type Permission = {
+  id: number;
+  title: string;
+  description?: string;
+};
+
+export type PermissionPreview = {
+  id: number;
+  title: string;
+};
+
 export type Role = {
   title: string;
   relatedUsersCount: number;
+  permissions: number[];
 };
 
 export type ProductPreview = {

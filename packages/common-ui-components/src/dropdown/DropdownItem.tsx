@@ -2,19 +2,19 @@
 
 import { useCallback } from "react";
 
-type DropdownItemProps = {
-  value: string;
+type DropdownItemProps<T> = {
+  value: T;
   label: string;
   selected?: boolean;
-  onItemSelected: (value: string, label: string) => void;
+  onItemSelected: (value: T, label: string) => void;
 };
 
-export default function DropdownItem({
+export default function DropdownItem<T>({
   value,
   label,
   selected,
   onItemSelected,
-}: DropdownItemProps) {
+}: DropdownItemProps<T>) {
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
