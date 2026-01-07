@@ -2,7 +2,7 @@
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import PageTitle from "components/PageTitle";
-import SettingsSection from "components/SettingsSection";
+import SettingsSection from "@sellify/admin-ui-components/SettingsSection";
 
 export default function SettingsPage() {
   return (
