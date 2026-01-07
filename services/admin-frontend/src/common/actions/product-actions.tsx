@@ -1,4 +1,8 @@
-import { Product, ProductPreview } from "@sellify/admin-ui-components/types";
+import {
+  CartItem,
+  Product,
+  ProductPreview,
+} from "@sellify/admin-ui-components/types";
 
 import image from "resources/1/image.jpg";
 import image3 from "resources/2/image.jpg";
@@ -25,6 +29,24 @@ const productPreview3: ProductPreview = {
   productId: 23645,
   title:
     "LongUnbreakableProductTitleWord|LongUnbreakableProductTitleWordLongUnbreakableProductTitleWord",
+};
+
+const cartItem: CartItem = {
+  amount: 2,
+  product: productPreview,
+  cartItemId: 0,
+};
+
+const cartItem2: CartItem = {
+  amount: 2,
+  product: productPreview2,
+  cartItemId: 0,
+};
+
+const cartItem3: CartItem = {
+  amount: 2,
+  product: productPreview3,
+  cartItemId: 0,
 };
 
 const product: Product = {
@@ -115,4 +137,25 @@ export function getProducts(): Array<Product> {
 
 export function filterProducts(query: string): Array<Product> {
   return [product, product2];
+}
+
+const cartItems: Array<CartItem> = [
+  cartItem,
+  cartItem3,
+  cartItem2,
+  cartItem,
+  cartItem3,
+  cartItem3,
+  cartItem,
+  cartItem2,
+  cartItem,
+  cartItem,
+  cartItem2,
+  cartItem3,
+  cartItem2,
+  cartItem,
+];
+
+export function getCartItems(): Array<CartItem> {
+  return cartItems;
 }
