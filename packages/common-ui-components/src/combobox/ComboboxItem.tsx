@@ -6,19 +6,19 @@ import XMark from "@sellify/common-icons/x-mark";
 
 import TransparentIconButton from "../buttons/TransparentIconButton";
 
-type ComboboxItemProps = {
-  value: string;
+type ComboboxItemProps<T> = {
+  value: T;
   label: string;
   disabled?: boolean;
-  onRemove?: (value: string, labe: string) => void;
+  onRemove?: (value: T, labe: string) => void;
 };
 
-export default function ComboboxItem({
+export default function ComboboxItem<T>({
   value,
   label,
   disabled,
   onRemove,
-}: ComboboxItemProps) {
+}: ComboboxItemProps<T>) {
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
