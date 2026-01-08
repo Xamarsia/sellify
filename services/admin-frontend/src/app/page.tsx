@@ -7,10 +7,7 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import image from "./../resources/1/image.jpg";
 import image2 from "./../resources/2/image.jpg";
 
-import {
-  AdminStatus,
-  CustomerStatus,
-} from "@sellify/admin-ui-components/constants";
+import { AdminStatus } from "@sellify/admin-ui-components/constants";
 import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
 import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
 import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
@@ -34,9 +31,16 @@ import {
 } from "@sellify/admin-ui-components/types";
 import { getOrders } from "common/actions/order-actions";
 import { getProductPreviews } from "common/actions/product-actions";
+import { getRoleById } from "common/actions/roles-actions";
+import {
+  getCategoryById,
+  getCategoryPreview,
+} from "common/actions/category-actions";
+import { getCustomerById } from "common/actions/customer-actions";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
+  const categoryPreview = getCategoryPreview("");
 
   const product: Product = {
     image: image.src,
@@ -44,7 +48,7 @@ export default function Home() {
     productId: 43545445,
     status: "ACTIVE",
     quantity: 12,
-    category: "Rings",
+    category: categoryPreview,
     price: 60,
   };
 
@@ -54,18 +58,9 @@ export default function Home() {
     productId: 43545445,
     quantity: 2,
   };
-  const customer: Customer = {
-    customerId: 213234,
-    name: "Ronald Jones",
-    ordersCount: 5,
-    totalExpenses: 234.43,
-    status: CustomerStatus.Active,
-  };
 
-  const category: Category = {
-    title: "Ring",
-    relatedProductsCount: 4,
-  };
+  const customer: Customer = getCustomerById(45645);
+  const category: Category = getCategoryById(3453456);
 
   const admin: Admin = {
     adminId: 233432,
@@ -81,10 +76,7 @@ export default function Home() {
     role: "Content Manager",
   };
 
-  const role: Role = {
-    title: "ContentManager",
-    relatedUsersCount: 1,
-  };
+  const role: Role = getRoleById(4365);
 
   return (
     <div className="flex-row gap-20">

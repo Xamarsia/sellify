@@ -13,7 +13,8 @@ export default function CategoriesView({ content }: Props) {
   const tableHeader: Array<string> = ["Category", "Related products"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    return content.map((category) => [
+    return content.map((category) => {
+      return [
       <LinkButton>
         <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
           {category.title}
@@ -23,7 +24,7 @@ export default function CategoriesView({ content }: Props) {
         {category.relatedProductsCount +
           `${category.relatedProductsCount > 1 ? " products" : " product"}`}
       </p>,
-    ]);
+    ]});
   }, [content]);
 
   return <AdaptiveDataView head={tableHeader} content={getContentArray} />;

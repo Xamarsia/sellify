@@ -33,7 +33,7 @@ export default function ProductsView({ content }: Props) {
       <p>{"#" + product.productId}</p>,
       <LinkButton>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {product.category}
+          {product.category.title}
         </p>
       </LinkButton>,
       <p>{"$" + product.price}</p>,

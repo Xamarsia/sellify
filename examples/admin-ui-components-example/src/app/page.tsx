@@ -6,7 +6,9 @@ import {
   Admin,
   AdminPreview,
   Category,
+  CategoryPreview,
   Customer,
+  DeliveryAddress,
   Inventory,
   Order,
   Product,
@@ -38,9 +40,15 @@ import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
 import image from "resources/image.jpg";
 import Section from "./components/Section";
 import SectionItem from "./components/SectionItem";
+import { Permission } from "@sellify/admin-ui-components/enums";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
+
+  const categoryPreview: CategoryPreview = {
+    categoryId: 324534,
+    title: "Ring",
+  };
 
   const order: Order = {
     orderId: 2343,
@@ -84,7 +92,7 @@ export default function Home() {
     productId: 43545445,
     status: "ACTIVE",
     quantity: 12,
-    category: "Rings",
+    category: categoryPreview,
     price: 60,
   };
 
@@ -102,15 +110,23 @@ export default function Home() {
     quantity: 2,
   };
 
+  const deliveryAddress: DeliveryAddress = {
+    address: "123 Maple Street, Toronto, ON, M5A 1A1",
+    country: "Canada"
+  };
+
   const customer: Customer = {
     customerId: 213234,
     name: "Ronald Jones",
     ordersCount: 5,
     totalExpenses: 234.43,
+    createdOn: "Jan 10, 2020",
+    deliveryAddress: deliveryAddress,
     status: CustomerStatus.Active,
   };
 
   const category: Category = {
+    categoryId: 456,
     title: "Ring",
     relatedProductsCount: 4,
   };
@@ -132,6 +148,12 @@ export default function Home() {
   const role: Role = {
     title: "ContentManager",
     relatedUsersCount: 1,
+    permissions: [
+      Permission.VIEW_PRODUCT,
+      Permission.CREATE_PRODUCT,
+      Permission.ARCHIVE_PRODUCT,
+      Permission.EDIT_PRODUCT,
+    ],
   };
 
   return (
