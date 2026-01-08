@@ -52,18 +52,6 @@ export type OrderDetails = {
   totalPrice: number;
 };
 
-export type Product = {
-  image: string;
-  title: string;
-  shortDescription?: string;
-  description?: string;
-  productId: number;
-  status: ProductStatus;
-  quantity: number;
-  category: string;
-  price: number;
-};
-
 export type Inventory = {
   image: string;
   productTitle: string;
@@ -87,8 +75,15 @@ export type DeliveryAddress = {
 };
 
 export type Category = {
+  categoryId: number;
   title: string;
+  description?: string;
   relatedProductsCount: number;
+};
+
+export type CategoryPreview = {
+  categoryId: number;
+  title: string;
 };
 
 export type Admin = {
@@ -116,15 +111,41 @@ export type Role = {
   permissions: number[];
 };
 
-export type ProductPreview = {
-  image: string;
-  title: string;
-  price: number;
-  productId: number;
-};
-
 export type AdminPreview = {
   adminId: number;
   name: string;
   role: string;
+};
+
+export type ProductPreview = {
+  productId: number;
+  image: string;
+  title: string;
+  price: number;
+};
+
+export type Product = {
+  productId: number;
+  image: string;
+  title: string;
+  shortDescription?: string;
+  description?: string;
+  status: ProductStatus;
+  quantity: number;
+  category: CategoryPreview;
+  price: number;
+};
+
+export type ProductDetails = {
+  productId: number;
+  images: string[];
+  title: string;
+  shortDescription?: string;
+  description?: string;
+  status: ProductStatus;
+  quantity: number;
+  category: CategoryPreview;
+  price: number;
+  creationDate: string;
+  lastModificationDate: string;
 };
