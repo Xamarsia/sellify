@@ -64,7 +64,9 @@ export default function Dropdown({
     (key: string) => {
       setIsExtended(false);
       onKeySelected(key);
-  }, [onKeySelected]);
+    },
+    [onKeySelected],
+  );
 
   return (
     <div className="relative" ref={dropdown}>

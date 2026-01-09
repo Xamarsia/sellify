@@ -195,3 +195,7 @@ export function getCartItems(): Array<CartItem> {
 export function getProductById(productId: number): ProductDetails {
   return productDetails;
 }
+
+export function deleteProduct(productId: number): void {
+  console.log("Product Deleted! Id: " + productId);
+}

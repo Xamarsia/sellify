@@ -25,7 +25,9 @@ export default function ComboboxItem<T>({
       if (onRemove) {
         onRemove(value, label);
       }
-  }, [value, label, onRemove]);
+    },
+    [value, label, onRemove],
+  );
 
   return (
     <div className="flex justify-center items-center bg-combobox-item rounded-lg px-4 h-8 gap-2">

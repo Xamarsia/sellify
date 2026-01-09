@@ -106,11 +106,7 @@ export default function RangeSlider({
             max={range.max}
             value={currentRange.min}
             onChange={handleMinValueChange}
-            style={
-              currentRange.min > range.max - 100
-                ? "z-5"
-                : "z-3"
-            }
+            style={currentRange.min > range.max - 100 ? "z-5" : "z-3"}
           />
           <RangeSliderInput
             min={range.min}
