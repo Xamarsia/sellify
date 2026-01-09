@@ -29,14 +29,13 @@ export default function MultipleSelectionCombobox<T extends string | number>({
   onItemRemoved,
 }: MultipleSelectionComboboxProps<T>) {
   const dropdown = useRef<HTMLDivElement>(null);
-  const [suggestedItems, setSuggestedItems] =
-    useState<Map<T , string>>(items);
+  const [suggestedItems, setSuggestedItems] = useState<Map<T, string>>(items);
   const [isExtended, setIsExtended] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
 
   // returns not selected items with query as substring
   const getSuggestedItems = useCallback(
-    (query: string): Map<T , string> => {
+    (query: string): Map<T, string> => {
       const lowerCaseQuery: string = query.toLowerCase();
 
       return new Map(
@@ -48,21 +47,27 @@ export default function MultipleSelectionCombobox<T extends string | number>({
           ); // only not selected items unique elements are allowed
         }),
       );
-  }, [items, selectedItems]);
+    },
+    [items, selectedItems],
+  );
 
   const onSelected = useCallback(
-    (key: T , value: string) => {
+    (key: T, value: string) => {
       setIsExtended(false);
       setQuery("");
       onItemSelected(key, value);
-  }, [onItemSelected]);
+    },
+    [onItemSelected],
+  );
 
   const onValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       e.preventDefault();
       const newValue: string = e.target.value;
       setQuery(newValue);
-  }, [setQuery]);
+    },
+    [setQuery],
+  );
 
   const onInputInFocus = useCallback((): void => {
     setIsExtended(true);
@@ -127,7 +132,10 @@ export default function MultipleSelectionCombobox<T extends string | number>({
             </div>
           </div>
           <div className={`${disabled && "hidden"}`}>
-            <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
+            <TransparentIconButton
+              onClick={onDropdownClick}
+              disabled={disabled}
+            >
               {isExtended ? (
                 <ChevronUp style="size-4" />
               ) : (

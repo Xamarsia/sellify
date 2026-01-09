@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@sellify/admin-ui-components/Footer";
 
+import RiskDialogProvider from "common/providers/RiskDialogProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,8 +34,10 @@ export default function RootLayout({
       <body
         className={`antialiased size-full flex flex-col relative items-center `}
       >
-        {children}
-        <Footer copyright="Long company name" />
+        <RiskDialogProvider>
+          {children}
+          <Footer copyright="Long company name" />
+        </RiskDialogProvider>
       </body>
     </html>
   );

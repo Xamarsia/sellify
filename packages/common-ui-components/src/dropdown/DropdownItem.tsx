@@ -19,7 +19,9 @@ export default function DropdownItem<T>({
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       onItemSelected(value, label);
-  }, [onItemSelected, value, label]);
+    },
+    [onItemSelected, value, label],
+  );
 
   return (
     <button

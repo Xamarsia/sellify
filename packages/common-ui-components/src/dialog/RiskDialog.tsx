@@ -16,7 +16,8 @@ type DialogProps = {
   dialogOpen: boolean;
   buttonActionTitle: string;
   onDialogClose: () => void;
-  onPasswordConfirmed: (password: string) => void;
+  onConfirm: (password: string) => boolean;
+  onPasswordValidated: (...args: any) => void;
 };
 
 export default function RiskDialog({
@@ -25,7 +26,8 @@ export default function RiskDialog({
   dialogOpen,
   buttonActionTitle,
   onDialogClose,
-  onPasswordConfirmed,
+  onConfirm,
+  onPasswordValidated,
 }: DialogProps) {
   const [password, setPassword] = useState<string>("");
 
@@ -33,11 +35,16 @@ export default function RiskDialog({
     (e: ChangeEvent<HTMLInputElement>): void => {
       const value: string = e.target.value;
       setPassword(value);
-  }, [setPassword]);
+    },
+    [setPassword],
+  );
 
   const confirmPassword = useCallback((): void => {
-    onPasswordConfirmed(password);
-  }, [onPasswordConfirmed, password]);
+    const isConfirmed: boolean = onConfirm(password);
+    if (isConfirmed) {
+      onPasswordValidated();
+    }
+  }, [onConfirm, password]);
 
   return (
     <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose}>
