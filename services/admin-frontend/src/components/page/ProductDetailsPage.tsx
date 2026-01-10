@@ -20,12 +20,12 @@ type Props = {
 };
 
 export default function ProductDetailsPage({ product }: Props) {
-  const { showDangerAlertDialog } =
+  const { showRiskDialog } =
     useContext<RiskDialogController>(RiskDialogContext);
 
   const onDeleteProduct = useCallback((): void => {
     deleteProduct(product.productId);
-  }, [showDangerAlertDialog]);
+  }, [showRiskDialog]);
 
   const openRiskDialog = useCallback((): void => {
     const alertDialogContent: RiskDialogContent = {
@@ -35,8 +35,8 @@ export default function ProductDetailsPage({ product }: Props) {
       onConfirm: isPasswordValid,
       onPasswordValidated: onDeleteProduct,
     };
-    showDangerAlertDialog(alertDialogContent);
-  }, [showDangerAlertDialog]);
+    showRiskDialog(alertDialogContent);
+  }, [showRiskDialog]);
 
   return (
     <div className="flex w-full flex-col gap-12">

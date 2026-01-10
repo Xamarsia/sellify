@@ -1,5 +1,6 @@
 import {
   CartItem,
+  CategoryPreview,
   Product,
   ProductDetails,
   ProductPreview,
@@ -13,7 +14,6 @@ import image4 from "resources/2/image2.jpg";
 
 import image5 from "resources/3/image.jpg";
 import image6 from "resources/3/image2.jpg";
-import { getCategoryPreview } from "./category-actions";
 
 const productPreview: ProductPreview = {
   image: image.src,
@@ -56,7 +56,10 @@ const cartItem3: CartItem = {
   cartItemId: 0,
 };
 
-const categoryPreview = getCategoryPreview("");
+const categoryPreview: CategoryPreview = {
+  categoryId: 324534,
+  title: "Ring",
+};
 
 const product: Product = {
   productId: 12323,

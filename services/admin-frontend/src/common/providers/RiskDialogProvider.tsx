@@ -20,7 +20,7 @@ export default function RiskDialogProvider({
   }, []);
 
   const contextValue: RiskDialogController = {
-    showDangerAlertDialog: useCallback((dialogContent) => {
+    showRiskDialog: useCallback((dialogContent) => {
       setContent(dialogContent);
       setDialogOpened(true);
     }, []),

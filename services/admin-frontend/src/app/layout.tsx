@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@sellify/admin-ui-components/Footer";
 
 import RiskDialogProvider from "common/providers/RiskDialogProvider";
+import AlertDialogProvider from "common/providers/AlertDialogProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +36,10 @@ export default function RootLayout({
         className={`antialiased size-full flex flex-col relative items-center `}
       >
         <RiskDialogProvider>
-          {children}
-          <Footer copyright="Long company name" />
+          <AlertDialogProvider>
+            {children}
+            <Footer copyright="Long company name" />
+          </AlertDialogProvider>
         </RiskDialogProvider>
       </body>
     </html>
