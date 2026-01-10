@@ -18,7 +18,8 @@ export type RiskDialogContent = {
   title: string;
   description?: string;
   buttonActionTitle: string;
-  onPasswordConfirmed: (password: string) => void;
+  onConfirm: (password: string) => boolean;
+  onPasswordValidated: (...args: any) => void;
 };
 
 export type ProductAddedDialogController = {
@@ -38,7 +39,7 @@ export type AlertDialogController = {
 };
 
 export type RiskDialogController = {
-  showDangerAlertDialog: (content: RiskDialogContent) => void;
+  showRiskDialog: (content: RiskDialogContent) => void;
 };
 
 export type NavbarDrawerController = {

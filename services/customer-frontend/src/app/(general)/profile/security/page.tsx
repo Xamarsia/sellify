@@ -8,9 +8,10 @@ import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
 import { RiskDialogController, RiskDialogContent } from "types";
 import { RiskDialogContext } from "common/contexts/common-context";
 import { deleteUserAccount } from "common/actions/profile-actions";
+import { isPasswordValid } from "common/actions/auth-actions";
 
 export default function SettingsPage() {
-  const { showDangerAlertDialog } =
+  const { showRiskDialog } =
     useContext<RiskDialogController>(RiskDialogContext);
 
   const onDeleteAccount = useCallback((): void => {
@@ -19,10 +20,11 @@ export default function SettingsPage() {
       buttonActionTitle: "Delete Account",
       description:
         "Are you sure you want to delete your account? This will delete your account, purchase history and all information connected to it.",
-      onPasswordConfirmed: deleteUserAccount,
+      onConfirm: isPasswordValid,
+      onPasswordValidated:deleteUserAccount,
     };
-    showDangerAlertDialog(alertDialogContent);
-  }, [showDangerAlertDialog]);
+    showRiskDialog(alertDialogContent);
+  }, [showRiskDialog]);
 
   return (
     <div className="flex w-full flex-col gap-12">
