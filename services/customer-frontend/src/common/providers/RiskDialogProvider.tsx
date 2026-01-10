@@ -19,7 +19,7 @@ export default function RiskDialogProvider({
   }, []);
 
   const contextValue: RiskDialogController = {
-    showDangerAlertDialog: useCallback((dialogContent) => {
+    showRiskDialog: useCallback((dialogContent) => {
       setContent(dialogContent);
       setDialogOpened(true);
     }, []),
@@ -34,7 +34,8 @@ export default function RiskDialogProvider({
           description={content.description}
           onDialogClose={onDialogCloseClicked}
           buttonActionTitle={content.buttonActionTitle}
-          onPasswordConfirmed={content.onPasswordConfirmed}
+          onConfirm={content.onConfirm}
+          onPasswordValidated={content.onPasswordValidated}
         />
       )}
       {children}

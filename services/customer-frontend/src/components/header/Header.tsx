@@ -26,8 +26,8 @@ export default function Header() {
   const menuItem: Array<NavMenuItem> = [
     { href: "/all-products", title: "All Products" },
     { href: "/collections", title: "Collections" },
-    { href: "/collections/bestsellers", title: "Bestsellers" },
-    { href: "/collections/gifts", title: "Gifts" },
+    { href: "/collection/bestsellers", title: "Bestsellers" },
+    { href: "/collection/gifts", title: "Gifts" },
   ];
 
   const openDrawer = useCallback((): void => {

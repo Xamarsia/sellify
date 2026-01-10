@@ -11,7 +11,7 @@ export const AlertDialogContext: React.Context<AlertDialogController> =
   createContext<AlertDialogController>({ showAlertDialog: () => {} });
 
 export const RiskDialogContext: React.Context<RiskDialogController> =
-  createContext<RiskDialogController>({ showDangerAlertDialog: () => {} });
+  createContext<RiskDialogController>({ showRiskDialog: () => {} });
 
 export const NavbarDrawerContext: React.Context<NavbarDrawerController> =
   createContext<NavbarDrawerController>({ openNavbarDrawer: () => {} });
