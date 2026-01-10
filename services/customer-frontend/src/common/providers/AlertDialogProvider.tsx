@@ -24,6 +24,9 @@ export default function AlertDialogProvider({
       setDialogOpened(true);
       setContent(alertDialogContent);
     }, []),
+    closeAlertDialog: useCallback(() => {
+      setDialogOpened(false);
+    }, []),
   };
 
   return (

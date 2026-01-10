@@ -8,7 +8,10 @@ import {
 } from "types";
 
 export const AlertDialogContext: React.Context<AlertDialogController> =
-  createContext<AlertDialogController>({ showAlertDialog: () => {} });
+  createContext<AlertDialogController>({
+    showAlertDialog: () => {},
+    closeAlertDialog: () => {},
+  });
 
 export const RiskDialogContext: React.Context<RiskDialogController> =
   createContext<RiskDialogController>({ showRiskDialog: () => {} });

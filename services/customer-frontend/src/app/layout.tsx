@@ -8,7 +8,7 @@ import Header from "components/header/Header";
 import SearchPanelProvider from "common/providers/SearchPanelProvider";
 import CartPanelProvider from "common/providers/CartPanelProvider";
 import AlertDialogProvider from "common/providers/AlertDialogProvider";
-import DestructiveAlertDialogProvider from "common/providers/RiskDialogProvider";
+import RiskDialogProvider from "common/providers/RiskDialogProvider";
 import NavbarDrawerProvider from "common/providers/NavbarDrawerProvider";
 import FilterPanelProvider from "common/providers/FilterPanelProvider";
 
@@ -59,7 +59,7 @@ export default function RootLayout({
       <body
         className={`antialiased size-full flex flex-col relative items-center`}
       >
-        <DestructiveAlertDialogProvider>
+        <RiskDialogProvider>
           <AlertDialogProvider>
             <NavbarDrawerProvider>
               <SearchPanelProvider>
@@ -73,7 +73,7 @@ export default function RootLayout({
               </SearchPanelProvider>
             </NavbarDrawerProvider>
           </AlertDialogProvider>
-        </DestructiveAlertDialogProvider>
+        </RiskDialogProvider>
       </body>
     </html>
   );

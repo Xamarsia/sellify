@@ -36,6 +36,7 @@ export type SearchPanelController = {
 
 export type AlertDialogController = {
   showAlertDialog: (content: AlertDialogContent) => void;
+  closeAlertDialog: () => void;
 };
 
 export type RiskDialogController = {
