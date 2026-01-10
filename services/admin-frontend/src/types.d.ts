@@ -9,5 +9,17 @@ export type RiskDialogContent = {
 };
 
 export type RiskDialogController = {
-  showDangerAlertDialog: (content: RiskDialogContent) => void;
+  showRiskDialog: (content: RiskDialogContent) => void;
+};
+
+export type AlertDialogContent = {
+  title: string;
+  icon: ReactNode;
+  description?: string;
+  controlPanel: ReactNode;
+};
+
+export type AlertDialogController = {
+  showAlertDialog: (content: AlertDialogContent) => void;
+  closeAlertDialog: () => void;
 };

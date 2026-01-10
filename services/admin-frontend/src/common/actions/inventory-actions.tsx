@@ -64,5 +64,6 @@ export function setProductQuantity(
   productId: number,
   quantity: number,
 ): boolean {
+  console.log("Add product quantity");
   return false;
 }
