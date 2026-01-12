@@ -3,13 +3,12 @@
 import { useCallback, useContext } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
-import FormSection from "@sellify/common-ui-components/FormSection";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 
+import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import ProductInfo from "@sellify/admin-ui-components/details/ProductInfo";
 import { ProductDetails } from "@sellify/admin-ui-components/types";
 
-import BackButton from "components/BackButton";
 import { deleteProduct } from "common/actions/product-actions";
 import { RiskDialogContext } from "common/contexts/common-context";
 import { RiskDialogContent, RiskDialogController } from "types";
@@ -39,11 +38,10 @@ export default function ProductDetailsPage({ product }: Props) {
   }, [showRiskDialog]);
 
   return (
-    <div className="flex w-full flex-col gap-12">
-      <BackButton />
+    <>
       <h1 className="py-4">{`Product: ${product.title} #${product.productId}`}</h1>
 
-      <FormSection title="Product Details">
+      <InfoSection title="Product Details">
         <ProductInfo
           category={product.category}
           price={product.price}
@@ -51,19 +49,19 @@ export default function ProductDetailsPage({ product }: Props) {
           creationDate={product.creationDate}
           lastModificationDate={product.lastModificationDate}
         />
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Short Description">
+      <InfoSection title="Short Description">
         <p>{product.shortDescription}</p>
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Description">
+      <InfoSection title="Description">
         <p>{product.description}</p>
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Media">
+      <InfoSection title="Media">
         <ProductImagesSlider images={product.images} />
-      </FormSection>
+      </InfoSection>
 
       <div className="flex w-full justify-between p-1">
         <Button variant="destructive" onClick={openRiskDialog}>
@@ -71,6 +69,6 @@ export default function ProductDetailsPage({ product }: Props) {
         </Button>
         <Button>Edit Product</Button>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,8 +1,8 @@
 import "server-only";
 
-import FormSection from "@sellify/common-ui-components/FormSection";
 import { PaymentMethodInfo } from "@sellify/common-ui-components/types";
 
+import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import OrderInfo from "@sellify/admin-ui-components/details/OrderInfo";
 import ShippingInfo from "@sellify/admin-ui-components/details/ShippingInfo";
 import PaymentInfo from "@sellify/admin-ui-components/details/PaymentInfo";
@@ -14,7 +14,6 @@ import {
   getPaymentMethodInfo,
 } from "common/actions/order-actions";
 import { getCustomerNameById } from "common/actions/customer-actions";
-import BackButton from "components/BackButton";
 
 type Props = {
   params: Promise<{ orderId: number }>;
@@ -29,34 +28,34 @@ export default async function OrderPage({ params }: Props) {
   const customerName = getCustomerNameById(order.customerId);
 
   return (
-    <div className="flex w-full flex-col gap-12">
-      <BackButton />
+    <>
       <h1 className="py-4">{`Order: #${order.customerId}`}</h1>
 
-      <FormSection title="Order Details">
+      <InfoSection title="Order Details">
         <OrderInfo
+          customerId={order.customerId}
           orderStatus={order.status}
           customerName={customerName}
           purchaseDate={order.purchaseDate}
         />
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Shipping Info">
+      <InfoSection title="Shipping Info">
         <ShippingInfo
           contactInfo={order.contactInfo}
           deliveryAddress={order.deliveryAddress}
         />
-      </FormSection>
+      </InfoSection>
 
       {paymentMethodInfo && (
-        <FormSection title="Payment Method">
+        <InfoSection title="Payment Method">
           <PaymentInfo paymentMethodInfo={paymentMethodInfo} />
-        </FormSection>
+        </InfoSection>
       )}
 
-      <FormSection title="Products">
+      <InfoSection title="Products">
         <OrderProductsView content={order.products} />
-      </FormSection>
-    </div>
+      </InfoSection>
+    </>
   );
 }

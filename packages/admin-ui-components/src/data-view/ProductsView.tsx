@@ -1,11 +1,12 @@
 import { ReactNode, useMemo } from "react";
 
-import { Product } from "../types";
-import ProductImagePreview from "../product/ProductImagePreview";
-
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import ProductStatusComponent from "@sellify/common-ui-components/statuses/ProductStatusComponent";
+
+import { Product } from "../types";
+import ProductImagePreview from "../product/ProductImagePreview";
+import LinkTableItem from "../table-items/LinkTableItem";
+import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Product>;
@@ -25,20 +26,15 @@ export default function ProductsView({ content }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((product) => [
       <ProductImagePreview src={product.image} />,
-      <LinkButton href={`product/${product.productId}`}>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {product.title}
-        </p>
-      </LinkButton>,
-      <div className="flex items-center gap-1">
-        #
-        <p>{product.productId}</p>
-      </div>,
-      <LinkButton href={`/category/${product.category.categoryId}`}>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {product.category.title}
-        </p>
-      </LinkButton>,
+      <LinkTableItem
+        href={`/product/${product.productId}`}
+        text={product.title}
+      />,
+      <IdTableItem id={product.productId} />,
+      <LinkTableItem
+        href={`/category/${product.category.categoryId}`}
+        text={product.category.title}
+      />,
       <p>{"$" + product.price}</p>,
       <p>{product.quantity + " in stock"}</p>,
       <ProductStatusComponent status={product.status} />,

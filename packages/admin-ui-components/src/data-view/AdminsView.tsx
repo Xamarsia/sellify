@@ -5,6 +5,8 @@ import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataVie
 
 import { Admin } from "../types";
 import AdminStatusComponent from "../statuses/AdminStatusComponent";
+import LinkTableItem from "../table-items/LinkTableItem";
+import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Admin>;
@@ -21,15 +23,8 @@ export default function AdminsView({ content }: Props) {
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((admin) => [
-      <LinkButton href={`admin/${admin.adminId}`}>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {admin.name}
-        </p>
-      </LinkButton>,
-      <div className="flex items-center gap-1">
-        #
-        <p>{admin.adminId}</p>
-      </div>,
+      <LinkTableItem href={`/admin/${admin.adminId}`} text={admin.name} />,
+      <IdTableItem id={admin.adminId} />,
       <p>{admin.createdOn}</p>,
       <LinkButton href={`role/${admin.role.roleId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">

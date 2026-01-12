@@ -1,9 +1,13 @@
 import { AdminStatus } from "@sellify/admin-ui-components/constants";
-import { Admin, AdminPreview, RolePreview } from "@sellify/admin-ui-components/types";
+import {
+  Admin,
+  AdminPreview,
+  RolePreview,
+} from "@sellify/admin-ui-components/types";
 
 const rolePreview: RolePreview = {
   roleId: 1234234,
-  title: "Content Manager"
+  title: "Content Manager",
 };
 
 const admin: Admin = {

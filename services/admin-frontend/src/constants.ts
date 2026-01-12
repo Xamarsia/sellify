@@ -9,5 +9,6 @@ export const MainMenuItems: Array<NavMenuItem> = [
   { href: "/customers", title: "Customers" },
   { href: "/admins", title: "Admins" },
   { href: "/roles", title: "Roles" },
+  { href: "/permissions", title: "Permissions" },
   { href: "/security", title: "Security" },
 ] as const;

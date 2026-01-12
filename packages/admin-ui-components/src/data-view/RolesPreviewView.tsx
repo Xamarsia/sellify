@@ -4,19 +4,19 @@ import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataVie
 
 import LinkTableItem from "../table-items/LinkTableItem";
 import IdTableItem from "../table-items/IdTableItem";
-import { AdminPreview } from "../types";
+import { RolePreview } from "../types";
 
 type Props = {
-  content: Array<AdminPreview>;
+  content: Array<RolePreview>;
 };
 
-export default function AdminsPreviewView({ content }: Props) {
-  const tableHeader: Array<string> = ["Name", "Admin ID"];
+export default function RolesPreviewView({ content }: Props) {
+  const tableHeader: Array<string> = ["Title", "Role ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    return content.map((admin) => [
-      <LinkTableItem href={`/admin/${admin.adminId}`} text={admin.name} />,
-      <IdTableItem id={admin.adminId} />,
+    return content.map((role) => [
+      <LinkTableItem href={`/role/${role.roleId}`} text={role.title} />,
+      <IdTableItem id={role.roleId} />,
     ]);
   }, [content]);
 

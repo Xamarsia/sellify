@@ -4,12 +4,14 @@ import { OrderStatus } from "@sellify/common-ui-components/types";
 
 type OrderInfoProps = {
   orderStatus: OrderStatus;
+  customerId: number;
   customerName: string;
   purchaseDate: string;
 };
 
 export default function OrderInfo({
   orderStatus,
+  customerId,
   customerName,
   purchaseDate,
 }: OrderInfoProps) {
@@ -21,7 +23,7 @@ export default function OrderInfo({
       </div>
       <div className="flex w-full items-center gap-4">
         <p>{`Customer:`}</p>
-        <LinkButton>
+        <LinkButton href={`/customer/${customerId}`}>
           <h4>{customerName}</h4>
         </LinkButton>
       </div>

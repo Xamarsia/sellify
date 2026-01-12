@@ -96,8 +96,9 @@ export type Admin = {
 };
 
 export type Permission = {
-  id: number;
+  permissionId: number;
   title: string;
+  relatedRolesCount: number;
   description?: string;
 };
 
@@ -113,7 +114,7 @@ export type Role = {
   permissions: number[];
 };
 
-export type RolePreview  = {
+export type RolePreview = {
   roleId: number;
   title: string;
 };
