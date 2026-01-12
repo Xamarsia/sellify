@@ -1,9 +1,31 @@
-import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
+import {
+  AdminPreview,
+  Role,
+  RolePreview,
+} from "@sellify/admin-ui-components/types";
 import { Permission } from "@sellify/admin-ui-components/enums";
 
 import { getAdminsPreviews } from "./admins-actions";
 
+const rolePreview: RolePreview = {
+  roleId: 1234234,
+  title: "ContentManager",
+};
+
+const rolePreview2: RolePreview = {
+  roleId: 1234234,
+  title:
+    "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
+};
+
+const rolePreview3: RolePreview = {
+  roleId: 1234234,
+  title:
+    "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
+};
+
 const role: Role = {
+  roleId: 1234234,
   title: "ContentManager",
   relatedUsersCount: 1,
   permissions: [
@@ -15,6 +37,7 @@ const role: Role = {
 };
 
 const role2: Role = {
+  roleId: 1234234,
   title:
     "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
   relatedUsersCount: 1,
@@ -22,6 +45,7 @@ const role2: Role = {
 };
 
 const role3: Role = {
+  roleId: 1234234,
   title:
     "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
   relatedUsersCount: 1,
@@ -30,6 +54,35 @@ const role3: Role = {
 
 export function getRoleById(roleId: number): Role {
   return role;
+}
+
+export function getRolePreviews(): Array<RolePreview> {
+  return [
+    rolePreview,
+    rolePreview,
+    rolePreview2,
+    rolePreview3,
+    rolePreview2,
+    rolePreview3,
+    rolePreview,
+    rolePreview2,
+    rolePreview,
+    rolePreview3,
+    rolePreview2,
+    rolePreview,
+    rolePreview,
+    rolePreview,
+    rolePreview3,
+    rolePreview,
+    rolePreview3,
+    rolePreview,
+    rolePreview,
+    rolePreview3,
+    rolePreview3,
+    rolePreview2,
+    rolePreview2,
+    rolePreview2,
+  ];
 }
 
 export function getAdminsPreviewsByRoleId(roleId: number): Array<AdminPreview> {

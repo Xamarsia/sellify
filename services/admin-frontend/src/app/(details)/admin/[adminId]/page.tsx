@@ -1,14 +1,13 @@
 import "server-only";
 
-import FormSection from "@sellify/common-ui-components/FormSection";
 import Button from "@sellify/common-ui-components/buttons/Button";
+import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 import { Admin } from "@sellify/admin-ui-components/types";
 import AdminInfo from "@sellify/admin-ui-components/details/AdminInfo";
+import InfoSection from "@sellify/admin-ui-components/InfoSection";
 
-import BackButton from "components/BackButton";
 import { getAdminById } from "common/actions/admins-actions";
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 type Props = {
   params: Promise<{ adminId: number }>;
@@ -20,24 +19,23 @@ export default async function AdminDetailsPage({ params }: Props) {
 
   return (
     <>
-      <BackButton />
       <h1 className="py-4">{`Admin: ${admin.name} #${admin.adminId} `}</h1>
 
       <div className="grow flex flex-col gap-12">
-        <FormSection title="Admin Details">
+        <InfoSection title="Admin Details">
           <AdminInfo admin={admin} />
-        </FormSection>
+        </InfoSection>
 
-        <FormSection title="Role">
+        <InfoSection title="Role">
           <div className="flex w-full justify-between">
-            <LinkButton>
+            <LinkButton href={`/role/${admin.role.roleId}`}>
               <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-                {admin.role}
+                {admin.role.title}
               </p>
             </LinkButton>
             <Button size="small">Change Role</Button>
           </div>
-        </FormSection>
+        </InfoSection>
       </div>
       <Button variant="destructive">Disable Admin</Button>
     </>

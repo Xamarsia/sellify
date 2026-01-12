@@ -1,10 +1,19 @@
 import { AdminStatus } from "@sellify/admin-ui-components/constants";
-import { Admin, AdminPreview } from "@sellify/admin-ui-components/types";
+import {
+  Admin,
+  AdminPreview,
+  RolePreview,
+} from "@sellify/admin-ui-components/types";
+
+const rolePreview: RolePreview = {
+  roleId: 1234234,
+  title: "Content Manager",
+};
 
 const admin: Admin = {
   adminId: 233432,
   name: "Ronald Jones",
-  role: "Content Manager",
+  role: rolePreview,
   createdOn: "Jan 10, 2020",
   status: AdminStatus.Active,
 };
@@ -12,7 +21,7 @@ const admin: Admin = {
 const admin2: Admin = {
   adminId: 233432,
   name: "Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name",
-  role: "Content Manager",
+  role: rolePreview,
   createdOn: "Jan 10, 2020",
   status: AdminStatus.Disabled,
 };
@@ -20,7 +29,7 @@ const admin2: Admin = {
 const admin3: Admin = {
   adminId: 233432,
   name: "LongUnbreakableAdminName|LongUnbreakableAdminNameLongUnbreakableAdminName",
-  role: "Content Manager",
+  role: rolePreview,
   createdOn: "Jan 10, 2020",
   status: AdminStatus.Active,
 };

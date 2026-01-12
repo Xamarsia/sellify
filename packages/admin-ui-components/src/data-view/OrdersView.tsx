@@ -1,10 +1,11 @@
 import { ReactNode, useMemo } from "react";
 
-import { OrderPreview } from "../types";
-
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+
+import { OrderPreview } from "../types";
+import LinkTableItem from "../table-items/LinkTableItem";
+import LinkIdTableItem from "../table-items/LinkIdTableItem";
 
 type Props = {
   content: Array<OrderPreview>;
@@ -24,13 +25,12 @@ export default function OrdersView({ content }: Props) {
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
-      <p key={"orderid" + order.orderId}>{"#" + order.orderId}</p>,
+      <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
       <p>{order.date}</p>,
-      <LinkButton>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {order.customerName}
-        </p>
-      </LinkButton>,
+      <LinkTableItem
+        href={`/customer/${order.customerId}`}
+        text={order.customerName}
+      />,
       <p>{"$" + order.total}</p>,
       <OrderStatusComponent status={order.status} />,
     ]);

@@ -9,7 +9,7 @@ import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
 import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 
 import PageTitle from "components/PageTitle";
-import { getOrders } from "common/actions/order-actions";
+import { getOrdersPreview } from "common/actions/order-actions";
 
 export default function Home() {
   return (
@@ -29,11 +29,11 @@ export default function Home() {
       <div className="flex flex-col w-full gap-4">
         <div className="flex justify-between items-center">
           <h2>Latest Orders</h2>
-          <LinkButton>
+          <LinkButton href="/orders">
             More <ArrowLongRightIcon style="size-6" />
           </LinkButton>
         </div>
-        <OrdersView content={getOrders()} />
+        <OrdersView content={getOrdersPreview()} />
       </div>
     </>
   );

@@ -21,6 +21,8 @@ export default function PageTitle() {
         return "Inventory";
       case "/customers":
         return "Customers";
+      case "/permissions":
+        return "Permissions";
       case "/roles":
         return "Roles";
       case "/admins":

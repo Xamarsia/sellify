@@ -1,30 +1,33 @@
 import { ReactNode, useMemo } from "react";
 
-import { Category } from "../types";
-
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+
+import { Category } from "../types";
+import LinkTableItem from "../table-items/LinkTableItem";
+import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Category>;
 };
 
 export default function CategoriesView({ content }: Props) {
-  const tableHeader: Array<string> = ["Category", "Related products"];
+  const tableHeader: Array<string> = [
+    "Category",
+    "Category ID",
+    "Related Products Amount",
+  ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((category) => {
       return [
-      <LinkButton>
-        <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
-          {category.title}
-        </p>
-      </LinkButton>,
-      <p>
-        {category.relatedProductsCount +
-          `${category.relatedProductsCount > 1 ? " products" : " product"}`}
-      </p>,
-    ]});
+        <LinkTableItem
+          href={`/category/${category.categoryId}`}
+          text={category.title}
+        />,
+        <IdTableItem id={category.categoryId} />,
+        <p>{category.relatedProductsCount}</p>,
+      ];
+    });
   }, [content]);
 
   return <AdaptiveDataView head={tableHeader} content={getContentArray} />;

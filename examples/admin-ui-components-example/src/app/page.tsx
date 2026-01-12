@@ -11,9 +11,11 @@ import {
   DeliveryAddress,
   Inventory,
   Order,
+  OrderPreview,
   Product,
   ProductPreview,
   Role,
+  RolePreview,
 } from "@sellify/admin-ui-components/types";
 
 import {
@@ -50,31 +52,40 @@ export default function Home() {
     title: "Ring",
   };
 
-  const order: Order = {
+  const orderPreview: OrderPreview = {
     orderId: 2343,
+    customerId: 23465,
     date: "June 23, 2024",
     customerName: "John Thomson",
     total: 23.46,
     status: OrderStatus.Shipped,
-    items: 1,
   };
 
-  const order2: Order = {
+  const orderPreview2: OrderPreview = {
+    orderId: 2343,
+    customerId: 23465,
+    date: "June 23, 2024",
+    customerName: "John Thomson",
+    total: 23.46,
+    status: OrderStatus.Shipped,
+  };
+
+  const orderPreview3: OrderPreview = {
     orderId: 67843,
+    customerId: 23465,
     date: "Aug 7, 2024",
     customerName: "John Thomson",
     total: 64.32,
     status: OrderStatus.InProgress,
-    items: 5,
   };
 
-  const order3: Order = {
+  const orderPreview4: OrderPreview = {
     orderId: 56736784,
+    customerId: 23465,
     date: "Jan 13, 2025",
     customerName: "John Thomson",
     total: 345.46,
     status: OrderStatus.Shipped,
-    items: 3,
   };
 
   const order4: Order = {
@@ -131,10 +142,15 @@ export default function Home() {
     relatedProductsCount: 4,
   };
 
+  const rolePreview: RolePreview = {
+    title: "ContentManager",
+    roleId: 1,
+  };
+
   const admin: Admin = {
     adminId: 233432,
     name: "Ronald Jones",
-    role: "Content Manager",
+    role: rolePreview,
     createdOn: "Jan 10, 2020",
     status: AdminStatus.Invited,
   };
@@ -148,6 +164,7 @@ export default function Home() {
   const role: Role = {
     title: "ContentManager",
     relatedUsersCount: 1,
+    roleId: 12,
     permissions: [
       Permission.VIEW_PRODUCT,
       Permission.CREATE_PRODUCT,
@@ -201,7 +218,7 @@ export default function Home() {
 
         <Section title={"Table"}>
           <SectionItem title="Orders Table">
-            <OrdersView content={[order, order2, order3, order4]} />
+            <OrdersView content={[orderPreview, orderPreview2, orderPreview3, orderPreview4]} />
           </SectionItem>
 
           <SectionItem title="Products Table">

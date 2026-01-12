@@ -3,11 +3,11 @@ import "server-only";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import Card from "@sellify/admin-ui-components/card/Card";
+import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
 import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
 import PermissionsMultipleSelectionCombobox from "@sellify/admin-ui-components/PermissionsMultipleSelectionCombobox";
 
-import BackButton from "components/BackButton";
 import {
   getAdminsPreviewsByRoleId,
   getRoleById,
@@ -24,21 +24,18 @@ export default async function RoleDetailsPage({ params }: Props) {
 
   return (
     <>
-      <BackButton />
       <h1 className="py-4">{`Role: ${role.title}`}</h1>
       <Card label="Related Users" value="5" />
 
-      <div className="flex flex-col w-full gap-6">
-        <h2>{`Permissions List`}</h2>
+      <InfoSection title="Permissions List">
         <PermissionsMultipleSelectionCombobox
           defaultSelectedPermissions={role.permissions}
         />
-      </div>
+      </InfoSection>
 
-      <div className="flex flex-col w-full gap-6">
-        <h2>{`Related Users`}</h2>
+      <InfoSection title="Related Users">
         <AdminsPreviewView content={relatedAdmins} />
-      </div>
+      </InfoSection>
 
       <div className="flex w-full justify-between">
         <Button variant="destructive">Remove Role</Button>

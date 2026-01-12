@@ -21,6 +21,7 @@ export type OrderPreview = {
   total: number;
   status: OrderStatus;
   customerName: string;
+  customerId: number;
 };
 
 export type CartItem = {
@@ -89,14 +90,15 @@ export type CategoryPreview = {
 export type Admin = {
   adminId: number;
   name: string;
-  role: string;
+  role: RolePreview;
   createdOn: string;
   status: AdminStatus;
 };
 
 export type Permission = {
-  id: number;
+  permissionId: number;
   title: string;
+  relatedRolesCount: number;
   description?: string;
 };
 
@@ -106,9 +108,15 @@ export type PermissionPreview = {
 };
 
 export type Role = {
+  roleId: number;
   title: string;
   relatedUsersCount: number;
   permissions: number[];
+};
+
+export type RolePreview = {
+  roleId: number;
+  title: string;
 };
 
 export type AdminPreview = {

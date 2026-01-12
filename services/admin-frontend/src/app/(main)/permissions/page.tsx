@@ -2,33 +2,27 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
-import ChevronDown from "@sellify/common-icons/chevron-down";
-import Button from "@sellify/common-ui-components/buttons/Button";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
-import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
-import { OrderPreview } from "@sellify/admin-ui-components/types";
+import { Permission } from "@sellify/admin-ui-components/types";
+import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
 
 import PageTitle from "components/PageTitle";
 import {
-  filterOrdersHistory,
-  getOrdersPreview,
-} from "common/actions/order-actions";
+  filterPermissions,
+  getPermissions,
+} from "common/actions/permissions-actions";
 
-export default function OrdersPage() {
-  const oderHistory: Array<OrderPreview> = getOrdersPreview();
-
+export default function PermissionsPage() {
+  const defaultPermissions: Array<Permission> = getPermissions();
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
-  const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
+  const [permissions, setPermissions] =
+    useState<Array<Permission>>(defaultPermissions);
 
   const comboboxSortItems = new Map<string, string>([
-    ["newest", "Rank by newest date"],
-    ["oldest", "Rank by oldest date"],
-    ["status", "Rank by status"],
-    ["byLowestPrice", "Rank by lowest price"],
-    ["byHighestPrice", "Rank by highest price"],
+    ["byUsersAmount", "Rank by related users amount"],
   ]);
 
   const onSearchChanged = useCallback(
@@ -36,7 +30,7 @@ export default function OrdersPage() {
       e.preventDefault();
       const query: string = e.target.value;
       setQuery(query);
-      setOrders(query ? filterOrdersHistory(query) : oderHistory);
+      setPermissions(query ? filterPermissions(query) : defaultPermissions);
     },
     [],
   );
@@ -45,10 +39,6 @@ export default function OrdersPage() {
     <>
       <div className="flex justify-between items-center">
         <PageTitle />
-        {/* TODO: Replace this button with a calendar component */}
-        <Button variant="outline" size="small">
-          Jan 01 - Jan 28 <ChevronDown style="size-6" />
-        </Button>
       </div>
 
       <div className="flex flex-col w-full gap-4">
@@ -61,7 +51,7 @@ export default function OrdersPage() {
             onKeySelected={setSortByKey}
           />
         </div>
-        <OrdersView content={orders} />
+        <PermissionsView content={permissions} />
       </div>
     </>
   );

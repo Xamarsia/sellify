@@ -89,6 +89,7 @@ export function getOrders(): Array<Order> {
 
 const orderPreview: OrderPreview = {
   orderId: 2343,
+  customerId: 35446,
   date: "June 23, 2024",
   total: 23.46,
   status: OrderStatus.Shipped,
@@ -97,6 +98,7 @@ const orderPreview: OrderPreview = {
 
 const orderPreview2: OrderPreview = {
   orderId: 67843,
+  customerId: 35446,
   date: "Aug 7, 2024",
   total: 64.32,
   status: OrderStatus.InProgress,
@@ -106,6 +108,7 @@ const orderPreview2: OrderPreview = {
 
 const orderPreview3: OrderPreview = {
   orderId: 56736784,
+  customerId: 35446,
   date: "Jan 13, 2025",
   total: 345.46,
   status: OrderStatus.Shipped,
@@ -115,6 +118,7 @@ const orderPreview3: OrderPreview = {
 
 const orderPreview4: OrderPreview = {
   orderId: 245,
+  customerId: 35446,
   date: "Aug 18, 2025",
   total: 253.82,
   status: OrderStatus.New,
@@ -151,7 +155,7 @@ const orderDetails: OrderDetails = {
   deliveryDate: "June 28, 2024",
 };
 
-export function getOrderHistory(): Array<OrderPreview> {
+export function getOrdersPreview(): Array<OrderPreview> {
   return [
     orderPreview,
     orderPreview2,

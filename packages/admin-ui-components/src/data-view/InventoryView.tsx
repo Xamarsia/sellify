@@ -1,11 +1,12 @@
 import { ReactNode, useMemo } from "react";
 
+import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+
 import { Inventory } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
-
-import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
-import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "../table-items/LinkTableItem";
+import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Inventory>;
@@ -25,13 +26,12 @@ export default function InventoryView({ disabled, content, onSubmit }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((inventory) => [
       <ProductImagePreview src={inventory.image} />,
-      <LinkButton>
-        <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-          {inventory.productTitle}
-        </p>
-      </LinkButton>,
-      <p>{"#" + inventory.productId}</p>,
-      <p>{inventory.quantity + " in stock"}</p>,
+      <LinkTableItem
+        href={`/product/${inventory.productId}`}
+        text={inventory.productTitle}
+      />,
+      <IdTableItem id={inventory.productId} />,
+      <p>{inventory.quantity}</p>,
       <AddAmountButtonTableItem
         onSubmit={onSubmit}
         productId={inventory.productId}

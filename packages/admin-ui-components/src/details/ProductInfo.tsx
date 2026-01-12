@@ -2,17 +2,23 @@ import { ProductStatus } from "@sellify/common-ui-components/types";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 import ProductStatusComponent from "../statuses/ProductStatusComponent";
-import {CategoryPreview } from "../types";
+import { CategoryPreview } from "../types";
 
 type ProductInfoProps = {
-    status: ProductStatus
-    category: CategoryPreview,
-    price: number,
-    creationDate: string,
-    lastModificationDate: string
+  status: ProductStatus;
+  category: CategoryPreview;
+  price: number;
+  creationDate: string;
+  lastModificationDate: string;
 };
 
-export default function ProductInfo({ status, category, price, creationDate, lastModificationDate }: ProductInfoProps) {
+export default function ProductInfo({
+  status,
+  category,
+  price,
+  creationDate,
+  lastModificationDate,
+}: ProductInfoProps) {
   return (
     <>
       <div className="flex w-full gap-4">
@@ -21,7 +27,7 @@ export default function ProductInfo({ status, category, price, creationDate, las
       </div>
       <div className="flex w-full items-center gap-4">
         <p>{`Category:`}</p>
-        <LinkButton>
+        <LinkButton href={`/category/${category.categoryId}`}>
           <h4>{category.title}</h4>
         </LinkButton>
       </div>
