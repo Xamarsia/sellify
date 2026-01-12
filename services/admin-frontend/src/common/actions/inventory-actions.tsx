@@ -1,17 +1,17 @@
-import { Inventory } from "@sellify/admin-ui-components/types";
+import { InventoryProduct } from "@sellify/admin-ui-components/types";
 
 import image from "resources/1/image.jpg";
 import image3 from "resources/2/image.jpg";
 import image5 from "resources/3/image.jpg";
 
-const inventory: Inventory = {
+const inventory: InventoryProduct = {
   image: image.src,
   productTitle: "Product Title",
   productId: 43545445,
   quantity: 2,
 };
 
-const inventory2: Inventory = {
+const inventory2: InventoryProduct = {
   image: image3.src,
   productTitle:
     "LongUnbreakableCategoryTitleWord|LongUnbreakableCategoryTitleWordLongUnbreakableCategoryTitleWord",
@@ -19,7 +19,7 @@ const inventory2: Inventory = {
   quantity: 3425,
 };
 
-const inventory3: Inventory = {
+const inventory3: InventoryProduct = {
   image: image5.src,
   productTitle:
     "Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title",
@@ -27,11 +27,11 @@ const inventory3: Inventory = {
   quantity: 231424233,
 };
 
-export function filterInventoryProducts(query: string): Array<Inventory> {
+export function filterInventoryProducts(query: string): Array<InventoryProduct> {
   return [inventory, inventory3];
 }
 
-export function getInventoryProducts(): Array<Inventory> {
+export function getInventoryProducts(): Array<InventoryProduct> {
   return [
     inventory3,
     inventory,
