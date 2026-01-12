@@ -8,7 +8,7 @@ import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
-import { Inventory } from "@sellify/admin-ui-components/types";
+import { InventoryProduct } from "@sellify/admin-ui-components/types";
 import InventoryView from "@sellify/admin-ui-components/data-view/InventoryView";
 
 import {
@@ -21,11 +21,11 @@ import { AlertDialogContent, AlertDialogController } from "types";
 import { AlertDialogContext } from "common/contexts/common-context";
 
 export default function InventoryPage() {
-  const defaultProducts: Array<Inventory> = getInventoryProducts();
+  const defaultProducts: Array<InventoryProduct> = getInventoryProducts();
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
   const [inventoryProducts, setInventoryProducts] =
-    useState<Array<Inventory>>(defaultProducts);
+    useState<Array<InventoryProduct>>(defaultProducts);
   const { showAlertDialog, closeAlertDialog } =
     useContext<AlertDialogController>(AlertDialogContext);
 

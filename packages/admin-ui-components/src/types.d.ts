@@ -53,7 +53,7 @@ export type OrderDetails = {
   totalPrice: number;
 };
 
-export type Inventory = {
+export type InventoryProduct = {
   image: string;
   productTitle: string;
   productId: number;

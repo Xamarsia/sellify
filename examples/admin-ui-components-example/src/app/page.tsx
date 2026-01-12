@@ -9,7 +9,7 @@ import {
   CategoryPreview,
   Customer,
   DeliveryAddress,
-  Inventory,
+  InventoryProduct,
   Order,
   OrderPreview,
   Product,
@@ -114,7 +114,7 @@ export default function Home() {
     productId: 43545445,
   };
 
-  const inventory: Inventory = {
+  const inventory: InventoryProduct = {
     image: image.src,
     productTitle: "Product Title",
     productId: 43545445,
