@@ -24,9 +24,14 @@ export default function OrdersView({ content }: Props) {
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
-      <p key={"orderid" + order.orderId}>{"#" + order.orderId}</p>,
+      <div className="flex items-center">
+        #
+        <LinkButton href={`/order/${order.orderId}`}>
+          <p key={"orderid" + order.orderId}>{order.orderId}</p>
+        </LinkButton>
+      </div>,
       <p>{order.date}</p>,
-      <LinkButton>
+      <LinkButton href={`/customer/${order.customerId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
           {order.customerName}
         </p>

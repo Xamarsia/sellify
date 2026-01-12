@@ -17,7 +17,7 @@ export default function ProductPreviewView({ content }: Props) {
     return content.map((product) => [
       <ProductImagePreview src={product.image} />,
 
-      <LinkButton>
+      <LinkButton href={`/product/${product.productId}`}>
         <h4 className="line-clamp-3 break-all min-w-20 not-sm:pl-14">
           {product.title}
         </h4>

@@ -14,12 +14,15 @@ export default function AdminsPreviewView({ content }: Props) {
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((admin) => [
-      <LinkButton>
+      <LinkButton href={`/admin/${admin.adminId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
           {admin.name}
         </p>
       </LinkButton>,
-      <h4>{"#" + admin.adminId}</h4>,
+      <div className="flex items-center gap-1">
+        #
+        <p>{admin.adminId}</p>
+      </div>,
     ]);
   }, [content]);
 

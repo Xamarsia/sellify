@@ -25,13 +25,16 @@ export default function ProductsView({ content }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((product) => [
       <ProductImagePreview src={product.image} />,
-      <LinkButton>
+      <LinkButton href={`product/${product.productId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
           {product.title}
         </p>
       </LinkButton>,
-      <p>{"#" + product.productId}</p>,
-      <LinkButton>
+      <div className="flex items-center gap-1">
+        #
+        <p>{product.productId}</p>
+      </div>,
+      <LinkButton href={`/category/${product.category.categoryId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
           {product.category.title}
         </p>

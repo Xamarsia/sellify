@@ -10,15 +10,19 @@ type Props = {
 };
 
 export default function RolesView({ content }: Props) {
-  const tableHeader: Array<string> = ["Role Name", "Related users"];
+  const tableHeader: Array<string> = ["Role Name", "Role ID", "Related users"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((role) => [
-      <LinkButton>
+      <LinkButton href={`role/${role.roleId}`}>
         <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
           {role.title}
         </p>
       </LinkButton>,
+      <div className="flex items-center gap-1">
+        #
+        <p >{role.roleId}</p>
+      </div>,
       <p>
         {role.relatedUsersCount +
           `${role.relatedUsersCount > 1 ? " users" : " user"}`}

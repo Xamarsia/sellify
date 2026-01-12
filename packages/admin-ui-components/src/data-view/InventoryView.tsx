@@ -25,12 +25,15 @@ export default function InventoryView({ disabled, content, onSubmit }: Props) {
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((inventory) => [
       <ProductImagePreview src={inventory.image} />,
-      <LinkButton>
+      <LinkButton href={`product/${inventory.productId}`}>
         <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
           {inventory.productTitle}
         </p>
       </LinkButton>,
-      <p>{"#" + inventory.productId}</p>,
+      <div className="flex items-center gap-1">
+        #
+        <p >{inventory.productId}</p>
+      </div>,
       <p>{inventory.quantity + " in stock"}</p>,
       <AddAmountButtonTableItem
         onSubmit={onSubmit}

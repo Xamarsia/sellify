@@ -21,12 +21,15 @@ export default function CustomersView({ content }: Props) {
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((customer) => [
-      <LinkButton>
+      <LinkButton href={`customer/${customer.customerId}`}>
         <p className="line-clamp-3 break-all min-w-20 max-w-96 not-sm:pl-14">
           {customer.name}
         </p>
       </LinkButton>,
-      <p>{"#" + customer.customerId}</p>,
+      <div className="flex items-center gap-1">
+        #
+        <p >{customer.customerId}</p>
+      </div>,
       <p>
         {customer.ordersCount +
           `${customer.ordersCount > 1 ? " orders" : " order"}`}

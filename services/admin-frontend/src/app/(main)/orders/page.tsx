@@ -13,11 +13,11 @@ import { OrderPreview } from "@sellify/admin-ui-components/types";
 import PageTitle from "components/PageTitle";
 import {
   filterOrdersHistory,
-  getOrderHistory,
+  getOrdersPreview,
 } from "common/actions/order-actions";
 
 export default function OrdersPage() {
-  const oderHistory: Array<OrderPreview> = getOrderHistory();
+  const oderHistory: Array<OrderPreview> = getOrdersPreview();
 
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();

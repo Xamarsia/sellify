@@ -4,6 +4,7 @@ import { Permission } from "@sellify/admin-ui-components/enums";
 import { getAdminsPreviews } from "./admins-actions";
 
 const role: Role = {
+  roleId: 1234234,
   title: "ContentManager",
   relatedUsersCount: 1,
   permissions: [
@@ -15,6 +16,7 @@ const role: Role = {
 };
 
 const role2: Role = {
+  roleId: 1234234,
   title:
     "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
   relatedUsersCount: 1,
@@ -22,6 +24,7 @@ const role2: Role = {
 };
 
 const role3: Role = {
+  roleId: 1234234,
   title:
     "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
   relatedUsersCount: 1,

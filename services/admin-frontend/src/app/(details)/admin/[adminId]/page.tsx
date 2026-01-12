@@ -30,9 +30,9 @@ export default async function AdminDetailsPage({ params }: Props) {
 
         <FormSection title="Role">
           <div className="flex w-full justify-between">
-            <LinkButton>
+            <LinkButton href={`/role/${admin.role.roleId}`}>
               <p className="line-clamp-3 min-w-20 max-w-96 not-sm:pl-14">
-                {admin.role}
+                {admin.role.title}
               </p>
             </LinkButton>
             <Button size="small">Change Role</Button>
