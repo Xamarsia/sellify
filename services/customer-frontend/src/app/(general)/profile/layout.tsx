@@ -20,9 +20,7 @@ export default function ProfileLayout({
         <div className="flex-none w-64 not-lg:hidden">
           <ProfileMenu />
         </div>
-        <div className="flex flex-1 overflow-x-auto">
-          {children}
-        </div>
+        <div className="flex flex-1 overflow-x-auto">{children}</div>
       </div>
     </div>
   );

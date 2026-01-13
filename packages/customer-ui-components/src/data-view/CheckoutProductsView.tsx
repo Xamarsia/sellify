@@ -1,6 +1,8 @@
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 
 import { CartItem } from "../types";
 import ProductImagePreview from "../product-preview/ProductImagePreview";
@@ -35,16 +37,17 @@ export default function CheckoutProductsView({
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
       <ProductImagePreview src={item.product.image} />,
-      <h4 className="text-justify line-clamp-3 break-all hover:underline underline-offset-3 min-w-20 max-w-96 not-sm:pl-14">
-        {item.product.title}
-      </h4>,
+      <LinkTableItem
+        href={`/product/${item.product.productId}`}
+        text={item.product.title}
+      />,
       <CartItemQuantitySelector
         cartItem={item}
         getProductMaxQuantity={getProductMaxQuantity}
         onCartItemQuantityChanged={onCartItemQuantityChanged}
       />,
-      <p>{"$" + item.product.price}</p>,
-      <p>{"$" + item.product.price * item.amount}</p>,
+      <CurrencyTableItem amount={item.product.price} />,
+      <CurrencyTableItem amount={item.product.price * item.amount} />,
       <div className="flex w-full justify-end sm:justify-center">
         <CartItemRemoveButton
           cartItemId={item.cartItemId}

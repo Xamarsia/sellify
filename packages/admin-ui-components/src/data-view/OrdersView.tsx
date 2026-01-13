@@ -2,10 +2,12 @@ import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
+import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
 
 import { OrderPreview } from "../types";
-import LinkTableItem from "../table-items/LinkTableItem";
-import LinkIdTableItem from "../table-items/LinkIdTableItem";
 
 type Props = {
   content: Array<OrderPreview>;
@@ -26,12 +28,12 @@ export default function OrdersView({ content }: Props) {
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
       <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
-      <p>{order.date}</p>,
+      <DateTableItem date={order.date} />,
       <LinkTableItem
         href={`/customer/${order.customerId}`}
         text={order.customerName}
       />,
-      <p>{"$" + order.total}</p>,
+      <CurrencyTableItem amount={order.total} />,
       <OrderStatusComponent status={order.status} />,
     ]);
   }, [content]);

@@ -21,7 +21,7 @@ export default function SettingsPage() {
       description:
         "Are you sure you want to delete your account? This will delete your account, purchase history and all information connected to it.",
       onConfirm: isPasswordValid,
-      onPasswordValidated:deleteUserAccount,
+      onPasswordValidated: deleteUserAccount,
     };
     showRiskDialog(alertDialogContent);
   }, [showRiskDialog]);

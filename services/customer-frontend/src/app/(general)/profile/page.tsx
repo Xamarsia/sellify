@@ -1,37 +1,50 @@
 "use client";
 
+import { ChangeEvent, useCallback, useState } from "react";
+
 import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import {
+  ContactInfo,
+  DeliveryAddress,
+} from "@sellify/customer-ui-components/types";
+import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
+import FormSection from "@sellify/customer-ui-components/FormSection";
+
 import {
   editProfile,
   getAvailableCountries,
   getDefaultContactInfo,
   getDefaultDeliveryAddress,
 } from "common/actions/profile-actions";
-import { ContactInfo, DeliveryAddress } from "@sellify/customer-ui-components/types";
-import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
-import FormSection from "@sellify/common-ui-components/FormSection";
 import { EditProfileRequest } from "types";
 
 export default function ProfilePage() {
   const [language, setLanguage] = useState<string>("english");
 
   const availableCountries: Map<string, string> = getAvailableCountries();
-  const deliveryAddress: DeliveryAddress | undefined = getDefaultDeliveryAddress();
+  const deliveryAddress: DeliveryAddress | undefined =
+    getDefaultDeliveryAddress();
   const contactInfo: ContactInfo | undefined = getDefaultContactInfo();
 
   const [isContactInfoValid, setIsContactInfoValid] = useState<boolean>(true);
-  const [isDeliveryAddressValid, setIsDeliveryAddressValid] = useState<boolean>(true);
+  const [isDeliveryAddressValid, setIsDeliveryAddressValid] =
+    useState<boolean>(true);
 
   const [fullName, setFullName] = useState<string>(contactInfo?.fullName ?? "");
-  const [phoneNumber, setPhoneNumber] = useState<string>( contactInfo?.phoneNumber ?? "" );
+  const [phoneNumber, setPhoneNumber] = useState<string>(
+    contactInfo?.phoneNumber ?? "",
+  );
 
-  const [country, setCountry] = useState<string>( deliveryAddress?.country ?? "" );
-  const [address, setAddress] = useState<string>( deliveryAddress?.address ?? "" );
+  const [country, setCountry] = useState<string>(
+    deliveryAddress?.country ?? "",
+  );
+  const [address, setAddress] = useState<string>(
+    deliveryAddress?.address ?? "",
+  );
 
   const onAddressChangeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {

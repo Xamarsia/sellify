@@ -1,10 +1,11 @@
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 
 import { CartItem } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
-import LinkTableItem from "../table-items/LinkTableItem";
 
 type Props = {
   content: Array<CartItem>;
@@ -30,8 +31,8 @@ export default function OrderProductsView({ content }: Props) {
         text={item.product.title}
       />,
       <p>{item.amount}</p>,
-      <p>{"$" + item.product.price}</p>,
-      <p>{"$" + item.product.price * item.amount}</p>,
+      <CurrencyTableItem amount={item.product.price} />,
+      <CurrencyTableItem amount={item.product.price * item.amount} />,
     ]);
   }, [content]);
 

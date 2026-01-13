@@ -21,7 +21,9 @@ export default function ContactInfoForm({
   onChange,
 }: ContactInfoProps) {
   const [fullName, setFullName] = useState<string>(contactInfo?.fullName ?? "");
-  const [phoneNumber, setPhoneNumber] = useState<string>(contactInfo?.phoneNumber ?? "");
+  const [phoneNumber, setPhoneNumber] = useState<string>(
+    contactInfo?.phoneNumber ?? "",
+  );
   const [useAsDefault, setUseAsDefault] = useState<boolean>(false);
 
   const onFullNameChange = useCallback(

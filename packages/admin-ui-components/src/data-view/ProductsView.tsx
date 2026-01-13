@@ -2,11 +2,12 @@ import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import ProductStatusComponent from "@sellify/common-ui-components/statuses/ProductStatusComponent";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 
 import { Product } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
-import LinkTableItem from "../table-items/LinkTableItem";
-import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Product>;
@@ -35,8 +36,8 @@ export default function ProductsView({ content }: Props) {
         href={`/category/${product.category.categoryId}`}
         text={product.category.title}
       />,
-      <p>{"$" + product.price}</p>,
-      <p>{product.quantity + " in stock"}</p>,
+      <CurrencyTableItem amount={product.price} />,
+      <p>{product.quantity}</p>,
       <ProductStatusComponent status={product.status} />,
     ]);
   }, [content]);
