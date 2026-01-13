@@ -10,6 +10,8 @@ import Bars3Icon from "@sellify/common-icons/bars-3";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
+import HeaderItem from "@sellify/customer-ui-components/header/HeaderItem";
+
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
 import { NavbarDrawerContext } from "common/contexts/common-context";
@@ -19,7 +21,6 @@ import {
   SearchPanelController,
 } from "types";
 import { usePathname } from "next/navigation";
-import HeaderItem from "./HeaderItem";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);

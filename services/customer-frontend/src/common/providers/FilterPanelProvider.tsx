@@ -2,9 +2,10 @@
 
 import { ReactNode, useCallback, useMemo, useState } from "react";
 
-import FilterSection from "@sellify/customer-ui-components/filter/FilterSection";
-import SidePanel from "@sellify/customer-ui-components/SidePanel";
+import SidePanel from "@sellify/common-ui-components/SidePanel";
 import Button from "@sellify/common-ui-components/buttons/Button";
+
+import FilterSection from "@sellify/customer-ui-components/filter/FilterSection";
 
 import { FilterPanelContext } from "common/contexts/common-context";
 import { FilterPanelController } from "types";
@@ -126,7 +127,7 @@ export default function FilterPanelProvider({
         title="Filter"
       >
         <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto">
-          <div className="flex grow flex-col gap-4 overflow-y-auto">
+          <div className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
             {filterSections.map((section) => (
               <FilterSection
                 sectionKey={section.key}

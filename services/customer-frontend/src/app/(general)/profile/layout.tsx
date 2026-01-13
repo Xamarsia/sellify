@@ -1,6 +1,6 @@
 import PageTitle from "components/PageTitle";
-import ProfileMenu from "components/ProfileMenu";
-import ProfileMenuDrawer from "components/ProfileMenuDrawer";
+import ProfileMenu from "components/profile-menu/ProfileMenu";
+import ProfileMenuDrawer from "components/profile-menu/ProfileMenuDrawer";
 
 export default function ProfileLayout({
   children,
