@@ -54,7 +54,7 @@ export default function PaymentMethodForm({
   );
 
   return (
-    <div className="flex w-full flex-col gap-8 pt-4">
+    <form className="flex w-full flex-col gap-8 pt-4">
       {Array.from(paymentMethods).map(([provider, info]) => {
         return (
           <Radio
@@ -67,6 +67,6 @@ export default function PaymentMethodForm({
           />
         );
       })}
-    </div>
+    </form>
   );
 }

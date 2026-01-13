@@ -11,7 +11,7 @@ export default function ShippingInfo({
 }: ShippingInfoProps) {
   return (
     <>
-      <h4>{contactInfo.fullName}</h4>
+      <p>{contactInfo.fullName}</p>
       <p>{`Phone: ${contactInfo.phoneNumber}`}</p>
       <p>{`Delivery address: ${deliveryAddress.address}, ${deliveryAddress.country}`}</p>
     </>

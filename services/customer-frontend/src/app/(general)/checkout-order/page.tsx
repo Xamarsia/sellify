@@ -5,12 +5,12 @@ import { useCallback, useContext, useMemo, useState } from "react";
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
-import FormSection from "@sellify/common-ui-components/FormSection";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import { PaymentProvider } from "@sellify/common-ui-components/constants";
-import { PaymentProvider as PaymentProviderType } from "@sellify/common-ui-components/types";
-
-import CheckoutProductsView from "@sellify/customer-ui-components/data-view/CheckoutProductsView";
+import {
+  PaymentMethodInfo,
+  PaymentProvider as PaymentProviderType,
+} from "@sellify/common-ui-components/types";
 
 import {
   CartItem,
@@ -18,6 +18,10 @@ import {
   DeliveryAddress,
   OrderRequest,
 } from "@sellify/customer-ui-components/types";
+import InfoSection from "@sellify/customer-ui-components/InfoSection";
+import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
+import FinalProductsView from "@sellify/customer-ui-components/data-view/FinalProductsView";
+import CheckoutProductsView from "@sellify/customer-ui-components/data-view/CheckoutProductsView";
 
 import { CheckoutStep } from "enums";
 import {
@@ -27,14 +31,15 @@ import {
 } from "types";
 
 import CheckoutProgressBar from "components/CheckoutProgressBar";
-import CheckoutReviewForm from "components/forms/CheckoutReviewForm";
 import ContactInfoForm from "components/forms/ContactInfoForm";
 import DeliveryAddressForm from "components/forms/DeliveryAddressForm";
 import PaymentMethodForm from "components/forms/PaymentMethodForm";
-
 import { AlertDialogContext } from "common/contexts/common-context";
-
-import { getDeliveryFee, order } from "common/actions/order-actions";
+import {
+  getDeliveryFee,
+  getPaymentMethodInfo,
+  order,
+} from "common/actions/order-actions";
 import { getProductMaxQuantity } from "common/actions/product-actions";
 import {
   changeCartItemQuantity,
@@ -77,6 +82,9 @@ export default function CheckoutPage() {
 
   const { showAlertDialog } =
     useContext<AlertDialogController>(AlertDialogContext);
+
+  const paymentMethodInfo: PaymentMethodInfo | undefined =
+    getPaymentMethodInfo(paymentProvider);
 
   const itemsSubtotalPrice = useMemo<number>(() => {
     return cartItems.reduce((accumulator, currentValue) => {
@@ -183,14 +191,14 @@ export default function CheckoutPage() {
         {
           isValid: cartItems.length > 0,
           content: (
-            <FormSection title="Products List">
+            <InfoSection title="Products List">
               <CheckoutProductsView
                 content={cartItems}
                 onItemRemove={removeCartItem}
                 getProductMaxQuantity={getProductMaxQuantity}
                 onCartItemQuantityChanged={changeCartItemQuantity}
               />
-            </FormSection>
+            </InfoSection>
           ),
         },
       ],
@@ -200,18 +208,18 @@ export default function CheckoutPage() {
           isValid: isDeliveryAddressValid && isContactInfoValid,
           content: (
             <>
-              <FormSection title="Contact Information">
+              <InfoSection title="Contact Information">
                 <ContactInfoForm
                   contactInfo={contactInfo}
                   onChange={onContactInfoChange}
                 />
-              </FormSection>
-              <FormSection title="Delivery address">
+              </InfoSection>
+              <InfoSection title="Delivery address">
                 <DeliveryAddressForm
                   deliveryAddress={deliveryAddress}
                   onChange={onDeliveryAddressChange}
                 />
-              </FormSection>
+              </InfoSection>
             </>
           ),
         },
@@ -221,12 +229,12 @@ export default function CheckoutPage() {
         {
           isValid: isPaymentProviderValid,
           content: (
-            <FormSection title="Select a payment Method">
+            <InfoSection title="Select a payment Method">
               <PaymentMethodForm
                 currentMethod={paymentProvider}
                 onPaymentMethodChange={onPaymentProviderChange}
               />
-            </FormSection>
+            </InfoSection>
           ),
         },
       ],
@@ -239,12 +247,22 @@ export default function CheckoutPage() {
             isContactInfoValid &&
             isPaymentProviderValid,
           content: contactInfo && deliveryAddress && (
-            <CheckoutReviewForm
-              contactInfo={contactInfo}
-              deliveryAddress={deliveryAddress}
-              paymentProvider={paymentProvider}
-              cartItems={cartItems}
-            />
+            <>
+              <InfoSection title="Shipping Info">
+                <ShippingInfo
+                  contactInfo={contactInfo}
+                  deliveryAddress={deliveryAddress}
+                />
+              </InfoSection>
+
+              <InfoSection title="Payment Method">
+                <p> {paymentMethodInfo?.title} </p>
+              </InfoSection>
+
+              <InfoSection title="Products">
+                <FinalProductsView content={cartItems} />
+              </InfoSection>
+            </>
           ),
         },
       ],
