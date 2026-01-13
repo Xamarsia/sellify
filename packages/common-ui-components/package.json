@@ -16,14 +16,14 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "peerDependencies": {
-    "react": "19.1.0"
+    "react": "19.2.3"
   },
   "devDependencies": {
     "@sellify/tailwind-config": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
     "@sellify/common-icons": "workspace:*",
-    "typescript": "~5.9.2",
-    "tailwindcss": "~4.1.13",
-    "@types/react": "~19.1.8"
+    "typescript": "~5.9.3",
+    "tailwindcss": "~4.1.18",
+    "@types/react": "~19.2.8"
   }
 }

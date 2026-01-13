@@ -11,9 +11,9 @@
     "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },
   "peerDependencies": {
-    "next": "15.5.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
@@ -21,12 +21,12 @@
     "@sellify/common-ui-components": "workspace:*",
     "@sellify/customer-ui-components": "workspace:*",
     "@sellify/common-icons": "workspace:*",
-    "@tailwindcss/postcss": "~4.1.13",
-    "@types/node": "~22.15.3",
-    "@types/react": "~19.1.8",
-    "@types/react-dom": "~19.1.6",
-    "postcss": "^8.5.3",
-    "tailwindcss": "~4.1.13",
-    "typescript": "~5.9.2"
+    "@tailwindcss/postcss": "~4.1.18",
+    "@types/node": "~25.0.7",
+    "@types/react": "~19.2.8",
+    "@types/react-dom": "~19.2.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "~4.1.18",
+    "typescript": "~5.9.3"
   }
 }
