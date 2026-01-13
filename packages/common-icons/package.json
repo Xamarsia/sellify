@@ -10,11 +10,11 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
-    "react": "19.1.0"
+    "react": "19.2.3"
   },
   "devDependencies": {
     "@sellify/typescript-config": "workspace:*",
-    "@types/react": "~19.1.8",
-    "typescript": "~5.9.2"
+    "@types/react": "~19.2.8",
+    "typescript": "~5.9.3"
   }
 }
