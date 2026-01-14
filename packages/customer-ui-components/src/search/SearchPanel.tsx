@@ -2,12 +2,12 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
+import SidePanel from "@sellify/common-ui-components/SidePanel";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
 
 import SearchItem from "./SearchItem";
-import SidePanel from "../SidePanel";
 import { SearchItem as SearchItemType, NavigationLink } from "../types";
 
 type SearchPanelProps = {

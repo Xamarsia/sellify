@@ -3,12 +3,12 @@
 import { ReactNode, useCallback, useState } from "react";
 
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
-import SidePanel from "@sellify/customer-ui-components/SidePanel";
+import SidePanel from "@sellify/common-ui-components/SidePanel";
+import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import { NavbarDrawerContext } from "common/contexts/common-context";
 import { usePathname } from "next/navigation";
 import { NavbarDrawerController } from "types";
-import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 export default function NavbarDrawerProvider({
   children,

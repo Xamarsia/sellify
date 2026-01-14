@@ -1,15 +1,15 @@
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 
-import { Inventory } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
-import LinkTableItem from "../table-items/LinkTableItem";
-import IdTableItem from "../table-items/IdTableItem";
+import { InventoryProduct } from "../types";
 
 type Props = {
-  content: Array<Inventory>;
+  content: Array<InventoryProduct>;
   onSubmit: (productId: number, quantity: number) => void;
   disabled?: boolean;
 };

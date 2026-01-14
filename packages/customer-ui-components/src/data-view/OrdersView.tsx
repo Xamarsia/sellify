@@ -2,6 +2,9 @@ import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
+import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
 
 import { OrderPreview } from "../types";
 
@@ -17,10 +20,10 @@ export default function OrdersView({ content }: Props) {
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((order) => [
-      <h4 key={"orderid" + order.orderId}>{"#" + order.orderId}</h4>,
+      <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
       <OrderStatusComponent status={order.status} />,
-      <p>{order.date}</p>,
-      <h3>{"$" + order.total}</h3>,
+      <DateTableItem date={order.date} />,
+      <CurrencyTableItem amount={order.total} />,
     ]);
   }, [content]);
 

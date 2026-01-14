@@ -6,11 +6,7 @@ type SidebarItemProps = {
   selected?: boolean;
 };
 
-export default function HeaderItem({
-  text,
-  href,
-  selected,
-}: SidebarItemProps) {
+export default function HeaderItem({ text, href, selected }: SidebarItemProps) {
   return (
     <a
       href={href}

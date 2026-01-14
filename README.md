@@ -15,7 +15,6 @@ Sellify is a microservice demo of an e-commerce web platform.
 - [Project Packages](#project-packages)
 - [Development Stack](#development-stack)
 - [Project Features](#project-features)
-
 - [Environment Setup](#environment-setup)
 - [Build & Run](#build--run)
 - [Useful Commands](#useful-commands)

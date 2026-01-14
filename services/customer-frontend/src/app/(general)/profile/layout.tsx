@@ -1,6 +1,6 @@
 import PageTitle from "components/PageTitle";
-import ProfileMenu from "components/ProfileMenu";
-import ProfileMenuDrawer from "components/ProfileMenuDrawer";
+import ProfileMenu from "components/profile-menu/ProfileMenu";
+import ProfileMenuDrawer from "components/profile-menu/ProfileMenuDrawer";
 
 export default function ProfileLayout({
   children,
@@ -20,9 +20,7 @@ export default function ProfileLayout({
         <div className="flex-none w-64 not-lg:hidden">
           <ProfileMenu />
         </div>
-        <div className="flex flex-1 overflow-x-auto">
-          {children}
-        </div>
+        <div className="flex flex-1 overflow-x-auto">{children}</div>
       </div>
     </div>
   );

@@ -10,17 +10,24 @@ import Bars3Icon from "@sellify/common-icons/bars-3";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
+import HeaderItem from "@sellify/customer-ui-components/header/HeaderItem";
+
 import { CartPanelContext } from "common/contexts/cart-context";
 import { SearchPanelContext } from "common/contexts/search-context";
 import { NavbarDrawerContext } from "common/contexts/common-context";
-import { CartPanelController, NavbarDrawerController, SearchPanelController } from "types";
+import {
+  CartPanelController,
+  NavbarDrawerController,
+  SearchPanelController,
+} from "types";
 import { usePathname } from "next/navigation";
-import HeaderItem from "./HeaderItem";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);
-  const { openSearchPanel } = useContext<SearchPanelController>(SearchPanelContext);
-  const { openNavbarDrawer } = useContext<NavbarDrawerController>(NavbarDrawerContext);
+  const { openSearchPanel } =
+    useContext<SearchPanelController>(SearchPanelContext);
+  const { openNavbarDrawer } =
+    useContext<NavbarDrawerController>(NavbarDrawerContext);
   const pathname: string = usePathname();
 
   const menuItem: Array<NavMenuItem> = [
@@ -36,7 +43,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 flex-shrink-0 flex items-center justify-between 
+      className="fixed top-0 shrink-0 flex items-center justify-between 
       w-full border-y bg-white border-stroke h-20 z-20 px-8 xl:px-12"
     >
       <p className="body not-md:order-2">LOGO</p>
@@ -47,15 +54,20 @@ export default function Header() {
         </TransparentIconButton>
       </div>
 
-      <nav className="flex gap-[36px] not-md:hidden">
+      <nav className="flex gap-9 not-md:hidden">
         {menuItem.map(({ href, title }, index) => {
           return (
-            <HeaderItem key={`NavMenuItem-${index}`} text={title} href={href} selected={href === pathname} />
+            <HeaderItem
+              key={`NavMenuItem-${index}`}
+              text={title}
+              href={href}
+              selected={href === pathname}
+            />
           );
         })}
       </nav>
 
-      <div className="flex gap-[16px] not-md:order-3">
+      <div className="flex gap-4 not-md:order-3">
         <TransparentIconButton onClick={openSearchPanel}>
           <MagnifyingGlassIcon />
         </TransparentIconButton>
