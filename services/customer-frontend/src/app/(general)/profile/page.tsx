@@ -11,8 +11,8 @@ import {
   ContactInfo,
   DeliveryAddress,
 } from "@sellify/customer-ui-components/types";
+import InfoSection from "@sellify/customer-ui-components/InfoSection";
 import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
-import FormSection from "@sellify/customer-ui-components/FormSection";
 
 import {
   editProfile,
@@ -105,7 +105,7 @@ export default function ProfilePage() {
 
   return (
     <div className="flex w-full flex-col items-end gap-12">
-      <FormSection title="Contact Information">
+      <InfoSection title="Contact Information">
         <Input
           value={fullName}
           title="full name"
@@ -118,9 +118,9 @@ export default function ProfilePage() {
           required
           onChange={onPhoneNumberChange}
         />
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Delivery address">
+      <InfoSection title="Delivery address">
         <Combobox
           items={availableCountries}
           title="Country"
@@ -134,7 +134,7 @@ export default function ProfilePage() {
           required
           onChange={onAddressChangeHandler}
         />
-      </FormSection>
+      </InfoSection>
 
       <SettingsSection title="Language" description="Select your language.">
         <Dropdown

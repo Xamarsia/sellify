@@ -1,17 +1,16 @@
 "use client";
 
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 type FormSectionProps = {
-  title: string;
   children: ReactNode;
+  onChange?: (e: FormEvent<HTMLFormElement>) => void;
 };
 
-export default function FormSection({ title, children }: FormSectionProps) {
+export default function FormSection({ children, onChange }: FormSectionProps) {
   return (
-    <div className="flex w-full flex-col gap-4">
-      <h3>{title}</h3>
-      <div className="flex items-start flex-col gap-4">{children}</div>
-    </div>
+    <form onChange={onChange} className="flex flex-col w-full gap-4">
+      {children}
+    </form>
   );
 }

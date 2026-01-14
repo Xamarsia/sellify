@@ -3,6 +3,7 @@
 import { PaymentMethodInfo } from "@sellify/common-ui-components/types";
 
 import { OrderDetails } from "@sellify/customer-ui-components/types";
+import InfoSection from "@sellify/customer-ui-components/InfoSection";
 import ShippingInfo from "@sellify/customer-ui-components/order-details/ShippingInfo";
 import DeliveryInfo from "@sellify/customer-ui-components/order-details/DeliveryInfo";
 import OrderInfo from "@sellify/customer-ui-components/order-details/OrderInfo";
@@ -23,29 +24,29 @@ export default function OrderContentSections({ order }: Props) {
 
   return (
     <div className="flex w-full flex-col items-end gap-12">
-      <FormSection title="Order Details">
+      <InfoSection title="Order Details">
         <OrderInfo order={order} />
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title="Shipping Info">
+      <InfoSection title="Shipping Info">
         <ShippingInfo
           contactInfo={order.contactInfo}
           deliveryAddress={order.deliveryAddress}
         />
-      </FormSection>
+      </InfoSection>
 
-      <FormSection title={`Delivery by ${order.deliveryProvider}`}>
+      <InfoSection title={`Delivery by ${order.deliveryProvider}`}>
         <DeliveryInfo order={order} />
-      </FormSection>
+      </InfoSection>
 
       {paymentMethodInfo && (
-        <FormSection title="Payment Method">
+        <InfoSection title="Payment Method">
           <PaymentInfo paymentMethodInfo={paymentMethodInfo} />
-        </FormSection>
+        </InfoSection>
       )}
-      <FormSection title="Products">
+      <InfoSection title="Products">
         <FinalProductsView content={order.products} />
-      </FormSection>
+      </InfoSection>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 
+import FormSection from "@sellify/customer-ui-components/FormSection";
 import { DeliveryAddress } from "@sellify/customer-ui-components/types";
 
 import { getAvailableCountries } from "common/actions/profile-actions";
@@ -69,7 +70,7 @@ export default function DeliveryAddressForm({
   );
 
   return (
-    <form className="flex flex-col w-full gap-5" onChange={onChangeAddressForm}>
+    <FormSection onChange={onChangeAddressForm}>
       <Combobox
         items={availableCountries}
         title="Country"
@@ -89,6 +90,6 @@ export default function DeliveryAddressForm({
         checked={useAsDefault}
         onChange={onUseAsDefaultChangeHandler}
       />
-    </form>
+    </FormSection>
   );
 }

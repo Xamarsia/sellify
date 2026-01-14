@@ -6,6 +6,7 @@ import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 
 import { ContactInfo } from "@sellify/customer-ui-components/types";
+import FormSection from "@sellify/customer-ui-components/FormSection";
 
 type ContactInfoProps = {
   contactInfo?: ContactInfo;
@@ -60,10 +61,7 @@ export default function ContactInfoForm({
   );
 
   return (
-    <form
-      onChange={onContactInfoFormChange}
-      className="flex flex-col w-full gap-4"
-    >
+    <FormSection onChange={onContactInfoFormChange}>
       <Input
         value={fullName}
         title="full name"
@@ -82,6 +80,6 @@ export default function ContactInfoForm({
         checked={useAsDefault}
         onChange={onUseAsDefaultChange}
       />
-    </form>
+    </FormSection>
   );
 }
