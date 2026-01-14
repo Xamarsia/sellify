@@ -1,9 +1,9 @@
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 
 import { Permission } from "../types";
-import LinkTableItem from "../table-items/LinkTableItem";
 
 type Props = {
   content: Array<Permission>;

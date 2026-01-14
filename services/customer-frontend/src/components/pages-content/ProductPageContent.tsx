@@ -25,7 +25,9 @@ type Props = {
 export default function ProductPageContent({ product }: Props) {
   const [tabs] = useState<Array<TabItemInfo>>(getProductOverviewTabs());
   const [hash, setHash] = useState<string | undefined>();
-  const { openProductAddedDialog } = useContext<ProductAddedDialogController>(ProductAddedDialogContext);
+  const { openProductAddedDialog } = useContext<ProductAddedDialogController>(
+    ProductAddedDialogContext,
+  );
   const { setNavItem } = useContext<BreadcrumbsController>(BreadcrumbsContext);
 
   const breadcrumbs = useMemo<Array<NavMenuItem>>(() => {

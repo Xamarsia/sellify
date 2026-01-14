@@ -1,11 +1,12 @@
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
+import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 
 import { Customer } from "../types";
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
-import LinkTableItem from "../table-items/LinkTableItem";
-import IdTableItem from "../table-items/IdTableItem";
 
 type Props = {
   content: Array<Customer>;
@@ -28,7 +29,7 @@ export default function CustomersView({ content }: Props) {
       />,
       <IdTableItem id={customer.customerId} />,
       <p>{customer.ordersCount}</p>,
-      <p>{"$" + customer.totalExpenses}</p>,
+      <CurrencyTableItem amount={customer.totalExpenses} />,
       <CustomerStatusComponent status={customer.status} />,
     ]);
   }, [content]);

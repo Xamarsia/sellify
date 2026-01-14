@@ -9,7 +9,7 @@ import ChevronUp from "@sellify/common-icons/chevron-up";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 
-import { ProfileMenuItems } from "../constants";
+import { ProfileMenuItems } from "../../constants";
 
 export default function ProfileMenuDrawer() {
   const [isExtended, setIsExtended] = useState<boolean>(false);

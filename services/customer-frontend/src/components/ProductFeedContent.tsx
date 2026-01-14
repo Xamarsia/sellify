@@ -24,7 +24,8 @@ type Props = {
 export default function ProductFeedContent({ productLabel }: Props) {
   const [page, setPage] = useState<number>(1);
   const [selectedKey, setSelectedKey] = useState<string>();
-  const { openFilterPanel } = useContext<FilterPanelController>(FilterPanelContext);
+  const { openFilterPanel } =
+    useContext<FilterPanelController>(FilterPanelContext);
 
   const { openProductAddedDialog } = useContext<ProductAddedDialogController>(
     ProductAddedDialogContext,
