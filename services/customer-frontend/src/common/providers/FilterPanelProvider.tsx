@@ -5,22 +5,22 @@ import { ReactNode, useCallback, useMemo, useState } from "react";
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
-import FilterSection from "@sellify/customer-ui-components/filter/FilterSection";
+import FilterSection from "@sellify/common-ui-components/filter/FilterSection";
 
 import { FilterPanelContext } from "common/contexts/common-context";
 import { FilterPanelController } from "types";
 
-// TODO change imports into "@sellify/customer-ui-components/"
+// TODO change imports into "@sellify/common-ui-components/"
 import {
   CheckboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
-} from "../../../../../packages/customer-ui-components/src/filter/common/PropertyValues";
+} from "../../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 import {
   CheckboxFilterProperty,
   RangeFilterProperty,
-} from "../../../../../packages/customer-ui-components/src/filter/common/Property";
-import { FilterSection as FilterSectionType } from "../../../../../packages/customer-ui-components/src/filter/common/Section";
+} from "../../../../../packages/common-ui-components/src/filter/common/Property";
+import { FilterSection as FilterSectionType } from "../../../../../packages/common-ui-components/src/filter/common/Section";
 
 export default function FilterPanelProvider({
   children,
@@ -79,12 +79,11 @@ export default function FilterPanelProvider({
           new CheckboxFilterPropertyValue(false),
         ),
       ]),
-      new FilterSectionType("range", [
+      new FilterSectionType("price-range", [
         new RangeFilterProperty(
           "price-range",
-          0,
-          20,
-          new RangeFilterPropertyValue(10),
+          new RangeFilterPropertyValue({min: 100, max: 344}),
+          new RangeFilterPropertyValue({min: 200, max: 344}),
         ),
       ]),
     ];

@@ -9,7 +9,7 @@ import {
 
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
-import FilterButton from "@sellify/customer-ui-components/filter/FilterButton";
+import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
 import { FilterPanelContext } from "common/contexts/common-context";

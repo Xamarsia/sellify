@@ -1,3 +1,5 @@
+import { SliderRange } from "../../types";
+
 export interface FilterPropertyValue {}
 
 export class CheckboxFilterPropertyValue implements FilterPropertyValue {
@@ -7,7 +9,7 @@ export class CheckboxFilterPropertyValue implements FilterPropertyValue {
     this._value = value;
   }
 
-  public get value() {
+  public get value(): boolean {
     return this._value;
   }
 
@@ -17,17 +19,17 @@ export class CheckboxFilterPropertyValue implements FilterPropertyValue {
 }
 
 export class RangeFilterPropertyValue implements FilterPropertyValue {
-  private _value: number;
+  private _value: SliderRange;
 
-  constructor(value: number) {
+  constructor(value: SliderRange) {
     this._value = value;
   }
 
-  public get value() {
+  public get value(): SliderRange {
     return this._value;
   }
 
-  public set value(value: number) {
+  public set value(value: SliderRange) {
     this._value = value;
   }
 }
