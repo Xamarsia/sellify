@@ -74,8 +74,7 @@ export default function FilterSectionComponent({
                 ? modifiedProperty
                 : property.defaultValue
             }
-            min={property.min}
-            max={property.max}
+            range={property.range}
             onFilterPropertyChange={onFilterPropertyChange}
             key={`RangeFilterProperty_${sectionKey}_${property.key}`}
           />

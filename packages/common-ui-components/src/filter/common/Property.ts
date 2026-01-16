@@ -40,30 +40,24 @@ export class CheckboxFilterProperty extends FilterProperty {
 }
 
 export class RangeFilterProperty extends FilterProperty {
+  private readonly _range: RangeFilterPropertyValue;
   private readonly _defaultValue: RangeFilterPropertyValue;
-  private readonly _min: number;
-  private readonly _max: number;
 
   constructor(
     key: string,
-    min: number,
-    max: number,
+    range: RangeFilterPropertyValue,
     defaultValue: RangeFilterPropertyValue,
   ) {
     super(key, PropertyType.Range);
-    this._min = min;
-    this._max = max;
     this._defaultValue = defaultValue;
+    this._range = range;
   }
 
-  public get min() {
-    return this._min;
-  }
-
-  public get max() {
-    return this._max;
-  }
   public get defaultValue() {
     return this._defaultValue;
+  }
+
+  public get range() {
+    return this._range;
   }
 }
