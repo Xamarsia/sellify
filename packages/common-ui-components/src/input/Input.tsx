@@ -40,7 +40,7 @@ export default function Input({
         disabled={disabled}
         maxLength={maxLength}
         placeholder={placeholder}
-        className={`h-13 p-4 border border-stroke placeholder-placeholder rounded-lg
+        className={`w-full h-13 p-4 border border-stroke placeholder-placeholder rounded-lg
           disabled:text-disabled disabled:cursor-not-allowed
           text-black body bg-white enabled:hover:border-black  
           focus:outline-hidden focus:border-black 

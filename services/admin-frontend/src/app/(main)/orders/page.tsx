@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useContext, useState } from "react";
 
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import Button from "@sellify/common-ui-components/buttons/Button";
@@ -15,9 +15,14 @@ import {
   filterOrdersHistory,
   getOrdersPreview,
 } from "common/actions/order-actions";
+import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
+import { FilterPanelContext } from "common/contexts/common-context";
+import { FilterPanelController } from "types";
 
 export default function OrdersPage() {
   const oderHistory: Array<OrderPreview> = getOrdersPreview();
+  const { openFilterPanel } =
+    useContext<FilterPanelController>(FilterPanelContext);
 
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
@@ -52,6 +57,7 @@ export default function OrdersPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <FilterButton onClick={openFilterPanel} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

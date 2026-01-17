@@ -1,6 +1,10 @@
 import { createContext } from "react";
 
-import { AlertDialogController, RiskDialogController } from "types";
+import {
+  AlertDialogController,
+  FilterPanelController,
+  RiskDialogController,
+} from "types";
 
 export const RiskDialogContext: React.Context<RiskDialogController> =
   createContext<RiskDialogController>({ showRiskDialog: () => {} });
@@ -10,3 +14,6 @@ export const AlertDialogContext: React.Context<AlertDialogController> =
     showAlertDialog: () => {},
     closeAlertDialog: () => {},
   });
+
+export const FilterPanelContext: React.Context<FilterPanelController> =
+  createContext<FilterPanelController>({ openFilterPanel: () => {} });
