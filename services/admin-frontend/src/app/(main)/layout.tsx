@@ -11,7 +11,7 @@ export default function MainLayout({
       <div className="flex w-full lg:hidden px-8 pt-12">
         <MainMenuDrawer />
       </div>
-      <div className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
+      <div className="flex grow w-full justify-center relative shrink-0 px-8 pt-12 max-w-7xl">
         <div className="flex-none w-64 not-lg:hidden py-4">
           <MainMenu />
         </div>

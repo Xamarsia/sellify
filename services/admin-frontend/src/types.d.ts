@@ -23,3 +23,7 @@ export type AlertDialogController = {
   showAlertDialog: (content: AlertDialogContent) => void;
   closeAlertDialog: () => void;
 };
+
+export type FilterPanelController = {
+  openFilterPanel: () => void;
+};
