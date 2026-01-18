@@ -1,7 +1,7 @@
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 export const MainMenuItems: Array<NavMenuItem> = [
-  { href: "/home", title: "Home" },
+  { href: "/", title: "Home" },
   { href: "/orders", title: "Orders" },
   { href: "/products", title: "Products" },
   { href: "/categories", title: "Categories" },

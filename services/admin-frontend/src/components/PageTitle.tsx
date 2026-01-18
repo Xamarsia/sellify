@@ -9,7 +9,7 @@ export default function PageTitle() {
 
   const currentTitle = useMemo<string | undefined>(() => {
     switch (pathname) {
-      case "/home":
+      case "/":
         return "Home";
       case "/orders":
         return "Orders";
