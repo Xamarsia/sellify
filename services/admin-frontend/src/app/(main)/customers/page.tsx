@@ -10,6 +10,8 @@ import CustomersView from "@sellify/admin-ui-components/data-view/CustomersView"
 
 import PageTitle from "components/PageTitle";
 import { filterCustomers, getCustomers } from "common/actions/customer-actions";
+import { CustomersFilterSections } from "filter-sections/customers-filter";
+import Filter from "components/Filter";
 
 export default function CustomersPage() {
   const defaultCustomers: Array<Customer> = getCustomers();
@@ -19,9 +21,7 @@ export default function CustomersPage() {
 
   const comboboxSortItems = new Map<string, string>([
     ["byOrdersAmount", "Rank by orders amount"],
-    ["byName", "Rank by name"],
     ["bySpentAmount", "Rank by spent amount"],
-    ["status", "Rank by status"],
   ]);
 
   const onSearchChanged = useCallback(
@@ -38,6 +38,7 @@ export default function CustomersPage() {
     <>
       <PageTitle />
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={CustomersFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

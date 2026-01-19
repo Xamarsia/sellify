@@ -11,6 +11,8 @@ import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
 
 import PageTitle from "components/PageTitle";
 import { filterAdmins, getAdmins } from "common/actions/admins-actions";
+import Filter from "components/Filter";
+import { AdminFilterSections } from "filter-sections/admins-filter";
 
 export default function AdminsPage() {
   const defaultAdmins: Array<Admin> = getAdmins();
@@ -21,8 +23,6 @@ export default function AdminsPage() {
   const comboboxSortItems = new Map<string, string>([
     ["newest", "Rank by newest"],
     ["oldest", "Rank by oldest"],
-    ["status", "Rank by status"],
-    ["role", "Rank by role"],
   ]);
 
   const onSearchChanged = useCallback(
@@ -43,6 +43,7 @@ export default function AdminsPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={AdminFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

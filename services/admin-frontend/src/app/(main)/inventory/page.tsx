@@ -19,6 +19,8 @@ import {
 import PageTitle from "components/PageTitle";
 import { AlertDialogContent, AlertDialogController } from "types";
 import { AlertDialogContext } from "common/contexts/common-context";
+import Filter from "components/Filter";
+import { InventoryFilterSections } from "filter-sections/inventory-filter";
 
 export default function InventoryPage() {
   const defaultProducts: Array<InventoryProduct> = getInventoryProducts();
@@ -75,6 +77,7 @@ export default function InventoryPage() {
     <>
       <PageTitle />
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={InventoryFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown
