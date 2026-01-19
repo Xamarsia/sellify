@@ -8,7 +8,8 @@ import {
   RangeFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
-export const OrdersFilterSections: Array<FilterSection> = [
+// TODO Add "Rank by category"
+export const ProductsFilterSections: Array<FilterSection> = [
   new FilterSection("price-range", [
     new RangeFilterProperty(
       "price-range",
@@ -16,18 +17,20 @@ export const OrdersFilterSections: Array<FilterSection> = [
       new RangeFilterPropertyValue({ min: 0, max: 344 }),
     ),
   ]),
+  new FilterSection("inventory-range", [
+    new RangeFilterProperty(
+      "inventory-range",
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+    ),
+  ]),
   new FilterSection("status", [
-    new CheckboxFilterProperty("new", new CheckboxFilterPropertyValue(false)),
     new CheckboxFilterProperty(
-      "in-progress",
+      "active",
       new CheckboxFilterPropertyValue(false),
     ),
     new CheckboxFilterProperty(
-      "shipped",
-      new CheckboxFilterPropertyValue(false),
-    ),
-    new CheckboxFilterProperty(
-      "canceled",
+      "archived",
       new CheckboxFilterPropertyValue(false),
     ),
   ]),

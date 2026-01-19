@@ -8,9 +8,11 @@ import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 import { Product } from "@sellify/admin-ui-components/types";
 import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
-import { filterProducts, getProducts } from "common/actions/product-actions";
 
+import { filterProducts, getProducts } from "common/actions/product-actions";
+import { ProductsFilterSections } from "filter-sections/products-filter";
 import PageTitle from "components/PageTitle";
+import Filter from "components/Filter";
 
 export default function ProductsPage() {
   const products: Array<Product> = getProducts();
@@ -22,9 +24,6 @@ export default function ProductsPage() {
   const comboboxSortItems = new Map<string, string>([
     ["newest", "Rank by newest date"],
     ["oldest", "Rank by oldest date"],
-    ["status", "Rank by status"],
-    ["byCategory", "Rank by category"],
-    ["byAmount", "Rank by amount"],
     ["byLowestPrice", "Rank by lowest price"],
     ["byHighestPrice", "Rank by highest price"],
   ]);
@@ -47,6 +46,7 @@ export default function ProductsPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={ProductsFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown
