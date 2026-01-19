@@ -11,15 +11,7 @@ import { FilterPanelContext } from "common/contexts/common-context";
 import { FilterPanelController } from "types";
 
 // TODO change imports into "@sellify/common-ui-components/"
-import {
-  CheckboxFilterPropertyValue,
-  FilterPropertyValue,
-  RangeFilterPropertyValue,
-} from "../../../../../packages/common-ui-components/src/filter/common/PropertyValues";
-import {
-  CheckboxFilterProperty,
-  RangeFilterProperty,
-} from "../../../../../packages/common-ui-components/src/filter/common/Property";
+import { FilterPropertyValue } from "../../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 import { FilterSection as FilterSectionType } from "../../../../../packages/common-ui-components/src/filter/common/Section";
 
 export default function FilterPanelProvider({
@@ -31,63 +23,8 @@ export default function FilterPanelProvider({
   const [modifiedSectionProperties, setCustomSectionProperties] = useState<
     Map<string, Map<string, FilterPropertyValue>>
   >(new Map()); // sectionKey: string, propertyKey: string, value
-
-  const filterSections = useMemo<Array<FilterSectionType>>(() => {
-    return [
-      new FilterSectionType("size", [
-        new CheckboxFilterProperty("s", new CheckboxFilterPropertyValue(false)),
-        new CheckboxFilterProperty("m", new CheckboxFilterPropertyValue(false)),
-        new CheckboxFilterProperty("l", new CheckboxFilterPropertyValue(false)),
-        new CheckboxFilterProperty(
-          "xl",
-          new CheckboxFilterPropertyValue(false),
-        ),
-      ]),
-      new FilterSectionType("type", [
-        new CheckboxFilterProperty(
-          "succulents",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "flowering",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "herbs",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "ornamental",
-          new CheckboxFilterPropertyValue(false),
-        ),
-      ]),
-      new FilterSectionType("light-requirement", [
-        new CheckboxFilterProperty(
-          "low",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "medium",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "bright-indirect",
-          new CheckboxFilterPropertyValue(false),
-        ),
-        new CheckboxFilterProperty(
-          "direct",
-          new CheckboxFilterPropertyValue(false),
-        ),
-      ]),
-      new FilterSectionType("price-range", [
-        new RangeFilterProperty(
-          "price-range",
-          new RangeFilterPropertyValue({min: 100, max: 344}),
-          new RangeFilterPropertyValue({min: 200, max: 344}),
-        ),
-      ]),
-    ];
-  }, []);
+  const [filterSections, setFilterSections] =
+    useState<Array<FilterSectionType>>();
 
   const onFilterPanelClose = useCallback((): void => {
     setFilterPanelOpened(false);
@@ -98,8 +35,9 @@ export default function FilterPanelProvider({
   }, []);
 
   const contextValue: FilterPanelController = {
-    openFilterPanel: () => {
+    openFilterPanel: (filterSections) => {
       setFilterPanelOpened(true);
+      setFilterSections(filterSections);
     },
     // onApply?: (filter: Filter) => void;
   };
@@ -127,15 +65,18 @@ export default function FilterPanelProvider({
       >
         <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto">
           <div className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
-            {filterSections.map((section) => (
-              <FilterSection
-                sectionKey={section.key}
-                properties={section.properties}
-                modifiedProperties={modifiedSectionProperties.get(section.key)}
-                onFilterSectionChange={onFilterSectionChange}
-                key={`FilterSection_${section.key}`}
-              />
-            ))}
+            {filterSections &&
+              filterSections.map((section) => (
+                <FilterSection
+                  sectionKey={section.key}
+                  properties={section.properties}
+                  modifiedProperties={modifiedSectionProperties.get(
+                    section.key,
+                  )}
+                  onFilterSectionChange={onFilterSectionChange}
+                  key={`FilterSection_${section.key}`}
+                />
+              ))}
           </div>
           <div className="flex gap-4">
             <Button fill="parent" variant="outline" onClick={onFilterReset}>

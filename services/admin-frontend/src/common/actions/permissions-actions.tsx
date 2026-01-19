@@ -1,7 +1,4 @@
-import {
-  Permission,
-  RolePreview,
-} from "@sellify/admin-ui-components/types";
+import { Permission, RolePreview } from "@sellify/admin-ui-components/types";
 import { getRolePreviews } from "./roles-actions";
 
 const permission: Permission = {
