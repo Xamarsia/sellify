@@ -27,7 +27,9 @@ const inventory3: InventoryProduct = {
   quantity: 231424233,
 };
 
-export function filterInventoryProducts(query: string): Array<InventoryProduct> {
+export function filterInventoryProducts(
+  query: string,
+): Array<InventoryProduct> {
   return [inventory, inventory3];
 }
 

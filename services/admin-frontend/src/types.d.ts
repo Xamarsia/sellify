@@ -25,5 +25,5 @@ export type AlertDialogController = {
 };
 
 export type FilterPanelController = {
-  openFilterPanel: () => void;
+  openFilterPanel: (filterSections: Array<FilterSectionType>) => void;
 };

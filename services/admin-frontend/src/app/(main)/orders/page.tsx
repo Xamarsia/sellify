@@ -6,6 +6,7 @@ import ChevronDown from "@sellify/common-icons/chevron-down";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
+import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 
 import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 import { OrderPreview } from "@sellify/admin-ui-components/types";
@@ -15,7 +16,7 @@ import {
   filterOrdersHistory,
   getOrdersPreview,
 } from "common/actions/order-actions";
-import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
+import { OrdersFilterSections } from "filter-sections/orders-filter";
 import { FilterPanelContext } from "common/contexts/common-context";
 import { FilterPanelController } from "types";
 
@@ -46,6 +47,10 @@ export default function OrdersPage() {
     [],
   );
 
+  const openFilter = useCallback((): void => {
+    openFilterPanel(OrdersFilterSections);
+  }, [openFilterPanel]);
+
   return (
     <>
       <div className="flex justify-between items-center">
@@ -57,7 +62,7 @@ export default function OrdersPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
-        <FilterButton onClick={openFilterPanel} />
+        <FilterButton onClick={openFilter} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown
