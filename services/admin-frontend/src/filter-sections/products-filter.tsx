@@ -1,14 +1,18 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
 import {
   CheckboxFilterProperty,
+  MultiSelectionComboboxFilterProperty,
   RangeFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
+  MultiSelectionComboboxFilterPropertyValue,
   RangeFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import { getCategoryComboboxItems } from "common/actions/category-actions";
 
-// TODO Add "Rank by category"
+const categories: Map<number, string> = getCategoryComboboxItems();
+
 export const ProductsFilterSections: Array<FilterSection> = [
   new FilterSection("price-range", [
     new RangeFilterProperty(
@@ -32,6 +36,12 @@ export const ProductsFilterSections: Array<FilterSection> = [
     new CheckboxFilterProperty(
       "archived",
       new CheckboxFilterPropertyValue(false),
+    ),
+  ]),
+  new FilterSection("category", [
+    new MultiSelectionComboboxFilterProperty<number>(
+      "category",
+      new MultiSelectionComboboxFilterPropertyValue(categories),
     ),
   ]),
 ];

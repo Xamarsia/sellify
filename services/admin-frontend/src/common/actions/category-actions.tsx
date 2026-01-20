@@ -6,24 +6,30 @@ import {
 import { getProductPreviews } from "./product-actions";
 
 const category: Category = {
-  categoryId: 324534,
+  categoryId: 3434,
   title: "Ring",
   relatedProductsCount: 4,
 };
 
 const category2: Category = {
-  categoryId: 324534,
+  categoryId: 23,
   title:
     "LongUnbreakableCategoryTitleWord|LongUnbreakableCategoryTitleWordLongUnbreakableCategoryTitleWord",
   relatedProductsCount: 2,
 };
 
 const category3: Category = {
-  categoryId: 324534,
+  categoryId: 55,
   title:
     "Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title | Long Category Title",
   relatedProductsCount: 2,
 };
+
+export function getCategoryComboboxItems(): Map<number, string> {
+  return new Map<number, string>(
+    getCategories().map((category) => [category.categoryId, category.title]),
+  );
+}
 
 export function filterCategories(query: string): Array<Category> {
   return [category, category2];

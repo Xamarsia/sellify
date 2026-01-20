@@ -1,6 +1,12 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
-import { CheckboxFilterProperty, MultiSelectionComboboxFilterProperty } from "../../../../packages/common-ui-components/src/filter/common/Property";
-import { CheckboxFilterPropertyValue, MultiSelectionComboboxFilterPropertyValue } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import {
+  CheckboxFilterProperty,
+  MultiSelectionComboboxFilterProperty,
+} from "../../../../packages/common-ui-components/src/filter/common/Property";
+import {
+  CheckboxFilterPropertyValue,
+  MultiSelectionComboboxFilterPropertyValue,
+} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 import { getRolePreviewsComboboxItems } from "common/actions/roles-actions";
 
 const roles: Map<number, string> = getRolePreviewsComboboxItems();
@@ -20,9 +26,9 @@ export const AdminFilterSections: Array<FilterSection> = [
       new CheckboxFilterPropertyValue(false),
     ),
   ]),
-  new FilterSection("Role", [
+  new FilterSection("role", [
     new MultiSelectionComboboxFilterProperty<number>(
-      "Role",
+      "role",
       new MultiSelectionComboboxFilterPropertyValue(roles),
     ),
   ]),
