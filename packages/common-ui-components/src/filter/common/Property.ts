@@ -1,11 +1,13 @@
 import {
   CheckboxFilterPropertyValue,
   RangeFilterPropertyValue,
+  MultiSelectionComboboxFilterPropertyValue,
 } from "./PropertyValues";
 
 export enum PropertyType {
   Checkbox,
   Range,
+  Combobox,
 }
 
 export class FilterProperty {
@@ -17,47 +19,70 @@ export class FilterProperty {
     this._type = type;
   }
 
-  public get key() {
+  public get key(): string {
     return this._key;
   }
 
-  public get type() {
+  public get type(): PropertyType {
     return this._type;
   }
 }
 
 export class CheckboxFilterProperty extends FilterProperty {
-  private readonly _defaultValue: CheckboxFilterPropertyValue;
+  private readonly _initialValue: CheckboxFilterPropertyValue;
 
-  constructor(key: string, defaultValue: CheckboxFilterPropertyValue) {
+  constructor(key: string, initialValue: CheckboxFilterPropertyValue) {
     super(key, PropertyType.Checkbox);
-    this._defaultValue = defaultValue;
+    this._initialValue = initialValue;
   }
 
-  public get defaultValue() {
-    return this._defaultValue;
+  public get initialValue(): CheckboxFilterPropertyValue {
+    return this._initialValue;
   }
 }
 
 export class RangeFilterProperty extends FilterProperty {
-  private readonly _range: RangeFilterPropertyValue;
-  private readonly _defaultValue: RangeFilterPropertyValue;
+  private readonly _fullRange: RangeFilterPropertyValue;
+  private readonly _initialRange: RangeFilterPropertyValue;
 
   constructor(
     key: string,
-    range: RangeFilterPropertyValue,
-    defaultValue: RangeFilterPropertyValue,
+    fullRange: RangeFilterPropertyValue,
+    initialRange?: RangeFilterPropertyValue,
   ) {
     super(key, PropertyType.Range);
-    this._defaultValue = defaultValue;
-    this._range = range;
+    this._initialRange = initialRange ?? fullRange;
+    this._fullRange = fullRange;
   }
 
-  public get defaultValue() {
-    return this._defaultValue;
+  public get initialRange(): RangeFilterPropertyValue {
+    return this._initialRange;
   }
 
-  public get range() {
-    return this._range;
+  public get fullRange(): RangeFilterPropertyValue {
+    return this._fullRange;
+  }
+}
+
+export class MultiSelectionComboboxFilterProperty<T> extends FilterProperty {
+  private readonly _items: MultiSelectionComboboxFilterPropertyValue<T>;
+  private readonly _initialSelectedKeys: T[];
+
+  constructor(
+    key: string,
+    items: MultiSelectionComboboxFilterPropertyValue<T>,
+    initialSelectedKeys?: T[],
+  ) {
+    super(key, PropertyType.Combobox);
+    this._initialSelectedKeys = initialSelectedKeys ?? [];
+    this._items = items;
+  }
+
+  public get initialSelectedKeys(): T[] {
+    return this._initialSelectedKeys;
+  }
+
+  public get items(): MultiSelectionComboboxFilterPropertyValue<T> {
+    return this._items;
   }
 }

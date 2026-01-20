@@ -6,7 +6,7 @@ import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
 import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
-import PermissionsMultipleSelectionCombobox from "@sellify/admin-ui-components/PermissionsMultipleSelectionCombobox";
+import PermissionsMultiSelectionCombobox from "@sellify/admin-ui-components/PermissionsMultiSelectionCombobox";
 
 import {
   getAdminsPreviewsByRoleId,
@@ -28,7 +28,7 @@ export default async function RoleDetailsPage({ params }: Props) {
       <Card label="Related Users" value="5" />
 
       <InfoSection title="Permissions List">
-        <PermissionsMultipleSelectionCombobox
+        <PermissionsMultiSelectionCombobox
           defaultSelectedPermissions={role.permissions}
         />
       </InfoSection>

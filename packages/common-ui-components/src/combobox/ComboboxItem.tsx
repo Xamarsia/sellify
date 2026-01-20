@@ -31,7 +31,9 @@ export default function ComboboxItem<T>({
 
   return (
     <div className="flex justify-center items-center bg-combobox-item rounded-lg px-4 h-8 gap-2">
-      <span className={`label text-left text-secondary`}>{label}</span>
+      <span className={`label text-left text-secondary line-clamp-1 break-all`}>
+        {label}
+      </span>
       {!disabled && (
         <TransparentIconButton onClick={onClick}>
           <XMark style="size-4" />

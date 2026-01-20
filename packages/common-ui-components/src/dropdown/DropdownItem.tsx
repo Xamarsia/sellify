@@ -28,7 +28,7 @@ export default function DropdownItem<T>({
       onClick={onClick}
       autoFocus={selected}
       className={`body text-left rounded-lg p-2 h-8 w-full bg-white capitalize
-        text-secondary enabled:hover:text-black focus:text-black focus:bg-hovered`}
+        text-secondary enabled:hover:text-black focus:text-black focus:bg-hovered break-all`}
     >
       {label}
     </button>

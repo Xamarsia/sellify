@@ -2,34 +2,26 @@ import { SliderRange } from "../../types";
 
 export interface FilterPropertyValue {}
 
-export class CheckboxFilterPropertyValue implements FilterPropertyValue {
-  private _value: boolean;
+export class FilterPropertyValueImpl<T> {
+  private _value: T;
 
-  constructor(value: boolean) {
+  constructor(value: T) {
     this._value = value;
   }
 
-  public get value(): boolean {
+  public get value(): T {
     return this._value;
   }
 
-  public set value(value: boolean) {
+  public set value(value: T) {
     this._value = value;
   }
 }
 
-export class RangeFilterPropertyValue implements FilterPropertyValue {
-  private _value: SliderRange;
+export class CheckboxFilterPropertyValue extends FilterPropertyValueImpl<boolean> {}
 
-  constructor(value: SliderRange) {
-    this._value = value;
-  }
+export class RangeFilterPropertyValue extends FilterPropertyValueImpl<SliderRange> {}
 
-  public get value(): SliderRange {
-    return this._value;
-  }
-
-  public set value(value: SliderRange) {
-    this._value = value;
-  }
-}
+export class MultiSelectionComboboxFilterPropertyValue<
+  T,
+> extends FilterPropertyValueImpl<Map<T, string>> {}

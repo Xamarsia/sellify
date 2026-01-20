@@ -5,16 +5,16 @@ import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
 
 type FilterParameterProps = {
   propertyKey: string;
-  value: CheckboxFilterPropertyValue;
+  selectedValue: CheckboxFilterPropertyValue;
   onFilterPropertyChange: (
     propertyKey: string,
-    value: CheckboxFilterPropertyValue,
+    selectedValue: CheckboxFilterPropertyValue,
   ) => void;
 };
 
 export default function CheckboxFilterPropertyView({
   propertyKey,
-  value,
+  selectedValue,
   onFilterPropertyChange,
 }: FilterParameterProps) {
   const onChange = useCallback(
@@ -30,7 +30,7 @@ export default function CheckboxFilterPropertyView({
   return (
     <div className="flex gap-1">
       <Checkbox
-        checked={value.value}
+        checked={selectedValue.value}
         onChange={onChange}
         value={propertyKey}
         label={propertyKey}

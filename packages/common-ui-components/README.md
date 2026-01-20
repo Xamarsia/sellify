@@ -171,7 +171,7 @@ This package is a React component library. It contains a collection of common co
   <tr>
     <td width="20">Dropdown</td>
     <td width="38%">Combobox</td>
-    <td width="38%">Multiple Selection Combobox</td>
+    <td width="38%">Multi Selection Combobox</td>
   </tr>
   <tr align="center">
     <td width="20%" style="padding: 0;">
@@ -185,8 +185,8 @@ This package is a React component library. It contains a collection of common co
       </a>
     </td>
     <td width="38%" style="padding: 0;">
-      <a href="./src/combobox/MultipleSelectionCombobox.tsx">
-        <img width="609" height="482" alt="MultipleSelectionCombobox" src="https://github.com/user-attachments/assets/612dfffd-19fc-4091-bf5f-ae568e4c9303" />
+      <a href="./src/combobox/MultiSelectionCombobox.tsx">
+        <img width="609" height="482" alt="MultiSelectionCombobox" src="https://github.com/user-attachments/assets/612dfffd-19fc-4091-bf5f-ae568e4c9303" />
       </a>
     </td>
   </tr>

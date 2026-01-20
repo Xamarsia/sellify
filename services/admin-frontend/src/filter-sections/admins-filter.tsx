@@ -1,8 +1,16 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
-import { CheckboxFilterProperty } from "../../../../packages/common-ui-components/src/filter/common/Property";
-import { CheckboxFilterPropertyValue } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import {
+  CheckboxFilterProperty,
+  MultiSelectionComboboxFilterProperty,
+} from "../../../../packages/common-ui-components/src/filter/common/Property";
+import {
+  CheckboxFilterPropertyValue,
+  MultiSelectionComboboxFilterPropertyValue,
+} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import { getRolePreviewsComboboxItems } from "common/actions/roles-actions";
 
-// TODO Add "Rank by Role"
+const roles: Map<number, string> = getRolePreviewsComboboxItems();
+
 export const AdminFilterSections: Array<FilterSection> = [
   new FilterSection("status", [
     new CheckboxFilterProperty(
@@ -16,6 +24,12 @@ export const AdminFilterSections: Array<FilterSection> = [
     new CheckboxFilterProperty(
       "disabled",
       new CheckboxFilterPropertyValue(false),
+    ),
+  ]),
+  new FilterSection("role", [
+    new MultiSelectionComboboxFilterProperty<number>(
+      "role",
+      new MultiSelectionComboboxFilterPropertyValue(roles),
     ),
   ]),
 ];

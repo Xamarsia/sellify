@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import MultipleSelectionCombobox from "@sellify/common-ui-components/combobox/MultipleSelectionCombobox";
+import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
 import { Permissions } from "@sellify/admin-ui-components/constants";
 
@@ -12,7 +12,7 @@ type Props = {
   defaultSelectedPermissions?: number[];
 };
 
-export default function PermissionsMultipleSelectionCombobox({
+export default function PermissionsMultiSelectionCombobox({
   required,
   disabled,
   defaultSelectedPermissions,
@@ -55,7 +55,7 @@ export default function PermissionsMultipleSelectionCombobox({
   }, []); // Runs only on the first render
 
   return (
-    <MultipleSelectionCombobox
+    <MultiSelectionCombobox
       title={"Permissions"}
       items={items}
       selectedItems={selectedItems}

@@ -2,7 +2,6 @@ import { FilterSection } from "../../../../packages/common-ui-components/src/fil
 import { RangeFilterProperty } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import { RangeFilterPropertyValue } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
-// TODO Add "Rank by category"
 export const InventoryFilterSections: Array<FilterSection> = [
   new FilterSection("quantity-range", [
     new RangeFilterProperty(

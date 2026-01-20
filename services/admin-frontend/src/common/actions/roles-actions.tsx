@@ -8,24 +8,24 @@ import { Permission } from "@sellify/admin-ui-components/enums";
 import { getAdminsPreviews } from "./admins-actions";
 
 const rolePreview: RolePreview = {
-  roleId: 1234234,
+  roleId: 34,
   title: "ContentManager",
 };
 
 const rolePreview2: RolePreview = {
-  roleId: 1234234,
+  roleId: 2334,
   title:
     "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
 };
 
 const rolePreview3: RolePreview = {
-  roleId: 1234234,
+  roleId: 234,
   title:
     "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
 };
 
 const role: Role = {
-  roleId: 1234234,
+  roleId: 233,
   title: "ContentManager",
   relatedUsersCount: 1,
   permissions: [
@@ -37,7 +37,7 @@ const role: Role = {
 };
 
 const role2: Role = {
-  roleId: 1234234,
+  roleId: 235,
   title:
     "LongUnbreakableRoleTitle|LongUnbreakableRoleTitleLongUnbreakableRoleTitle",
   relatedUsersCount: 1,
@@ -45,7 +45,7 @@ const role2: Role = {
 };
 
 const role3: Role = {
-  roleId: 1234234,
+  roleId: 2345,
   title:
     "Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title | Long Role Title",
   relatedUsersCount: 1,
@@ -83,6 +83,12 @@ export function getRolePreviews(): Array<RolePreview> {
     rolePreview2,
     rolePreview2,
   ];
+}
+
+export function getRolePreviewsComboboxItems(): Map<number, string> {
+  return new Map<number, string>(
+    getRolePreviews().map((role) => [role.roleId, role.title]),
+  );
 }
 
 export function getAdminsPreviewsByRoleId(roleId: number): Array<AdminPreview> {
