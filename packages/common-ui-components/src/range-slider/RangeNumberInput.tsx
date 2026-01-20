@@ -10,7 +10,7 @@ type Props = {
   onChange: (value: number) => void;
 };
 
-export default function NumberInput({
+export default function RangeNumberInput({
   min,
   max,
   value,

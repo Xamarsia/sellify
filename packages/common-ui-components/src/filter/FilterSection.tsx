@@ -7,17 +7,20 @@ import MinusIcon from "@sellify/common-icons/minus";
 
 import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
 import RangeFilterPropertyView from "./RangeFilterPropertyView";
+import SearchFilterPropertyView from "./SearchFilterPropertyView";
 import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   FilterProperty,
   RangeFilterProperty,
+  SearchFilterProperty,
 } from "./common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
+  SearchFilterPropertyValue,
 } from "./common/PropertyValues";
 import MultiSelectionComboboxFilterPropertyView from "./MultiSelectionComboboxFilterPropertyView";
 
@@ -63,6 +66,19 @@ export default function FilterSectionComponent({
               modifiedProperty instanceof CheckboxFilterPropertyValue
                 ? modifiedProperty
                 : property.initialValue
+            }
+            onFilterPropertyChange={onFilterPropertyChange}
+            key={`CheckboxFilterProperty_${sectionKey}_${property.key}`}
+          />
+        );
+      } else if (property instanceof SearchFilterProperty) {
+        return (
+          <SearchFilterPropertyView
+            propertyKey={property.key}
+            currentQuery={
+              modifiedProperty instanceof SearchFilterPropertyValue
+                ? modifiedProperty
+                : property.initialQuery
             }
             onFilterPropertyChange={onFilterPropertyChange}
             key={`CheckboxFilterProperty_${sectionKey}_${property.key}`}
