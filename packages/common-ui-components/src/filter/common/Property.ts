@@ -1,11 +1,13 @@
 import {
   CheckboxFilterPropertyValue,
   RangeFilterPropertyValue,
+  ComboboxFilterPropertyValue,
 } from "./PropertyValues";
 
 export enum PropertyType {
   Checkbox,
   Range,
+  Combobox,
 }
 
 export class FilterProperty {
@@ -17,11 +19,11 @@ export class FilterProperty {
     this._type = type;
   }
 
-  public get key() {
+  public get key(): string {
     return this._key;
   }
 
-  public get type() {
+  public get type(): PropertyType {
     return this._type;
   }
 }
@@ -34,7 +36,7 @@ export class CheckboxFilterProperty extends FilterProperty {
     this._defaultValue = defaultValue;
   }
 
-  public get defaultValue() {
+  public get defaultValue(): CheckboxFilterPropertyValue {
     return this._defaultValue;
   }
 }
@@ -53,11 +55,34 @@ export class RangeFilterProperty extends FilterProperty {
     this._range = range;
   }
 
-  public get defaultValue() {
+  public get defaultValue(): RangeFilterPropertyValue {
     return this._defaultValue;
   }
 
-  public get range() {
+  public get range(): RangeFilterPropertyValue {
     return this._range;
+  }
+}
+
+export class ComboboxFilterProperty extends FilterProperty {
+  private readonly _items: Map<string, string>;
+  private readonly _defaultValue: ComboboxFilterPropertyValue;
+
+  constructor(
+    key: string,
+    items: Map<string, string>,
+    defaultValue: ComboboxFilterPropertyValue,
+  ) {
+    super(key, PropertyType.Combobox);
+    this._defaultValue = defaultValue;
+    this._items = items;
+  }
+
+  public get defaultValue(): ComboboxFilterPropertyValue {
+    return this._defaultValue;
+  }
+
+  public get items(): Map<string, string> {
+    return this._items;
   }
 }

@@ -8,31 +8,30 @@ import ChevronUp from "@sellify/common-icons/chevron-up";
 import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
 
-type ComboboxProps = {
+type ComboboxProps<T> = {
   title: string;
-  items: Map<string, string>;
+  items: Map<T, string>;
   value?: string;
   required?: boolean;
   disabled?: boolean;
-  onItemSelected: (key?: string, newValue?: string) => void;
+  onItemSelected: (key?: T, newValue?: string) => void;
 };
 
-export default function Combobox({
+export default function Combobox<T>({
   title,
   items,
   value,
   required,
   disabled,
   onItemSelected,
-}: ComboboxProps) {
-  const [suggestedItems, setSuggestedItems] =
-    useState<Map<string, string>>(items);
+}: ComboboxProps<T>) {
+  const [suggestedItems, setSuggestedItems] = useState<Map<T, string>>(items);
   const [isExtended, setIsExtended] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
   const dropdown = useRef<HTMLDivElement>(null);
 
   const onSelected = useCallback(
-    (key: string, newValue: string) => {
+    (key: T, newValue: string) => {
       setIsExtended(false);
       onItemSelected(key, newValue);
     },
@@ -40,7 +39,7 @@ export default function Combobox({
   );
 
   const getSuggestedItems = useCallback(
-    (query: string): Map<string, string> => {
+    (query: string): Map<T, string> => {
       const lowerCaseQuery: string = query.toLowerCase();
 
       if (query.length == 0) {
@@ -67,7 +66,7 @@ export default function Combobox({
   }, [getSuggestedItems, query]);
 
   const isSelected = useCallback(
-    (query: string): undefined | [string, string] => {
+    (query: string): undefined | [T, string] => {
       const lowerCaseQuery: string = query.toLowerCase();
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -82,7 +81,7 @@ export default function Combobox({
   const onValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       const newValue: string = e.target.value;
-      const foundedItem: undefined | [string, string] = isSelected(newValue);
+      const foundedItem: undefined | [T, string] = isSelected(newValue);
 
       if (foundedItem == undefined) {
         setQuery(newValue);
@@ -155,7 +154,7 @@ export default function Combobox({
             {[...suggestedItems].map(([key, value]) => {
               return (
                 <DropdownItem
-                  key={key}
+                  key={key + value}
                   value={key}
                   label={value}
                   onItemSelected={onSelected}

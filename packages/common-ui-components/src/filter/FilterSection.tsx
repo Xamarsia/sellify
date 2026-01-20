@@ -9,14 +9,17 @@ import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
 import RangeFilterPropertyView from "./RangeFilterPropertyView";
 import {
   CheckboxFilterProperty,
+  ComboboxFilterProperty,
   FilterProperty,
   RangeFilterProperty,
 } from "./common/Property";
 import {
   CheckboxFilterPropertyValue,
+  ComboboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
 } from "./common/PropertyValues";
+import ComboboxFilterPropertyView from "./ComboboxFilterPropertyView";
 
 type FilterSectionProps = {
   sectionKey: string;
@@ -77,6 +80,20 @@ export default function FilterSectionComponent({
             range={property.range}
             onFilterPropertyChange={onFilterPropertyChange}
             key={`RangeFilterProperty_${sectionKey}_${property.key}`}
+          />
+        );
+      } else if (property instanceof ComboboxFilterProperty) {
+        return (
+          <ComboboxFilterPropertyView
+            propertyKey={property.key}
+            value={
+              modifiedProperty instanceof ComboboxFilterPropertyValue
+                ? modifiedProperty
+                : property.defaultValue
+            }
+            items={property.items}
+            onFilterPropertyChange={onFilterPropertyChange}
+            key={`ComboboxFilterProperty_${sectionKey}_${property.key}`}
           />
         );
       }

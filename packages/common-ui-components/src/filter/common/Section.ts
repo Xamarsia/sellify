@@ -1,12 +1,20 @@
-import { CheckboxFilterProperty, RangeFilterProperty } from "./Property";
+import {
+  CheckboxFilterProperty,
+  ComboboxFilterProperty,
+  RangeFilterProperty,
+} from "./Property";
 
 export class FilterSection {
   private readonly _key: string;
-  private _properties: Array<CheckboxFilterProperty | RangeFilterProperty>;
+  private _properties: Array<
+    CheckboxFilterProperty | RangeFilterProperty | ComboboxFilterProperty
+  >;
 
   constructor(
     key: string,
-    properties: Array<CheckboxFilterProperty | RangeFilterProperty>,
+    properties: Array<
+      CheckboxFilterProperty | RangeFilterProperty | ComboboxFilterProperty
+    >,
   ) {
     this._key = key;
     this._properties = properties;
