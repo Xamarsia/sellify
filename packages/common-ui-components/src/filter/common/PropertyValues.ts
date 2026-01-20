@@ -22,4 +22,6 @@ export class CheckboxFilterPropertyValue extends FilterPropertyValueImpl<boolean
 
 export class RangeFilterPropertyValue extends FilterPropertyValueImpl<SliderRange> {}
 
-export class ComboboxFilterPropertyValue extends FilterPropertyValueImpl<string> {}
+export class MultiSelectionComboboxFilterPropertyValue<
+  T,
+> extends FilterPropertyValueImpl<Map<T, string>> {}

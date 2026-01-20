@@ -4,44 +4,50 @@ import RangeSlider from "../range-slider/RangeSlider";
 
 type FilterParameterProps = {
   propertyKey: string;
-  value: RangeFilterPropertyValue;
-  range: RangeFilterPropertyValue;
+  selectedRange: RangeFilterPropertyValue;
+  fullRange: RangeFilterPropertyValue;
   onFilterPropertyChange: (
     propertyKey: string,
-    value: RangeFilterPropertyValue,
+    selectedRange: RangeFilterPropertyValue,
   ) => void;
 };
 
 export default function RangeFilterPropertyView({
   propertyKey,
-  value,
-  range,
+  selectedRange,
+  fullRange,
   onFilterPropertyChange,
 }: FilterParameterProps) {
   const onMinValueChange = useCallback(
     (min: number): void => {
       onFilterPropertyChange(
         propertyKey,
-        new RangeFilterPropertyValue({ min: min, max: value.value.max }),
+        new RangeFilterPropertyValue({
+          min: min,
+          max: selectedRange.value.max,
+        }),
       );
     },
-    [value],
+    [selectedRange],
   );
 
   const onMaxValueChange = useCallback(
     (max: number): void => {
       onFilterPropertyChange(
         propertyKey,
-        new RangeFilterPropertyValue({ min: value.value.min, max: max }),
+        new RangeFilterPropertyValue({
+          min: selectedRange.value.min,
+          max: max,
+        }),
       );
     },
-    [value],
+    [selectedRange],
   );
 
   return (
     <RangeSlider
-      range={range.value}
-      currentRange={value.value}
+      range={fullRange.value}
+      currentRange={selectedRange.value}
       onMinValueChange={onMinValueChange}
       onMaxValueChange={onMaxValueChange}
     />

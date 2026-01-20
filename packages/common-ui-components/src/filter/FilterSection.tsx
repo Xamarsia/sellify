@@ -9,17 +9,17 @@ import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
 import RangeFilterPropertyView from "./RangeFilterPropertyView";
 import {
   CheckboxFilterProperty,
-  ComboboxFilterProperty,
+  MultiSelectionComboboxFilterProperty,
   FilterProperty,
   RangeFilterProperty,
 } from "./common/Property";
 import {
   CheckboxFilterPropertyValue,
-  ComboboxFilterPropertyValue,
+  MultiSelectionComboboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
 } from "./common/PropertyValues";
-import ComboboxFilterPropertyView from "./ComboboxFilterPropertyView";
+import MultiSelectionComboboxFilterPropertyView from "./MultiSelectionComboboxFilterPropertyView";
 
 type FilterSectionProps = {
   sectionKey: string;
@@ -59,10 +59,10 @@ export default function FilterSectionComponent({
         return (
           <CheckboxFilterPropertyView
             propertyKey={property.key}
-            value={
+            selectedValue={
               modifiedProperty instanceof CheckboxFilterPropertyValue
                 ? modifiedProperty
-                : property.defaultValue
+                : property.initialValue
             }
             onFilterPropertyChange={onFilterPropertyChange}
             key={`CheckboxFilterProperty_${sectionKey}_${property.key}`}
@@ -72,26 +72,30 @@ export default function FilterSectionComponent({
         return (
           <RangeFilterPropertyView
             propertyKey={property.key}
-            value={
+            selectedRange={
               modifiedProperty instanceof RangeFilterPropertyValue
                 ? modifiedProperty
-                : property.defaultValue
+                : property.initialRange
             }
-            range={property.range}
+            fullRange={property.fullRange}
             onFilterPropertyChange={onFilterPropertyChange}
             key={`RangeFilterProperty_${sectionKey}_${property.key}`}
           />
         );
-      } else if (property instanceof ComboboxFilterProperty) {
+      } else if (property instanceof MultiSelectionComboboxFilterProperty) {
         return (
-          <ComboboxFilterPropertyView
+          <MultiSelectionComboboxFilterPropertyView
             propertyKey={property.key}
-            value={
-              modifiedProperty instanceof ComboboxFilterPropertyValue
-                ? modifiedProperty
-                : property.defaultValue
-            }
             items={property.items}
+            selectedItems={
+              modifiedProperty instanceof
+              MultiSelectionComboboxFilterPropertyValue
+                ? modifiedProperty
+                : new MultiSelectionComboboxFilterPropertyValue(
+                    new Map<any, string>(),
+                  )
+            }
+            initialSelectedKeys={property.initialSelectedKeys}
             onFilterPropertyChange={onFilterPropertyChange}
             key={`ComboboxFilterProperty_${sectionKey}_${property.key}`}
           />

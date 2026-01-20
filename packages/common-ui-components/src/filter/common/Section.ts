@@ -1,19 +1,23 @@
 import {
   CheckboxFilterProperty,
-  ComboboxFilterProperty,
+  MultiSelectionComboboxFilterProperty,
   RangeFilterProperty,
 } from "./Property";
 
-export class FilterSection {
+export class FilterSection<T = number> {
   private readonly _key: string;
   private _properties: Array<
-    CheckboxFilterProperty | RangeFilterProperty | ComboboxFilterProperty
+    | CheckboxFilterProperty
+    | RangeFilterProperty
+    | MultiSelectionComboboxFilterProperty<T>
   >;
 
   constructor(
     key: string,
     properties: Array<
-      CheckboxFilterProperty | RangeFilterProperty | ComboboxFilterProperty
+      | CheckboxFilterProperty
+      | RangeFilterProperty
+      | MultiSelectionComboboxFilterProperty<T>
     >,
   ) {
     this._key = key;

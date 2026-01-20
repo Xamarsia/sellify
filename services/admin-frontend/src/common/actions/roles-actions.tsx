@@ -85,9 +85,9 @@ export function getRolePreviews(): Array<RolePreview> {
   ];
 }
 
-export function getRolePreviewsComboboxItems(): Map<string, string> {
-  return new Map<string, string>(
-    getRolePreviews().map(role => [role.roleId.toString(), role.title])
+export function getRolePreviewsComboboxItems(): Map<number, string> {
+  return new Map<number, string>(
+    getRolePreviews().map(role => [role.roleId, role.title])
   );
 }
 

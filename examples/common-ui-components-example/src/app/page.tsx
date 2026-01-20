@@ -28,7 +28,7 @@ import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
 import DialogExample from "examples/DialogExample";
 import DropdownUseExample from "examples/DropdownUseExample";
-import MultipleSelectionComboboxUseExample from "examples/MultipleSelectionComboboxUseExample";
+import MultiSelectionComboboxUseExample from "examples/MultiSelectionComboboxUseExample";
 import PagesExample from "examples/PagesExample";
 import SearchBarExample from "examples/SearchBarExample";
 
@@ -382,14 +382,14 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Multiple Selection Combobox"}>
+        <Section title={"Multi Selection Combobox"}>
           <SectionItem>
-            <MultipleSelectionComboboxUseExample
+            <MultiSelectionComboboxUseExample
               items={comboboxItems}
               title="Required Combobox"
               required
             />
-            <MultipleSelectionComboboxUseExample
+            <MultiSelectionComboboxUseExample
               items={comboboxItems}
               title="Disabled Combobox"
               disabled

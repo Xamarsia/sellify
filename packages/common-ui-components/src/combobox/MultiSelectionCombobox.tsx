@@ -9,17 +9,17 @@ import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
 import ComboboxItem from "./ComboboxItem";
 
-type MultipleSelectionComboboxProps<T> = {
-  title: string;
+type MultiSelectionComboboxProps<T> = {
   items: Map<T, string>;
   selectedItems: Map<T, string>;
+  title?: string;
   required?: boolean;
   disabled?: boolean;
   onItemSelected: (key: T, newValue: string) => void;
   onItemRemoved: (key: T, value: string) => void;
 };
 
-export default function MultipleSelectionCombobox<T extends string | number>({
+export default function MultiSelectionCombobox<T extends string | number>({
   title,
   items,
   selectedItems,
@@ -27,7 +27,7 @@ export default function MultipleSelectionCombobox<T extends string | number>({
   disabled,
   onItemSelected,
   onItemRemoved,
-}: MultipleSelectionComboboxProps<T>) {
+}: MultiSelectionComboboxProps<T>) {
   const dropdown = useRef<HTMLDivElement>(null);
   const [suggestedItems, setSuggestedItems] = useState<Map<T, string>>(items);
   const [isExtended, setIsExtended] = useState<boolean>(false);
@@ -96,11 +96,13 @@ export default function MultipleSelectionCombobox<T extends string | number>({
 
   return (
     <div className="flex flex-col w-full">
-      <label
-        className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
-      >
-        {title}
-      </label>
+      {title && (
+        <label
+          className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
+        >
+          {title}
+        </label>
+      )}
 
       <div ref={dropdown} className="relative">
         <div className="w-full flex p-4 gap-2 rounded-lg border border-stroke has-focus:border-black has-enabled:hover:border-black">

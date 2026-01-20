@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import MultipleSelectionCombobox from "@sellify/common-ui-components/combobox/MultipleSelectionCombobox";
+import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
-type MultipleSelectionComboboxProps = {
+type MultiSelectionComboboxProps = {
   title: string;
   required?: boolean;
   disabled?: boolean;
@@ -12,13 +12,13 @@ type MultipleSelectionComboboxProps = {
   defaultSelectedValues?: string[];
 };
 
-export default function MultipleSelectionComboboxUseExample({
+export default function MultiSelectionComboboxUseExample({
   title,
   required,
   items,
   disabled,
   defaultSelectedValues,
-}: MultipleSelectionComboboxProps) {
+}: MultiSelectionComboboxProps) {
   const [selectedItems, setSelectedItems] = useState<Map<string, string>>(
     new Map(),
   );
@@ -61,7 +61,7 @@ export default function MultipleSelectionComboboxUseExample({
   }, []); // Runs only on the first render
 
   return (
-    <MultipleSelectionCombobox
+    <MultiSelectionCombobox
       title={title}
       items={items}
       selectedItems={selectedItems}
