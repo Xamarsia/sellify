@@ -11,7 +11,7 @@ type Props = {
 
 export default function PermissionsView({ content }: Props) {
   const tableHeader: Array<string> = [
-    "Permission Name",
+    "Permission",
     "Related Roles Amount",
   ];
 

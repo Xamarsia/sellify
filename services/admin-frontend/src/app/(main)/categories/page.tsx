@@ -8,12 +8,14 @@ import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 import { Category } from "@sellify/admin-ui-components/types";
 import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
+
 import {
   filterCategories,
   getCategories,
 } from "common/actions/category-actions";
-
 import PageTitle from "components/PageTitle";
+import Filter from "components/Filter";
+import { CategoriesFilterSections } from "filter-sections/categories-filter";
 
 export default function CategoriesPage() {
   const categories: Array<Category> = getCategories();
@@ -45,6 +47,7 @@ export default function CategoriesPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={CategoriesFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

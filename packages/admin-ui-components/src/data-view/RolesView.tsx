@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function RolesView({ content }: Props) {
-  const tableHeader: Array<string> = ["Role Name", "Related Users Amount"];
+  const tableHeader: Array<string> = ["Role", "Related Users Amount"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((role) => [
