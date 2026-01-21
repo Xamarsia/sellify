@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import RangeSliderInput from "./RangeSliderInput";
 import { SliderRange } from "../types";
-import NumberInput from "./NumberInput";
+import RangeNumberInput from "./RangeNumberInput";
 
 type Props = {
   range: SliderRange;
@@ -84,14 +84,14 @@ export default function RangeSlider({
     <>
       <div className="relative w-full flex items-center justify-center flex-col gap-6">
         <div className="w-full flex items-center justify-between gap-x-10">
-          <NumberInput
+          <RangeNumberInput
             min={range.min}
             max={currentRange.max - 1}
             value={currentRange.min}
             title="From"
             onChange={onMinValueChange}
           />
-          <NumberInput
+          <RangeNumberInput
             min={currentRange.min + 1}
             max={range.max}
             value={currentRange.max}

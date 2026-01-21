@@ -11,6 +11,8 @@ import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 
 import PageTitle from "components/PageTitle";
 import { filterRoles, getRoles } from "common/actions/roles-actions";
+import Filter from "components/Filter";
+import { RolesFilterSections } from "filter-sections/roles-filter";
 
 export default function RolesPage() {
   const defaultRoles: Array<Role> = getRoles();
@@ -40,6 +42,7 @@ export default function RolesPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={RolesFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

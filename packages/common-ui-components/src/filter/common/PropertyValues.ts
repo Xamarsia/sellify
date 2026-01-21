@@ -25,3 +25,5 @@ export class RangeFilterPropertyValue extends FilterPropertyValueImpl<SliderRang
 export class MultiSelectionComboboxFilterPropertyValue<
   T,
 > extends FilterPropertyValueImpl<Map<T, string>> {}
+
+export class SearchFilterPropertyValue extends FilterPropertyValueImpl<string> {}

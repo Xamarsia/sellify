@@ -13,6 +13,8 @@ import {
   filterPermissions,
   getPermissions,
 } from "common/actions/permissions-actions";
+import Filter from "components/Filter";
+import { PermissionsFilterSections } from "filter-sections/permissions-filter";
 
 export default function PermissionsPage() {
   const defaultPermissions: Array<Permission> = getPermissions();
@@ -42,6 +44,7 @@ export default function PermissionsPage() {
       </div>
 
       <div className="flex flex-col w-full gap-4">
+        <Filter filterSections={PermissionsFilterSections} />
         <div className="relative flex w-full justify-between items-start gap-4">
           <SearchInput value={query} onChange={onSearchChanged} />
           <Dropdown

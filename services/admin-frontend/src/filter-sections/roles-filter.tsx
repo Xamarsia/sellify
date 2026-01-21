@@ -8,19 +8,13 @@ import {
   SearchFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
-export const InventoryFilterSections: Array<FilterSection> = [
-  new FilterSection("product-title", [
-    new SearchFilterProperty(
-      "product-title",
-      new SearchFilterPropertyValue(""),
-    ),
+export const RolesFilterSections: Array<FilterSection> = [
+  new FilterSection("role-title", [
+    new SearchFilterProperty("role-title", new SearchFilterPropertyValue("")),
   ]),
-  new FilterSection("productId", [
-    new SearchFilterProperty("productId", new SearchFilterPropertyValue("")),
-  ]),
-  new FilterSection("quantity-range", [
+  new FilterSection("related-users-amount", [
     new RangeFilterProperty(
-      "quantity-range",
+      "related-users-amount",
       new RangeFilterPropertyValue({ min: 0, max: 344 }),
       new RangeFilterPropertyValue({ min: 0, max: 344 }),
     ),
