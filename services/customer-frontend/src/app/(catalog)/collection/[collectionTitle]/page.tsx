@@ -4,10 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Collection } from "@sellify/customer-ui-components/types";
 
-import {
-  getCollection,
-  isCollectionFound,
-} from "actions/collection-actions";
+import { getCollection, isCollectionFound } from "actions/collection-actions";
 import CollectionProductsPageContent from "components/pages-content/CollectionProductsPageContent";
 import CollectionBanner from "@sellify/customer-ui-components/collection/CollectionBanner";
 import BreadcrumbsProvider from "providers/BreadcrumbsProvider";

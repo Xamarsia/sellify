@@ -81,8 +81,8 @@ export default function FilterPanelProvider({
       new FilterSectionType("price-range", [
         new RangeFilterProperty(
           "price-range",
-          new RangeFilterPropertyValue({min: 100, max: 344}),
-          new RangeFilterPropertyValue({min: 200, max: 344}),
+          new RangeFilterPropertyValue({ min: 100, max: 344 }),
+          new RangeFilterPropertyValue({ min: 200, max: 344 }),
         ),
       ]),
     ];

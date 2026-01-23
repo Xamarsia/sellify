@@ -8,10 +8,7 @@ import OrdersView from "@sellify/customer-ui-components/data-view/OrdersView";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 
-import {
-  filterOrdersHistory,
-  getOrderHistory,
-} from "actions/order-actions";
+import { filterOrdersHistory, getOrderHistory } from "actions/order-actions";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 export default function OrdersHistoryPage() {
