@@ -9,7 +9,7 @@ import { Customer } from "@sellify/admin-ui-components/types";
 import CustomersView from "@sellify/admin-ui-components/data-view/CustomersView";
 
 import PageTitle from "components/PageTitle";
-import { filterCustomers, getCustomers } from "common/actions/customer-actions";
+import { filterCustomers, getCustomers } from "actions/customer-actions";
 import { CustomersFilterSections } from "filter-sections/customers-filter";
 import Filter from "components/Filter";
 

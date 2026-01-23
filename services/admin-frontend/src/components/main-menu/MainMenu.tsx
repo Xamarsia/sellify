@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+
 import { MainMenuItems } from "../../constants";
 
 export default function MainMenu() {

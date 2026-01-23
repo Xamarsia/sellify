@@ -7,7 +7,7 @@ export default function DetailsLayout({
 }>) {
   return (
     <>
-      <div className="flex grow w-full justify-center relative flex-shrink-0 px-8 pt-12 max-w-7xl">
+      <div className="flex grow w-full justify-center relative shrink-0 px-8 pt-12 max-w-7xl">
         <main className="flex flex-1 flex-col gap-8 h-full overflow-x-auto">
           <BackButton />
           {children}

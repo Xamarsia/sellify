@@ -11,10 +11,7 @@ import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 import { OrderPreview } from "@sellify/admin-ui-components/types";
 
 import PageTitle from "components/PageTitle";
-import {
-  filterOrdersHistory,
-  getOrdersPreview,
-} from "common/actions/order-actions";
+import { filterOrdersHistory, getOrdersPreview } from "actions/order-actions";
 import { OrdersFilterSections } from "filter-sections/orders-filter";
 import Filter from "components/Filter";
 

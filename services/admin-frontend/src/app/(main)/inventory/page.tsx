@@ -15,10 +15,10 @@ import {
   filterInventoryProducts,
   getInventoryProducts,
   setProductQuantity,
-} from "common/actions/inventory-actions";
+} from "actions/inventory-actions";
 import PageTitle from "components/PageTitle";
 import { AlertDialogContent, AlertDialogController } from "types";
-import { AlertDialogContext } from "common/contexts/common-context";
+import { AlertDialogContext } from "contexts/common-context";
 import Filter from "components/Filter";
 import { InventoryFilterSections } from "filter-sections/inventory-filter";
 

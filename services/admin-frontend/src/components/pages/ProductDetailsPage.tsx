@@ -9,10 +9,10 @@ import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import ProductInfo from "@sellify/admin-ui-components/details/ProductInfo";
 import { ProductDetails } from "@sellify/admin-ui-components/types";
 
-import { deleteProduct } from "common/actions/product-actions";
-import { RiskDialogContext } from "common/contexts/common-context";
+import { deleteProduct } from "actions/product-actions";
+import { RiskDialogContext } from "contexts/common-context";
 import { RiskDialogContent, RiskDialogController } from "types";
-import { isPasswordValid } from "common/actions/auth-actions";
+import { isPasswordValid } from "actions/auth-actions";
 
 type Props = {
   product: ProductDetails;

@@ -9,7 +9,7 @@ import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
 import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 
 import PageTitle from "components/PageTitle";
-import { getOrdersPreview } from "common/actions/order-actions";
+import { getOrdersPreview } from "actions/order-actions";
 
 export default function Home() {
   return (

@@ -11,7 +11,7 @@ import {
   RangeFilterPropertyValue,
   SearchFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
-import { getCategoryComboboxItems } from "common/actions/category-actions";
+import { getCategoryComboboxItems } from "actions/category-actions";
 
 const categories: Map<number, string> = getCategoryComboboxItems();
 

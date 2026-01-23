@@ -5,7 +5,7 @@ import { ReactNode, useCallback, useState } from "react";
 import RiskDialog from "@sellify/common-ui-components/dialog/RiskDialog";
 
 import { RiskDialogContent, RiskDialogController } from "types";
-import { RiskDialogContext } from "common/contexts/common-context";
+import { RiskDialogContext } from "contexts/common-context";
 
 export default function RiskDialogProvider({
   children,

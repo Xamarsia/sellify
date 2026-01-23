@@ -9,7 +9,7 @@ import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import { Product } from "@sellify/admin-ui-components/types";
 import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
 
-import { filterProducts, getProducts } from "common/actions/product-actions";
+import { filterProducts, getProducts } from "actions/product-actions";
 import { ProductsFilterSections } from "filter-sections/products-filter";
 import PageTitle from "components/PageTitle";
 import Filter from "components/Filter";

@@ -10,7 +10,7 @@ import { Admin, Role } from "@sellify/admin-ui-components/types";
 import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
 
 import PageTitle from "components/PageTitle";
-import { filterAdmins, getAdmins } from "common/actions/admins-actions";
+import { filterAdmins, getAdmins } from "actions/admins-actions";
 import Filter from "components/Filter";
 import { AdminFilterSections } from "filter-sections/admins-filter";
 

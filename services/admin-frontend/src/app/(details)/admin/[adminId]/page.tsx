@@ -7,7 +7,7 @@ import { Admin } from "@sellify/admin-ui-components/types";
 import AdminInfo from "@sellify/admin-ui-components/details/AdminInfo";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 
-import { getAdminById } from "common/actions/admins-actions";
+import { getAdminById } from "actions/admins-actions";
 
 type Props = {
   params: Promise<{ adminId: number }>;

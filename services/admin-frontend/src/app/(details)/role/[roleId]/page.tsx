@@ -2,10 +2,7 @@ import "server-only";
 
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
 
-import {
-  getAdminsPreviewsByRoleId,
-  getRoleById,
-} from "common/actions/roles-actions";
+import { getAdminsPreviewsByRoleId, getRoleById } from "actions/roles-actions";
 import RoleDetailsPage from "components/pages/RoleDetailsPage";
 
 type Props = {

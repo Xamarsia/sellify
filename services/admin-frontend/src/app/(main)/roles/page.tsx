@@ -10,7 +10,7 @@ import { Role } from "@sellify/admin-ui-components/types";
 import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 
 import PageTitle from "components/PageTitle";
-import { filterRoles, getRoles } from "common/actions/roles-actions";
+import { filterRoles, getRoles } from "actions/roles-actions";
 import Filter from "components/Filter";
 import { RolesFilterSections } from "filter-sections/roles-filter";
 

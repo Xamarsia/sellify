@@ -9,10 +9,7 @@ import { Permission } from "@sellify/admin-ui-components/types";
 import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
 
 import PageTitle from "components/PageTitle";
-import {
-  filterPermissions,
-  getPermissions,
-} from "common/actions/permissions-actions";
+import { filterPermissions, getPermissions } from "actions/permissions-actions";
 import Filter from "components/Filter";
 import { PermissionsFilterSections } from "filter-sections/permissions-filter";
 
