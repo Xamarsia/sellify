@@ -11,7 +11,7 @@ import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import {
   filterOrdersHistory,
   getOrderHistory,
-} from "common/actions/order-actions";
+} from "actions/order-actions";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 export default function OrdersHistoryPage() {

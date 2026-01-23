@@ -9,7 +9,7 @@ import {
   PaymentProvider as PaymentProviderType,
 } from "@sellify/common-ui-components/types";
 
-import { getPaymentProviders } from "common/actions/order-actions";
+import { getPaymentProviders } from "actions/order-actions";
 
 type PaymentMethodProps = {
   currentMethod: PaymentProviderType;

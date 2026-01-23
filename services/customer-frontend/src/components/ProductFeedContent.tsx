@@ -12,9 +12,9 @@ import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductPreviewFeed from "@sellify/customer-ui-components/product-preview/ProductPreviewFeed";
 
-import { FilterPanelContext } from "common/contexts/common-context";
-import { ProductAddedDialogContext } from "common/contexts/cart-context";
-import { addToCart, getProductPreviews } from "common/actions/cart-actions";
+import { FilterPanelContext } from "contexts/common-context";
+import { ProductAddedDialogContext } from "contexts/cart-context";
+import { addToCart, getProductPreviews } from "actions/cart-actions";
 import { FilterPanelController, ProductAddedDialogController } from "types";
 
 type Props = {

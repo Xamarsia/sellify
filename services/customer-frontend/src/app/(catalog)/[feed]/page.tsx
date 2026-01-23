@@ -2,7 +2,7 @@ import "server-only";
 
 import { notFound } from "next/navigation";
 
-import { getFeedLabels } from "common/actions/product-actions";
+import { getFeedLabels } from "actions/product-actions";
 import ProductFeedContent from "components/ProductFeedContent";
 
 type Props = {
@@ -19,7 +19,7 @@ export default async function ProductsPage({ params }: Props) {
   return (
     <>
       {/* TODO: Add Banner here */}
-      <div className="flex grow w-full justify-center relative flex-shrink-0 mt-20 px-8 pb-16 max-w-7xl">
+      <div className="flex grow w-full justify-center relative shrink-0 mt-20 px-8 pb-16 max-w-7xl">
         <ProductFeedContent productLabel={productLabel} />
       </div>
     </>

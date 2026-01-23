@@ -6,8 +6,8 @@ import { CartItem } from "@sellify/customer-ui-components/types";
 import CartPanel from "@sellify/customer-ui-components/cart/CartPanel";
 
 import { CartPanelController } from "types";
-import { CartPanelContext } from "common/contexts/cart-context";
-import { getCartItems, removeCartItem } from "common/actions/cart-actions";
+import { CartPanelContext } from "contexts/cart-context";
+import { getCartItems, removeCartItem } from "actions/cart-actions";
 
 export default function CartPanelProvider({
   children,

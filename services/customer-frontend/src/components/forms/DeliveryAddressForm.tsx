@@ -9,7 +9,7 @@ import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 import FormSection from "@sellify/customer-ui-components/FormSection";
 import { DeliveryAddress } from "@sellify/customer-ui-components/types";
 
-import { getAvailableCountries } from "common/actions/profile-actions";
+import { getAvailableCountries } from "actions/profile-actions";
 
 type DeliveryAddressProps = {
   deliveryAddress?: DeliveryAddress;

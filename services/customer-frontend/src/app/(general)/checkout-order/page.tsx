@@ -34,24 +34,24 @@ import CheckoutProgressBar from "components/CheckoutProgressBar";
 import ContactInfoForm from "components/forms/ContactInfoForm";
 import DeliveryAddressForm from "components/forms/DeliveryAddressForm";
 import PaymentMethodForm from "components/forms/PaymentMethodForm";
-import { AlertDialogContext } from "common/contexts/common-context";
+import { AlertDialogContext } from "contexts/common-context";
 import {
   getDeliveryFee,
   getPaymentMethodInfo,
   order,
-} from "common/actions/order-actions";
-import { getProductMaxQuantity } from "common/actions/product-actions";
+} from "actions/order-actions";
+import { getProductMaxQuantity } from "actions/product-actions";
 import {
   changeCartItemQuantity,
   getCartItems,
   removeCartItem,
-} from "common/actions/cart-actions";
+} from "actions/cart-actions";
 import {
   getDefaultContactInfo,
   getDefaultDeliveryAddress,
   updateDefaultContactInfo,
   updateDefaultDeliveryAddress,
-} from "common/actions/profile-actions";
+} from "actions/profile-actions";
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState<Array<CartItem>>(getCartItems());

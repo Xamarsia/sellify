@@ -4,7 +4,7 @@ import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 
 import { OrderDetails } from "@sellify/customer-ui-components/types";
 
-import { getOrder } from "common/actions/order-actions";
+import { getOrder } from "actions/order-actions";
 import OrderContentSections from "components/OrderContentSections";
 
 type Props = {

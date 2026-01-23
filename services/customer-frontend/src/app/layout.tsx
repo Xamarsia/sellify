@@ -5,12 +5,12 @@ import "./globals.css";
 import Footer from "@sellify/customer-ui-components/footer/Footer";
 
 import Header from "components/header/Header";
-import SearchPanelProvider from "common/providers/SearchPanelProvider";
-import CartPanelProvider from "common/providers/CartPanelProvider";
-import AlertDialogProvider from "common/providers/AlertDialogProvider";
-import RiskDialogProvider from "common/providers/RiskDialogProvider";
-import NavbarDrawerProvider from "common/providers/NavbarDrawerProvider";
-import FilterPanelProvider from "common/providers/FilterPanelProvider";
+import SearchPanelProvider from "providers/SearchPanelProvider";
+import CartPanelProvider from "providers/CartPanelProvider";
+import AlertDialogProvider from "providers/AlertDialogProvider";
+import RiskDialogProvider from "providers/RiskDialogProvider";
+import NavbarDrawerProvider from "providers/NavbarDrawerProvider";
+import FilterPanelProvider from "providers/FilterPanelProvider";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-heading-family",
