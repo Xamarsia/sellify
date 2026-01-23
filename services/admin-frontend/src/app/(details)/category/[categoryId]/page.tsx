@@ -5,7 +5,7 @@ import { Category, ProductPreview } from "@sellify/admin-ui-components/types";
 import {
   getCategoryById,
   getProductPreviewsByCategoryId,
-} from "common/actions/category-actions";
+} from "actions/category-actions";
 import CategoryDetailsPage from "components/pages/CategoryDetailsPage";
 
 type Props = {

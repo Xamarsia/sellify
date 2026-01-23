@@ -5,7 +5,7 @@ import { Permission, RolePreview } from "@sellify/admin-ui-components/types";
 import {
   getPermissionById,
   getRolePreviewsByPermissionId,
-} from "common/actions/permissions-actions";
+} from "actions/permissions-actions";
 import PermissionDetailsPage from "components/pages/PermissionDetailsPage";
 
 type Props = {

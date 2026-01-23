@@ -19,7 +19,7 @@ import {
   getAvailableCountries,
   getDefaultContactInfo,
   getDefaultDeliveryAddress,
-} from "common/actions/profile-actions";
+} from "actions/profile-actions";
 import { EditProfileRequest } from "types";
 
 export default function ProfilePage() {

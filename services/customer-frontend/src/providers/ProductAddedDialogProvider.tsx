@@ -6,7 +6,7 @@ import { CartItem } from "@sellify/customer-ui-components/types";
 import ProductAddedDialog from "@sellify/customer-ui-components/cart/dialog/ProductAddedDialog";
 
 import { ProductAddedDialogController } from "types";
-import { ProductAddedDialogContext } from "common/contexts/cart-context";
+import { ProductAddedDialogContext } from "contexts/cart-context";
 
 export default function ProductAddedDialogProvider({
   children,

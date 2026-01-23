@@ -6,7 +6,7 @@ import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
-import { NavbarDrawerContext } from "common/contexts/common-context";
+import { NavbarDrawerContext } from "contexts/common-context";
 import { usePathname } from "next/navigation";
 import { NavbarDrawerController } from "types";
 
@@ -24,9 +24,9 @@ export default function NavbarDrawerProvider({
   }, []);
 
   const contextValue: NavbarDrawerController = {
-    openNavbarDrawer: (navbarDrawerController) => {
+    openNavbarDrawer: (navItems) => {
       setNavbarDrawerOpened(true);
-      setSidebarItems(navbarDrawerController);
+      setSidebarItems(navItems);
     },
   };
 

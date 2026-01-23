@@ -2,8 +2,8 @@ import "server-only";
 
 import { Customer, OrderPreview } from "@sellify/admin-ui-components/types";
 
-import { getCustomerById } from "common/actions/customer-actions";
-import { getOrdersByCustomerId } from "common/actions/order-actions";
+import { getCustomerById } from "actions/customer-actions";
+import { getOrdersByCustomerId } from "actions/order-actions";
 import CustomerDetailsPage from "components/pages/CustomerDetailsPage";
 
 type Props = {

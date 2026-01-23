@@ -12,10 +12,10 @@ import {
 } from "@sellify/customer-ui-components/types";
 import ProductDetails from "@sellify/customer-ui-components/ProductDetails";
 
-import { addToCart } from "common/actions/cart-actions";
-import { getProductOverviewTabs } from "common/actions/product-actions";
-import { ProductAddedDialogContext } from "common/contexts/cart-context";
-import { BreadcrumbsContext } from "common/contexts/common-context";
+import { addToCart } from "actions/cart-actions";
+import { getProductOverviewTabs } from "actions/product-actions";
+import { ProductAddedDialogContext } from "contexts/cart-context";
+import { BreadcrumbsContext } from "contexts/common-context";
 import { BreadcrumbsController, ProductAddedDialogController } from "types";
 
 type Props = {

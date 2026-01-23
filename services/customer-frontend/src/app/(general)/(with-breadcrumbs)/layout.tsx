@@ -1,4 +1,4 @@
-import BreadcrumbsProvider from "common/providers/BreadcrumbsProvider";
+import BreadcrumbsProvider from "providers/BreadcrumbsProvider";
 
 export default function LayoutWithBreadcrumbs({
   children,

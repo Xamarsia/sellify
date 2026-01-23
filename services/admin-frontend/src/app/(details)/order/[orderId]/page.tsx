@@ -9,11 +9,8 @@ import PaymentInfo from "@sellify/admin-ui-components/details/PaymentInfo";
 import OrderProductsView from "@sellify/admin-ui-components/data-view/OrderProductsView";
 import { OrderDetails } from "@sellify/admin-ui-components/types";
 
-import {
-  getOrderById,
-  getPaymentMethodInfo,
-} from "common/actions/order-actions";
-import { getCustomerNameById } from "common/actions/customer-actions";
+import { getOrderById, getPaymentMethodInfo } from "actions/order-actions";
+import { getCustomerNameById } from "actions/customer-actions";
 
 type Props = {
   params: Promise<{ orderId: number }>;

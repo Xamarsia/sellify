@@ -9,7 +9,7 @@ import {
   MultiSelectionComboboxFilterPropertyValue,
   SearchFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
-import { getRolePreviewsComboboxItems } from "common/actions/roles-actions";
+import { getRolePreviewsComboboxItems } from "actions/roles-actions";
 
 const roles: Map<number, string> = getRolePreviewsComboboxItems();
 

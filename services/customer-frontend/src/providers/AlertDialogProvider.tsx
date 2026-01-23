@@ -5,7 +5,7 @@ import { ReactNode, useCallback, useState } from "react";
 import AlertDialog from "@sellify/common-ui-components/dialog/AlertDialog";
 
 import { AlertDialogContent, AlertDialogController } from "types";
-import { AlertDialogContext } from "common/contexts/common-context";
+import { AlertDialogContext } from "contexts/common-context";
 
 export default function AlertDialogProvider({
   children,

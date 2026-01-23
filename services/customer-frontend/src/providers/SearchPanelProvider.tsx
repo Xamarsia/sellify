@@ -9,8 +9,8 @@ import {
 import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 
 import { SearchPanelController } from "types";
-import { SearchPanelContext } from "common/contexts/search-context";
-import { search } from "common/actions/search-actions";
+import { SearchPanelContext } from "contexts/search-context";
+import { search } from "actions/search-actions";
 
 export default function SearchPanelProvider({
   children,

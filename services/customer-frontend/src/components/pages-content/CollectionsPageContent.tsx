@@ -8,7 +8,7 @@ import { CollectionPreview } from "@sellify/customer-ui-components/types";
 import CollectionCardsFeed from "@sellify/customer-ui-components/collection/CollectionCardsFeed";
 
 import { BreadcrumbsController } from "types";
-import { BreadcrumbsContext } from "common/contexts/common-context";
+import { BreadcrumbsContext } from "contexts/common-context";
 
 type Props = {
   collections: Array<CollectionPreview>;

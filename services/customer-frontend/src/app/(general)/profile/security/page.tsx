@@ -6,9 +6,9 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
 
 import { RiskDialogController, RiskDialogContent } from "types";
-import { RiskDialogContext } from "common/contexts/common-context";
-import { deleteUserAccount } from "common/actions/profile-actions";
-import { isPasswordValid } from "common/actions/auth-actions";
+import { RiskDialogContext } from "contexts/common-context";
+import { deleteUserAccount } from "actions/profile-actions";
+import { isPasswordValid } from "actions/auth-actions";
 
 export default function SettingsPage() {
   const { showRiskDialog } =

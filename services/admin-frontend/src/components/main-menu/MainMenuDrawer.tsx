@@ -5,9 +5,10 @@ import { notFound, usePathname } from "next/navigation";
 
 import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
-
 import { NavMenuItem } from "@sellify/common-ui-components/types";
+
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+
 import { MainMenuItems } from "../../constants";
 
 export default function MainMenuDrawer() {

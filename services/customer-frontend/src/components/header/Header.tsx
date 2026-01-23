@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 
 import UserIcon from "@sellify/common-icons/user";
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
@@ -12,9 +12,9 @@ import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import HeaderItem from "@sellify/customer-ui-components/header/HeaderItem";
 
-import { CartPanelContext } from "common/contexts/cart-context";
-import { SearchPanelContext } from "common/contexts/search-context";
-import { NavbarDrawerContext } from "common/contexts/common-context";
+import { CartPanelContext } from "contexts/cart-context";
+import { SearchPanelContext } from "contexts/search-context";
+import { NavbarDrawerContext } from "contexts/common-context";
 import {
   CartPanelController,
   NavbarDrawerController,
@@ -30,16 +30,18 @@ export default function Header() {
     useContext<NavbarDrawerController>(NavbarDrawerContext);
   const pathname: string = usePathname();
 
-  const menuItem: Array<NavMenuItem> = [
-    { href: "/all-products", title: "All Products" },
-    { href: "/collections", title: "Collections" },
-    { href: "/collection/bestsellers", title: "Bestsellers" },
-    { href: "/collection/gifts", title: "Gifts" },
-  ];
+  const menuItem = useMemo<Array<NavMenuItem>>(() => {
+    return [
+      { href: "/all-products", title: "All Products" },
+      { href: "/collections", title: "Collections" },
+      { href: "/collection/bestsellers", title: "Bestsellers" },
+      { href: "/collection/gifts", title: "Gifts" },
+    ];
+  }, []);
 
   const openDrawer = useCallback((): void => {
     openNavbarDrawer(menuItem);
-  }, [openNavbarDrawer]);
+  }, [openNavbarDrawer, menuItem]);
 
   return (
     <header

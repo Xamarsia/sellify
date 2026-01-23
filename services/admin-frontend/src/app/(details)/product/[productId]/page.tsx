@@ -2,7 +2,7 @@ import "server-only";
 
 import { ProductDetails } from "@sellify/admin-ui-components/types";
 
-import { getProductById } from "common/actions/product-actions";
+import { getProductById } from "actions/product-actions";
 import ProductDetailsPage from "components/pages/ProductDetailsPage";
 
 type Props = {

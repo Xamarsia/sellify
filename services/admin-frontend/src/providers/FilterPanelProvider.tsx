@@ -7,12 +7,12 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 
 import FilterSection from "@sellify/common-ui-components/filter/FilterSection";
 
-import { FilterPanelContext } from "common/contexts/common-context";
+import { FilterPanelContext } from "contexts/common-context";
 import { FilterPanelController } from "types";
 
 // TODO change imports into "@sellify/common-ui-components/"
-import { FilterPropertyValue } from "../../../../../packages/common-ui-components/src/filter/common/PropertyValues";
-import { FilterSection as FilterSectionType } from "../../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterPropertyValue } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import { FilterSection as FilterSectionType } from "../../../../packages/common-ui-components/src/filter/common/Section";
 
 export default function FilterPanelProvider({
   children,
