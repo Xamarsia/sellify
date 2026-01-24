@@ -2,7 +2,8 @@ import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "./Property";
 
 export class FilterSection<T = number> {
@@ -10,7 +11,8 @@ export class FilterSection<T = number> {
   private _properties: Array<
     | CheckboxFilterProperty
     | RangeFilterProperty
-    | SearchFilterProperty
+    | InputFilterProperty
+    | IdInputFilterProperty
     | MultiSelectionComboboxFilterProperty<T>
   >;
 
@@ -19,7 +21,8 @@ export class FilterSection<T = number> {
     properties: Array<
       | CheckboxFilterProperty
       | RangeFilterProperty
-      | SearchFilterProperty
+      | InputFilterProperty
+      | IdInputFilterProperty
       | MultiSelectionComboboxFilterProperty<T>
     >,
   ) {

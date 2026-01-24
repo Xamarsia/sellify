@@ -4,6 +4,8 @@ import { ChangeEvent } from "react";
 
 import MagnifyingGlass from "@sellify/common-icons/magnifying-glass";
 
+import Input from "./Input";
+
 type SearchInputProps = {
   value: string;
   fill?: "default" | "parent";
@@ -21,22 +23,14 @@ export default function SearchInput({
   }[fill];
 
   return (
-    <div
-      className={`flex items-center justify-center h-13 p-4 gap-4 ${fillStyle}
-        rounded-lg border border-stroke has-focus:border-black hover:border-black`}
-    >
-      <label className="text-placeholder">
-        <MagnifyingGlass style="size-5" />
-      </label>
-
-      <input
+    <div className={`flex ${fillStyle}`}>
+      <Input
         type="text"
-        name="search"
         value={value}
         placeholder="Search for..."
         onChange={onChange}
+        icon={<MagnifyingGlass style="size-5" />}
         required
-        className={`w-full h-full text-left text-black focus:outline-hidden `}
       />
     </div>
   );

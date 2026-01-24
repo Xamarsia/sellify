@@ -1,16 +1,20 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
 import {
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
 export const RolesFilterSections: Array<FilterSection> = [
   new FilterSection("role-title", [
-    new SearchFilterProperty("role-title", new SearchFilterPropertyValue("")),
+    new InputFilterProperty(
+      "role-title",
+      new InputFilterPropertyValue(""),
+      "Role Title",
+    ),
   ]),
   new FilterSection("related-users-amount", [
     new RangeFilterProperty(

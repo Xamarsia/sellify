@@ -2,23 +2,25 @@ import { FilterSection } from "../../../../packages/common-ui-components/src/fil
 import {
   CheckboxFilterProperty,
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
 export const CustomersFilterSections: Array<FilterSection> = [
   new FilterSection("customer-name", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "customer-name",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Customer Name",
     ),
   ]),
   new FilterSection("customer-id", [
-    new SearchFilterProperty("customer-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("customer-id", new InputFilterPropertyValue("")),
   ]),
   new FilterSection("orders-amount", [
     new RangeFilterProperty(

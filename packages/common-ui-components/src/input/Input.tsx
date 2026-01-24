@@ -1,9 +1,8 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, ReactNode } from "react";
 
 type InputProps = {
-  title?: string;
   value?: string;
   disabled?: boolean;
   maxLength?: number;
@@ -11,27 +10,28 @@ type InputProps = {
   required?: boolean;
   state?: "invalid" | "valid";
   type?: "text" | "email" | "password";
+  icon?: ReactNode;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Input({
   type = "text",
-  title,
   required,
   state,
   value,
   disabled,
   maxLength,
   placeholder,
+  icon,
   onChange,
 }: InputProps) {
   return (
-    <div className="flex flex-col w-full">
-      <label
-        className={`label text-black m-1 capitalize ${required && "after:content-['*'] after:ml-0.5"}`}
-      >
-        {title}
-      </label>
+    <div
+      className={`flex items-center justify-center h-13 p-4 w-full bg-white text-black body 
+          border border-stroke has-focus:border-black has-enabled:hover:border-black rounded-lg 
+          ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus-within)]:border-destructive"} `}
+    >
+      {icon && <label className="text-placeholder pr-4">{icon}</label>}
       <input
         type={type}
         value={value}
@@ -40,11 +40,7 @@ export default function Input({
         disabled={disabled}
         maxLength={maxLength}
         placeholder={placeholder}
-        className={`w-full h-13 p-4 border border-stroke placeholder-placeholder rounded-lg
-          disabled:text-disabled disabled:cursor-not-allowed
-          text-black body bg-white enabled:hover:border-black  
-          focus:outline-hidden focus:border-black 
-          ${state == "invalid" && "[&:not(:placeholder-shown):not(:focus)]:border-destructive"}`}
+        className={`size-full placeholder-placeholder focus:outline-hidden disabled:text-disabled`}
       />
     </div>
   );

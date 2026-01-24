@@ -2,14 +2,14 @@ import {
   CheckboxFilterPropertyValue,
   RangeFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "./PropertyValues";
 
 export enum PropertyType {
   Checkbox,
   Range,
   Combobox,
-  Search,
+  Input,
 }
 
 export class FilterProperty {
@@ -89,15 +89,31 @@ export class MultiSelectionComboboxFilterProperty<T> extends FilterProperty {
   }
 }
 
-export class SearchFilterProperty extends FilterProperty {
-  private readonly _initialQuery: SearchFilterPropertyValue;
+export class InputFilterProperty extends FilterProperty {
+  private readonly _initialQuery: InputFilterPropertyValue;
+  private readonly _placeholderText?: string;
 
-  constructor(key: string, initialQuery: SearchFilterPropertyValue) {
-    super(key, PropertyType.Search);
+  constructor(
+    key: string,
+    initialQuery: InputFilterPropertyValue,
+    placeholderText?: string,
+  ) {
+    super(key, PropertyType.Input);
     this._initialQuery = initialQuery;
+    this._placeholderText = placeholderText;
   }
 
-  public get initialQuery(): SearchFilterPropertyValue {
+  public get initialQuery(): InputFilterPropertyValue {
     return this._initialQuery;
+  }
+
+  public get placeholderText(): string | undefined {
+    return this._placeholderText;
+  }
+}
+
+export class IdInputFilterProperty extends InputFilterProperty {
+  constructor(key: string, initialQuery: InputFilterPropertyValue) {
+    super(key, initialQuery, "xxxxxx");
   }
 }

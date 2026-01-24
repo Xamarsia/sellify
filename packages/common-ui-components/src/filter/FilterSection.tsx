@@ -7,22 +7,24 @@ import MinusIcon from "@sellify/common-icons/minus";
 
 import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
 import RangeFilterPropertyView from "./RangeFilterPropertyView";
-import SearchFilterPropertyView from "./SearchFilterPropertyView";
+import InputFilterPropertyView from "./InputFilterPropertyView";
 import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   FilterProperty,
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "./common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "./common/PropertyValues";
 import MultiSelectionComboboxFilterPropertyView from "./MultiSelectionComboboxFilterPropertyView";
+import IdInputFilterPropertyView from "./IdInputFilterPropertyView";
 
 type FilterSectionProps = {
   sectionKey: string;
@@ -71,17 +73,31 @@ export default function FilterSectionComponent({
             key={`CheckboxFilterProperty_${sectionKey}_${property.key}`}
           />
         );
-      } else if (property instanceof SearchFilterProperty) {
+      } else if (property instanceof InputFilterProperty) {
         return (
-          <SearchFilterPropertyView
+          <InputFilterPropertyView
             propertyKey={property.key}
             currentQuery={
-              modifiedProperty instanceof SearchFilterPropertyValue
+              modifiedProperty instanceof InputFilterPropertyValue
+                ? modifiedProperty
+                : property.initialQuery
+            }
+            placeholder={property.placeholderText}
+            onFilterPropertyChange={onFilterPropertyChange}
+            key={`InputFilterProperty_${sectionKey}_${property.key}`}
+          />
+        );
+      } else if (property instanceof IdInputFilterProperty) {
+        return (
+          <IdInputFilterPropertyView
+            propertyKey={property.key}
+            currentQuery={
+              modifiedProperty instanceof InputFilterPropertyValue
                 ? modifiedProperty
                 : property.initialQuery
             }
             onFilterPropertyChange={onFilterPropertyChange}
-            key={`CheckboxFilterProperty_${sectionKey}_${property.key}`}
+            key={`IdInputFilterProperty_${sectionKey}_${property.key}`}
           />
         );
       } else if (property instanceof RangeFilterProperty) {

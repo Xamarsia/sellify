@@ -1,18 +1,19 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
 import {
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
 export const PermissionsFilterSections: Array<FilterSection> = [
   new FilterSection("permission-title", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "permission-title",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Permission Title",
     ),
   ]),
   new FilterSection("related-roles-amount", [

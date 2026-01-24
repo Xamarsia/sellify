@@ -5,7 +5,11 @@ import { ChangeEvent, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
 
-import { NavMenuItem, SliderRange, TabItemInfo } from "@sellify/common-ui-components/types";
+import {
+  NavMenuItem,
+  SliderRange,
+  TabItemInfo,
+} from "@sellify/common-ui-components/types";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
@@ -13,6 +17,8 @@ import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Input from "@sellify/common-ui-components/input/Input";
+import IdInput from "@sellify/common-ui-components/input/IdInput";
+import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 import Radio from "@sellify/common-ui-components/input/Radio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
@@ -107,7 +113,7 @@ export default function Home() {
   const range: SliderRange = {
     min: 200,
     max: 1000,
-  }
+  };
 
   return (
     <div className="min-h-full">
@@ -117,11 +123,11 @@ export default function Home() {
       <main className="flex flex-col w-full ">
         <Section title={"Price Range Slider"}>
           <SectionItem>
-            <PriceRangeSlider
-              range={range}
-            />
+            <PriceRangeSlider range={range} />
           </SectionItem>
         </Section>
+
+        {/* ------------------------------------------------------------- */}
 
         <Section title={"Button"}>
           <SectionItem>
@@ -243,21 +249,52 @@ export default function Home() {
             <Input
               value={inputValue}
               placeholder="Required Input"
-              title="Required Input"
               required
               onChange={handleInputChange}
             />
             <Input
-              title="Disabled Input"
-              value="Disabled"
+              value="Disabled Input"
               disabled
               onChange={handleInputChange}
             />
             <Input
               placeholder="Invalid Input"
               value="Invalid"
-              title="Invalid Input"
               state="invalid"
+              onChange={handleInputChange}
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Id Input"}>
+          <SectionItem>
+            <IdInput
+              value={inputValue}
+              maxLength={4}
+              onChange={handleInputChange}
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Search Input"}>
+          <SectionItem>
+            <SearchBarExample />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Form Input Item "}>
+          <SectionItem>
+            <FormInputItem
+              value={inputValue}
+              placeholder="Required Input"
+              title="Required Input"
+              required
               onChange={handleInputChange}
             />
           </SectionItem>
@@ -296,13 +333,6 @@ export default function Home() {
           <SectionItem>
             <MediaInputField size="small" text="Small Media Input Field" />
             <MediaInputField text="Default Media Input Field" />
-          </SectionItem>
-        </Section>
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Search Input"}>
-          <SectionItem>
-            <SearchBarExample />
           </SectionItem>
         </Section>
 
@@ -414,6 +444,7 @@ export default function Home() {
             <PagesExample />
           </SectionItem>
         </Section>
+
         {/* ------------------------------------------------------------- */}
 
         <Section title={"Order Subtotal Card"}>

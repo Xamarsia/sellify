@@ -3,13 +3,14 @@ import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 import { getCategoryComboboxItems } from "actions/category-actions";
 
@@ -17,13 +18,14 @@ const categories: Map<number, string> = getCategoryComboboxItems();
 
 export const ProductsFilterSections: Array<FilterSection> = [
   new FilterSection("product-title", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "product-title",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Product Title",
     ),
   ]),
   new FilterSection("product-id", [
-    new SearchFilterProperty("product-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("product-id", new InputFilterPropertyValue("")),
   ]),
   new FilterSection("price-range", [
     new RangeFilterProperty(
@@ -59,12 +61,13 @@ export const ProductsFilterSections: Array<FilterSection> = [
 
 export const ProductsPreviewFilterSections: Array<FilterSection> = [
   new FilterSection("product-title", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "product-title",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Product Title",
     ),
   ]),
   new FilterSection("product-id", [
-    new SearchFilterProperty("product-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("product-id", new InputFilterPropertyValue("")),
   ]),
 ];

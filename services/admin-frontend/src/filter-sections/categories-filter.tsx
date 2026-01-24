@@ -1,22 +1,24 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
 import {
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
 export const CategoriesFilterSections: Array<FilterSection> = [
   new FilterSection("category-title", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "category-title",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Category Title",
     ),
   ]),
   new FilterSection("category-id", [
-    new SearchFilterProperty("category-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("category-id", new InputFilterPropertyValue("")),
   ]),
   new FilterSection("related-products-amount", [
     new RangeFilterProperty(
