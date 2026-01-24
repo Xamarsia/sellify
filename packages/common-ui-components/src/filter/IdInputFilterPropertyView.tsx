@@ -1,18 +1,18 @@
 import { ChangeEvent, useCallback } from "react";
 
-import { SearchFilterPropertyValue } from "./common/PropertyValues";
+import { InputFilterPropertyValue } from "./common/PropertyValues";
 import Input from "../input/Input";
 
 type FilterParameterProps = {
   propertyKey: string;
-  currentQuery: SearchFilterPropertyValue;
+  currentQuery: InputFilterPropertyValue;
   onFilterPropertyChange: (
     propertyKey: string,
-    newQuery: SearchFilterPropertyValue,
+    newQuery: InputFilterPropertyValue,
   ) => void;
 };
 
-export default function SearchFilterPropertyView({
+export default function IdInputFilterPropertyView({
   propertyKey,
   currentQuery,
   onFilterPropertyChange,
@@ -21,11 +21,17 @@ export default function SearchFilterPropertyView({
     (e: ChangeEvent<HTMLInputElement>): void => {
       onFilterPropertyChange(
         propertyKey,
-        new SearchFilterPropertyValue(e.target.value),
+        new InputFilterPropertyValue(e.target.value),
       );
     },
     [propertyKey, onFilterPropertyChange],
   );
 
-  return <Input value={currentQuery.value} onChange={onChange} />;
+  return (
+    <Input
+      value={currentQuery.value}
+      onChange={onChange}
+      icon={<label className="size-5"> # </label>}
+    />
+  );
 }

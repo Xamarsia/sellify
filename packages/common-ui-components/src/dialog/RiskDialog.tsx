@@ -7,8 +7,8 @@ import FireIcon from "@sellify/common-icons/fire";
 import DialogBase from "./DialogBase";
 import AlertDialogIcon from "./AlertDialogIcon";
 
-import Input from "../input/Input";
 import Button from "../buttons/Button";
+import FormInputItem from "../input/FormInputItem";
 
 type DialogProps = {
   title: string;
@@ -59,7 +59,7 @@ export default function RiskDialog({
           {description && (
             <p className="text-justify wrap-break-word">{description}</p>
           )}
-          <Input
+          <FormInputItem
             type="password"
             value={password}
             placeholder="Required Input"

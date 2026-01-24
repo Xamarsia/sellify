@@ -1,22 +1,24 @@
 import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
 import {
   RangeFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   RangeFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 
 export const InventoryFilterSections: Array<FilterSection> = [
   new FilterSection("product-title", [
-    new SearchFilterProperty(
+    new InputFilterProperty(
       "product-title",
-      new SearchFilterPropertyValue(""),
+      new InputFilterPropertyValue(""),
+      "Product Title",
     ),
   ]),
   new FilterSection("productId", [
-    new SearchFilterProperty("productId", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("productId", new InputFilterPropertyValue("")),
   ]),
   new FilterSection("quantity-range", [
     new RangeFilterProperty(

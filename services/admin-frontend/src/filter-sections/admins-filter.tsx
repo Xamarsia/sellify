@@ -2,12 +2,13 @@ import { FilterSection } from "../../../../packages/common-ui-components/src/fil
 import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
-  SearchFilterProperty,
+  InputFilterProperty,
+  IdInputFilterProperty,
 } from "../../../../packages/common-ui-components/src/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
-  SearchFilterPropertyValue,
+  InputFilterPropertyValue,
 } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
 import { getRolePreviewsComboboxItems } from "actions/roles-actions";
 
@@ -15,10 +16,14 @@ const roles: Map<number, string> = getRolePreviewsComboboxItems();
 
 export const AdminFilterSections: Array<FilterSection> = [
   new FilterSection("admin-name", [
-    new SearchFilterProperty("admin-name", new SearchFilterPropertyValue("")),
+    new InputFilterProperty(
+      "admin-name",
+      new InputFilterPropertyValue(""),
+      "Admin Name",
+    ),
   ]),
   new FilterSection("admin-id", [
-    new SearchFilterProperty("admin-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("admin-id", new InputFilterPropertyValue("")),
   ]),
   new FilterSection("role", [
     new MultiSelectionComboboxFilterProperty<number>(
@@ -44,9 +49,13 @@ export const AdminFilterSections: Array<FilterSection> = [
 
 export const AdminPreviewFilterSections: Array<FilterSection> = [
   new FilterSection("admin-name", [
-    new SearchFilterProperty("admin-name", new SearchFilterPropertyValue("")),
+    new InputFilterProperty(
+      "admin-name",
+      new InputFilterPropertyValue(""),
+      "Admin Name",
+    ),
   ]),
   new FilterSection("admin-id", [
-    new SearchFilterProperty("admin-id", new SearchFilterPropertyValue("")),
+    new IdInputFilterProperty("admin-id", new InputFilterPropertyValue("")),
   ]),
 ];

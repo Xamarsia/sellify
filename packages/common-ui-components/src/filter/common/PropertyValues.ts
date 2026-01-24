@@ -26,4 +26,4 @@ export class MultiSelectionComboboxFilterPropertyValue<
   T,
 > extends FilterPropertyValueImpl<Map<T, string>> {}
 
-export class SearchFilterPropertyValue extends FilterPropertyValueImpl<string> {}
+export class InputFilterPropertyValue extends FilterPropertyValueImpl<string> {}
