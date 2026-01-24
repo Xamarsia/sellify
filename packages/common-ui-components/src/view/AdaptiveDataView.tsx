@@ -4,7 +4,7 @@ import ListView from "./ListView";
 import TableView from "./TableView";
 
 type Props = {
-  head: Array<string>;
+  head: Array<ReactNode>;
   content: Array<Array<ReactNode>>;
 };
 

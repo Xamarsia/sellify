@@ -6,6 +6,8 @@ import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableIt
 import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
+import ColumnHeaderItem from "@sellify/common-ui-components/view/ColumnHeaderItem";
+import SortableColumnHeaderItem from "@sellify/common-ui-components/view/SortableColumnHeaderItem";
 
 import { OrderPreview } from "../types";
 
@@ -14,13 +16,13 @@ type Props = {
 };
 
 export default function OrdersView({ content }: Props) {
-  const tableHeader = useMemo<Array<string>>(() => {
-    const header: Array<string> = [
-      "Order ID",
-      "Date",
-      "Customer",
-      "Total",
-      "Status",
+  const tableHeader = useMemo<Array<ReactNode>>(() => {
+    const header: Array<ReactNode> = [
+      <ColumnHeaderItem label={"Order ID"} />,
+      <SortableColumnHeaderItem label={"Date"} />,
+      <SortableColumnHeaderItem label={"Customer"} />,
+      <SortableColumnHeaderItem label={"Total"} />,
+      <ColumnHeaderItem label={"Status"} />
     ];
     return header;
   }, []);

@@ -2,7 +2,7 @@ type IconProps = {
   style?: string;
 };
 
-export default function ChevronUp({ style }: IconProps) {
+export default function ChevronUpIcon({ style }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

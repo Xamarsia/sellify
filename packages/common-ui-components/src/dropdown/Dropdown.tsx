@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import ChevronDown from "@sellify/common-icons/chevron-down";
-import ChevronUp from "@sellify/common-icons/chevron-up";
+import ChevronUpIcon from "@sellify/common-icons/chevron-up";
 
 import DropdownItem from "./DropdownItem";
 
@@ -78,7 +78,7 @@ export default function Dropdown({
       >
         <span className="body">{getCurrentText().toUpperCase()}</span>
         {isExtended ? (
-          <ChevronUp style="size-4" />
+          <ChevronUpIcon style="size-4" />
         ) : (
           <ChevronDown style="size-4" />
         )}

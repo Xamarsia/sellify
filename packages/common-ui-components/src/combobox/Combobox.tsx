@@ -3,7 +3,7 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import ChevronDown from "@sellify/common-icons/chevron-down";
-import ChevronUp from "@sellify/common-icons/chevron-up";
+import ChevronUpIcon from "@sellify/common-icons/chevron-up";
 
 import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
@@ -143,7 +143,7 @@ export default function Combobox({
 
           <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
             {isExtended ? (
-              <ChevronUp style="size-4" />
+              <ChevronUpIcon style="size-4" />
             ) : (
               <ChevronDown style="size-4" />
             )}

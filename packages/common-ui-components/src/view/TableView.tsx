@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
-import ColumnTitle from "./ColumnTitle";
 
 type Props = {
-  head: Array<string>;
+  head: Array<ReactNode>;
   content: Array<Array<ReactNode>>;
 };
 
@@ -12,8 +11,8 @@ export default function TableView({ head, content }: Props) {
       <table className="w-full table-auto text-left">
         <thead className="w-full h-16 border-b border-stroke px-9 py-5">
           <tr>
-            {head.map((label) => (
-              <ColumnTitle title={label} />
+            {head.map((component, index) => (
+              <th key={`Head_${index}`}> {component}</th>
             ))}
           </tr>
         </thead>
