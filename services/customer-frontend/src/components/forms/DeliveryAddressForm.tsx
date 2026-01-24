@@ -2,9 +2,9 @@
 
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
-import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
+import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import FormSection from "@sellify/customer-ui-components/FormSection";
 import { DeliveryAddress } from "@sellify/customer-ui-components/types";
@@ -78,7 +78,7 @@ export default function DeliveryAddressForm({
         required
         onItemSelected={onItemSelected}
       />
-      <Input
+      <FormInputItem
         value={address}
         title="address"
         required

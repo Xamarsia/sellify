@@ -2,8 +2,8 @@
 
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
-import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import { ContactInfo } from "@sellify/customer-ui-components/types";
 import FormSection from "@sellify/customer-ui-components/FormSection";
@@ -62,13 +62,13 @@ export default function ContactInfoForm({
 
   return (
     <FormSection onChange={onContactInfoFormChange}>
-      <Input
+      <FormInputItem
         value={fullName}
         title="full name"
         required
         onChange={onFullNameChange}
       />
-      <Input
+      <FormInputItem
         value={phoneNumber}
         title="phone number"
         required

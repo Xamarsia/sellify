@@ -2,10 +2,10 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
-import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
+import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import {
   ContactInfo,
@@ -21,6 +21,7 @@ import {
   getDefaultDeliveryAddress,
 } from "actions/profile-actions";
 import { EditProfileRequest } from "types";
+
 
 export default function ProfilePage() {
   const [language, setLanguage] = useState<string>("english");
@@ -106,13 +107,13 @@ export default function ProfilePage() {
   return (
     <div className="flex w-full flex-col items-end gap-12">
       <InfoSection title="Contact Information">
-        <Input
+        <FormInputItem
           value={fullName}
           title="full name"
           required
           onChange={onFullNameChange}
         />
-        <Input
+        <FormInputItem
           value={phoneNumber}
           title="phone number"
           required
@@ -128,7 +129,7 @@ export default function ProfilePage() {
           required
           onItemSelected={onCountrySelected}
         />
-        <Input
+        <FormInputItem
           value={address}
           title="address"
           required

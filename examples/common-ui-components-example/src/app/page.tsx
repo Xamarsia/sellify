@@ -17,7 +17,6 @@ import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Input from "@sellify/common-ui-components/input/Input";
-import IdInput from "@sellify/common-ui-components/input/IdInput";
 import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 import Radio from "@sellify/common-ui-components/input/Radio";
@@ -261,18 +260,6 @@ export default function Home() {
               placeholder="Invalid Input"
               value="Invalid"
               state="invalid"
-              onChange={handleInputChange}
-            />
-          </SectionItem>
-        </Section>
-
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Id Input"}>
-          <SectionItem>
-            <IdInput
-              value={inputValue}
-              maxLength={4}
               onChange={handleInputChange}
             />
           </SectionItem>
