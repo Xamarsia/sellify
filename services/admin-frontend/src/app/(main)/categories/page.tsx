@@ -1,60 +1,32 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
-import SearchInput from "@sellify/common-ui-components/input/SearchInput";
-import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 import { Category } from "@sellify/admin-ui-components/types";
 import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
 
-import { filterCategories, getCategories } from "actions/category-actions";
+import { getCategories } from "actions/category-actions";
 import PageTitle from "components/PageTitle";
 import Filter from "components/Filter";
 import { CategoriesFilterSections } from "filter-sections/categories-filter";
 
 export default function CategoriesPage() {
   const categories: Array<Category> = getCategories();
-  const [query, setQuery] = useState<string>("");
-  const [sortByKey, setSortByKey] = useState<string>();
   const [currentCategories, setCurrentCategories] =
     useState<Array<Category>>(categories);
 
-  const comboboxSortItems = new Map<string, string>([
-    ["byLowestAmount", "Rank by lowest amount"],
-    ["byHighestAmount", "Rank by highest amount"],
-  ]);
-
-  const onSearchChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
-      setQuery(query);
-      setCurrentCategories(query ? filterCategories(query) : categories);
-    },
-    [],
-  );
-
   return (
     <>
-      <div className="flex justify-between items-center">
-        <PageTitle />
-        <Button size="small">Add Category</Button>
-      </div>
+      <PageTitle />
 
       <div className="flex flex-col w-full gap-4">
-        <Filter filterSections={CategoriesFilterSections} />
-        <div className="relative flex w-full justify-between items-start gap-4">
-          <SearchInput value={query} onChange={onSearchChanged} />
-          <Dropdown
-            title={"sort by"}
-            items={comboboxSortItems}
-            selectedKey={sortByKey}
-            onKeySelected={setSortByKey}
-          />
+        <div className="flex w-full justify-end">
+          <Filter filterSections={CategoriesFilterSections} />
         </div>
         <CategoriesView content={currentCategories} />
+        <Button size="small">Add Category</Button>
       </div>
     </>
   );

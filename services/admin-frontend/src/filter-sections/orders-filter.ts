@@ -45,3 +45,27 @@ export const OrdersFilterSections: Array<FilterSection> = [
     ),
   ]),
 ];
+
+export const OrderProductsFilterSections: Array<FilterSection> = [
+  new FilterSection("product-title", [
+    new InputFilterProperty(
+      "product-title",
+      new InputFilterPropertyValue(""),
+      "Product Title",
+    ),
+  ]),
+  new FilterSection("quantity-range", [
+    new RangeFilterProperty(
+      "quantity-range",
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+    ),
+  ]),
+  new FilterSection("price-range", [
+    new RangeFilterProperty(
+      "price-range",
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+      new RangeFilterPropertyValue({ min: 0, max: 344 }),
+    ),
+  ]),
+];
