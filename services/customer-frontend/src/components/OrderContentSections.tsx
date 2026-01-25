@@ -9,9 +9,7 @@ import DeliveryInfo from "@sellify/customer-ui-components/order-details/Delivery
 import OrderInfo from "@sellify/customer-ui-components/order-details/OrderInfo";
 import PaymentInfo from "@sellify/customer-ui-components/order-details/PaymentInfo";
 import FinalProductsView from "@sellify/customer-ui-components/data-view/FinalProductsView";
-import FormSection from "@sellify/customer-ui-components/FormSection";
-
-import { getPaymentMethodInfo } from "common/actions/order-actions";
+import { getPaymentMethodInfo } from "actions/order-actions";
 
 type Props = {
   order: OrderDetails;
