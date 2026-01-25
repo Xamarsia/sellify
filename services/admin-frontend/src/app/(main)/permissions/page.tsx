@@ -1,55 +1,27 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
-
-import SearchInput from "@sellify/common-ui-components/input/SearchInput";
-import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
+import { useState } from "react";
 
 import { Permission } from "@sellify/admin-ui-components/types";
 import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
 
 import PageTitle from "components/PageTitle";
-import { filterPermissions, getPermissions } from "actions/permissions-actions";
+import { getPermissions } from "actions/permissions-actions";
 import Filter from "components/Filter";
 import { PermissionsFilterSections } from "filter-sections/permissions-filter";
 
 export default function PermissionsPage() {
   const defaultPermissions: Array<Permission> = getPermissions();
-  const [query, setQuery] = useState<string>("");
-  const [sortByKey, setSortByKey] = useState<string>();
   const [permissions, setPermissions] =
     useState<Array<Permission>>(defaultPermissions);
 
-  const comboboxSortItems = new Map<string, string>([
-    ["byUsersAmount", "Rank by related users amount"],
-  ]);
-
-  const onSearchChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
-      setQuery(query);
-      setPermissions(query ? filterPermissions(query) : defaultPermissions);
-    },
-    [],
-  );
-
   return (
     <>
-      <div className="flex justify-between items-center">
-        <PageTitle />
-      </div>
+      <PageTitle />
 
       <div className="flex flex-col w-full gap-4">
-        <Filter filterSections={PermissionsFilterSections} />
-        <div className="relative flex w-full justify-between items-start gap-4">
-          <SearchInput value={query} onChange={onSearchChanged} />
-          <Dropdown
-            title={"sort by"}
-            items={comboboxSortItems}
-            selectedKey={sortByKey}
-            onKeySelected={setSortByKey}
-          />
+        <div className="flex w-full justify-end">
+          <Filter filterSections={PermissionsFilterSections} />
         </div>
         <PermissionsView content={permissions} />
       </div>

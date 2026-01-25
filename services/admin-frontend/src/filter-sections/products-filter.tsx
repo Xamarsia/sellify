@@ -27,6 +27,12 @@ export const ProductsFilterSections: Array<FilterSection> = [
   new FilterSection("product-id", [
     new IdInputFilterProperty("product-id", new InputFilterPropertyValue("")),
   ]),
+  new FilterSection("category", [
+    new MultiSelectionComboboxFilterProperty<number>(
+      "category",
+      new MultiSelectionComboboxFilterPropertyValue(categories),
+    ),
+  ]),
   new FilterSection("price-range", [
     new RangeFilterProperty(
       "price-range",
@@ -49,12 +55,6 @@ export const ProductsFilterSections: Array<FilterSection> = [
     new CheckboxFilterProperty(
       "archived",
       new CheckboxFilterPropertyValue(false),
-    ),
-  ]),
-  new FilterSection("category", [
-    new MultiSelectionComboboxFilterProperty<number>(
-      "category",
-      new MultiSelectionComboboxFilterPropertyValue(categories),
     ),
   ]),
 ];
