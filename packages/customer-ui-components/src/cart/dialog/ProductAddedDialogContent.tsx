@@ -24,8 +24,7 @@ export default function ProductAddedDialogContent({
           />
         </div>
         <div className="flex basis-64 my-2 mx-4 flex flex-col gap-4 h-24 justify-between shrink-0">
-          {/* TODO add link to Product page */}
-          <a href="/">
+          <a href={`/product/${product.productId}`}>
             <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3">
               {product.title}
             </h4>

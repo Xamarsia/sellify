@@ -141,4 +141,7 @@ export function getDeliveryFee(): number {
   return 134;
 }
 
-export function order(orderRequest: OrderRequest): void {}
+// Returns the order ID if the order is created successfully.
+export function order(orderRequest: OrderRequest): number | undefined {
+  return 45654645;
+}

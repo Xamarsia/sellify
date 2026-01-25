@@ -4,20 +4,20 @@ import { notFound } from "next/navigation";
 
 import { Collection } from "@sellify/customer-ui-components/types";
 
-import { getCollection, isCollectionFound } from "actions/collection-actions";
+import { getCollectionById } from "actions/collection-actions";
 import CollectionProductsPageContent from "components/pages-content/CollectionProductsPageContent";
 import CollectionBanner from "@sellify/customer-ui-components/collection/CollectionBanner";
 import BreadcrumbsProvider from "providers/BreadcrumbsProvider";
 
 type Props = {
-  params: Promise<{ collectionTitle: string }>;
+  params: Promise<{ collectionId: number }>;
 };
 
 export default async function CollectionProductsPage({ params }: Props) {
-  const collectionTitle: string = (await params).collectionTitle;
-  const collection: Collection = getCollection(collectionTitle);
+  const collectionId: number = (await params).collectionId;
+  const collection: Collection = getCollectionById(collectionId);
 
-  if (!isCollectionFound(collectionTitle)) {
+  if (!collection) {
     notFound();
   }
 
@@ -29,7 +29,7 @@ export default async function CollectionProductsPage({ params }: Props) {
           <BreadcrumbsProvider>
             <CollectionProductsPageContent
               collection={collection}
-              collectionTitle={collectionTitle}
+              collectionTitle={collection.title}
             />
           </BreadcrumbsProvider>
         </div>

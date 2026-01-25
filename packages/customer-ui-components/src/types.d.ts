@@ -126,11 +126,13 @@ export type Filter = {
 };
 
 export type CollectionPreview = {
+  id: number;
   title: string;
   image: string;
 };
 
 export type Collection = {
+  id: number;
   image?: string; // banner image
   title: string; // banner title
   description: string; // banner description

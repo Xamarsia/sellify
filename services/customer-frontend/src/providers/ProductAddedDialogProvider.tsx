@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { CartItem } from "@sellify/customer-ui-components/types";
 import ProductAddedDialog from "@sellify/customer-ui-components/cart/dialog/ProductAddedDialog";
@@ -17,13 +18,17 @@ export default function ProductAddedDialogProvider({
   const [currentCartItem, setCurrentCartItem] = useState<
     CartItem | undefined
   >();
+  const router = useRouter();
 
   const onCartDialogCloseClicked = useCallback((): void => {
     setDialogOpened(false);
   }, []);
 
   // TODO Implement onCheckout
-  const onCheckout = useCallback((): void => {}, []);
+  const onCheckout = useCallback((): void => {
+    router.push(`/checkout-order`);
+    onCartDialogCloseClicked();
+  }, [router, onCartDialogCloseClicked]);
 
   const contextValue: ProductAddedDialogController = {
     openProductAddedDialog: (cartItem) => {
