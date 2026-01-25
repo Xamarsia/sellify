@@ -18,8 +18,7 @@ export default function CartItemComponent({ cartItem, onItemRemove }: Props) {
       </div>
       <div className="flex gap-9 my-2">
         <div className="grow flex flex-col justify-between">
-          {/* TODO add link to Product page */}
-          <a href="/">
+          <a href={`/product/${cartItem.product.productId}`}>
             <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3">
               {cartItem.product.title}
             </h4>

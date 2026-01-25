@@ -36,10 +36,10 @@ export default function SearchPanelProvider({
   };
 
   const popularQuickLinks: Array<NavigationLink> = [
-    { href: "/", title: "Indoor Plants" },
-    { href: "/", title: "Flowering Plants" },
-    { href: "/", title: "Tropical Plants" },
-    { href: "/", title: "Bonsai Trees" },
+    { href: "/collection/345", title: "Indoor Plants" },
+    { href: "/collection/323", title: "Flowering Plants" },
+    { href: "/collection/53", title: "Tropical Plants" },
+    { href: "/collection/2", title: "Bonsai Trees" },
   ];
 
   return (

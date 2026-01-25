@@ -36,8 +36,6 @@ export default function ProductFeedContent({ productLabel }: Props) {
   }, []);
 
   const comboboxItems = new Map<string, string>([
-    ["bestseller", "Bestsellers"],
-    ["rating", "Rating"],
     ["byLowestPrice", "Rank by lowest price"],
     ["byHighestPrice", "Rank by highest price"],
   ]);

@@ -22,7 +22,6 @@ import {
 } from "actions/profile-actions";
 import { EditProfileRequest } from "types";
 
-
 export default function ProfilePage() {
   const [language, setLanguage] = useState<string>("english");
 

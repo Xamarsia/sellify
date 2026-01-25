@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useContext, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
@@ -16,6 +17,7 @@ import {
   CartItem,
   ContactInfo,
   DeliveryAddress,
+  OrderDetails,
   OrderRequest,
 } from "@sellify/customer-ui-components/types";
 import InfoSection from "@sellify/customer-ui-components/InfoSection";
@@ -75,12 +77,13 @@ export default function CheckoutPage() {
   const [isDefaultContactInfo, setDefaultContactInfo] = useState<boolean>(true);
   const [isDefaultDeliveryAddress, setDefaultDeliveryAddress] =
     useState<boolean>(true);
+  const router = useRouter();
 
   const [currentStep, setCurrentStep] = useState<CheckoutStep>(
     CheckoutStep.SELECTED_PRODUCTS,
   );
 
-  const { showAlertDialog } =
+  const { showAlertDialog, closeAlertDialog } =
     useContext<AlertDialogController>(AlertDialogContext);
 
   const paymentMethodInfo: PaymentMethodInfo | undefined =
@@ -110,12 +113,18 @@ export default function CheckoutPage() {
       itemsSubtotal: itemsSubtotalPrice,
       totalPrice: totalPrice,
     };
-    order(orderRequest);
+
     if (isDefaultContactInfo) {
       updateDefaultContactInfo(contactInfo);
     }
     if (isDefaultDeliveryAddress) {
       updateDefaultDeliveryAddress(deliveryAddress);
+    }
+
+    let orderId: number | undefined = order(orderRequest);
+
+    if (!orderId) {
+      return;
     }
 
     const alertDialogContent: AlertDialogContent = {
@@ -125,10 +134,25 @@ export default function CheckoutPage() {
         "Your order hasn't shipped yet, but we will send you and email when it done.",
       controlPanel: (
         <>
-          <Button variant="outline" fill="parent">
+          <Button
+            variant="outline"
+            fill="parent"
+            onClick={() => {
+              router.push(`/`);
+              closeAlertDialog();
+            }}
+          >
             Back to home
           </Button>
-          <Button fill="parent">View Order</Button>
+          <Button
+            fill="parent"
+            onClick={() => {
+              router.push(`/order/${orderId}`);
+              closeAlertDialog();
+            }}
+          >
+            View Order
+          </Button>
         </>
       ),
     };

@@ -16,8 +16,7 @@ export default function SearchItem({ searchItem }: Props) {
       </div>
 
       <div className="grow my-2">
-        {/* TODO add link to Product page */}
-        <a href="/">
+        <a href={`/product/${searchItem.productId}`}>
           <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3">
             {searchItem.title}
           </h4>

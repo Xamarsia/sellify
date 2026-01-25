@@ -28,8 +28,7 @@ export default function ProductPreview({
       </div>
       <div className="flex not-md:basis-128 flex-col justify-between">
         <div className="flex flex-col shrink-0 justify-between gap-4 h-24 mx-2 md:my-4 pb-2">
-          {/* TODO add link to Product page */}
-          <a href="/">
+          <a href={`/product/${productPreview.productId}`}>
             <h4 className="not-md:text-justify line-clamp-2 break-all hover:underline underline-offset-3">
               {productPreview.title}
             </h4>
