@@ -3,7 +3,7 @@ import AlertDialogIcon from "@sellify/common-ui-components/dialog/AlertDialogIco
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 pb-14">
+    <div className="flex flex-col grow items-center justify-center gap-6 py-26">
       <AlertDialogIcon icon={<ShieldExclamationIcon />} />
       <div className="flex flex-col items-center gap-4">
         <h2>Page not found</h2>
