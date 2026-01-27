@@ -127,6 +127,63 @@ The following examples illustrate the practical use of custom React component li
   - [ ] `Admin User Management` - create and delete admins functionalities for the super admin.
   - [ ] `Form Validation` - server-side validation for user inputs and data integrity.
 
+## Architecture Diagram
+
+```mermaid
+
+flowchart TD
+
+    subgraph Data_Layer
+        Redis[(Redis Shopping Cart Storage)]
+        SessionCache[(Redis Session Cache)]
+        MongoDBOrders[(MongoDB Orders Storage)]
+        MongoDBCatalog[(MongoDB Catalog Storage)]
+        CassandraDatabase[(Cassandra Database)]
+        AdminDB[(PostgreSQL Database for Admins)]
+        CustomerDB[(PostgreSQL Database for Customers)]
+    end
+
+    subgraph Business_Logic_Layer
+        Catalog[Catalog Service]
+        ShoppingCart[Shopping Cart Service]
+        CacheService[Cache Service]
+        Order[Order Service]
+        LoggingService[Logging Service]
+    end
+
+    subgraph User_Management_Layer
+        Admins[Admin Management Service]
+        Customers[Customer Management Service]
+    end
+
+    subgraph UI_Layer
+        AdminWeb[Admin Web Application]
+        CustomerWeb[Customer Web Application]
+    end
+
+    subgraph External_Authorization_Layer
+        CustomerAuthService[Customer Authorization Service]
+        AdminAuthService[Admin Authorization Service]
+    end
+
+    %% Define Relationships
+    AdminAuthService --> Admins
+    CustomerAuthService --> Customers
+    UI_Layer --> Business_Logic_Layer
+    UI_Layer --> User_Management_Layer
+
+    Catalog -- Mongoose --> MongoDBCatalog
+    ShoppingCart --> Redis
+    CacheService --> SessionCache
+    Order -- Mongoose --> MongoDBOrders
+
+    LoggingService --> CassandraDatabase
+
+    Admins -- TypeORM --> AdminDB
+    Customers -- TypeORM --> CustomerDB
+
+```
+
 ## Environment Setup
 
 1. Install Visual Studio Code (`ms-vscode-remote.remote-containers` extension).
