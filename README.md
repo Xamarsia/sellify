@@ -44,12 +44,11 @@ Current Status: **Active Development**
 
 ### Backend
 
-- TODO: `customer-api` - an Express server dedicated to customer management.
-- TODO: `admin-api` - an Express server for managing admin functionalities.
-- TODO: `catalog-api` - an Express server for handling product catalog.
-- TODO: `basket-api` - an Express server for managing shopping basket operations.
-- TODO: `inventory-api` - an Express server for inventory data management.
-- TODO: `order-api` - an Express server for order processing.
+- TODO: `customer-api` - a server dedicated to customer management.
+- TODO: `admin-api` - a server for managing admin functionalities.
+- TODO: `catalog-api` - a server for handling product catalog.
+- TODO: `basket-api` - a server for managing shopping basket operations.
+- TODO: `order-api` - a server for order processing.
 
 ### Examples
 
