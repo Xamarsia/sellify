@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -17,6 +19,8 @@ type Props = {
 };
 
 export default function CustomerDetailsPage({ customer, orders }: Props) {
+  const [page, setPage] = useState<number>(1);
+
   return (
     <>
       <h1 className="py-4">{`Customer: ${customer.name} #${customer.customerId}`}</h1>
@@ -42,7 +46,12 @@ export default function CustomerDetailsPage({ customer, orders }: Props) {
 
       <InfoSection title="Orders">
         <Filter filterSections={OrdersFilterSections} />
-        <OrdersView content={orders} />
+        <OrdersView
+          content={orders}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
       </InfoSection>
       <Button variant="destructive">Archive Customer</Button>
     </>

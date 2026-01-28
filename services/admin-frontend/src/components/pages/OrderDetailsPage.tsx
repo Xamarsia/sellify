@@ -11,6 +11,7 @@ import { OrderDetails } from "@sellify/admin-ui-components/types";
 
 import Filter from "components/Filter";
 import { OrderProductsFilterSections } from "filter-sections/orders-filter";
+import { useState } from "react";
 
 type Props = {
   order: OrderDetails;
@@ -23,6 +24,8 @@ export default function OrderDetailsPage({
   paymentMethodInfo,
   customerName,
 }: Props) {
+  const [page, setPage] = useState<number>(1);
+
   return (
     <>
       <h1 className="py-4">{`Order: #${order.customerId}`}</h1>
@@ -51,7 +54,12 @@ export default function OrderDetailsPage({
 
       <InfoSection title="Products">
         <Filter filterSections={OrderProductsFilterSections} />
-        <OrderProductsView content={order.products} />
+        <OrderProductsView
+          content={order.products}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
       </InfoSection>
     </>
   );

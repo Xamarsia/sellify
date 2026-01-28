@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -8,9 +8,17 @@ import { RolePreview } from "../types";
 
 type Props = {
   content: Array<RolePreview>;
+  pagesAmount: number;
+  currentPage: number;
+  onPageChanged: (page: number) => void;
 };
 
-export default function RolesPreviewView({ content }: Props) {
+export default function RolesPreviewView({
+  content,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader: Array<string> = ["Title", "Role ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
@@ -20,5 +28,13 @@ export default function RolesPreviewView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={getContentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

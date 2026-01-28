@@ -8,15 +8,15 @@ import PageButton from "./PageButton";
 import PageItem from "./PageItem";
 
 type Props = {
-  pagesAmount: number;
-  currentPage: number;
+  pagesAmount: number; // Pagination is hidden if pagesAmount is less than 1.
+  currentPage?: number;
   pagesBarLength?: number;
-  onPageChanged: (page: number) => void;
+  onPageChanged?: (page: number) => void;
 };
 
 export default function Pagination({
   pagesAmount,
-  currentPage,
+  currentPage = 1,
   pagesBarLength: navBarLength = 5,
   onPageChanged,
 }: Props) {
@@ -62,23 +62,33 @@ export default function Pagination({
   }, [currentPagesArray, pagesBarHalfLength, pagesAmount]);
 
   const getPreviousPage = useCallback((): void => {
-    onPageChanged(currentPage - 1);
+    if (onPageChanged) {
+      onPageChanged(currentPage - 1);
+    }
   }, [onPageChanged]);
 
   const getNextPage = useCallback((): void => {
-    onPageChanged(currentPage + 1);
+    if (onPageChanged) {
+      onPageChanged(currentPage + 1);
+    }
   }, [onPageChanged]);
 
   const fastForwardPages = useCallback((): void => {
-    onPageChanged(currentPage + pagesBarHalfLength);
+    if (onPageChanged) {
+      onPageChanged(currentPage + pagesBarHalfLength);
+    }
   }, [onPageChanged]);
 
   const fastRewindPages = useCallback((): void => {
-    onPageChanged(currentPage - pagesBarHalfLength);
+    if (onPageChanged) {
+      onPageChanged(currentPage - pagesBarHalfLength);
+    }
   }, [onPageChanged]);
 
   return (
-    <nav className="flex w-full gap-6 items-center justify-center">
+    <nav
+      className={`${pagesAmount < 1 && "hidden"} flex w-full gap-6 items-center justify-center`}
+    >
       <TransparentIconButton
         disabled={currentPage == 1}
         onClick={getPreviousPage}

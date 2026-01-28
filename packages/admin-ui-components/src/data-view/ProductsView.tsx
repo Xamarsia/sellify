@@ -11,9 +11,17 @@ import ProductImagePreview from "../product/ProductImagePreview";
 
 type Props = {
   content: Array<Product>;
+  pagesAmount: number;
+  currentPage: number;
+  onPageChanged: (page: number) => void;
 };
 
-export default function ProductsView({ content }: Props) {
+export default function ProductsView({
+  content,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader: Array<string> = [
     "",
     "Product",
@@ -42,5 +50,13 @@ export default function ProductsView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={getContentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

@@ -20,6 +20,7 @@ import Filter from "components/Filter";
 import { InventoryFilterSections } from "filter-sections/inventory-filter";
 
 export default function InventoryPage() {
+  const [page, setPage] = useState<number>(1);
   const defaultProducts: Array<InventoryProduct> = getInventoryProducts();
   const [inventoryProducts, setInventoryProducts] =
     useState<Array<InventoryProduct>>(defaultProducts);
@@ -61,6 +62,9 @@ export default function InventoryPage() {
         <InventoryView
           content={inventoryProducts}
           onSubmit={openAddQuantityAlertDialog}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
         />
       </div>
     </>

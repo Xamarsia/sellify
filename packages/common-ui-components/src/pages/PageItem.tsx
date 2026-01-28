@@ -5,7 +5,7 @@ import PageButton from "./PageButton";
 type PageButtonProps = {
   pageNumber: number;
   selected?: boolean;
-  onPageSelected: (page: number) => void;
+  onPageSelected?: (page: number) => void;
 };
 
 export default function PageItem({
@@ -14,7 +14,7 @@ export default function PageItem({
   onPageSelected,
 }: PageButtonProps) {
   const handlePageChange = useCallback((): void => {
-    if (!selected) {
+    if (!selected && onPageSelected) {
       onPageSelected(pageNumber);
     }
   }, [selected, onPageSelected]);

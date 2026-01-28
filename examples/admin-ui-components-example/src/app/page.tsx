@@ -46,6 +46,7 @@ import { Permission } from "@sellify/admin-ui-components/enums";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
+  const [page, setPage] = useState<number>(1);
 
   const categoryPreview: CategoryPreview = {
     categoryId: 324534,
@@ -123,7 +124,7 @@ export default function Home() {
 
   const deliveryAddress: DeliveryAddress = {
     address: "123 Maple Street, Toronto, ON, M5A 1A1",
-    country: "Canada"
+    country: "Canada",
   };
 
   const customer: Customer = {
@@ -218,12 +219,25 @@ export default function Home() {
 
         <Section title={"Table"}>
           <SectionItem title="Orders Table">
-            <OrdersView content={[orderPreview, orderPreview2, orderPreview3, orderPreview4]} />
+            <OrdersView
+              content={[
+                orderPreview,
+                orderPreview2,
+                orderPreview3,
+                orderPreview4,
+              ]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
           </SectionItem>
 
           <SectionItem title="Products Table">
             <ProductsView
               content={[product, product, product, product, product]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
             />
           </SectionItem>
 
@@ -231,25 +245,46 @@ export default function Home() {
             <InventoryView
               content={[inventory, inventory, inventory, inventory, inventory]}
               onSubmit={setQuantity}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Customers Table">
-            <CustomersView content={[customer, customer, customer, customer]} />
+            <CustomersView
+              content={[customer, customer, customer, customer]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
           </SectionItem>
 
           <SectionItem title="Categories Table">
             <CategoriesView
               content={[category, category, category, category, category]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Admins Table">
-            <AdminsView content={[admin, admin, admin, admin, admin, admin]} />
+            <AdminsView
+              content={[admin, admin, admin, admin, admin, admin]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
           </SectionItem>
 
           <SectionItem title="Roles Table">
-            <RolesView content={[role, role, role, role, role, role]} />
+            <RolesView
+              content={[role, role, role, role, role, role]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
           </SectionItem>
 
           <SectionItem title="Product Preview Table">
@@ -261,6 +296,9 @@ export default function Home() {
                 productPreview,
                 productPreview,
               ]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
             />
           </SectionItem>
 
@@ -274,6 +312,9 @@ export default function Home() {
                 adminPreview,
                 adminPreview,
               ]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
             />
           </SectionItem>
         </Section>

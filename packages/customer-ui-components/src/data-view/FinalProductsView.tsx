@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
@@ -36,5 +38,11 @@ export default function FinalProductsView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={contentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={contentArray}
+      pagesAmount={0}
+    />
+  );
 }

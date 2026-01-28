@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
@@ -11,9 +11,17 @@ import { OrderPreview } from "../types";
 
 type Props = {
   content: Array<OrderPreview>;
+  pagesAmount: number;
+  currentPage?: number;
+  onPageChanged?: (page: number) => void;
 };
 
-export default function OrdersView({ content }: Props) {
+export default function OrdersView({
+  content,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader = useMemo<Array<string>>(() => {
     const header: Array<string> = [
       "Order ID",
@@ -38,5 +46,13 @@ export default function OrdersView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={contentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={contentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

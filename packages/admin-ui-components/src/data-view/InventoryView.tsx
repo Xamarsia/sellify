@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -12,9 +12,19 @@ type Props = {
   content: Array<InventoryProduct>;
   onSubmit: (productId: number, quantity: number) => void;
   disabled?: boolean;
+  pagesAmount: number;
+  currentPage: number;
+  onPageChanged: (page: number) => void;
 };
 
-export default function InventoryView({ disabled, content, onSubmit }: Props) {
+export default function InventoryView({
+  disabled,
+  content,
+  onSubmit,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader: Array<string> = [
     "",
     "Product",
@@ -40,5 +50,13 @@ export default function InventoryView({ disabled, content, onSubmit }: Props) {
     ]);
   }, [content, disabled]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={getContentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

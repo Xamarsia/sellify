@@ -11,6 +11,7 @@ import Filter from "components/Filter";
 import { PermissionsFilterSections } from "filter-sections/permissions-filter";
 
 export default function PermissionsPage() {
+  const [page, setPage] = useState<number>(1);
   const defaultPermissions: Array<Permission> = getPermissions();
   const [permissions, setPermissions] =
     useState<Array<Permission>>(defaultPermissions);
@@ -23,7 +24,12 @@ export default function PermissionsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={PermissionsFilterSections} />
         </div>
-        <PermissionsView content={permissions} />
+        <PermissionsView
+          content={permissions}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
       </div>
     </>
   );
