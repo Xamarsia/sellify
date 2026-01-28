@@ -12,6 +12,7 @@ import Filter from "components/Filter";
 
 export default function CustomersPage() {
   const defaultCustomers: Array<Customer> = getCustomers();
+  const [page, setPage] = useState<number>(1);
   const [customers, setCustomers] = useState<Array<Customer>>(defaultCustomers);
 
   return (
@@ -21,7 +22,12 @@ export default function CustomersPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={CustomersFilterSections} />
         </div>
-        <CustomersView content={customers} />
+        <CustomersView
+          content={customers}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
       </div>
     </>
   );

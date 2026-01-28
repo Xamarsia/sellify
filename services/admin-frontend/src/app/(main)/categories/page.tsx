@@ -16,6 +16,7 @@ export default function CategoriesPage() {
   const categories: Array<Category> = getCategories();
   const [currentCategories, setCurrentCategories] =
     useState<Array<Category>>(categories);
+  const [page, setPage] = useState<number>(1);
 
   return (
     <>
@@ -25,7 +26,12 @@ export default function CategoriesPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={CategoriesFilterSections} />
         </div>
-        <CategoriesView content={currentCategories} />
+        <CategoriesView
+          content={currentCategories}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
         <Button size="small">Add Category</Button>
       </div>
     </>

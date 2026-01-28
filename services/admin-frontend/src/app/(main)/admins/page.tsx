@@ -15,6 +15,7 @@ import { AdminFilterSections } from "filter-sections/admins-filter";
 export default function AdminsPage() {
   const defaultAdmins: Array<Admin> = getAdmins();
   const [admins, setAdmins] = useState<Array<Admin>>(defaultAdmins);
+  const [page, setPage] = useState<number>(1);
 
   return (
     <>
@@ -24,7 +25,12 @@ export default function AdminsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={AdminFilterSections} />
         </div>
-        <AdminsView content={admins} />
+        <AdminsView
+          content={admins}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
         <Button size="small">Create Admin</Button>
       </div>
     </>

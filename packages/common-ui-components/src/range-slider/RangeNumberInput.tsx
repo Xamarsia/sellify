@@ -49,5 +49,7 @@ export default function RangeNumberInput({
     setQuantity(value.toString());
   }, [value]);
 
-  return <FormInputItem value={quantity} title={title} onChange={handleChange} />;
+  return (
+    <FormInputItem value={quantity} title={title} onChange={handleChange} />
+  );
 }

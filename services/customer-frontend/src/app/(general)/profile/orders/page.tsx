@@ -9,12 +9,10 @@ import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 
 import { filterOrdersHistory, getOrderHistory } from "actions/order-actions";
-import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 export default function OrdersHistoryPage() {
   const oderHistory: Array<OrderPreview> = getOrderHistory();
 
-  const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
   const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
@@ -26,10 +24,6 @@ export default function OrdersHistoryPage() {
     ["byLowestPrice", "Rank by lowest price"],
     ["byHighestPrice", "Rank by highest price"],
   ]);
-
-  const onPageChanged = useCallback((newPage: number): void => {
-    setPage(newPage);
-  }, []);
 
   const onSearchChanged = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -52,15 +46,7 @@ export default function OrdersHistoryPage() {
           onKeySelected={setSortByKey}
         />
       </div>
-      <div className="flex w-full max-h-fit">
-        <OrdersView content={orders} />
-      </div>
-      <Pagination
-        currentPage={page}
-        pagesAmount={20}
-        pagesBarLength={3}
-        onPageChanged={onPageChanged}
-      />
+      <OrdersView content={orders} />
     </div>
   );
 }

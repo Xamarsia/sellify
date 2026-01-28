@@ -15,6 +15,8 @@ import { RolesFilterSections } from "filter-sections/roles-filter";
 export default function RolesPage() {
   const defaultRoles: Array<Role> = getRoles();
   const [roles, setRoles] = useState<Array<Role>>(defaultRoles);
+  const [page, setPage] = useState<number>(1);
+
   return (
     <>
       <PageTitle />
@@ -23,7 +25,12 @@ export default function RolesPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={RolesFilterSections} />
         </div>
-        <RolesView content={roles} />
+        <RolesView
+          content={roles}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
         <Button size="small">Add Role</Button>
       </div>
     </>

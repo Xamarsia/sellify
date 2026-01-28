@@ -8,9 +8,17 @@ import { AdminPreview } from "../types";
 
 type Props = {
   content: Array<AdminPreview>;
+  pagesAmount: number;
+  currentPage: number;
+  onPageChanged: (page: number) => void;
 };
 
-export default function AdminsPreviewView({ content }: Props) {
+export default function AdminsPreviewView({
+  content,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader: Array<string> = ["Name", "Admin ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
@@ -20,5 +28,13 @@ export default function AdminsPreviewView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={getContentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

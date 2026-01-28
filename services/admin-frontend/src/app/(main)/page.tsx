@@ -33,7 +33,7 @@ export default function Home() {
             More <ArrowLongRightIcon style="size-6" />
           </LinkButton>
         </div>
-        <OrdersView content={getOrdersPreview()} />
+        <OrdersView content={getOrdersPreview()} pagesAmount={0} />
       </div>
     </>
   );

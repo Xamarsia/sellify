@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -10,9 +10,17 @@ import AdminStatusComponent from "../statuses/AdminStatusComponent";
 
 type Props = {
   content: Array<Admin>;
+  pagesAmount: number;
+  currentPage: number;
+  onPageChanged: (page: number) => void;
 };
 
-export default function AdminsView({ content }: Props) {
+export default function AdminsView({
+  content,
+  pagesAmount,
+  currentPage,
+  onPageChanged,
+}: Props) {
   const tableHeader: Array<string> = [
     "Name",
     "Admin ID",
@@ -34,5 +42,13 @@ export default function AdminsView({ content }: Props) {
     ]);
   }, [content]);
 
-  return <AdaptiveDataView head={tableHeader} content={getContentArray} />;
+  return (
+    <AdaptiveDataView
+      head={tableHeader}
+      content={getContentArray}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      pagesAmount={pagesAmount}
+    />
+  );
 }

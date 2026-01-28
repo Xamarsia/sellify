@@ -12,6 +12,7 @@ import PageTitle from "components/PageTitle";
 import Filter from "components/Filter";
 
 export default function ProductsPage() {
+  const [page, setPage] = useState<number>(1);
   const products: Array<Product> = getProducts();
   const [currentProducts, setCurrentProducts] =
     useState<Array<Product>>(products);
@@ -24,7 +25,12 @@ export default function ProductsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={ProductsFilterSections} />
         </div>
-        <ProductsView content={currentProducts} />
+        <ProductsView
+          content={currentProducts}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
         <Button size="small">Add Product</Button>
       </div>
     </>

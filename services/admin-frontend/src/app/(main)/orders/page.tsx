@@ -14,6 +14,7 @@ import Filter from "components/Filter";
 import PageTitle from "components/PageTitle";
 
 export default function OrdersPage() {
+  const [page, setPage] = useState<number>(1);
   const oderHistory: Array<OrderPreview> = getOrdersPreview();
   const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
 
@@ -25,7 +26,12 @@ export default function OrdersPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={OrdersFilterSections} />
         </div>
-        <OrdersView content={orders} />
+        <OrdersView
+          content={orders}
+          currentPage={page}
+          onPageChanged={setPage}
+          pagesAmount={10}
+        />
       </div>
     </>
   );
