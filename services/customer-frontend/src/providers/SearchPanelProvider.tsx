@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   SearchItem,
@@ -19,19 +20,30 @@ export default function SearchPanelProvider({
 }) {
   const [searchPanelOpened, setSearchPanelOpened] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
+  const router = useRouter();
 
   const onSearchPanelClose = useCallback((): void => {
     setSearchPanelOpened(false);
   }, []);
 
-  const onSearch = useCallback((query: string): Array<SearchItem> => {
+  const onQueryChange = useCallback((query: string): Array<SearchItem> => {
     setQuery(query);
     return search(query);
   }, []);
 
+  const onSearch = useCallback((): void => {
+    router.push(`/search/${query.replace(/\s/g, "-")}`);
+    onSearchPanelClose();
+  }, [router, query]);
+
   const contextValue: SearchPanelController = {
     openSearchPanel: () => {
       setSearchPanelOpened(true);
+    },
+    setInitialQuery: (initialQuery?: string) => {
+      if (initialQuery) {
+        setQuery(initialQuery);
+      }
     },
   };
 
@@ -46,9 +58,10 @@ export default function SearchPanelProvider({
     <SearchPanelContext.Provider value={contextValue}>
       <SearchPanel
         query={query}
-        dialogOpen={searchPanelOpened}
-        onDialogClose={onSearchPanelClose}
+        isOpen={searchPanelOpened}
+        onClose={onSearchPanelClose}
         onSearch={onSearch}
+        onQueryChange={onQueryChange}
         popularQuickLinks={popularQuickLinks}
       />
       {children}
