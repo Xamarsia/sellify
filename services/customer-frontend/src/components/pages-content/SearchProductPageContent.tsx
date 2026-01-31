@@ -1,43 +1,28 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import ProductFeedContent from "components/ProductFeedContent";
+import { useContext, useEffect } from "react";
+import { SearchPanelController } from "types";
+import { SearchPanelContext } from "contexts/search-context";
 
-import { SearchItem as SearchItemType } from "@sellify/customer-ui-components/types";
-import SearchInput from "@sellify/common-ui-components/input/SearchInput";
-import SearchItem from "@sellify/customer-ui-components/search/SearchItem";
-
-type SearchPanelProps = {
+type Props = {
   query: string;
-  onSearch: (query: string) => Array<SearchItemType>;
 };
 
-export default function SearchProductPageContent({
-  query = "",
-  onSearch,
-}: SearchPanelProps
-) {
-  const [searchResults, setSearchResults] = useState<Array<SearchItemType>>([]);
+export default function SearchProductPageContent({ query }: Props) {
+  const { setInitialQuery } =
+    useContext<SearchPanelController>(SearchPanelContext);
 
-  const onSearchChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
-      setSearchResults(onSearch(query));
-    },
-    [onSearch],
-  );
+  useEffect(() => {
+    setInitialQuery(query);
+  }, [query]);
 
   return (
-    <>
-      <SearchInput value={query} onChange={onSearchChanged} />
-      <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
-        {searchResults.map((item, index) => (
-          <li key={"SearchResult:" + item.productId.toString() + index}>
-            <SearchItem searchItem={item} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="flex w-full flex-col gap-9 ">
+      <h1 className="text-justify break-all">{`Results for "${query.replace(/-/g, " ")}"`}</h1>
+      <div className="flex w-full justify-between gap-12 xl:gap-24 xl:flex-row flex-col">
+        <ProductFeedContent />
+      </div>
+    </div>
   );
 }
-

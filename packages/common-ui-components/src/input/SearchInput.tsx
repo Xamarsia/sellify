@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 import MagnifyingGlass from "@sellify/common-icons/magnifying-glass";
 
@@ -10,11 +10,13 @@ type SearchInputProps = {
   value: string;
   fill?: "default" | "parent";
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
 };
 
 export default function SearchInput({
   value,
   onChange,
+  onSubmit,
   fill = "default",
 }: SearchInputProps) {
   const fillStyle = {
@@ -23,7 +25,7 @@ export default function SearchInput({
   }[fill];
 
   return (
-    <div className={`flex ${fillStyle}`}>
+    <form className={`flex ${fillStyle}`} onSubmit={onSubmit}>
       <Input
         type="text"
         value={value}
@@ -32,6 +34,6 @@ export default function SearchInput({
         icon={<MagnifyingGlass style="size-5" />}
         required
       />
-    </div>
+    </form>
   );
 }

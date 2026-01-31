@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
@@ -12,33 +12,48 @@ import { SearchItem as SearchItemType, NavigationLink } from "../types";
 
 type SearchPanelProps = {
   query: string;
-  dialogOpen: boolean;
-  onDialogClose: () => void;
-  onSearch: (query: string) => Array<SearchItemType>;
+  isOpen: boolean;
+  onClose: () => void;
+  onQueryChange: (query: string) => Array<SearchItemType>;
+  onSearch: () => void;
   popularQuickLinks: Array<NavigationLink>;
 };
 
 export default function SearchPanel({
   query,
   onSearch,
-  dialogOpen,
-  onDialogClose,
+  isOpen,
+  onClose,
+  onQueryChange,
   popularQuickLinks,
 }: SearchPanelProps) {
   const [searchResults, setSearchResults] = useState<Array<SearchItemType>>([]);
 
-  const onSearchChanged = useCallback(
+  const onQueryChanged = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       e.preventDefault();
       const query: string = e.target.value;
-      setSearchResults(onSearch(query));
+      setSearchResults(onQueryChange(query));
+    },
+    [onQueryChange],
+  );
+
+  const onSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>): void => {
+      e.preventDefault();
+      onSearch();
     },
     [onSearch],
   );
 
   return (
-    <SidePanel open={dialogOpen} onClose={onDialogClose} title="Search">
-      <SearchInput value={query} onChange={onSearchChanged} fill="parent" />
+    <SidePanel open={isOpen} onClose={onClose} title="Search">
+      <SearchInput
+        value={query}
+        onChange={onQueryChanged}
+        onSubmit={onSubmit}
+        fill="parent"
+      />
       {query ? (
         <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
           <h4 className="text-disabled capitalize pt-5">Product Results</h4>
@@ -49,7 +64,7 @@ export default function SearchPanel({
               </li>
             ))}
           </ul>
-          <LinkButton>
+          <LinkButton href={`/search/${query.replace(/\s/g, "-")}`}>
             See More Results <ArrowLongRightIcon style="size-6" />
           </LinkButton>
         </div>

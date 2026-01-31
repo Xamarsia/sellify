@@ -32,6 +32,7 @@ export type CartPanelController = {
 
 export type SearchPanelController = {
   openSearchPanel: () => void;
+  setInitialQuery: (initialQuery?: string) => void;
 };
 
 export type AlertDialogController = {
