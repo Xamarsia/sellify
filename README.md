@@ -11,6 +11,7 @@ Sellify is a microservice demo of an e-commerce web platform.
 - [Project's Services](#projects-services)
   - [Frontend](#frontend)
   - [Backend](#backend)
+  - [DBs](#dbs)
   - [Examples](#examples)
 - [Project Packages](#project-packages)
 - [Development Stack](#development-stack)
@@ -49,6 +50,18 @@ Current Status: **Active Development**
 - TODO: `catalog-api` - a server for handling product catalog.
 - TODO: `basket-api` - a server for managing shopping basket operations.
 - TODO: `order-api` - a server for order processing.
+- TODO: `cache-api` - a server that enhances performance through data caching.
+- TODO: `logging-api` - a server that captures logs for monitoring and analytics.
+
+### DBs
+
+- TODO:`Redis Shopping Cart Storage` - used by basket-api service for real-time shopping cart data.
+- TODO:`Redis Session Cache` - used by cache-api service for quick access to user session data.
+- TODO:`MongoDB Orders Storage` - used by order-api service to store customer orders details.
+- TODO:`MongoDB Catalog Storage` - used by catalog-api service for product details and inventory management.
+- TODO:`Cassandra Database` - used by logging-api service.
+- TODO:`PostgreSQL Admins Database` - used by admin-api service.
+- TODO:`PostgreSQL Customers Database` - used by customer-api service.
 
 ### Examples
 
