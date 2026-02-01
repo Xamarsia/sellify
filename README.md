@@ -11,11 +11,12 @@ Sellify is a microservice demo of an e-commerce web platform.
 - [Project's Services](#projects-services)
   - [Frontend](#frontend)
   - [Backend](#backend)
-  - [DBs](#dbs)
   - [Examples](#examples)
 - [Project Packages](#project-packages)
+- [Project Databases](#project-databases)
 - [Development Stack](#development-stack)
 - [Project Features](#project-features)
+- [Architecture Diagram](#architecture-diagram)
 - [Environment Setup](#environment-setup)
 - [Build & Run](#build--run)
 - [Useful Commands](#useful-commands)
@@ -53,16 +54,6 @@ Current Status: **Active Development**
 - TODO: `cache-api` - a server that enhances performance through data caching.
 - TODO: `logging-api` - a server that captures logs for monitoring and analytics.
 
-### DBs
-
-- TODO:`Redis Shopping Cart Storage` - used by basket-api service for real-time shopping cart data.
-- TODO:`Redis Session Cache` - used by cache-api service for quick access to user session data.
-- TODO:`MongoDB Orders Storage` - used by order-api service to store customer orders details.
-- TODO:`MongoDB Catalog Storage` - used by catalog-api service for product details and inventory management.
-- TODO:`Cassandra Database` - used by logging-api service.
-- TODO:`PostgreSQL Admins Database` - used by admin-api service.
-- TODO:`PostgreSQL Customers Database` - used by customer-api service.
-
 ### Examples
 
 The following examples illustrate the practical use of custom React component libraries from various packages:
@@ -81,6 +72,16 @@ The following examples illustrate the practical use of custom React component li
 - [`@sellify/admin-ui-components`](https://github.com/Xamarsia/sellify/tree/main/packages/admin-ui-components/README.md) - admin UI components.
 - [`@sellify/common-icons`](https://github.com/Xamarsia/sellify/tree/main/packages/common-icons/README.md) - common UI icons components.
 - [`@sellify/logger`](https://github.com/Xamarsia/sellify/tree/main/packages/logger/README.md) - log service with Cassandra.
+
+## Project Databases
+
+- `shopping-cart-db`: Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **basket-api** service for real-time shopping cart data.
+- `session-cache-db`: Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **cache-api** service for quick access to user session data.
+- `orders-db`: MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **order-api** service to store customer order details.
+- `catalog-db`: MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **catalog-api** service for product details and inventory management.
+- `logs-db`: Cassandra (NoSQL - Wide-Column, **AP** by CAP Theorem). Used by **logging-api** service.
+- `admins-db`: PostgreSQL (SQL, **CP** by CAP Theorem). Used by **admin-api** service.
+- `customers-db`: PostgreSQL (SQL, **CP** by CAP Theorem). Used by **customer-api** service.
 
 ## Development Stack
 
