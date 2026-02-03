@@ -75,13 +75,13 @@ The following examples illustrate the practical use of custom React component li
 
 ## Project Databases
 
-- `shopping-cart-db`: Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **basket-api** service for real-time shopping cart data.
-- `session-cache-db`: Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **cache-api** service for quick access to user session data.
-- `orders-db`: MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **order-api** service to store customer order details.
-- `catalog-db`: MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **catalog-api** service for product details and inventory management.
-- `logs-db`: Cassandra (NoSQL - Wide-Column, **AP** by CAP Theorem). Used by **logging-api** service.
-- `admins-db`: PostgreSQL (SQL, **CP** by CAP Theorem). Used by **admin-api** service.
-- `customers-db`: PostgreSQL (SQL, **CP** by CAP Theorem). Used by **customer-api** service.
+- `shopping-cart-db` - Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **basket-api** service for real-time shopping cart data.
+- `session-cache-db` - Redis (NoSQL - Key-Value, **AP** by CAP Theorem). Used by **cache-api** service for quick access to user session data.
+- `orders-db` - MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **order-api** service to store customer order details.
+- `catalog-db` - MongoDB (NoSQL - Document, **CP** by CAP Theorem). Used by **catalog-api** service for product details and inventory management.
+- `logs-db` - Cassandra (NoSQL - Wide-Column, **AP** by CAP Theorem). Used by **logging-api** service.
+- `admins-db` - PostgreSQL (SQL, **CP** by CAP Theorem). Used by **admin-api** service.
+- `customers-db` - PostgreSQL (SQL, **CP** by CAP Theorem). Used by **customer-api** service.
 
 ## Development Stack
 
