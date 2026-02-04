@@ -23,8 +23,8 @@ export default function Home() {
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
         <CardWithChard label="Revenue" value="$7,823" trendValue={10} />
-        <CardWithChard label="Revenue" value="$7,823" trendValue={-10} />
-        <CardWithChard label="Revenue" value="$7,823" trendValue={0} />
+        <CardWithChard label="Orders Amount" value="345" trendValue={-10} />
+        <CardWithChard label="Visitors" value="823" trendValue={0} />
       </div>
       <div className="flex flex-col w-full gap-4">
         <div className="flex justify-between items-center">
