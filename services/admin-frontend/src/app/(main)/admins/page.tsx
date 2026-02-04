@@ -5,6 +5,7 @@ import { useState } from "react";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { Admin } from "@sellify/admin-ui-components/types";
+import Card from "@sellify/admin-ui-components/card/Card";
 import AdminsView from "@sellify/admin-ui-components/data-view/AdminsView";
 
 import PageTitle from "components/PageTitle";
@@ -19,7 +20,15 @@ export default function AdminsPage() {
 
   return (
     <>
-      <PageTitle />
+      <div className="flex justify-between items-center">
+        <PageTitle />
+        <Button size="small">Create Admin</Button>
+      </div>
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card label="Total Admin Users" value="823" />
+        <Card label="Active Admins" value="213" />
+      </div>
 
       <div className="flex flex-col w-full gap-4">
         <div className="flex w-full justify-end">
@@ -31,7 +40,6 @@ export default function AdminsPage() {
           onPageChanged={setPage}
           pagesAmount={10}
         />
-        <Button size="small">Create Admin</Button>
       </div>
     </>
   );

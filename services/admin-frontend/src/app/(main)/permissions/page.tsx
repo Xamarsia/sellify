@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Permission } from "@sellify/admin-ui-components/types";
+import Card from "@sellify/admin-ui-components/card/Card";
 import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
 
 import PageTitle from "components/PageTitle";
@@ -19,6 +20,11 @@ export default function PermissionsPage() {
   return (
     <>
       <PageTitle />
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card label="Permissions Amount" value="345" />
+        <Card label="Most Popular Permission" value="Rings" />
+      </div>
 
       <div className="flex flex-col w-full gap-4">
         <div className="flex w-full justify-end">

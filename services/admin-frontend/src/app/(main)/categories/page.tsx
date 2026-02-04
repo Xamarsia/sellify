@@ -5,6 +5,7 @@ import { useState } from "react";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { Category } from "@sellify/admin-ui-components/types";
+import Card from "@sellify/admin-ui-components/card/Card";
 import CategoriesView from "@sellify/admin-ui-components/data-view/CategoriesView";
 
 import { getCategories } from "actions/category-actions";
@@ -20,7 +21,15 @@ export default function CategoriesPage() {
 
   return (
     <>
-      <PageTitle />
+      <div className="flex justify-between items-center">
+        <PageTitle />
+        <Button size="small">Add Category</Button>
+      </div>
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card label="Categories Amount" value="345" />
+        <Card label="Most Popular Category" value="Rings" />
+      </div>
 
       <div className="flex flex-col w-full gap-4">
         <div className="flex w-full justify-end">
@@ -32,7 +41,6 @@ export default function CategoriesPage() {
           onPageChanged={setPage}
           pagesAmount={10}
         />
-        <Button size="small">Add Category</Button>
       </div>
     </>
   );

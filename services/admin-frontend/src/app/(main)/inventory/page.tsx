@@ -6,6 +6,7 @@ import FireIcon from "@sellify/common-icons/fire";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 
+import Card from "@sellify/admin-ui-components/card/Card";
 import { InventoryProduct } from "@sellify/admin-ui-components/types";
 import InventoryView from "@sellify/admin-ui-components/data-view/InventoryView";
 
@@ -55,6 +56,12 @@ export default function InventoryPage() {
   return (
     <>
       <PageTitle />
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card label="Out-of-Stock Items Count" value="823" />
+        <Card label="Total Inventory Value" value="$43,823" />
+      </div>
+
       <div className="flex flex-col w-full gap-4">
         <div className="flex w-full justify-end">
           <Filter filterSections={InventoryFilterSections} />
