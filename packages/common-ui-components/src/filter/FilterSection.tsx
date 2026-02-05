@@ -1,9 +1,6 @@
 "use client";
 
-import { ReactNode, useCallback, useState } from "react";
-
-import PlusIcon from "@sellify/common-icons/plus";
-import MinusIcon from "@sellify/common-icons/minus";
+import { ReactNode, useCallback } from "react";
 
 import CheckboxFilterPropertyView from "./CheckboxFilterPropertyView";
 import RangeFilterPropertyView from "./RangeFilterPropertyView";
@@ -25,6 +22,7 @@ import {
 } from "./common/PropertyValues";
 import MultiSelectionComboboxFilterPropertyView from "./MultiSelectionComboboxFilterPropertyView";
 import IdInputFilterPropertyView from "./IdInputFilterPropertyView";
+import CollapsiblePanel from "../CollapsiblePanel";
 
 type FilterSectionProps = {
   sectionKey: string;
@@ -43,12 +41,6 @@ export default function FilterSectionComponent({
   modifiedProperties,
   onFilterSectionChange,
 }: FilterSectionProps) {
-  const [isExtended, setIsExtended] = useState<boolean>(false);
-
-  const onSectionClick = useCallback(() => {
-    setIsExtended(!isExtended);
-  }, [isExtended]);
-
   const onFilterPropertyChange = useCallback(
     (propertyKey: string, value: FilterPropertyValue) => {
       onFilterSectionChange(sectionKey, propertyKey, value);
@@ -138,24 +130,10 @@ export default function FilterSectionComponent({
   );
 
   return (
-    <div className="flex flex-col w-full">
-      <button
-        onClick={onSectionClick}
-        className={`flex items-center h-16 justify-between w-full bg-white capitalize 
-          cursor-pointer ${isExtended ? "text-black" : "text-secondary hover:text-black"}`}
-      >
-        <h4>{sectionKey}</h4>
-        {isExtended ? (
-          <MinusIcon style="size-6" />
-        ) : (
-          <PlusIcon style="size-6" />
-        )}
-      </button>
-      {isExtended && (
-        <div className="flex flex-col gap-3">
-          {properties.map((property) => getPropertyComponent(property))}
-        </div>
-      )}
-    </div>
+    <CollapsiblePanel panelTitle={sectionKey}>
+      <div className="flex flex-col gap-3">
+        {properties.map((property) => getPropertyComponent(property))}
+      </div>
+    </CollapsiblePanel>
   );
 }

@@ -24,6 +24,7 @@ import Textarea from "@sellify/common-ui-components/input/Textarea";
 import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
 
 import Section from "components/Section";
@@ -441,6 +442,16 @@ export default function Home() {
               deliveryFee={5}
               totalPrice={350}
             />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Collapsible Panel"}>
+          <SectionItem>
+            <CollapsiblePanel paneTitle="Collapsible Panel" >
+              <p>Content</p>
+            </CollapsiblePanel>
           </SectionItem>
         </Section>
       </main>

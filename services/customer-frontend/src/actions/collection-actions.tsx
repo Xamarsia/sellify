@@ -1,4 +1,5 @@
 import {
+  Banner,
   Collection,
   CollectionPreview,
 } from "@sellify/customer-ui-components/types";
@@ -28,12 +29,17 @@ const collectionPreviews: Array<CollectionPreview> = [
   },
 ];
 
-const collection: Collection = {
-  id: 2346,
+const banner: Banner = {
   image: image2.src,
-  title: "Thoughtful Gifts They'll Love",
+  title: "FAQs",
   description:
     "Explore our diverse selection of indoor and outdoor plants to create your own green sanctuary.",
+};
+
+const collection: Collection = {
+  id: 2346,
+  title: "Collection Title",
+  banner: banner,
 };
 
 export function getCollectionPreviews(): Array<CollectionPreview> {
