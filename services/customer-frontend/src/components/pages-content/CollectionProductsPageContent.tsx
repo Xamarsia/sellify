@@ -4,14 +4,11 @@ import { useContext, useEffect, useMemo } from "react";
 
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
-import { Collection } from "@sellify/customer-ui-components/types";
-
 import ProductFeedContent from "components/ProductFeedContent";
 import { BreadcrumbsContext } from "contexts/common-context";
 import { BreadcrumbsController } from "types";
 
 type Props = {
-  collection: Collection;
   collectionTitle: string;
 };
 

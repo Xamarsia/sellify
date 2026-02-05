@@ -125,7 +125,7 @@ export default function FilterPanelProvider({
         title="Filter"
       >
         <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto">
-          <div className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
+          <div className="flex grow flex-col overflow-y-auto scrollbar pr-4">
             {filterSections.map((section) => (
               <FilterSection
                 sectionKey={section.key}

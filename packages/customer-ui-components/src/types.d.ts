@@ -133,7 +133,12 @@ export type CollectionPreview = {
 
 export type Collection = {
   id: number;
-  image?: string; // banner image
-  title: string; // banner title
-  description: string; // banner description
+  title: string;
+  banner: Banner;
+};
+
+export type Banner = {
+  image: string;
+  title: string;
+  description?: string;
 };
