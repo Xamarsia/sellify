@@ -42,3 +42,11 @@ export function getAboutUsPageBanner(): Banner {
   };
   return banner;
 }
+
+export function getCareersPageBanner(): Banner {
+  const banner: Banner = {
+    image: image2.src,
+    title: "Careers",
+  };
+  return banner;
+}
