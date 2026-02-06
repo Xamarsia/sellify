@@ -31,7 +31,7 @@ const collectionPreviews: Array<CollectionPreview> = [
 
 const banner: Banner = {
   image: image2.src,
-  title: "FAQs",
+  title: "Collection Title",
   description:
     "Explore our diverse selection of indoor and outdoor plants to create your own green sanctuary.",
 };
