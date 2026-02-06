@@ -6,12 +6,11 @@ import image2 from "resources/1/image2.jpg";
 import image3 from "resources/2/image.jpg";
 import image5 from "resources/3/image.jpg";
 
-const banner: Banner = {
-  image: image5.src,
-  title: "FAQs",
-};
-
 export function getFAQPageBanner(): Banner {
+  const banner: Banner = {
+    image: image5.src,
+    title: "FAQs",
+  };
   return banner;
 }
 
@@ -34,4 +33,12 @@ export function getFAQs(): Array<CollapsiblePanelInfo> {
       content: <p>Content</p>,
     },
   );
+}
+
+export function getAboutUsPageBanner(): Banner {
+  const banner: Banner = {
+    image: image.src,
+    title: "About Us",
+  };
+  return banner;
 }

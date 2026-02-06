@@ -34,7 +34,7 @@ export default function Footer({ copyright, onSubscribe }: FooterProps) {
         <div className="flex flex-col gap-5 ">
           <h4>Company</h4>
           <div className="flex flex-col gap-1">
-            <LinkButton>About Us</LinkButton>
+            <LinkButton href="/company/about-us">About Us</LinkButton>
             <LinkButton>Careers</LinkButton>
             <LinkButton>Delivery Information</LinkButton>
             <LinkButton>Privacy Policy</LinkButton>
