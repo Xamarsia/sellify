@@ -19,27 +19,25 @@ export default function CareersPage() {
             }
           </p>
           <p>{"You can email us at info@yourstore.com."}</p>
-          <div className="flex w-full md:basis-1/2 flex-col gap-8 ">
+          <div className="flex w-full flex-col gap-8 ">
             <h2>{"Why Work With Us?"}</h2>
-            <div className="flex items-start flex-col gap-1">
-              <ul className="list-disc list-inside flex flex-col w-full gap-4">
-                <li>
-                  {
-                    "Quality: We believe in offering only the best plants and products. Each item in our store is selected with care to ensure it meets our high standards."
-                  }
-                </li>
-                <li>
-                  {
-                    "Sustainability: We are committed to environmentally friendly practices, from sourcing our plants responsibly to minimizing waste in our operations."
-                  }
-                </li>
-                <li>
-                  {
-                    "Expertise: Our knowledgeable staff is passionate about plants and is always ready to provide guidance and support to help you succeed in your gardening journey."
-                  }
-                </li>
-              </ul>
-            </div>
+            <ul className="list-disc list-inside flex flex-col w-full gap-4">
+              <li>
+                {
+                  "Quality: We believe in offering only the best plants and products. Each item in our store is selected with care to ensure it meets our high standards."
+                }
+              </li>
+              <li>
+                {
+                  "Sustainability: We are committed to environmentally friendly practices, from sourcing our plants responsibly to minimizing waste in our operations."
+                }
+              </li>
+              <li>
+                {
+                  "Expertise: Our knowledgeable staff is passionate about plants and is always ready to provide guidance and support to help you succeed in your gardening journey."
+                }
+              </li>
+            </ul>
           </div>
         </div>
       </div>
