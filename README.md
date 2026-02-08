@@ -97,6 +97,7 @@ The following examples illustrate the practical use of custom React component li
 - `Redis`- for storing inventory and basket data.
 - `Cassandra`- for storing logs.
 - `PostgreSQL` - for storing user and catalog data.
+- `Selenium` - for automated testing of web applications by simulating user interactions across various browsers.
 
 ## Project Features
 
