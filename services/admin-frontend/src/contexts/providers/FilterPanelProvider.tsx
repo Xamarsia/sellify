@@ -11,8 +11,8 @@ import { FilterPanelContext } from "contexts/common-context";
 import { FilterPanelController } from "types";
 
 // TODO change imports into "@sellify/common-ui-components/"
-import { FilterPropertyValue } from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
-import { FilterSection as FilterSectionType } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterPropertyValue } from "../../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+import { FilterSection as FilterSectionType } from "../../../../../packages/common-ui-components/src/filter/common/Section";
 
 export default function FilterPanelProvider({
   children,

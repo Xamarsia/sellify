@@ -4,9 +4,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@sellify/admin-ui-components/Footer";
 
-import RiskDialogProvider from "providers/RiskDialogProvider";
-import AlertDialogProvider from "providers/AlertDialogProvider";
-import FilterPanelProvider from "providers/FilterPanelProvider";
+import RiskDialogProvider from "contexts/providers/RiskDialogProvider";
+import AlertDialogProvider from "contexts/providers/AlertDialogProvider";
+import FilterPanelProvider from "contexts/providers/FilterPanelProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
