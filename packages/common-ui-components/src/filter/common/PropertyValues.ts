@@ -1,8 +1,8 @@
 import { SliderRange } from "../../types";
 
-export interface FilterPropertyValue {}
+export interface FilterPropertyValue { }
 
-export class FilterPropertyValueImpl<T> {
+export abstract class FilterPropertyValueImpl<T> implements FilterPropertyValue {
   private _value: T;
 
   constructor(value: T) {
@@ -18,12 +18,12 @@ export class FilterPropertyValueImpl<T> {
   }
 }
 
-export class CheckboxFilterPropertyValue extends FilterPropertyValueImpl<boolean> {}
+export class CheckboxFilterPropertyValue extends FilterPropertyValueImpl<boolean> { }
 
-export class RangeFilterPropertyValue extends FilterPropertyValueImpl<SliderRange> {}
+export class RangeFilterPropertyValue extends FilterPropertyValueImpl<SliderRange> { }
 
 export class MultiSelectionComboboxFilterPropertyValue<
   T,
-> extends FilterPropertyValueImpl<Map<T, string>> {}
+> extends FilterPropertyValueImpl<Map<T, string>> { }
 
-export class InputFilterPropertyValue extends FilterPropertyValueImpl<string> {}
+export class InputFilterPropertyValue extends FilterPropertyValueImpl<string> { }
