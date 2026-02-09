@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 
@@ -17,12 +18,20 @@ export default function RolesPage() {
   const defaultRoles: Array<Role> = getRoles();
   const [roles, setRoles] = useState<Array<Role>>(defaultRoles);
   const [page, setPage] = useState<number>(1);
+  const router = useRouter();
 
   return (
     <>
       <div className="flex justify-between items-center">
         <PageTitle />
-        <Button size="small">Add Role</Button>
+        <Button
+          size="small"
+          onClick={() => {
+            router.push(`/role/create`);
+          }}
+        >
+          Add Role
+        </Button>
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">

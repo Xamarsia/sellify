@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 
 import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
@@ -9,33 +9,40 @@ import { Permissions } from "@sellify/admin-ui-components/constants";
 type Props = {
   required?: boolean;
   disabled?: boolean;
+  selectedPermissions: Map<number, string>;
+  onSelectedPermissionsChanged: (
+    selectedPermissions: Map<number, string>,
+  ) => void;
   defaultSelectedPermissions?: number[];
 };
 
 export default function PermissionsMultiSelectionCombobox({
   required,
   disabled,
+  selectedPermissions,
+  onSelectedPermissionsChanged,
   defaultSelectedPermissions,
 }: Props) {
   const items: Map<number, string> = new Map(Permissions);
-  const [selectedItems, setSelectedItems] = useState<Map<number, string>>(
-    new Map(),
-  );
+
   const onItemSelected = useCallback(
     (key: number, value: string) => {
-      const newSelectedItemsMap = new Map([...selectedItems, [key, value]]);
-      setSelectedItems(newSelectedItemsMap);
+      const newSelectedItemsMap = new Map([
+        ...selectedPermissions,
+        [key, value],
+      ]);
+      onSelectedPermissionsChanged(newSelectedItemsMap);
     },
-    [selectedItems],
+    [selectedPermissions, onSelectedPermissionsChanged],
   );
 
   const onItemRemoved = useCallback(
     (key: number, value: string) => {
-      const newSelectedItemsMap = new Map([...selectedItems]);
+      const newSelectedItemsMap = new Map([...selectedPermissions]);
       newSelectedItemsMap.delete(key);
-      setSelectedItems(newSelectedItemsMap);
+      onSelectedPermissionsChanged(newSelectedItemsMap);
     },
-    [selectedItems],
+    [selectedPermissions, onSelectedPermissionsChanged],
   );
 
   useEffect(() => {
@@ -50,7 +57,7 @@ export default function PermissionsMultiSelectionCombobox({
         newSelectedItems.set(key, value);
       }
     });
-    setSelectedItems(newSelectedItems);
+    onSelectedPermissionsChanged(newSelectedItems);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Runs only on the first render
 
@@ -58,7 +65,7 @@ export default function PermissionsMultiSelectionCombobox({
     <MultiSelectionCombobox
       title={"Permissions"}
       items={items}
-      selectedItems={selectedItems}
+      selectedItems={selectedPermissions}
       required={required}
       disabled={disabled}
       onItemSelected={onItemSelected}

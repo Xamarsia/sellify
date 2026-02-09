@@ -124,7 +124,7 @@ export default function MultiSelectionCombobox<T extends string | number>({
                 onFocus={onInputInFocus}
                 onChange={onValueChange}
                 value={query}
-                required={required}
+                required={!selectedItems.size && required}
                 disabled={disabled}
                 placeholder={selectedItems?.size == 0 ? "--" : ""}
                 className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
