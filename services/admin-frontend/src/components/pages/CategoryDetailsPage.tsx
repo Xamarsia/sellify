@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import Button from "@sellify/common-ui-components/buttons/Button";
-
 import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import { Category, ProductPreview } from "@sellify/admin-ui-components/types";
@@ -11,6 +9,7 @@ import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPr
 
 import Filter from "components/Filter";
 import { ProductsPreviewFilterSections } from "filter-sections/products-filter";
+import CategorySettings from "setting-sections/category-settings";
 
 type Props = {
   category: Category;
@@ -36,7 +35,10 @@ export default function CategoryDetailsPage({
           pagesAmount={10}
         />
       </InfoSection>
-      <Button variant="destructive">Remove Category</Button>
+
+      <InfoSection title="Danger Zone">
+        <CategorySettings />
+      </InfoSection>
     </>
   );
 }
