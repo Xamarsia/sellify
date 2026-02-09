@@ -27,3 +27,8 @@ export type AlertDialogController = {
 export type FilterPanelController = {
   openFilterPanel: (filterSections: Array<FilterSectionType>) => void;
 };
+
+export type CreateRoleRequest = {
+  title: string;
+  permissions: number[];
+};

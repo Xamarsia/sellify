@@ -85,18 +85,20 @@ export default function Dropdown({
       </button>
 
       {isExtended && (
-        <div className="absolute right-0 top-12 w-56 rounded-lg bg-white border border-stroke p-4 flex-col min-h-12 max-h-60 overflow-y-auto z-10">
-          {[...items].map(([key, value]) => {
-            return (
-              <DropdownItem
-                key={key}
-                value={key}
-                label={value}
-                selected={key == selectedKey}
-                onItemSelected={onItemSelected}
-              />
-            );
-          })}
+        <div className="absolute right-0 top-12 rounded-lg bg-white border border-stroke p-4 z-10">
+          <div className="w-56 flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
+            {[...items].map(([key, value]) => {
+              return (
+                <DropdownItem
+                  key={key}
+                  value={key}
+                  label={value}
+                  selected={key == selectedKey}
+                  onItemSelected={onItemSelected}
+                />
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

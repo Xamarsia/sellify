@@ -124,7 +124,7 @@ export default function MultiSelectionCombobox<T extends string | number>({
                 onFocus={onInputInFocus}
                 onChange={onValueChange}
                 value={query}
-                required={required}
+                required={!selectedItems.size && required}
                 disabled={disabled}
                 placeholder={selectedItems?.size == 0 ? "--" : ""}
                 className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
@@ -148,17 +148,19 @@ export default function MultiSelectionCombobox<T extends string | number>({
         </div>
 
         {isExtended && (
-          <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 flex-col min-h-12 max-h-60 overflow-y-auto z-10">
-            {[...suggestedItems].map(([key, value]) => {
-              return (
-                <DropdownItem
-                  key={key}
-                  value={key}
-                  label={value}
-                  onItemSelected={onSelected}
-                />
-              );
-            })}
+          <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
+            <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
+              {[...suggestedItems].map(([key, value]) => {
+                return (
+                  <DropdownItem
+                    key={key}
+                    value={key}
+                    label={value}
+                    onItemSelected={onSelected}
+                  />
+                );
+              })}
+            </div>
           </div>
         )}
       </div>

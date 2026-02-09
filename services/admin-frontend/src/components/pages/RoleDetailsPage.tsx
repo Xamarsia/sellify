@@ -19,7 +19,9 @@ type Props = {
 
 export default function RoleDetailsPage({ role, relatedAdmins }: Props) {
   const [page, setPage] = useState<number>(1);
-
+  const [selectedPermissions, setSelectedPermissions] = useState<
+    Map<number, string>
+  >(new Map());
   return (
     <>
       <h1 className="py-4">{`Role: ${role.title}`}</h1>
@@ -28,6 +30,8 @@ export default function RoleDetailsPage({ role, relatedAdmins }: Props) {
       <InfoSection title="Permissions List">
         <PermissionsMultiSelectionCombobox
           defaultSelectedPermissions={role.permissions}
+          selectedPermissions={selectedPermissions}
+          onSelectedPermissionsChanged={setSelectedPermissions}
           disabled
         />
       </InfoSection>
