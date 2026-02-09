@@ -12,7 +12,7 @@ export enum PropertyType {
   Input,
 }
 
-export class FilterProperty {
+export abstract class FilterProperty {
   private readonly _key: string;
   private readonly _type: PropertyType;
 
