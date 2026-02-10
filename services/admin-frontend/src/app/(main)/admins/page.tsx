@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { Admin } from "@sellify/admin-ui-components/types";
@@ -17,12 +19,20 @@ export default function AdminsPage() {
   const defaultAdmins: Array<Admin> = getAdmins();
   const [admins, setAdmins] = useState<Array<Admin>>(defaultAdmins);
   const [page, setPage] = useState<number>(1);
+  const router = useRouter();
 
   return (
     <>
       <div className="flex justify-between items-center">
         <PageTitle />
-        <Button size="small">Create Admin</Button>
+        <Button
+          size="small"
+          onClick={() => {
+            router.push(`/admin/create`);
+          }}
+        >
+          Create Admin
+        </Button>
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">

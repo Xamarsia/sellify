@@ -4,6 +4,8 @@ import {
   AdminPreview,
   RolePreview,
 } from "@sellify/admin-ui-components/types";
+import { CreateAdminRequest } from "types";
+import { createAuth } from "./auth-actions";
 
 const rolePreview: RolePreview = {
   roleId: 1234234,
@@ -100,4 +102,9 @@ export function getAdmins(): Array<Admin> {
     admin,
     admin3,
   ];
+}
+
+export function createAdmin(createRoleRequest: CreateAdminRequest): Admin {
+  createAuth(createRoleRequest.email);
+  return admin;
 }

@@ -32,3 +32,9 @@ export type CreateRoleRequest = {
   title: string;
   permissions: number[];
 };
+
+export type CreateAdminRequest = {
+  name: string;
+  email: string;
+  role: RolePreview;
+};
