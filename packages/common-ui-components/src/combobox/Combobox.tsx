@@ -9,7 +9,6 @@ import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
 
 type ComboboxProps<T> = {
-  title: string;
   items: Map<T, string>;
   value?: string;
   required?: boolean;
@@ -18,7 +17,6 @@ type ComboboxProps<T> = {
 };
 
 export default function Combobox<T>({
-  title,
   items,
   value,
   required,
@@ -116,56 +114,49 @@ export default function Combobox<T>({
   }, [isExtended, setIsExtended]);
 
   return (
-    <div className="flex flex-col w-full">
-      <label
-        className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
+    <div ref={dropdown} className="relative">
+      <div
+        ref={dropdown}
+        className="h-13 w-full flex flex-auto p-4 gap-2 rounded-lg border border-stroke has-focus:border-black has-enabled:hover:border-black"
       >
-        {title}
-      </label>
-      <div ref={dropdown} className="relative">
-        <div
-          ref={dropdown}
-          className="h-13 w-full flex flex-auto p-4 gap-2 rounded-lg border border-stroke has-focus:border-black has-enabled:hover:border-black"
-        >
-          <input
-            type="text"
-            onFocus={onInputInFocus}
-            onChange={onValueChange}
-            value={query}
-            required={required}
-            disabled={disabled}
-            placeholder="--"
-            className={`w-full h-full min-w-8 placeholder-placeholder disabled:text-disabled
+        <input
+          type="text"
+          onFocus={onInputInFocus}
+          onChange={onValueChange}
+          value={query}
+          required={required}
+          disabled={disabled}
+          placeholder="--"
+          className={`w-full h-full min-w-8 placeholder-placeholder disabled:text-disabled
               focus:outline-hidden accent-transparent appearance-none 
             `}
-          />
+        />
 
-          <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
-            {isExtended ? (
-              <ChevronUp style="size-4" />
-            ) : (
-              <ChevronDown style="size-4" />
-            )}
-          </TransparentIconButton>
-        </div>
-
-        {isExtended && (
-          <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
-            <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
-              {[...suggestedItems].map(([key, value]) => {
-                return (
-                  <DropdownItem
-                    key={key + value}
-                    value={key}
-                    label={value}
-                    onItemSelected={onSelected}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        )}
+        <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
+          {isExtended ? (
+            <ChevronUp style="size-4" />
+          ) : (
+            <ChevronDown style="size-4" />
+          )}
+        </TransparentIconButton>
       </div>
+
+      {isExtended && (
+        <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
+          <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
+            {[...suggestedItems].map(([key, value]) => {
+              return (
+                <DropdownItem
+                  key={key + value}
+                  value={key}
+                  label={value}
+                  onItemSelected={onSelected}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

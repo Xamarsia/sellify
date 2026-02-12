@@ -2,8 +2,9 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
+import FormItem from "@sellify/common-ui-components/FormItem";
+import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
-import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import PermissionsMultiSelectionCombobox from "@sellify/admin-ui-components/PermissionsMultiSelectionCombobox";
 
@@ -39,13 +40,14 @@ export default function CreateRoleForm() {
       onSubmit={onFormSubmit}
     >
       <div className="flex flex-col gap-6">
-        <FormInputItem
-          value={title}
-          placeholder="Title"
-          title="Title"
-          required
-          onChange={handleTitleChange}
-        />
+        <FormItem title={"Title"} required>
+          <Input
+            value={title}
+            placeholder="Title"
+            required
+            onChange={handleTitleChange}
+          />
+        </FormItem>
         <PermissionsMultiSelectionCombobox
           required
           selectedPermissions={selectedPermissions}

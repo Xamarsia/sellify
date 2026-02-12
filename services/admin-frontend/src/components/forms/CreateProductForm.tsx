@@ -2,11 +2,11 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
+import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
-import FormItemTitle from "@sellify/common-ui-components/FormItemTitle";
+import FormItem from "@sellify/common-ui-components/FormItem";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
-import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 
 import { CreateProductRequest } from "types";
@@ -135,33 +135,35 @@ export default function CreateProductForm() {
       onSubmit={onFormSubmit}
     >
       <div className="flex flex-col gap-6">
-        <FormInputItem
-          value={title}
-          placeholder="Title"
-          title="Title"
-          required
-          onChange={handleTitleChange}
-        />
-        <FormInputItem
-          value={shortDescription}
-          placeholder="Short Description"
-          title="Short Description"
-          required
-          onChange={handleShortDescriptionChange}
-        />
-        <Textarea
-          value={description}
-          title="Description"
-          onChange={handleDescriptionChange}
-        />
-        <Combobox
-          items={categories}
-          title="Category"
-          value={category}
-          required
-          onItemSelected={onCategorySelected}
-        />
-        <FormItemTitle title="Media" required>
+        <FormItem title="Title" required>
+          <Input
+            value={title}
+            placeholder="Title"
+            required
+            onChange={handleTitleChange}
+          />
+        </FormItem>
+        <FormItem title="Short Description" required>
+          <Input
+            value={shortDescription}
+            placeholder="Short Description"
+            required
+            onChange={handleShortDescriptionChange}
+          />
+        </FormItem>
+
+        <FormItem title={"Description"} required>
+          <Textarea value={description} onChange={handleDescriptionChange} />
+        </FormItem>
+        <FormItem title={"Category"} required>
+          <Combobox
+            items={categories}
+            value={category}
+            required
+            onItemSelected={onCategorySelected}
+          />
+        </FormItem>
+        <FormItem title="Media" required>
           {/* TODO: Display images and MediaInputField in layout */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
             {images.map((image) => {
@@ -173,19 +175,13 @@ export default function CreateProductForm() {
               onImageSelected={onImageSelected}
             />
           </div>
-        </FormItemTitle>
-        <FormInputItem
-          value={price}
-          title="Price"
-          required
-          onChange={handlePriceChange}
-        />
-        <FormInputItem
-          value={quantity}
-          title="Quantity"
-          required
-          onChange={handleQuantityChange}
-        />
+        </FormItem>
+        <FormItem title="Price" required>
+          <Input value={price} required onChange={handlePriceChange} />
+        </FormItem>
+        <FormItem title="Quantity" required>
+          <Input value={quantity} required onChange={handleQuantityChange} />
+        </FormItem>
       </div>
       <Button type="submit">Create Product</Button>
     </form>

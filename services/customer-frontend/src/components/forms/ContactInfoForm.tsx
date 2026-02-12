@@ -2,8 +2,9 @@
 
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
+import FormItem from "@sellify/common-ui-components/FormItem";
+import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
-import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import { ContactInfo } from "@sellify/customer-ui-components/types";
 import FormSection from "@sellify/customer-ui-components/FormSection";
@@ -62,18 +63,12 @@ export default function ContactInfoForm({
 
   return (
     <FormSection onChange={onContactInfoFormChange}>
-      <FormInputItem
-        value={fullName}
-        title="full name"
-        required
-        onChange={onFullNameChange}
-      />
-      <FormInputItem
-        value={phoneNumber}
-        title="phone number"
-        required
-        onChange={onPhoneNumberChange}
-      />
+      <FormItem title={"Full Name"} required>
+        <Input value={fullName} required onChange={onFullNameChange} />
+      </FormItem>
+      <FormItem title={"Phone Number"} required>
+        <Input value={phoneNumber} required onChange={onPhoneNumberChange} />
+      </FormItem>
       <Checkbox
         value="use_as_default_contact_information"
         label="Use as my default contact information"

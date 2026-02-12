@@ -5,7 +5,6 @@ import { useCallback, useState } from "react";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 
 type ComboboxProps = {
-  title: string;
   required?: boolean;
   disabled?: boolean;
   items: Map<string, string>;
@@ -13,7 +12,6 @@ type ComboboxProps = {
 };
 
 export default function ComboboxUseExample({
-  title,
   required,
   items,
   disabled,
@@ -31,7 +29,6 @@ export default function ComboboxUseExample({
   return (
     <Combobox
       items={items}
-      title={title}
       value={value}
       disabled={disabled}
       required={required}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { Product } from "@sellify/admin-ui-components/types";
@@ -17,12 +19,20 @@ export default function ProductsPage() {
   const products: Array<Product> = getProducts();
   const [currentProducts, setCurrentProducts] =
     useState<Array<Product>>(products);
+  const router = useRouter();
 
   return (
     <>
       <div className="flex justify-between items-center">
         <PageTitle />
-        <Button size="small">Add Product</Button>
+        <Button
+          size="small"
+          onClick={() => {
+            router.push(`/product/create`);
+          }}
+        >
+          Add Product
+        </Button>
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">

@@ -17,7 +17,6 @@ import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Input from "@sellify/common-ui-components/input/Input";
-import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 import Radio from "@sellify/common-ui-components/input/Radio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
@@ -26,6 +25,7 @@ import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
+import FormItem from "@sellify/common-ui-components/FormItem";
 
 import Section from "components/Section";
 import SectionItem from "components/SectionItem";
@@ -278,13 +278,14 @@ export default function Home() {
 
         <Section title={"Form Input Item "}>
           <SectionItem>
-            <FormInputItem
-              value={inputValue}
-              placeholder="Required Input"
-              title="Required Input"
-              required
-              onChange={handleInputChange}
-            />
+            <FormItem title="Required Input" required>
+              <Input
+                value={inputValue}
+                placeholder="Required Input"
+                required
+                onChange={handleInputChange}
+              />
+            </FormItem>
           </SectionItem>
         </Section>
 
@@ -294,21 +295,19 @@ export default function Home() {
           <SectionItem>
             <Textarea
               value={textareaValue}
-              placeholder="Required"
-              title="Required Textarea"
+              placeholder="Required Textarea"
               required
               onChange={handleTextareaChange}
             />
             <Textarea
               value={textareaValue}
-              title="Disabled Textarea"
+              placeholder="Disabled Textarea"
               disabled
               onChange={handleTextareaChange}
             />
             <Textarea
-              placeholder="Invalid"
+              placeholder="Invalid Textarea"
               value="Invalid"
-              title="Invalid Textarea"
               state="invalid"
               onChange={handleTextareaChange}
             />
@@ -328,9 +327,18 @@ export default function Home() {
 
         <Section title={"Checkbox & Radio buttons"}>
           <SectionItem>
-            <Checkbox label="Default Checkbox" value="default" />
-            <Checkbox checked label="Checked Checkbox" value="checked" />
-            <Checkbox disabled label="Disabled Checkbox" value="disabled" />
+            <Checkbox
+              label="Default Checkbox"
+              value="default"
+              checked={false}
+            />
+            <Checkbox label="Checked Checkbox" value="checked" checked={true} />
+            <Checkbox
+              label="Disabled Checkbox"
+              value="disabled"
+              checked={false}
+              disabled
+            />
             <Checkbox
               disabled
               checked
@@ -384,14 +392,9 @@ export default function Home() {
 
         <Section title={"Combobox"}>
           <SectionItem>
+            <ComboboxUseExample items={comboboxItems} required />
             <ComboboxUseExample
               items={comboboxItems}
-              title="Required Combobox"
-              required
-            />
-            <ComboboxUseExample
-              items={comboboxItems}
-              title="Disabled Combobox"
               disabled
               defaultValue="Default value"
             />
@@ -402,14 +405,9 @@ export default function Home() {
 
         <Section title={"Multi Selection Combobox"}>
           <SectionItem>
+            <MultiSelectionComboboxUseExample items={comboboxItems} required />
             <MultiSelectionComboboxUseExample
               items={comboboxItems}
-              title="Required Combobox"
-              required
-            />
-            <MultiSelectionComboboxUseExample
-              items={comboboxItems}
-              title="Disabled Combobox"
               disabled
               defaultSelectedValues={comboboxDefaultSelectedValues}
             />
@@ -449,7 +447,7 @@ export default function Home() {
 
         <Section title={"Collapsible Panel"}>
           <SectionItem>
-            <CollapsiblePanel paneTitle="Collapsible Panel" >
+            <CollapsiblePanel panelTitle="Collapsible Panel">
               <p>Content</p>
             </CollapsiblePanel>
           </SectionItem>
