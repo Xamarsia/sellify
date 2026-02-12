@@ -5,7 +5,6 @@ import { useCallback, useEffect, useState } from "react";
 import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
 type MultiSelectionComboboxProps = {
-  title: string;
   required?: boolean;
   disabled?: boolean;
   items: Map<string, string>;
@@ -13,7 +12,6 @@ type MultiSelectionComboboxProps = {
 };
 
 export default function MultiSelectionComboboxUseExample({
-  title,
   required,
   items,
   disabled,
@@ -62,7 +60,6 @@ export default function MultiSelectionComboboxUseExample({
 
   return (
     <MultiSelectionCombobox
-      title={title}
       items={items}
       selectedItems={selectedItems}
       required={required}

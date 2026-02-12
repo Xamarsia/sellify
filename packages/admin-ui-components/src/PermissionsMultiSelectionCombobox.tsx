@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect } from "react";
 
+import FormItem from "@sellify/common-ui-components/FormItem";
 import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
 import { Permissions } from "@sellify/admin-ui-components/constants";
@@ -62,14 +63,15 @@ export default function PermissionsMultiSelectionCombobox({
   }, []); // Runs only on the first render
 
   return (
-    <MultiSelectionCombobox
-      title={"Permissions"}
-      items={items}
-      selectedItems={selectedPermissions}
-      required={required}
-      disabled={disabled}
-      onItemSelected={onItemSelected}
-      onItemRemoved={onItemRemoved}
-    />
+    <FormItem title={"Permissions"} required>
+      <MultiSelectionCombobox
+        items={items}
+        selectedItems={selectedPermissions}
+        required={required}
+        disabled={disabled}
+        onItemSelected={onItemSelected}
+        onItemRemoved={onItemRemoved}
+      />
+    </FormItem>
   );
 }

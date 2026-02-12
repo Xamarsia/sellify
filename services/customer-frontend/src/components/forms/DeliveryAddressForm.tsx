@@ -2,9 +2,10 @@
 
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
+import FormItem from "@sellify/common-ui-components/FormItem";
+import Input from "@sellify/common-ui-components/input/Input";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
-import FormInputItem from "@sellify/common-ui-components/input/FormInputItem";
 
 import FormSection from "@sellify/customer-ui-components/FormSection";
 import { DeliveryAddress } from "@sellify/customer-ui-components/types";
@@ -71,19 +72,17 @@ export default function DeliveryAddressForm({
 
   return (
     <FormSection onChange={onChangeAddressForm}>
-      <Combobox
-        items={availableCountries}
-        title="Country"
-        value={country}
-        required
-        onItemSelected={onItemSelected}
-      />
-      <FormInputItem
-        value={address}
-        title="address"
-        required
-        onChange={onAddressChangeHandler}
-      />
+      <FormItem title={"Country"} required>
+        <Combobox
+          items={availableCountries}
+          value={country}
+          required
+          onItemSelected={onItemSelected}
+        />
+      </FormItem>
+      <FormItem title={"Address"} required>
+        <Input value={address} required onChange={onAddressChangeHandler} />
+      </FormItem>
       <Checkbox
         value="use_as_default_address"
         label="Use as my default address"

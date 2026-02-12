@@ -1,6 +1,7 @@
 import React, { useCallback, ChangeEvent, useState, useEffect } from "react";
 
-import FormInputItem from "../input/FormInputItem";
+import Input from "../input/Input";
+import FormItem from "../FormItem";
 
 type Props = {
   min: number;
@@ -50,6 +51,8 @@ export default function RangeNumberInput({
   }, [value]);
 
   return (
-    <FormInputItem value={quantity} title={title} onChange={handleChange} />
+    <FormItem title={title} required>
+      <Input value={quantity} onChange={handleChange} />
+    </FormItem>
   );
 }

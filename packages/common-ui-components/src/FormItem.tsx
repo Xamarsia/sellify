@@ -2,17 +2,13 @@
 
 import { ReactNode } from "react";
 
-type FormItemTitleProps = {
+type FormItemProps = {
   title: string;
   required?: boolean;
   children: ReactNode;
 };
 
-export default function FormItemTitle({
-  title,
-  required,
-  children,
-}: FormItemTitleProps) {
+export default function FormItem({ title, required, children }: FormItemProps) {
   return (
     <div className="flex flex-col w-full">
       <label

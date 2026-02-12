@@ -12,7 +12,6 @@ import ComboboxItem from "./ComboboxItem";
 type MultiSelectionComboboxProps<T> = {
   items: Map<T, string>;
   selectedItems: Map<T, string>;
-  title?: string;
   required?: boolean;
   disabled?: boolean;
   onItemSelected: (key: T, newValue: string) => void;
@@ -20,7 +19,6 @@ type MultiSelectionComboboxProps<T> = {
 };
 
 export default function MultiSelectionCombobox<T extends string | number>({
-  title,
   items,
   selectedItems,
   required,
@@ -95,75 +93,62 @@ export default function MultiSelectionCombobox<T extends string | number>({
   }, [isExtended, setIsExtended]);
 
   return (
-    <div className="flex flex-col w-full">
-      {title && (
-        <label
-          className={`label text-black m-1 ${required && "after:content-['*'] after:ml-0.5"}`}
-        >
-          {title}
-        </label>
-      )}
+    <div ref={dropdown} className="relative">
+      <div className="w-full flex p-4 gap-2 rounded-lg border border-stroke has-focus:border-black has-enabled:hover:border-black">
+        <div className="flex flex-auto flex-wrap gap-2">
+          {[...selectedItems].map(([key, value]) => {
+            return (
+              <ComboboxItem
+                key={key}
+                value={key}
+                label={value}
+                onRemove={onItemRemoved}
+                disabled={disabled}
+              />
+            );
+          })}
+          <div className="flex-1">
+            <input
+              type="text"
+              onFocus={onInputInFocus}
+              onChange={onValueChange}
+              value={query}
+              required={!selectedItems.size && required}
+              disabled={disabled}
+              placeholder={selectedItems?.size == 0 ? "--" : ""}
+              className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
+                  focus:outline-hidden accent-transparent appearance-none 
+                `}
+            />
+          </div>
+        </div>
+        <div className={`${disabled && "hidden"}`}>
+          <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
+            {isExtended ? (
+              <ChevronUp style="size-4" />
+            ) : (
+              <ChevronDown style="size-4" />
+            )}
+          </TransparentIconButton>
+        </div>
+      </div>
 
-      <div ref={dropdown} className="relative">
-        <div className="w-full flex p-4 gap-2 rounded-lg border border-stroke has-focus:border-black has-enabled:hover:border-black">
-          <div className="flex flex-auto flex-wrap gap-2">
-            {[...selectedItems].map(([key, value]) => {
+      {isExtended && (
+        <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
+          <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
+            {[...suggestedItems].map(([key, value]) => {
               return (
-                <ComboboxItem
+                <DropdownItem
                   key={key}
                   value={key}
                   label={value}
-                  onRemove={onItemRemoved}
-                  disabled={disabled}
+                  onItemSelected={onSelected}
                 />
               );
             })}
-            <div className="flex-1">
-              <input
-                type="text"
-                onFocus={onInputInFocus}
-                onChange={onValueChange}
-                value={query}
-                required={!selectedItems.size && required}
-                disabled={disabled}
-                placeholder={selectedItems?.size == 0 ? "--" : ""}
-                className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
-                  focus:outline-hidden accent-transparent appearance-none 
-                `}
-              />
-            </div>
-          </div>
-          <div className={`${disabled && "hidden"}`}>
-            <TransparentIconButton
-              onClick={onDropdownClick}
-              disabled={disabled}
-            >
-              {isExtended ? (
-                <ChevronUp style="size-4" />
-              ) : (
-                <ChevronDown style="size-4" />
-              )}
-            </TransparentIconButton>
           </div>
         </div>
-
-        {isExtended && (
-          <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
-            <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
-              {[...suggestedItems].map(([key, value]) => {
-                return (
-                  <DropdownItem
-                    key={key}
-                    value={key}
-                    label={value}
-                    onItemSelected={onSelected}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }
