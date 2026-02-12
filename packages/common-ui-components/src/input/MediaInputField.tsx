@@ -7,7 +7,7 @@ import React from "react";
 type Props = {
   text?: string;
   size?: "default" | "small";
-  onImageSelected?: (file: SetStateAction<FileList>) => void;
+  onImageSelected?: (files: FileList) => void;
 };
 
 export default function MediaInputField({
