@@ -38,3 +38,13 @@ export type CreateAdminRequest = {
   email: string;
   role: RolePreview;
 };
+
+export type CreateProductRequest = {
+  images: File[];
+  title: string;
+  shortDescription?: string;
+  description?: string;
+  quantity: number;
+  category: CategoryPreview;
+  price: number;
+};
