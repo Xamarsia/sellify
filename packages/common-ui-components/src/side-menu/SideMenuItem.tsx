@@ -1,16 +1,16 @@
 "use client";
 
-type SidebarItemProps = {
+type SideMenuItemProps = {
   text: string;
   href: string;
   selected?: boolean;
 };
 
-export default function SidebarItem({
+export default function SideMenuItem({
   text,
   href,
   selected,
-}: SidebarItemProps) {
+}: SideMenuItemProps) {
   return (
     <a
       href={href}

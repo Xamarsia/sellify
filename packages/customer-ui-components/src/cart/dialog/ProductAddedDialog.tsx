@@ -8,7 +8,7 @@ import TransparentIconButton from "@sellify/common-ui-components/buttons/Transpa
 import ProductAddedDialogContent from "./ProductAddedDialogContent";
 import { CartItem } from "../../types";
 
-type DialogProps = {
+type ProductAddedDialogProps = {
   dialogOpen: boolean;
   cartItem: CartItem;
   onDialogClose: () => void;
@@ -20,7 +20,7 @@ export default function ProductAddedDialog({
   dialogOpen,
   onDialogClose,
   onCheckout,
-}: DialogProps) {
+}: ProductAddedDialogProps) {
   const modal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

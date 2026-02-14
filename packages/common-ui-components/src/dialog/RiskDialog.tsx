@@ -11,7 +11,7 @@ import Button from "../buttons/Button";
 import FormItem from "../FormItem";
 import Input from "../input/Input";
 
-type DialogProps = {
+type RiskDialogProps = {
   title: string;
   description?: string;
   dialogOpen: boolean;
@@ -29,7 +29,7 @@ export default function RiskDialog({
   onDialogClose,
   onConfirm,
   onPasswordValidated,
-}: DialogProps) {
+}: RiskDialogProps) {
   const [password, setPassword] = useState<string>("");
 
   const handlePasswordChange = useCallback(

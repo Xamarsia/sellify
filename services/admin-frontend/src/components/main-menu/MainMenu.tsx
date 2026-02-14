@@ -2,12 +2,12 @@
 
 import { usePathname } from "next/navigation";
 
-import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
 import { MainMenuItems } from "../../constants";
 
 export default function MainMenu() {
   const pathname: string = usePathname();
 
-  return <Sidebar items={MainMenuItems} pathname={pathname} />;
+  return <SideMenu items={MainMenuItems} pathname={pathname} />;
 }

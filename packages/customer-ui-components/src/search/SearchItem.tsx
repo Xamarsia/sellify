@@ -1,10 +1,10 @@
 import { SearchItem as SearchItemType } from "../types";
 
-type Props = {
+type SearchItemProps = {
   searchItem: SearchItemType;
 };
 
-export default function SearchItem({ searchItem }: Props) {
+export default function SearchItem({ searchItem }: SearchItemProps) {
   return (
     <div className="flex gap-4 justify-between items-top">
       <div className="flex size-24 aspect-square rounded-md">

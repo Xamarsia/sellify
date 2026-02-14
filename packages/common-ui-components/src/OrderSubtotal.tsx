@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-type Props = {
+type OrderSubtotalProps = {
   itemsSubtotal: number;
   deliveryFee: number;
   totalPrice: number;
@@ -12,7 +12,7 @@ export default function OrderSubtotal({
   deliveryFee,
   totalPrice,
   children: controlPanel,
-}: Props) {
+}: OrderSubtotalProps) {
   return (
     <div className="flex flex-col justify-between bg-white h-72 min-w-80 w-full p-4 rounded-lg border border-stroke">
       <div className="flex flex-col gap-4">

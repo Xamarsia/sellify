@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { CartItem } from "../types";
 import CounterButton from "../CounterButton";
 
-type Props = {
+type CartItemQuantitySelectorProps = {
   cartItem: CartItem;
   getProductMaxQuantity: (productId: number) => number;
   onCartItemQuantityChanged: (cartItemId: number, quantity: number) => void;
@@ -13,7 +13,7 @@ export default function CartItemQuantitySelector({
   cartItem,
   getProductMaxQuantity,
   onCartItemQuantityChanged,
-}: Props) {
+}: CartItemQuantitySelectorProps) {
   const [count, setCount] = useState<number>(cartItem.amount);
 
   const onQuantityChanged = useCallback(

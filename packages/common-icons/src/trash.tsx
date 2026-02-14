@@ -1,8 +1,8 @@
-type IconProps = {
+type TrashIconProps = {
   style?: string;
 };
 
-export default function TrashIcon({ style }: IconProps) {
+export default function TrashIcon({ style }: TrashIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

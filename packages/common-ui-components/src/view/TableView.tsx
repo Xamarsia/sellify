@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-type Props = {
+type TableViewProps = {
   head: Array<string>;
   content: Array<Array<ReactNode>>;
 };
 
-export default function TableView({ head, content }: Props) {
+export default function TableView({ head, content }: TableViewProps) {
   return (
     <div className="w-full overflow-x-auto bg-white border border-stroke rounded-lg body shrink-0 scrollbar-horizontal">
       <table className="w-full table-auto text-left">

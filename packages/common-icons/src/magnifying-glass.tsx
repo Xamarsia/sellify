@@ -1,8 +1,8 @@
-type IconProps = {
+type MagnifyingGlassProps = {
   style?: string;
 };
 
-export default function MagnifyingGlass({ style }: IconProps) {
+export default function MagnifyingGlass({ style }: MagnifyingGlassProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

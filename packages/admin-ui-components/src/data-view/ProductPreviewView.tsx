@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -7,7 +7,7 @@ import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 import { ProductPreview } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
 
-type Props = {
+type ProductPreviewViewProps = {
   content: Array<ProductPreview>;
   pagesAmount: number;
   currentPage: number;
@@ -19,7 +19,7 @@ export default function ProductPreviewView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: ProductPreviewViewProps) {
   const tableHeader: Array<string> = ["", "Product", "Product ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {

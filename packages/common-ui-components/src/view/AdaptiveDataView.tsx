@@ -4,7 +4,7 @@ import ListView from "./ListView";
 import TableView from "./TableView";
 import Pagination from "../pages/Pagination";
 
-type Props = {
+type AdaptiveDataViewProps = {
   head: Array<string>;
   content: Array<Array<ReactNode>>;
   pagesAmount: number;
@@ -18,7 +18,7 @@ export default function AdaptiveDataView({
   currentPage,
   pagesAmount,
   onPageChanged,
-}: Props) {
+}: AdaptiveDataViewProps) {
   return (
     <>
       <div className="flex flex-col w-full not-sm:hidden gap-6">

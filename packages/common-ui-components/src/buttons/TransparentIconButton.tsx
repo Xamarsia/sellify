@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 
-type IconButtonProps = {
+type TransparentIconButtonProps = {
   variant?: "default" | "destructive" | "white";
   type?: "button" | "submit";
   disabled?: boolean;
@@ -16,7 +16,7 @@ export default function TransparentIconButton({
   disabled,
   children,
   onClick,
-}: IconButtonProps) {
+}: TransparentIconButtonProps) {
   const variantStyle = {
     default: "text-secondary enabled:hover:text-black disabled:text-disabled",
     white: "text-white/90 enabled:hover:text-white disabled:text-white/40",

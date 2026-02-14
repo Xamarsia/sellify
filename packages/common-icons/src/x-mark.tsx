@@ -1,8 +1,8 @@
-type IconProps = {
+type XMarkProps = {
   style?: string;
 };
 
-export default function XMark({ style }: IconProps) {
+export default function XMark({ style }: XMarkProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

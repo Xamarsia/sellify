@@ -20,7 +20,7 @@ import Input from "@sellify/common-ui-components/input/Input";
 import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
 import Radio from "@sellify/common-ui-components/input/Radio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
-import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
@@ -85,7 +85,7 @@ export default function Home() {
     ["guava", "Guava"],
   ]);
 
-  const sidebarItem: Array<NavMenuItem> = [
+  const sideMenuItems: Array<NavMenuItem> = [
     { href: "/", title: "Home" },
     { href: "/orders", title: "Orders" },
     { href: "/products", title: "Products" },
@@ -361,9 +361,9 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Sidebar"}>
+        <Section title={"SideMenu"}>
           <SectionItem>
-            <Sidebar items={sidebarItem} pathname={pathname} />
+            <SideMenu items={sideMenuItems} pathname={pathname} />
           </SectionItem>
         </Section>
 

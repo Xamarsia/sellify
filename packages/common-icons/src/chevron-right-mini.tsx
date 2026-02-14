@@ -1,8 +1,8 @@
-type IconProps = {
+type ChevronRightMiniProps = {
   style?: string;
 };
 
-export default function ChevronRightMini({ style }: IconProps) {
+export default function ChevronRightMini({ style }: ChevronRightMiniProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

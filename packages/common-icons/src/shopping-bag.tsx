@@ -1,8 +1,8 @@
-type IconProps = {
+type ShoppingBagIconProps = {
   style?: string;
 };
 
-export default function ShoppingBagIcon({ style }: IconProps) {
+export default function ShoppingBagIcon({ style }: ShoppingBagIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

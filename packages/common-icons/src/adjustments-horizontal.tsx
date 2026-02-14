@@ -1,8 +1,8 @@
-type IconProps = {
+type AdjustmentsHorizontalIconProps = {
   style?: string;
 };
 
-export default function AdjustmentsHorizontalIcon({ style }: IconProps) {
+export default function AdjustmentsHorizontalIcon({ style }: AdjustmentsHorizontalIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

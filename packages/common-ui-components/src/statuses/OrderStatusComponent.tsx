@@ -3,11 +3,13 @@ import { useMemo } from "react";
 import { OrderStatus } from "../constants";
 import { OrderStatus as OrderStatusType } from "../types";
 
-type Props = {
+type OrderStatusComponentProps = {
   status: OrderStatusType;
 };
 
-export default function OrderStatusComponent({ status }: Props) {
+export default function OrderStatusComponent({
+  status,
+}: OrderStatusComponentProps) {
   const color = useMemo<string>(() => {
     switch (status) {
       case OrderStatus.New:

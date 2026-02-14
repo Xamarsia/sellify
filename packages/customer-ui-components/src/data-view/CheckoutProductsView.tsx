@@ -11,7 +11,7 @@ import ProductImagePreview from "../product-preview/ProductImagePreview";
 import CartItemRemoveButton from "../cart/CartItemRemoveButton";
 import CartItemQuantitySelector from "../cart/CartItemQuantitySelector";
 
-type Props = {
+type CheckoutProductsViewProps = {
   content: Array<CartItem>;
   onItemRemove: (productId: number) => void;
   getProductMaxQuantity: (productId: number) => number;
@@ -23,7 +23,7 @@ export default function CheckoutProductsView({
   onItemRemove,
   getProductMaxQuantity,
   onCartItemQuantityChanged,
-}: Props) {
+}: CheckoutProductsViewProps) {
   const tableHeader = useMemo<Array<string>>(() => {
     const header: Array<string> = [
       "",

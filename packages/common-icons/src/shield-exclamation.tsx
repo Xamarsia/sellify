@@ -1,8 +1,8 @@
-type IconProps = {
+type ShieldExclamationIconProps = {
   style?: string;
 };
 
-export default function ShieldExclamationIcon({ style }: IconProps) {
+export default function ShieldExclamationIcon({ style }: ShieldExclamationIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

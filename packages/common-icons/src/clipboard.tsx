@@ -1,8 +1,8 @@
-type IconProps = {
+type ClipboardProps = {
   style?: string;
 };
 
-export default function Clipboard({ style }: IconProps) {
+export default function Clipboard({ style }: ClipboardProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

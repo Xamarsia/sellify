@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -6,7 +6,7 @@ import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 
 import { Category } from "../types";
 
-type Props = {
+type CategoriesViewProps = {
   content: Array<Category>;
   pagesAmount: number;
   currentPage: number;
@@ -18,7 +18,7 @@ export default function CategoriesView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: CategoriesViewProps) {
   const tableHeader: Array<string> = [
     "Category",
     "Category ID",

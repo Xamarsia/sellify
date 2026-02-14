@@ -1,8 +1,8 @@
-type IconProps = {
+type PlusIconProps = {
   style?: string;
 };
 
-export default function PlusIcon({ style }: IconProps) {
+export default function PlusIcon({ style }: PlusIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

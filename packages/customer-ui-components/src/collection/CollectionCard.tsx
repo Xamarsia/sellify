@@ -3,12 +3,15 @@ import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 import { CollectionPreview } from "../types";
 
-type Props = {
+type CollectionCardProps = {
   collectionPreview: CollectionPreview;
   href: string;
 };
 
-export default function CollectionCard({ collectionPreview, href }: Props) {
+export default function CollectionCard({
+  collectionPreview,
+  href,
+}: CollectionCardProps) {
   return (
     <div className="flex flex-col gap-4 w-full not-md:border-b border-stroke not-md:py-4">
       <div className="relative md:aspect-square rounded-md  not-md:h-96 object-cover overflow-hidden">

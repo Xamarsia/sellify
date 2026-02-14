@@ -1,10 +1,10 @@
 import { Banner } from "../types";
 
-type Props = {
+type BannerComponentProps = {
   banner: Banner;
 };
 
-export default function BannerComponent({ banner }: Props) {
+export default function BannerComponent({ banner }: BannerComponentProps) {
   return (
     <div className="relative w-full h-[286px] object-cover overflow-hidden">
       <div className="absolute inset-0 flex h-full justify-center items-center">

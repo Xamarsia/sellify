@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -8,7 +8,7 @@ import DateTableItem from "@sellify/common-ui-components/table-items/DateTableIt
 import { Admin } from "../types";
 import AdminStatusComponent from "../statuses/AdminStatusComponent";
 
-type Props = {
+type AdminsViewProps = {
   content: Array<Admin>;
   pagesAmount: number;
   currentPage: number;
@@ -20,7 +20,7 @@ export default function AdminsView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: AdminsViewProps) {
   const tableHeader: Array<string> = [
     "Name",
     "Admin ID",

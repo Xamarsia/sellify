@@ -9,6 +9,14 @@ type AddAmountButtonProps = {
   onSubmit: (value: number) => void;
 };
 
+/**
+ * Input component for adding/adjusting amounts with submit button.
+ * Supports numeric input with validation and handles empty/negative states.
+ * @param disabled - Disable input and button interactions
+ * @param value - Current value (must be number, optional)
+ * @param onChange - Callback when value changes
+ * @param onSubmit - Callback when submit button is clicked
+ */
 export default function AddAmountButton({
   disabled,
   value,
@@ -27,7 +35,7 @@ export default function AddAmountButton({
     (e: ChangeEvent<HTMLInputElement>): void => {
       const possibleNumber: string = e.target.value;
 
-      if (possibleNumber == "-" || possibleNumber == "") {
+      if (possibleNumber === "-" || possibleNumber === "") {
         onChange(undefined);
         setQuantity(possibleNumber);
         return;
@@ -35,8 +43,7 @@ export default function AddAmountButton({
       const numberRegex = /^-?[\d]+$/;
 
       if (numberRegex.test(possibleNumber)) {
-        console.log("Here: ", possibleNumber);
-        onChange(parseInt(possibleNumber));
+        onChange(parseInt(possibleNumber, 10));
       }
     },
     [onChange],

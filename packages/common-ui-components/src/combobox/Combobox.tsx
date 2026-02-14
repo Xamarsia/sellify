@@ -40,7 +40,7 @@ export default function Combobox<T>({
     (query: string): Map<T, string> => {
       const lowerCaseQuery: string = query.toLowerCase();
 
-      if (query.length == 0) {
+      if (query.length === 0) {
         return items;
       }
 
@@ -70,7 +70,7 @@ export default function Combobox<T>({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       return [...items].find(([key, value]) => {
         const lowerCaseValue: string = value.toLowerCase();
-        return lowerCaseValue == lowerCaseQuery;
+        return lowerCaseValue === lowerCaseQuery;
       });
     },
     [items],
@@ -81,7 +81,7 @@ export default function Combobox<T>({
       const newValue: string = e.target.value;
       const foundedItem: undefined | [T, string] = isSelected(newValue);
 
-      if (foundedItem == undefined) {
+      if (foundedItem === undefined) {
         setQuery(newValue);
         onItemSelected(undefined, undefined);
         return;

@@ -9,7 +9,7 @@ import CurrencyTableItem from "@sellify/common-ui-components/table-items/Currenc
 import { Product } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
 
-type Props = {
+type ProductsViewProps = {
   content: Array<Product>;
   pagesAmount: number;
   currentPage: number;
@@ -21,7 +21,7 @@ export default function ProductsView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: ProductsViewProps) {
   const tableHeader: Array<string> = [
     "",
     "Product",

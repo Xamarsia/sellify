@@ -1,8 +1,8 @@
-type IconProps = {
+type UserIconProps = {
   style?: string;
 };
 
-export default function UserIcon({ style }: IconProps) {
+export default function UserIcon({ style }: UserIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,10 @@
 "use client";
 
-type LinkTableItemProps = {
+type IdTableItemProps = {
   id: number;
 };
 
-export default function IdTableItem({ id }: LinkTableItemProps) {
+export default function IdTableItem({ id }: IdTableItemProps) {
   return (
     <div className="flex items-center gap-1">
       # <p>{id}</p>

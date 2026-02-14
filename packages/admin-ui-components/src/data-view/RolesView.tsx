@@ -1,11 +1,11 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 
 import { Role } from "../types";
 
-type Props = {
+type RolesViewProps = {
   content: Array<Role>;
   pagesAmount: number;
   currentPage: number;
@@ -17,7 +17,7 @@ export default function RolesView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: RolesViewProps) {
   const tableHeader: Array<string> = ["Role", "Related Users Amount"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {

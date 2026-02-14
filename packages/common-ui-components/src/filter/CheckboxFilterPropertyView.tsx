@@ -3,7 +3,7 @@ import { ChangeEvent, useCallback } from "react";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
 
-type FilterParameterProps = {
+type CheckboxFilterPropertyViewProps = {
   propertyKey: string;
   selectedValue: CheckboxFilterPropertyValue;
   onFilterPropertyChange: (
@@ -16,7 +16,7 @@ export default function CheckboxFilterPropertyView({
   propertyKey,
   selectedValue,
   onFilterPropertyChange,
-}: FilterParameterProps) {
+}: CheckboxFilterPropertyViewProps) {
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       onFilterPropertyChange(

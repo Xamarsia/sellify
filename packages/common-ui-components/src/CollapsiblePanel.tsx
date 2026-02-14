@@ -5,7 +5,7 @@ import { ReactNode, useCallback, useState } from "react";
 import PlusIcon from "@sellify/common-icons/plus";
 import MinusIcon from "@sellify/common-icons/minus";
 
-type ButtonProps = {
+type CollapsiblePanelProps = {
   panelTitle: string;
   children: ReactNode;
 };
@@ -13,7 +13,7 @@ type ButtonProps = {
 export default function CollapsiblePanel({
   panelTitle,
   children: content,
-}: ButtonProps) {
+}: CollapsiblePanelProps) {
   const [isExtended, setIsExtended] = useState<boolean>(false);
 
   const onSectionClick = useCallback(() => {

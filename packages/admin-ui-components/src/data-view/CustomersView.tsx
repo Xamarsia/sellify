@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -8,7 +8,7 @@ import CurrencyTableItem from "@sellify/common-ui-components/table-items/Currenc
 import { Customer } from "../types";
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
 
-type Props = {
+type CustomersViewProps = {
   content: Array<Customer>;
   pagesAmount: number;
   currentPage: number;
@@ -20,7 +20,7 @@ export default function CustomersView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: CustomersViewProps) {
   const tableHeader: Array<string> = [
     "Customer name",
     "Customer ID",

@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
@@ -7,7 +7,7 @@ import CurrencyTableItem from "@sellify/common-ui-components/table-items/Currenc
 import { CartItem } from "../types";
 import ProductImagePreview from "../product/ProductImagePreview";
 
-type Props = {
+type OrderProductsViewProps = {
   content: Array<CartItem>;
   pagesAmount: number;
   currentPage: number;
@@ -19,7 +19,7 @@ export default function OrderProductsView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: OrderProductsViewProps) {
   const tableHeader = useMemo<Array<string>>(() => {
     const header: Array<string> = [
       "",

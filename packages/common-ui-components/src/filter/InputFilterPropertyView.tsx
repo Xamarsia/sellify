@@ -3,7 +3,7 @@ import { ChangeEvent, useCallback } from "react";
 import { InputFilterPropertyValue } from "./common/PropertyValues";
 import Input from "../input/Input";
 
-type FilterParameterProps = {
+type InputFilterPropertyViewProps = {
   propertyKey: string;
   currentQuery: InputFilterPropertyValue;
   onFilterPropertyChange: (
@@ -18,7 +18,7 @@ export default function InputFilterPropertyView({
   currentQuery,
   onFilterPropertyChange,
   placeholder,
-}: FilterParameterProps) {
+}: InputFilterPropertyViewProps) {
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       onFilterPropertyChange(

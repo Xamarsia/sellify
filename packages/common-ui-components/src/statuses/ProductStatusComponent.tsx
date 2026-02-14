@@ -3,11 +3,13 @@ import { useMemo } from "react";
 import { ProductStatus } from "../constants";
 import { ProductStatus as ProductStatusType } from "../types";
 
-type Props = {
+type ProductStatusComponentProps = {
   status: ProductStatusType;
 };
 
-export default function ProductStatusComponent({ status }: Props) {
+export default function ProductStatusComponent({
+  status,
+}: ProductStatusComponentProps) {
   const color = useMemo<string>(() => {
     switch (status) {
       case ProductStatus.Active:

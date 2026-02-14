@@ -2,11 +2,11 @@
 
 import AdjustmentsHorizontalIcon from "@sellify/common-icons/adjustments-horizontal";
 
-type ButtonProps = {
+type FilterButtonProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function FilterButton({ onClick }: ButtonProps) {
+export default function FilterButton({ onClick }: FilterButtonProps) {
   return (
     /* External div for anti-flex */
     <div>

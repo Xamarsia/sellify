@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import AddAmountButton from "../AddAmountButton";
 
-type Props = {
+type AddAmountButtonTableItemProps = {
   productId: number;
   onSubmit: (productId: number, quantity: number) => void;
   disabled?: boolean;
@@ -12,7 +12,7 @@ export default function AddAmountButtonTableItem({
   productId,
   disabled,
   onSubmit,
-}: Props) {
+}: AddAmountButtonTableItemProps) {
   const [quantity, setQuantity] = useState<number>();
 
   const onAmountChange = useCallback((): void => {

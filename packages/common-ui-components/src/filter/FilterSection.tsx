@@ -24,7 +24,7 @@ import MultiSelectionComboboxFilterPropertyView from "./MultiSelectionComboboxFi
 import IdInputFilterPropertyView from "./IdInputFilterPropertyView";
 import CollapsiblePanel from "../CollapsiblePanel";
 
-type FilterSectionProps = {
+type FilterSectionComponentProps = {
   sectionKey: string;
   properties: Array<FilterProperty>;
   modifiedProperties?: Map<string, FilterPropertyValue>;
@@ -40,7 +40,7 @@ export default function FilterSectionComponent({
   properties,
   modifiedProperties,
   onFilterSectionChange,
-}: FilterSectionProps) {
+}: FilterSectionComponentProps) {
   const onFilterPropertyChange = useCallback(
     (propertyKey: string, value: FilterPropertyValue) => {
       onFilterSectionChange(sectionKey, propertyKey, value);

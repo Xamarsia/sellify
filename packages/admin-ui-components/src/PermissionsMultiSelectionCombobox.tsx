@@ -7,7 +7,7 @@ import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/Multi
 
 import { Permissions } from "@sellify/admin-ui-components/constants";
 
-type Props = {
+type PermissionsMultiSelectionComboboxProps = {
   required?: boolean;
   disabled?: boolean;
   selectedPermissions: Map<number, string>;
@@ -23,7 +23,7 @@ export default function PermissionsMultiSelectionCombobox({
   selectedPermissions,
   onSelectedPermissionsChanged,
   defaultSelectedPermissions,
-}: Props) {
+}: PermissionsMultiSelectionComboboxProps) {
   const items: Map<number, string> = new Map(Permissions);
 
   const onItemSelected = useCallback(

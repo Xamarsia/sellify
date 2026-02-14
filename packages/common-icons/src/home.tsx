@@ -1,8 +1,8 @@
-type IconProps = {
+type HomeProps = {
   style?: string;
 };
 
-export default function Home({ style }: IconProps) {
+export default function Home({ style }: HomeProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

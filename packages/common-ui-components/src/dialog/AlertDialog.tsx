@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import DialogBase from "./DialogBase";
 import AlertDialogIcon from "./AlertDialogIcon";
 
-type DialogProps = {
+type AlertDialogProps = {
   icon: ReactNode;
   title: string;
   description?: string;
@@ -20,7 +20,7 @@ export default function AlertDialog({
   children: controlPanel,
   dialogOpen,
   onDialogClose,
-}: DialogProps) {
+}: AlertDialogProps) {
   return (
     <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose}>
       <div className="relative flex flex-col grow justify-between min-h-72 gap-6 ">

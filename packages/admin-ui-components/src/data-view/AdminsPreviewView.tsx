@@ -6,7 +6,7 @@ import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 
 import { AdminPreview } from "../types";
 
-type Props = {
+type AdminsPreviewViewProps = {
   content: Array<AdminPreview>;
   pagesAmount: number;
   currentPage: number;
@@ -18,7 +18,7 @@ export default function AdminsPreviewView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: AdminsPreviewViewProps) {
   const tableHeader: Array<string> = ["Name", "Admin ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {

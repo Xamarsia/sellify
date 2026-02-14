@@ -1,8 +1,8 @@
-type ChartProps = {
+type PositiveChartProps = {
   style?: string;
 };
 
-export default function PositiveChart({ style }: ChartProps) {
+export default function PositiveChart({ style }: PositiveChartProps) {
   return (
     <svg
       width="77"

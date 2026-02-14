@@ -1,12 +1,12 @@
 "use client";
 
-type SidebarItemProps = {
+type HeaderItemProps = {
   text: string;
   href: string;
   selected?: boolean;
 };
 
-export default function HeaderItem({ text, href, selected }: SidebarItemProps) {
+export default function HeaderItem({ text, href, selected }: HeaderItemProps) {
   return (
     <a
       href={href}

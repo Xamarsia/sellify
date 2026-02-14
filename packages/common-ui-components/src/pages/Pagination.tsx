@@ -7,7 +7,7 @@ import TransparentIconButton from "../buttons/TransparentIconButton";
 import PageButton from "./PageButton";
 import PageItem from "./PageItem";
 
-type Props = {
+type PaginationProps = {
   pagesAmount: number; // Pagination is hidden if pagesAmount is less than 1.
   currentPage?: number;
   pagesBarLength?: number;
@@ -19,7 +19,7 @@ export default function Pagination({
   currentPage = 1,
   pagesBarLength: navBarLength = 5,
   onPageChanged,
-}: Props) {
+}: PaginationProps) {
   const pagesBarHalfLength = Math.floor(navBarLength / 2);
 
   const currentPagesArray = useMemo<Array<number>>(() => {
@@ -90,7 +90,7 @@ export default function Pagination({
       className={`${pagesAmount < 1 && "hidden"} flex w-full gap-6 items-center justify-center`}
     >
       <TransparentIconButton
-        disabled={currentPage == 1}
+        disabled={currentPage === 1}
         onClick={getPreviousPage}
       >
         <ChevronLeftMini style="size-5" />
@@ -109,7 +109,7 @@ export default function Pagination({
             key={value}
             pageNumber={value}
             onPageSelected={onPageChanged}
-            selected={value == currentPage}
+            selected={value === currentPage}
           />
         ))}
 
@@ -126,7 +126,7 @@ export default function Pagination({
       </nav>
 
       <TransparentIconButton
-        disabled={currentPage == pagesAmount}
+        disabled={currentPage === pagesAmount}
         onClick={getNextPage}
       >
         <ChevronRightMini style="size-5" />

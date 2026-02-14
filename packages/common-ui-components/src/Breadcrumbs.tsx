@@ -8,24 +8,26 @@ type BreadcrumbsProps = {
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
-    <nav className="flex flex-row max-w-screen ">
+    <nav className="flex flex-row max-w-screen">
       {items.map((item, index) => {
+        const isLastItem = index === items.length - 1;
+
         return (
           <li
             className="inline-flex items-center truncate max-w-64 md:max-w-96"
-            key={index}
+            key={`${item.href}-${index}`}
           >
-            {index < items.length - 1 ? (
-              <a href={item.href} className={`hover:text-secondary text-black`}>
+            {!isLastItem ? (
+              <a href={item.href} className="hover:text-secondary text-black">
                 {item.title}
               </a>
             ) : (
               <>
-                <span className="text-secondary px-2">{"/"}</span>
-                <p className="text-secondary ">{item.title}</p>
+                <span className="text-secondary px-2">/</span>
+                <p className="text-secondary">{item.title}</p>
               </>
             )}
-            {index < items.length - 2 && <span className="px-2">{"/"}</span>}
+            {index < items.length - 2 && <span className="px-2">/</span>}
           </li>
         );
       })}

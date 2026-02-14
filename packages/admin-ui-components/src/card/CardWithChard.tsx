@@ -5,13 +5,17 @@ import NegativeChart from "../charts/NegativeChart";
 import DefaultChart from "../charts/DefaultChart";
 import Card from "./Card";
 
-type Props = {
+type CardWithChardProps = {
   label: string;
   value: string;
-  trendValue: number; // in percents
+  trendValue: number; // in percentage
 };
 
-export default function CardWithChard({ label, value, trendValue }: Props) {
+export default function CardWithChard({
+  label,
+  value,
+  trendValue,
+}: CardWithChardProps) {
   enum Trend {
     Positive,
     Negative,

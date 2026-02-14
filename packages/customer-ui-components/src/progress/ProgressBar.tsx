@@ -34,9 +34,9 @@ export default function ProgressBar({
               icon={icon}
               isSelected={isSelected}
               position={
-                index == 0
+                index === 0
                   ? "first"
-                  : index == steps.length - 1
+                  : index === steps.length - 1
                     ? "last"
                     : "center"
               }

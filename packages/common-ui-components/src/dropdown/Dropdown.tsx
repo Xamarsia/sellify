@@ -93,7 +93,7 @@ export default function Dropdown({
                   key={key}
                   value={key}
                   label={value}
-                  selected={key == selectedKey}
+                  selected={key === selectedKey}
                   onItemSelected={onItemSelected}
                 />
               );
