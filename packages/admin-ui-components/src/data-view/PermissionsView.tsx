@@ -1,11 +1,11 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 
 import { Permission } from "../types";
 
-type Props = {
+type PermissionsViewProps = {
   content: Array<Permission>;
   pagesAmount: number;
   currentPage: number;
@@ -17,7 +17,7 @@ export default function PermissionsView({
   pagesAmount,
   currentPage,
   onPageChanged,
-}: Props) {
+}: PermissionsViewProps) {
   const tableHeader: Array<string> = ["Permission", "Related Roles Amount"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {

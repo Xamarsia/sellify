@@ -10,11 +10,11 @@ import DateTableItem from "@sellify/common-ui-components/table-items/DateTableIt
 
 import { OrderPreview } from "../types";
 
-type Props = {
+type OrdersViewProps = {
   content: Array<OrderPreview>;
 };
 
-export default function OrdersView({ content }: Props) {
+export default function OrdersView({ content }: OrdersViewProps) {
   const [page, setPage] = useState<number>(1);
 
   const tableHeader = useMemo<Array<string>>(() => {

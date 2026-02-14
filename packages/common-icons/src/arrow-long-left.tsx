@@ -1,8 +1,8 @@
-type IconProps = {
+type ArrowLongLeftIconProps = {
   style?: string;
 };
 
-export default function ArrowLongLeftIcon({ style }: IconProps) {
+export default function ArrowLongLeftIcon({ style }: ArrowLongLeftIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { RangeFilterPropertyValue } from "./common/PropertyValues";
 import RangeSlider from "../range-slider/RangeSlider";
 
-type FilterParameterProps = {
+type RangeFilterPropertyViewProps = {
   propertyKey: string;
   selectedRange: RangeFilterPropertyValue;
   fullRange: RangeFilterPropertyValue;
@@ -17,7 +17,7 @@ export default function RangeFilterPropertyView({
   selectedRange,
   fullRange,
   onFilterPropertyChange,
-}: FilterParameterProps) {
+}: RangeFilterPropertyViewProps) {
   const onMinValueChange = useCallback(
     (min: number): void => {
       onFilterPropertyChange(

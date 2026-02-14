@@ -55,7 +55,7 @@ export default function SearchPanel({
         fill="parent"
       />
       {query ? (
-        <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
+        <div className="grow flex flex-col justify-between h-full gap-5 overflow-y-auto">
           <h4 className="text-disabled capitalize pt-5">Product Results</h4>
           <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
             {searchResults.map((item, index) => (

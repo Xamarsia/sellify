@@ -1,23 +1,23 @@
 "use client";
 
 import { NavMenuItem } from "../types";
-import SidebarItem from "./SidebarItem";
+import SideMenuItem from "./SideMenuItem";
 
-type Props = {
+type SideMenuProps = {
   items: Array<NavMenuItem>;
   pathname: string;
 };
 
-export default function Sidebar({ items, pathname }: Props) {
+export default function SideMenu({ items, pathname }: SideMenuProps) {
   return (
     <nav className="flex flex-col sm:gap-2 w-full">
       {items.map(({ href, title }) => {
         return (
-          <SidebarItem
+          <SideMenuItem
             key={title}
             href={href}
             text={title}
-            selected={pathname == href}
+            selected={pathname === href}
           />
         );
       })}

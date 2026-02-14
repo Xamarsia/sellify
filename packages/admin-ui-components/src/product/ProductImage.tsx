@@ -1,12 +1,12 @@
 import XMark from "@sellify/common-icons/x-mark";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
-type Props = {
+type ProductImageProps = {
   src: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function ProductImage({ src, onClick }: Props) {
+export default function ProductImage({ src, onClick }: ProductImageProps) {
   return (
     <div className="relative size-56 rounded-md shrink-0">
       <div className="absolute hover:bg-black/20 hover:backdrop-blur-[2px] size-56 rounded-md ">

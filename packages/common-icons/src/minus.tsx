@@ -1,8 +1,8 @@
-type IconProps = {
+type MinusIconProps = {
   style?: string;
 };
 
-export default function MinusIcon({ style }: IconProps) {
+export default function MinusIcon({ style }: MinusIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,8 @@
-type IconProps = {
+type CheckProps = {
   style?: string;
 };
 
-export default function Check({ style }: IconProps) {
+export default function Check({ style }: CheckProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

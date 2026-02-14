@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-type SlideProps = {
+type SliderItemProps = {
   image: string;
   index: number;
   selected?: boolean;
@@ -12,7 +12,7 @@ export default function SliderItem({
   index,
   selected,
   onSlideSelected,
-}: SlideProps) {
+}: SliderItemProps) {
   const handleSlideSelection = useCallback((): void => {
     if (!selected) {
       onSlideSelected(index);

@@ -2,12 +2,12 @@
 
 import { ReactNode } from "react";
 
-type LinkTableItemProps = {
+type LinkIdTableItemProps = {
   href?: string;
   text: ReactNode;
 };
 
-export default function LinkIdTableItem({ href, text }: LinkTableItemProps) {
+export default function LinkIdTableItem({ href, text }: LinkIdTableItemProps) {
   return (
     <div className="flex items-center gap-1">
       #

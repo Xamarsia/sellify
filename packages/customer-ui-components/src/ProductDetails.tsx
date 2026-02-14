@@ -8,12 +8,15 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import CounterButton from "./CounterButton";
 import { ProductDetails as ProductDetailsType } from "./types";
 
-type Props = {
+type ProductDetailsProps = {
   product: ProductDetailsType;
   onAddProductToCart: (product: ProductDetailsType) => void;
 };
 
-export default function ProductDetails({ product, onAddProductToCart }: Props) {
+export default function ProductDetails({
+  product,
+  onAddProductToCart,
+}: ProductDetailsProps) {
   const [quantity, setQuantity] = useState<number>(1);
 
   const onAddToCart = useCallback((): void => {

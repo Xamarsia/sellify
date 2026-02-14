@@ -1,11 +1,14 @@
 import { useCallback, useState } from "react";
 
-type Props = {
+type DynamicImagePreviewProps = {
   src: string;
   hoveredSrc?: string;
 };
 
-export default function DynamicImagePreview({ src, hoveredSrc }: Props) {
+export default function DynamicImagePreview({
+  src,
+  hoveredSrc,
+}: DynamicImagePreviewProps) {
   const [imageSrc, setImageSrc] = useState<string>(src);
 
   const onMouseEnter = useCallback(

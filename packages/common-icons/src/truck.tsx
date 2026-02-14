@@ -1,8 +1,8 @@
-type IconProps = {
+type TruckIconProps = {
   style?: string;
 };
 
-export default function TruckIcon({ style }: IconProps) {
+export default function TruckIcon({ style }: TruckIconProps) {
   return (
     <svg
       fill="none"

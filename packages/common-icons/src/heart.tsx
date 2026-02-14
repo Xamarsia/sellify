@@ -1,8 +1,8 @@
-type IconProps = {
+type HeartIconProps = {
   style?: string;
 };
 
-export default function HeartIcon({ style }: IconProps) {
+export default function HeartIcon({ style }: HeartIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

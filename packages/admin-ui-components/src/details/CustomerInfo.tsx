@@ -2,11 +2,11 @@ import { Customer } from "../types";
 
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
 
-type AdminInfoProps = {
+type CustomerInfoProps = {
   customer: Customer;
 };
 
-export default function CustomerInfo({ customer }: AdminInfoProps) {
+export default function CustomerInfo({ customer }: CustomerInfoProps) {
   return (
     <>
       <div className="flex w-full gap-4">

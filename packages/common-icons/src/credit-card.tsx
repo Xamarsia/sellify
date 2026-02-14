@@ -1,8 +1,8 @@
-type IconProps = {
+type CreditCardProps = {
   style?: string;
 };
 
-export default function CreditCard({ style }: IconProps) {
+export default function CreditCard({ style }: CreditCardProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

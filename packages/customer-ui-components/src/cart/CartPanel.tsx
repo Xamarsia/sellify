@@ -8,7 +8,7 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import CartItem from "./CartItem";
 import { CartItem as CartItemType } from "../types";
 
-type DialogProps = {
+type CartPanelProps = {
   open: boolean;
   cartItems: Array<CartItemType>;
   onClose: () => void;
@@ -20,7 +20,7 @@ export default function CartPanel({
   cartItems,
   onClose,
   onCartItemRemove,
-}: DialogProps) {
+}: CartPanelProps) {
   const totalPrice = useMemo<number>(() => {
     return cartItems.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.product.price * currentValue.amount;
@@ -30,7 +30,7 @@ export default function CartPanel({
   return (
     <SidePanel open={open} onClose={onClose} title="Cart">
       {cartItems.length ? (
-        <div className="grow flex flex-col justify-between flex-grow h-full justify-between gap-5 overflow-y-auto">
+        <div className="grow flex flex-col justify-between h-full gap-5 overflow-y-auto">
           <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
             {cartItems.map((item, index) => (
               <li key={item.product.productId.toString() + index}>

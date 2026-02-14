@@ -7,7 +7,7 @@ import ChevronDown from "@sellify/common-icons/chevron-down";
 import ChevronUp from "@sellify/common-icons/chevron-up";
 
 import { NavMenuItem } from "@sellify/common-ui-components/types";
-import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
 import { ProfileMenuItems } from "../../constants";
 
@@ -44,7 +44,7 @@ export default function ProfileMenuDrawer() {
         )}
       </button>
 
-      {isExtended && <Sidebar items={ProfileMenuItems} pathname={pathname} />}
+      {isExtended && <SideMenu items={ProfileMenuItems} pathname={pathname} />}
     </div>
   );
 }

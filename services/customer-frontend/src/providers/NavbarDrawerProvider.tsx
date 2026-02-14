@@ -2,7 +2,7 @@
 
 import { ReactNode, useCallback, useState } from "react";
 
-import Sidebar from "@sellify/common-ui-components/sidebar/SideMenu";
+import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
@@ -16,7 +16,7 @@ export default function NavbarDrawerProvider({
   children: ReactNode;
 }) {
   const [navbarDrawerOpened, setNavbarDrawerOpened] = useState<boolean>(false);
-  const [sidebarItems, setSidebarItems] = useState<Array<NavMenuItem>>();
+  const [sideMenuItems, setSideMenuItems] = useState<Array<NavMenuItem>>();
   const pathname: string = usePathname();
 
   const onNavbarDrawerClose = useCallback((): void => {
@@ -26,20 +26,20 @@ export default function NavbarDrawerProvider({
   const contextValue: NavbarDrawerController = {
     openNavbarDrawer: (navItems) => {
       setNavbarDrawerOpened(true);
-      setSidebarItems(navItems);
+      setSideMenuItems(navItems);
     },
   };
 
   return (
     <NavbarDrawerContext.Provider value={contextValue}>
-      {sidebarItems && (
+      {sideMenuItems && (
         <SidePanel
           open={navbarDrawerOpened}
           onClose={onNavbarDrawerClose}
           title="Brand Title"
           side="left"
         >
-          <Sidebar items={sidebarItems} pathname={pathname} />
+          <SideMenu items={sideMenuItems} pathname={pathname} />
         </SidePanel>
       )}
       {children}

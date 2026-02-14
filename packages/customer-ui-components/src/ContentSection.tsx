@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-type ButtonProps = {
+type ContentSectionProps = {
   title: string;
   image: string;
   imageSide?: "left" | "right";
@@ -12,7 +12,7 @@ export default function ContentSection({
   image,
   imageSide = "right",
   children,
-}: ButtonProps) {
+}: ContentSectionProps) {
   return (
     <div
       className={`flex flex-col-reverse gap-8 ${imageSide === "left" ? "md:flex-row" : "md:flex-row-reverse"}`}

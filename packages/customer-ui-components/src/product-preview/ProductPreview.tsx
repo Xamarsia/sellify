@@ -5,7 +5,7 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import { ProductPreview as ProductPreviewType } from "../types";
 import DynamicImagePreview from "./DynamicImagePreview";
 
-type Props = {
+type ProductPreviewProps = {
   productPreview: ProductPreviewType;
   onAddProductToCart: (productPreview: ProductPreviewType) => void;
 };
@@ -13,7 +13,7 @@ type Props = {
 export default function ProductPreview({
   productPreview,
   onAddProductToCart,
-}: Props) {
+}: ProductPreviewProps) {
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(productPreview);
   }, [onAddProductToCart]);

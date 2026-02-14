@@ -1,8 +1,8 @@
-type IconProps = {
+type CubeIconProps = {
   style?: string;
 };
 
-export default function CubeIcon({ style }: IconProps) {
+export default function CubeIcon({ style }: CubeIconProps) {
   return (
     <svg
       fill="none"

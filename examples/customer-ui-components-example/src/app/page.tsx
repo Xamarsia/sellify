@@ -92,7 +92,8 @@ export default function Home() {
   const collectionPreviews: Array<CollectionPreview> = [
     {
       id: 34534,
-      image: image.src, title: "Collection Card"
+      image: image.src,
+      title: "Collection Card",
     },
     {
       id: 245,

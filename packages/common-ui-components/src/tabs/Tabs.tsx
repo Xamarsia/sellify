@@ -18,7 +18,7 @@ export default function Tabs({ items, hash }: TabsProps) {
               key={"TabHeader" + title}
               href={href}
               text={title}
-              selected={hash == href}
+              selected={hash === href}
             />
           ))}
         </nav>

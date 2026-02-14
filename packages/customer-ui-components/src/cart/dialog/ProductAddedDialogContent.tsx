@@ -2,7 +2,7 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { CartItem, ProductPreview } from "../../types";
 
-type Props = {
+type ProductAddedDialogContentProps = {
   cartItem: CartItem;
   onCheckout?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -10,7 +10,7 @@ type Props = {
 export default function ProductAddedDialogContent({
   cartItem,
   onCheckout,
-}: Props) {
+}: ProductAddedDialogContentProps) {
   const product: ProductPreview = cartItem.product;
 
   return (
@@ -23,7 +23,7 @@ export default function ProductAddedDialogContent({
             className={`size-full object-cover rounded-md`}
           />
         </div>
-        <div className="flex basis-64 my-2 mx-4 flex flex-col gap-4 h-24 justify-between shrink-0">
+        <div className="flex flex-col basis-64 my-2 mx-4 gap-4 h-24 justify-between shrink-0">
           <a href={`/product/${product.productId}`}>
             <h4 className="text-justify line-clamp-2 break-all hover:underline underline-offset-3">
               {product.title}

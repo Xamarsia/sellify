@@ -9,11 +9,11 @@ import CurrencyTableItem from "@sellify/common-ui-components/table-items/Currenc
 import { CartItem } from "../types";
 import ProductImagePreview from "../product-preview/ProductImagePreview";
 
-type Props = {
+type FinalProductsViewProps = {
   content: Array<CartItem>;
 };
 
-export default function FinalProductsView({ content }: Props) {
+export default function FinalProductsView({ content }: FinalProductsViewProps) {
   const tableHeader = useMemo<Array<string>>(() => {
     const header: Array<string> = [
       "",

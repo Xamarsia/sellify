@@ -115,7 +115,7 @@ export default function MultiSelectionCombobox<T extends string | number>({
               value={query}
               required={!selectedItems.size && required}
               disabled={disabled}
-              placeholder={selectedItems?.size == 0 ? "--" : ""}
+              placeholder={selectedItems?.size === 0 ? "--" : ""}
               className={`w-full h-full min-w-8 min-h-8 placeholder-placeholder
                   focus:outline-hidden accent-transparent appearance-none 
                 `}

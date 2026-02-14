@@ -1,10 +1,10 @@
 "use client";
 
-import { SetStateAction, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import React from "react";
 
-type Props = {
+type MediaInputFieldProps = {
   text?: string;
   size?: "default" | "small";
   onImageSelected?: (files: FileList) => void;
@@ -14,7 +14,7 @@ export default function MediaInputField({
   text,
   size = "default",
   onImageSelected,
-}: Props) {
+}: MediaInputFieldProps) {
   const [dragActive, setDragActive] = useState<boolean>(false);
 
   const onDragLeave = useCallback(

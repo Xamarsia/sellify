@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useRef } from "react";
 
-type DialogProps = {
+type DialogBaseProps = {
   dialogOpen: boolean;
   children?: ReactNode;
   onDialogClose: () => void;
@@ -12,7 +12,7 @@ export default function DialogBase({
   children: content,
   dialogOpen,
   onDialogClose,
-}: DialogProps) {
+}: DialogBaseProps) {
   const modal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

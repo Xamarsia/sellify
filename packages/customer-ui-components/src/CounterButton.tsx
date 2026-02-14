@@ -46,7 +46,7 @@ export default function CounterButton({
 
       <TransparentIconButton
         onClick={increaseCounter}
-        disabled={(max && count == max) || disabled}
+        disabled={(max && count === max) || disabled}
       >
         <PlusIcon style="size-4 xl:size-6 " />
       </TransparentIconButton>

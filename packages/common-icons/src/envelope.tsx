@@ -1,8 +1,8 @@
-type IconProps = {
+type EnvelopeIconProps = {
   style?: string;
 };
 
-export default function EnvelopeIcon({ style }: IconProps) {
+export default function EnvelopeIcon({ style }: EnvelopeIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

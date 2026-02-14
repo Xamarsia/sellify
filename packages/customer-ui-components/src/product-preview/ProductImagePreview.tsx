@@ -1,8 +1,8 @@
-type Props = {
+type ProductImagePreviewProps = {
   src: string;
 };
 
-export default function ProductImagePreview({ src }: Props) {
+export default function ProductImagePreview({ src }: ProductImagePreviewProps) {
   return (
     <div className="relative size-24 aspect-square rounded-md shrink-0">
       <img

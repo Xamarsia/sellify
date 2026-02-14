@@ -1,8 +1,8 @@
-type ChartProps = {
+type NegativeChartProps = {
   style?: string;
 };
 
-export default function NegativeChart({ style }: ChartProps) {
+export default function NegativeChart({ style }: NegativeChartProps) {
   return (
     <svg
       width="84"

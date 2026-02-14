@@ -201,7 +201,7 @@ export function getProductById(productId: number): ProductDetails {
 }
 
 export function deleteProduct(productId: number): void {
-  console.log("Product Deleted! Id: " + productId);
+  // Product deletion logic
 }
 
 export function createProduct(

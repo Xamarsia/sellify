@@ -1,12 +1,15 @@
 import { CartItem } from "../types";
 import CartItemRemoveButton from "./CartItemRemoveButton";
 
-type Props = {
+type CartItemComponentProps = {
   cartItem: CartItem;
   onItemRemove: (productId: number) => void;
 };
 
-export default function CartItemComponent({ cartItem, onItemRemove }: Props) {
+export default function CartItemComponent({
+  cartItem,
+  onItemRemove,
+}: CartItemComponentProps) {
   return (
     <div className="flex gap-4 justify-between items-top">
       <div className="flex size-24 aspect-square rounded-md">

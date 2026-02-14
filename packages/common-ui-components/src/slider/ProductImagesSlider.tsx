@@ -3,11 +3,11 @@
 import { useState } from "react";
 import SliderItem from "./SliderItem";
 
-type SliderProps = {
+type ProductImagesSliderProps = {
   images: Array<string>;
 };
 
-export default function ProductImagesSlider({ images }: SliderProps) {
+export default function ProductImagesSlider({ images }: ProductImagesSliderProps) {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   return (
@@ -26,7 +26,7 @@ export default function ProductImagesSlider({ images }: SliderProps) {
               image={image}
               index={index}
               onSlideSelected={setCurrentSlide}
-              selected={index == currentSlide}
+              selected={index === currentSlide}
             />
           </li>
         ))}

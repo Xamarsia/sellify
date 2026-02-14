@@ -2,12 +2,12 @@
 
 import { ReactNode } from "react";
 
-type FormSectionProps = {
+type InfoSectionProps = {
   title: string;
   children: ReactNode;
 };
 
-export default function InfoSection({ title, children }: FormSectionProps) {
+export default function InfoSection({ title, children }: InfoSectionProps) {
   return (
     <div className="flex w-full flex-col gap-6">
       <h3>{title}</h3>

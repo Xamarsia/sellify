@@ -1,8 +1,8 @@
-type ChartProps = {
+type DefaultChartProps = {
   style?: string;
 };
 
-export default function DefaultChart({ style }: ChartProps) {
+export default function DefaultChart({ style }: DefaultChartProps) {
   return (
     <svg
       width="74"

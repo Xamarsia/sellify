@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-type Props = {
+type ListViewProps = {
   head: Array<string>;
   content: Array<Array<ReactNode>>;
 };
 
-export default function ListView({ head, content }: Props) {
+export default function ListView({ head, content }: ListViewProps) {
   return (
     <ul className="flex flex-col w-full divide-y divide-stroke border border-stroke rounded-lg overflow-hidden">
       {content.map((rowData, rowIndex) => (

@@ -3,7 +3,7 @@ import React, { useCallback, ChangeEvent, useState, useEffect } from "react";
 import Input from "../input/Input";
 import FormItem from "../FormItem";
 
-type Props = {
+type RangeNumberInputProps = {
   min: number;
   max: number;
   value: number;
@@ -17,14 +17,14 @@ export default function RangeNumberInput({
   value,
   title,
   onChange,
-}: Props) {
+}: RangeNumberInputProps) {
   const [quantity, setQuantity] = useState<string>(value.toString());
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
       const possibleNumber: string = e.target.value;
 
-      if (possibleNumber == "") {
+      if (possibleNumber === "") {
         setQuantity(possibleNumber);
         return;
       }

@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import TrashIcon from "@sellify/common-icons/trash";
 
-type Props = {
+type CartItemRemoveButtonProps = {
   cartItemId: number;
   onCartItemRemove: (cartItemId: number) => void;
 };
@@ -11,7 +11,7 @@ type Props = {
 export default function CartItemRemoveButton({
   cartItemId,
   onCartItemRemove,
-}: Props) {
+}: CartItemRemoveButtonProps) {
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>): void => {
       onCartItemRemove(cartItemId);

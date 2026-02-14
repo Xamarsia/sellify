@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-type Props = {
+type AlertDialogIconProps = {
   icon: ReactNode;
 };
 
-export default function AlertDialogIcon({ icon }: Props) {
+export default function AlertDialogIcon({ icon }: AlertDialogIconProps) {
   return (
     <div className="flex items-center justify-center size-20 bg-black/30 rounded-full">
       <div className="flex items-center justify-center size-16 bg-black/50 rounded-full">

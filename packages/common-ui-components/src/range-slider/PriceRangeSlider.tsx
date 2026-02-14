@@ -3,11 +3,11 @@ import React, { useCallback, useState } from "react";
 import RangeSlider from "./RangeSlider";
 import { SliderRange } from "../types";
 
-type Props = {
+type PriceRangeSliderProps = {
   range: SliderRange;
 };
 
-export default function PriceRangeSlider({ range }: Props) {
+export default function PriceRangeSlider({ range }: PriceRangeSliderProps) {
   const [currentRange, setCurrentRange] = useState<SliderRange>(range);
 
   const onMinValueChange = useCallback(

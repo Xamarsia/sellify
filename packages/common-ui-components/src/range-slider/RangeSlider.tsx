@@ -9,7 +9,7 @@ import RangeSliderInput from "./RangeSliderInput";
 import { SliderRange } from "../types";
 import RangeNumberInput from "./RangeNumberInput";
 
-type Props = {
+type RangeSliderProps = {
   range: SliderRange;
   currentRange: SliderRange;
   onMaxValueChange: (max: number) => void;
@@ -21,7 +21,7 @@ export default function RangeSlider({
   currentRange,
   onMaxValueChange,
   onMinValueChange,
-}: Props) {
+}: RangeSliderProps) {
   const selectedRange = useRef<HTMLDivElement>(null);
 
   const getPercent = useCallback(
@@ -38,10 +38,6 @@ export default function RangeSlider({
   const maxPercent = useMemo<number>(() => {
     return getPercent(currentRange.max);
   }, [currentRange.max]);
-
-  useEffect(() => {
-    console.log("min: " + currentRange.min, "max: " + currentRange.max);
-  }, [currentRange]);
 
   // Set range width to decrease from the left
   useEffect(() => {
@@ -82,7 +78,7 @@ export default function RangeSlider({
 
   return (
     <>
-      <div className="relative w-full flex items-center justify-center flex-col gap-6">
+      <div className="relative w-full flex flex-col items-center justify-center gap-6">
         <div className="w-full flex items-center justify-between gap-x-10">
           <RangeNumberInput
             min={range.min}

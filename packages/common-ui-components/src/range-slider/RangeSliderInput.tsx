@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-type Props = {
+type RangeSliderInputProps = {
   min: number;
   max: number;
   value: number;
@@ -14,7 +14,7 @@ export default function RangeSliderInput({
   value,
   style,
   onChange,
-}: Props) {
+}: RangeSliderInputProps) {
   return (
     <input
       type="range"
