@@ -7,7 +7,7 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 import FormItem from "@sellify/common-ui-components/FormItem";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
-import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
+import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInput";
 
 import { CreateProductRequest } from "types";
 import { createProduct } from "actions/product-actions";
@@ -115,20 +115,6 @@ export default function CreateProductForm() {
     [setCategory],
   );
 
-  const onImageSelected = useCallback(
-    (files: FileList): void => {
-      let newImagesList = new Array<File>(files.length);
-      for (var i = 0; i < files.length; ++i) {
-        let file: File | null = files.item(i);
-        if (file) {
-          newImagesList.push(file);
-        }
-      }
-      setImages(newImagesList);
-    },
-    [setQuantity],
-  );
-
   return (
     <form
       className="grow flex flex-col gap-13 justify-between"
@@ -164,17 +150,7 @@ export default function CreateProductForm() {
           />
         </FormItem>
         <FormItem title="Media" required>
-          {/* TODO: Display images and MediaInputField in layout */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-            {images.map((image) => {
-              let url = URL.createObjectURL(image);
-              return <img src={url} alt="your image" key={image.name} />;
-            })}
-            <MediaInputField
-              text="Click to upload or drag and drop JPG, GPEG up to 3MB"
-              onImageSelected={onImageSelected}
-            />
-          </div>
+          <MediaInput images={images} onImagesChanged={setImages} />
         </FormItem>
         <FormItem title="Price" required>
           <Input value={price} required onChange={handlePriceChange} />

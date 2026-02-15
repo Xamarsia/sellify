@@ -6,13 +6,11 @@ import React from "react";
 
 type MediaInputFieldProps = {
   text?: string;
-  size?: "default" | "small";
   onImageSelected?: (files: FileList) => void;
 };
 
 export default function MediaInputField({
   text,
-  size = "default",
   onImageSelected,
 }: MediaInputFieldProps) {
   const [dragActive, setDragActive] = useState<boolean>(false);
@@ -70,28 +68,24 @@ export default function MediaInputField({
     [onImageSelected],
   );
 
-  const sizeStyle = {
-    default: "w-full px-16",
-    small: "w-56 px-9 shrink-0",
-  };
-
   return (
     <label
       onDragEnter={onDragEnter}
       onDrop={onDrop}
       onDragLeave={onDragLeave}
       onDragOver={onDragOver}
-      className={`peer flex items-center justify-center h-56 text-center rounded-lg border 
-        border-placeholder border-dashed accent-stroke hover:border-black
-        ${sizeStyle[size]} ${dragActive ? "border-black bg-hovered" : "bg-white"}`}
+      className={`peer flex size-full items-center justify-center text-center rounded-lg border 
+        border-placeholder border-dashed accent-stroke hover:border-black 
+      ${dragActive ? "border-black bg-hovered" : "bg-white"}`}
     >
-      <span>{text}</span>
+      <span className="m-2">{text}</span>
       <input
         accept="image/jpeg"
         type="file"
         draggable
         hidden
         onChange={onImageChange}
+        multiple
       />
     </label>
   );

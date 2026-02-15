@@ -5,9 +5,9 @@ import ProductStatusComponent from "@sellify/common-ui-components/statuses/Produ
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
+import ProductImageTableItem from "@sellify/common-ui-components/table-items/ProductImageTableItem";
 
 import { Product } from "../types";
-import ProductImagePreview from "../product/ProductImagePreview";
 
 type ProductsViewProps = {
   content: Array<Product>;
@@ -34,7 +34,7 @@ export default function ProductsView({
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((product) => [
-      <ProductImagePreview src={product.image} />,
+      <ProductImageTableItem src={product.image} />,
       <LinkTableItem
         href={`/product/${product.productId}`}
         text={product.title}
