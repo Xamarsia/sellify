@@ -30,8 +30,6 @@ export default function SearchBarExample() {
   );
 
   return (
-    <form onSubmit={onSubmit}>
-      <SearchInput value={query} onChange={onSearchChanged} />
-    </form>
+    <SearchInput value={query} onChange={onSearchChanged} onSubmit={onSubmit} />
   );
 }

@@ -43,7 +43,10 @@ export default function CartPanel({
               <h2>Subtotal</h2>
               <h2>${totalPrice}</h2>
             </div>
-            <Button fill="parent">Checkout</Button>
+            {/* TODO: Enhance button and link relationships to ensure proper functionality*/}
+            <a href={`/checkout-order`}>
+              <Button fill="parent">Checkout</Button>
+            </a>
           </div>
         </div>
       ) : (

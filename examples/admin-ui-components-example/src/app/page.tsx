@@ -37,7 +37,6 @@ import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPreviewView";
 import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
 import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
-import ProductImage from "@sellify/admin-ui-components/product/ProductImage";
 
 import image from "resources/image.jpg";
 import Section from "./components/Section";
@@ -193,14 +192,6 @@ export default function Home() {
               onSubmit={setQuantity}
               disabled
             />
-          </SectionItem>
-        </Section>
-
-        {/* ------------------------------------------------------------- */}
-
-        <Section title={"Product Image"}>
-          <SectionItem>
-            <ProductImage src={image.src} />
           </SectionItem>
         </Section>
 

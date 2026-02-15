@@ -17,7 +17,7 @@ import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import Checkbox from "@sellify/common-ui-components/input/Checkbox";
 import Input from "@sellify/common-ui-components/input/Input";
-import MediaInputField from "@sellify/common-ui-components/input/MediaInputField";
+import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInput";
 import Radio from "@sellify/common-ui-components/input/Radio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
@@ -41,6 +41,7 @@ import SearchBarExample from "examples/SearchBarExample";
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
   const [textareaValue, setTextareaValue] = useState<string>("");
+  const [images, setImages] = useState<File[]>([]);
 
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -318,8 +319,7 @@ export default function Home() {
 
         <Section title={"Media Input Field"}>
           <SectionItem>
-            <MediaInputField size="small" text="Small Media Input Field" />
-            <MediaInputField text="Default Media Input Field" />
+            <MediaInput images={images} onImagesChanged={setImages} />
           </SectionItem>
         </Section>
 

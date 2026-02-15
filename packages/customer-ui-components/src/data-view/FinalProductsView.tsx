@@ -5,9 +5,9 @@ import { ReactNode, useMemo } from "react";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
+import ProductImageTableItem from "@sellify/common-ui-components/table-items/ProductImageTableItem";
 
 import { CartItem } from "../types";
-import ProductImagePreview from "../product-preview/ProductImagePreview";
 
 type FinalProductsViewProps = {
   content: Array<CartItem>;
@@ -27,7 +27,7 @@ export default function FinalProductsView({ content }: FinalProductsViewProps) {
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((item) => [
-      <ProductImagePreview src={item.product.image} />,
+      <ProductImageTableItem src={item.product.image} size="large" />,
       <LinkTableItem
         href={`/product/${item.product.productId}`}
         text={item.product.title}

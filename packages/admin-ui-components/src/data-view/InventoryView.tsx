@@ -3,8 +3,8 @@ import { ReactNode, useMemo } from "react";
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
+import ProductImageTableItem from "@sellify/common-ui-components/table-items/ProductImageTableItem";
 
-import ProductImagePreview from "../product/ProductImagePreview";
 import AddAmountButtonTableItem from "./AddAmountButtonTableItem";
 import { InventoryProduct } from "../types";
 
@@ -35,7 +35,7 @@ export default function InventoryView({
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
     return content.map((inventory) => [
-      <ProductImagePreview src={inventory.image} />,
+      <ProductImageTableItem src={inventory.image} />,
       <LinkTableItem
         href={`/product/${inventory.productId}`}
         text={inventory.productTitle}
