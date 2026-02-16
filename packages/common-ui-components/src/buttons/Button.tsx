@@ -42,7 +42,7 @@ export default function Button({
 
   return (
     /* External div for anti-flex */
-    <div className={`${fillStyle} shrink-0`}>
+    <div className={`${fillStyle}`}>
       <button
         type={type}
         className={`flex justify-center body items-center px-6 gap-x-4 rounded-lg enabled:active:ring-4 group 
