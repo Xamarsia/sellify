@@ -1,4 +1,5 @@
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
+import { Size } from "@sellify/common-icons/enums";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 import { CollectionPreview } from "../types";
@@ -26,7 +27,7 @@ export default function CollectionCard({
           <h4 className="line-clamp-2 break-all hover:underline">
             {collectionPreview.title}
           </h4>
-          <ArrowLongRightIcon style="size-5 shrink-0" />
+          <ArrowLongRightIcon size={Size.md} />
         </LinkButton>
       </div>
     </div>

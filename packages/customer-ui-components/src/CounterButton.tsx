@@ -4,6 +4,7 @@ import { useCallback } from "react";
 
 import MinusIcon from "@sellify/common-icons/minus";
 import PlusIcon from "@sellify/common-icons/plus";
+import { Size } from "@sellify/common-icons/enums";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 type CounterButtonProps = {
@@ -35,7 +36,12 @@ export default function CounterButton({
         onClick={decreaseCounter}
         disabled={(min && count <= min) || disabled}
       >
-        <MinusIcon style="size-4 xl:size-6" />
+        <div className="xl:hidden">
+          <MinusIcon size={Size.sm} />
+        </div>
+        <div className="not-xl:hidden">
+          <MinusIcon size={Size.lg} />
+        </div>
       </TransparentIconButton>
 
       <span
@@ -48,7 +54,12 @@ export default function CounterButton({
         onClick={increaseCounter}
         disabled={(max && count === max) || disabled}
       >
-        <PlusIcon style="size-4 xl:size-6 " />
+        <div className="xl:hidden">
+          <PlusIcon size={Size.sm} />
+        </div>
+        <div className="not-xl:hidden">
+          <PlusIcon size={Size.lg} />
+        </div>
       </TransparentIconButton>
     </div>
   );

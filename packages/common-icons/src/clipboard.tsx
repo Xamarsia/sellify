@@ -1,8 +1,11 @@
-type ClipboardProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type ClipboardIconProps = {
+  size?: Size;
 };
 
-export default function Clipboard({ style }: ClipboardProps) {
+export default function ClipboardIcon({ size = Size.lg }: ClipboardIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function Clipboard({ style }: ClipboardProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

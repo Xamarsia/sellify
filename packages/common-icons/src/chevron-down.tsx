@@ -1,8 +1,13 @@
-type ChevronDownProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type ChevronDownIconProps = {
+  size?: Size;
 };
 
-export default function ChevronDown({ style }: ChevronDownProps) {
+export default function ChevronDownIcon({
+  size = Size.sm,
+}: ChevronDownIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +15,7 @@ export default function ChevronDown({ style }: ChevronDownProps) {
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

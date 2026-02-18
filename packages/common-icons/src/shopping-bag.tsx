@@ -1,8 +1,13 @@
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
 type ShoppingBagIconProps = {
-  style?: string;
+  size?: Size;
 };
 
-export default function ShoppingBagIcon({ style }: ShoppingBagIconProps) {
+export default function ShoppingBagIcon({
+  size = Size.md,
+}: ShoppingBagIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +15,7 @@ export default function ShoppingBagIcon({ style }: ShoppingBagIconProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

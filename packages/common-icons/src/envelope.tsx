@@ -1,8 +1,11 @@
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
 type EnvelopeIconProps = {
-  style?: string;
+  size?: Size;
 };
 
-export default function EnvelopeIcon({ style }: EnvelopeIconProps) {
+export default function EnvelopeIcon({ size = Size.lg }: EnvelopeIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function EnvelopeIcon({ style }: EnvelopeIconProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

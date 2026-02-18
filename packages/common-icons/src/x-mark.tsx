@@ -1,8 +1,11 @@
-type XMarkProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type XMarkIconProps = {
+  size?: Size;
 };
 
-export default function XMark({ style }: XMarkProps) {
+export default function XMarkIcon({ size = Size.sm }: XMarkIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function XMark({ style }: XMarkProps) {
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

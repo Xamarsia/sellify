@@ -2,7 +2,8 @@
 
 import { ReactNode, useEffect, useMemo, useRef } from "react";
 
-import XMark from "@sellify/common-icons/x-mark";
+import XMarkIcon from "@sellify/common-icons/x-mark";
+import { Size } from "@sellify/common-icons/enums";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 type SidePanelProps = {
@@ -55,7 +56,7 @@ export default function SidePanel({
         <div className="flex flex-none justify-between items-center mb-8">
           <h2>{title}</h2>
           <TransparentIconButton onClick={onClose}>
-            <XMark style="size-6 stroke-current" />
+            <XMarkIcon size={Size.lg} />
           </TransparentIconButton>
         </div>
         {children}

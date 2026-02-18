@@ -7,6 +7,7 @@ type RadioProps = {
   disabled?: boolean;
   value?: string;
   label?: string;
+  readOnly?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -15,6 +16,7 @@ export default function Radio({
   disabled,
   value,
   label,
+  readOnly,
   onChange,
 }: RadioProps) {
   return (
@@ -26,6 +28,7 @@ export default function Radio({
           disabled={disabled}
           onChange={onChange}
           checked={checked}
+          readOnly={readOnly}
           id={`radio-${value}`}
           className="peer size-5 appearance-none rounded-full border border-stroke group-hover:border-black
             bg-white enabled:hover:border-black focus:border-black disabled:border-disabled

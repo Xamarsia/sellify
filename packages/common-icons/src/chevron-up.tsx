@@ -1,8 +1,11 @@
-type ChevronUpProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type ChevronUpIconProps = {
+  size?: Size;
 };
 
-export default function ChevronUp({ style }: ChevronUpProps) {
+export default function ChevronUpIcon({ size = Size.sm }: ChevronUpIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function ChevronUp({ style }: ChevronUpProps) {
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

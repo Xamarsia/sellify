@@ -1,8 +1,11 @@
 "use client";
 
 import { useCallback, useContext, useMemo } from "react";
+import { usePathname } from "next/navigation";
 
 import UserIcon from "@sellify/common-icons/user";
+import { Size } from "@sellify/common-icons/enums";
+
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 import Bars3Icon from "@sellify/common-icons/bars-3";
@@ -20,7 +23,6 @@ import {
   NavbarDrawerController,
   SearchPanelController,
 } from "types";
-import { usePathname } from "next/navigation";
 
 export default function Header() {
   const { openCartPanel } = useContext<CartPanelController>(CartPanelContext);
@@ -52,7 +54,7 @@ export default function Header() {
 
       <div className="md:hidden not-md:order-1">
         <TransparentIconButton onClick={openDrawer}>
-          <Bars3Icon style="size-8" />
+          <Bars3Icon size={Size.xxl} />
         </TransparentIconButton>
       </div>
 
@@ -71,15 +73,15 @@ export default function Header() {
 
       <div className="flex gap-4 not-md:order-3">
         <TransparentIconButton onClick={openSearchPanel}>
-          <MagnifyingGlassIcon />
+          <MagnifyingGlassIcon size={Size.md} />
         </TransparentIconButton>
         <a href="/profile">
           <TransparentIconButton>
-            <UserIcon />
+            <UserIcon size={Size.md} />
           </TransparentIconButton>
         </a>
         <TransparentIconButton onClick={openCartPanel}>
-          <ShoppingBagIcon />
+          <ShoppingBagIcon size={Size.md} />
         </TransparentIconButton>
       </div>
     </header>

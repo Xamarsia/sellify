@@ -6,6 +6,7 @@ import SidePanel from "@sellify/common-ui-components/SidePanel";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
+import { Size } from "@sellify/common-icons/enums";
 
 import SearchItem from "./SearchItem";
 import { SearchItem as SearchItemType, NavigationLink } from "../types";
@@ -65,7 +66,7 @@ export default function SearchPanel({
             ))}
           </ul>
           <LinkButton href={`/search/${query.replace(/\s/g, "-")}`}>
-            See More Results <ArrowLongRightIcon style="size-6" />
+            See More Results <ArrowLongRightIcon size={Size.md} />
           </LinkButton>
         </div>
       ) : (
@@ -75,7 +76,7 @@ export default function SearchPanel({
             {popularQuickLinks.map((navItem, index) => (
               <li key={"PopularQuickLinks:" + index}>
                 <LinkButton href={navItem.href}>
-                  <ArrowLongRightIcon style="size-5" /> {navItem.title}
+                  <ArrowLongRightIcon size={Size.md} /> {navItem.title}
                 </LinkButton>
               </li>
             ))}

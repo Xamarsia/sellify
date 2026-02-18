@@ -1,9 +1,12 @@
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
 type AdjustmentsHorizontalIconProps = {
-  style?: string;
+  size?: Size;
 };
 
 export default function AdjustmentsHorizontalIcon({
-  style,
+  size = Size.lg,
 }: AdjustmentsHorizontalIconProps) {
   return (
     <svg
@@ -12,7 +15,7 @@ export default function AdjustmentsHorizontalIcon({
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

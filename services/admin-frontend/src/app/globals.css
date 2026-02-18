@@ -1,3 +1,4 @@
 @import "@sellify/tailwind-config/styles";
+@import "@sellify/common-icons/styles";
 @import "@sellify/common-ui-components/styles";
 @import "@sellify/admin-ui-components/styles";
