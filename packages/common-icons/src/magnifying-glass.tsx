@@ -1,8 +1,13 @@
-type MagnifyingGlassProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type MagnifyingGlassIconProps = {
+  size?: Size;
 };
 
-export default function MagnifyingGlass({ style }: MagnifyingGlassProps) {
+export default function MagnifyingGlassIcon({
+  size = Size.md,
+}: MagnifyingGlassIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +15,7 @@ export default function MagnifyingGlass({ style }: MagnifyingGlassProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

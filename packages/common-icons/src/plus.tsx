@@ -1,8 +1,11 @@
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
 type PlusIconProps = {
-  style?: string;
+  size?: Size;
 };
 
-export default function PlusIcon({ style }: PlusIconProps) {
+export default function PlusIcon({ size = Size.sm }: PlusIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function PlusIcon({ style }: PlusIconProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

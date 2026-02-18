@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 
-import XMark from "@sellify/common-icons/x-mark";
+import XMarkIcon from "@sellify/common-icons/x-mark";
+import { Size } from "@sellify/common-icons/enums";
 
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
@@ -24,7 +25,7 @@ export default function MediaInputImage({
       <div className="absolute hover:bg-black/20 hover:backdrop-blur-[2px] size-full rounded-lg">
         <div className="absolute top-0 right-0 m-1">
           <TransparentIconButton onClick={removeImage} variant="white">
-            <XMark style="size-6" />
+            <XMarkIcon size={Size.lg} />
           </TransparentIconButton>
         </div>
       </div>

@@ -13,8 +13,8 @@ import image5 from "resources/3/image.jpg";
 import image6 from "resources/3/image2.jpg";
 
 import HomeIcon from "@sellify/common-icons/home";
-import CreditCard from "@sellify/common-icons/credit-card";
-import Clipboard from "@sellify/common-icons/clipboard";
+import CreditCardIcon from "@sellify/common-icons/credit-card";
+import ClipboardIcon from "@sellify/common-icons/clipboard";
 
 import {
   CartItem as CartItemType,
@@ -37,8 +37,8 @@ export default function Home() {
   const barItems = useMemo<Array<ProgressStepInfo>>(() => {
     const progressBarItems: Array<ProgressStepInfo> = [
       { step: 0, title: "Delivery Info", icon: <HomeIcon /> },
-      { step: 1, title: "Payment Method", icon: <CreditCard /> },
-      { step: 2, title: "Review", icon: <Clipboard /> },
+      { step: 1, title: "Payment Method", icon: <CreditCardIcon /> },
+      { step: 2, title: "Review", icon: <ClipboardIcon /> },
     ];
     return progressBarItems;
   }, []);

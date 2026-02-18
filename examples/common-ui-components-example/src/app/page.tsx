@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { ChangeEvent, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
+import { Size } from "@sellify/common-icons/enums";
 
 import {
   NavMenuItem,
@@ -42,6 +43,14 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
   const [textareaValue, setTextareaValue] = useState<string>("");
   const [images, setImages] = useState<File[]>([]);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const onIsCheckedChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      setIsChecked(e.target.checked);
+    },
+    [setIsChecked],
+  );
 
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -133,47 +142,43 @@ export default function Home() {
         <Section title={"Button"}>
           <SectionItem>
             <Button>
-              Default Button
-              <PlusIcon style="size-6" />
+              Default Button <PlusIcon size={Size.lg} />
             </Button>
 
             <Button variant="outline">
-              Outline Button <PlusIcon style="size-6" />
+              Outline Button <PlusIcon size={Size.lg} />
             </Button>
 
             <Button variant="destructive">
-              Destructive Button <PlusIcon style="size-6" />
+              Destructive Button <PlusIcon size={Size.lg} />
             </Button>
           </SectionItem>
 
           <SectionItem>
-            <Button disabled>
-              Disabled Default
-              <PlusIcon style="size-6" />
+            <Button disabled variant="destructive">
+              Disabled Destructive <PlusIcon size={Size.lg} />
             </Button>
 
             <Button disabled variant="outline">
-              Disabled Outline
-              <PlusIcon style="size-6" />
+              Disabled Outline <PlusIcon size={Size.lg} />
             </Button>
 
             <Button disabled variant="destructive">
-              Disabled Destructive <PlusIcon style="size-6" />
+              Disabled Destructive <PlusIcon size={Size.lg} />
             </Button>
           </SectionItem>
 
           <SectionItem>
             <Button size="small">
-              Small Button <PlusIcon style="size-6" />
+              Small Button <PlusIcon size={Size.lg} />
             </Button>
 
             <Button variant="outline" size="small">
-              Small Button <PlusIcon style="size-6" />
+              Small Button <PlusIcon size={Size.lg} />
             </Button>
 
             <Button variant="destructive" size="small">
-              Small Button
-              <PlusIcon style="size-6" />
+              Small Button <PlusIcon size={Size.lg} />
             </Button>
           </SectionItem>
         </Section>
@@ -183,21 +188,21 @@ export default function Home() {
         <Section title={"Icon Button"}>
           <SectionItem>
             <IconButton>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </IconButton>
 
             <IconButton variant="outline">
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </IconButton>
           </SectionItem>
 
           <SectionItem>
             <IconButton disabled>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </IconButton>
 
             <IconButton variant="outline" disabled>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </IconButton>
           </SectionItem>
         </Section>
@@ -208,10 +213,10 @@ export default function Home() {
           <SectionItem>
             <LinkButton>Link Button</LinkButton>
             <LinkButton>
-              Link Button <PlusIcon style="size-6" />
+              Link Button <PlusIcon size={Size.lg} />
             </LinkButton>
             <LinkButton>
-              <PlusIcon style="size-6" /> Link Button
+              <PlusIcon size={Size.lg} />
             </LinkButton>
             <div className="bg-black text-white">
               <LinkButton>Link Button</LinkButton>
@@ -224,21 +229,21 @@ export default function Home() {
         <Section title={"Transparent Icon Button"}>
           <SectionItem>
             <TransparentIconButton>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </TransparentIconButton>
 
             <TransparentIconButton variant="destructive">
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </TransparentIconButton>
           </SectionItem>
 
           <SectionItem>
             <TransparentIconButton disabled>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </TransparentIconButton>
 
             <TransparentIconButton variant="destructive" disabled>
-              <PlusIcon style="size-6" />
+              <PlusIcon size={Size.lg} />
             </TransparentIconButton>
           </SectionItem>
         </Section>
@@ -330,9 +335,15 @@ export default function Home() {
             <Checkbox
               label="Default Checkbox"
               value="default"
-              checked={false}
+              checked={isChecked}
+              onChange={onIsCheckedChange}
             />
-            <Checkbox label="Checked Checkbox" value="checked" checked={true} />
+            <Checkbox
+              label="Checked Checkbox"
+              value="checked"
+              checked={true}
+              readOnly
+            />
             <Checkbox
               label="Disabled Checkbox"
               value="disabled"
@@ -344,15 +355,17 @@ export default function Home() {
               checked
               label="Disabled Checked Checkbox"
               value="disabled-checked"
+              readOnly
             />
           </SectionItem>
           <SectionItem>
             <Radio label="Default Radio" value="default" />
-            <Radio checked label="Checked Radio" value="checked" />
-            <Radio disabled label="Disabled Radio" value="disabled" />
+            <Radio checked label="Checked Radio" value="checked" readOnly />
+            <Radio disabled label="Disabled Radio" value="disabled" readOnly />
             <Radio
               disabled
               checked
+              readOnly
               label="Disabled Checked Radio"
               value="disabled-checked"
             />
@@ -379,12 +392,12 @@ export default function Home() {
 
         <Section title={"Dropdown"}>
           <SectionItem>
-            <DropdownUseExample items={comboboxItems} title="Sort By" />
             <DropdownUseExample
               items={comboboxItems}
               title="Sort By"
               disabled
             />
+            <DropdownUseExample items={comboboxItems} title="Sort By" />
           </SectionItem>
         </Section>
 

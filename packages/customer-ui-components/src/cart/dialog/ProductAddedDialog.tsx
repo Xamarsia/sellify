@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-import XMark from "@sellify/common-icons/x-mark";
+import XMarkIcon from "@sellify/common-icons/x-mark";
+import { Size } from "@sellify/common-icons/enums";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 import ProductAddedDialogContent from "./ProductAddedDialogContent";
@@ -47,7 +48,7 @@ export default function ProductAddedDialog({
         <div className="flex justify-between items-center pb-4">
           <h2>Added To Cart</h2>
           <TransparentIconButton onClick={onDialogClose}>
-            <XMark style="size-6 stroke-current" />
+            <XMarkIcon size={Size.lg} />
           </TransparentIconButton>
         </div>
         <ProductAddedDialogContent

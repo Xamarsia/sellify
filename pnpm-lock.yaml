@@ -159,9 +159,6 @@ importers:
         specifier: 19.2.3
         version: 19.2.3
     devDependencies:
-      '@sellify/common-icons':
-        specifier: workspace:*
-        version: link:../common-icons
       '@sellify/common-ui-components':
         specifier: workspace:*
         version: link:../common-ui-components
@@ -174,9 +171,6 @@ importers:
       '@types/react':
         specifier: ~19.2.8
         version: 19.2.8
-      prettier:
-        specifier: 3.6.0
-        version: 3.6.0
       tailwindcss:
         specifier: ~4.1.18
         version: 4.1.18
@@ -190,12 +184,18 @@ importers:
         specifier: 19.2.3
         version: 19.2.3
     devDependencies:
+      '@sellify/tailwind-config':
+        specifier: workspace:*
+        version: link:../tailwind-config
       '@sellify/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/react':
         specifier: ~19.2.8
         version: 19.2.8
+      tailwindcss:
+        specifier: ~4.1.18
+        version: 4.1.18
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -218,9 +218,6 @@ importers:
       '@types/react':
         specifier: ~19.2.8
         version: 19.2.8
-      prettier:
-        specifier: 3.6.0
-        version: 3.6.0
       tailwindcss:
         specifier: ~4.1.18
         version: 4.1.18

@@ -22,7 +22,6 @@
   "devDependencies": {
     "@sellify/tailwind-config": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
-    "@sellify/common-icons": "workspace:*",
     "@sellify/common-ui-components": "workspace:*",
     "@types/react": "~19.2.8",
     "typescript": "~5.9.3",

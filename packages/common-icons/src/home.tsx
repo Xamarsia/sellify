@@ -1,8 +1,11 @@
-type HomeProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type HomeIconProps = {
+  size?: Size;
 };
 
-export default function Home({ style }: HomeProps) {
+export default function HomeIcon({ size = Size.lg }: HomeIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function Home({ style }: HomeProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

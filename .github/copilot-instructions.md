@@ -44,7 +44,7 @@ This repository is a Turborepo-managed monorepo that separates deployable servic
 ## Naming Conventions (common-icons)
 
 - Component filenames must match the exported component name in PascalCase.
-- Icon filenames are kebab-case; exported React components use PascalCase with `Icon` suffix. Keep props consistent across icons (e.g., `size?: number`, `className?: string`).
+- Icon filenames are kebab-case; exported React components use PascalCase with `Icon` suffix. Keep props consistent across icons (e.g., `size?: string`).
 
 ## Clean Code Principles
 

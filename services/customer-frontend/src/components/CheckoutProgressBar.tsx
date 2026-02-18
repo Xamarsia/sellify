@@ -4,8 +4,8 @@ import { useMemo } from "react";
 
 import TruckIcon from "@sellify/common-icons/truck";
 import CubeIcon from "@sellify/common-icons/cube";
-import CreditCard from "@sellify/common-icons/credit-card";
-import Clipboard from "@sellify/common-icons/clipboard";
+import CreditCardIcon from "@sellify/common-icons/credit-card";
+import ClipboardIcon from "@sellify/common-icons/clipboard";
 
 import { ProgressStepInfo } from "@sellify/customer-ui-components/types";
 import ProgressBar from "@sellify/customer-ui-components/progress/ProgressBar";
@@ -35,12 +35,12 @@ export default function CheckoutProgressBar({
       {
         step: CheckoutStep.PAYMENT_METHOD,
         title: "Payment Method",
-        icon: <CreditCard />,
+        icon: <CreditCardIcon />,
       },
       {
         step: CheckoutStep.REVIEW,
         title: "Review",
-        icon: <Clipboard />,
+        icon: <ClipboardIcon />,
       },
     ];
     return progressBarItems;

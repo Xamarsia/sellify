@@ -1,14 +1,19 @@
-type ChevronRightMiniProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type ChevronRightMiniIconProps = {
+  size?: Size;
 };
 
-export default function ChevronRightMini({ style }: ChevronRightMiniProps) {
+export default function ChevronRightMiniIcon({
+  size = Size.md,
+}: ChevronRightMiniIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         fillRule="evenodd"

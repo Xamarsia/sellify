@@ -1,8 +1,11 @@
-type FireProps = {
-  style?: string;
+import { sizeToCSS } from "./common/common";
+import { Size } from "./common/enums";
+
+type FireIconProps = {
+  size?: Size;
 };
 
-export default function Fire({ style }: FireProps) {
+export default function FireIcon({ size = Size.lg }: FireIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +13,7 @@ export default function Fire({ style }: FireProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${style}`}
+      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"
