@@ -13,6 +13,7 @@ import { deleteProduct } from "actions/product-actions";
 import { RiskDialogContext } from "contexts/common-context";
 import { RiskDialogContent, RiskDialogController } from "types";
 import { isPasswordValid } from "actions/auth-actions";
+import SettingsButton from "components/SettingsButton";
 
 type Props = {
   product: ProductDetails;
@@ -39,7 +40,10 @@ export default function ProductDetailsPage({ product }: Props) {
 
   return (
     <>
-      <h1 className="py-4">{`Product: ${product.title} #${product.productId}`}</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="py-4">{`Product: ${product.title} #${product.productId}`}</h1>
+        <SettingsButton url={`/product/${product.productId}/settings`} />
+      </div>
 
       <InfoSection title="Product Details">
         <ProductInfo
@@ -62,13 +66,6 @@ export default function ProductDetailsPage({ product }: Props) {
       <InfoSection title="Media">
         <ProductImagesSlider images={product.images} />
       </InfoSection>
-
-      <div className="flex w-full justify-between p-1">
-        <Button variant="destructive" onClick={openRiskDialog}>
-          Delete Product
-        </Button>
-        <Button>Edit Product</Button>
-      </div>
     </>
   );
 }

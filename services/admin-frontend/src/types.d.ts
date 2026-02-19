@@ -33,6 +33,12 @@ export type CreateRoleRequest = {
   permissions: number[];
 };
 
+export type EditRoleRequest = {
+  roleId: number;
+  title: string;
+  permissions: number[];
+};
+
 export type CreateAdminRequest = {
   name: string;
   email: string;
@@ -40,6 +46,17 @@ export type CreateAdminRequest = {
 };
 
 export type CreateProductRequest = {
+  images: File[];
+  title: string;
+  shortDescription?: string;
+  description?: string;
+  quantity: number;
+  category: CategoryPreview;
+  price: number;
+};
+
+export type EditProductRequest = {
+  productId: number;
   images: File[];
   title: string;
   shortDescription?: string;

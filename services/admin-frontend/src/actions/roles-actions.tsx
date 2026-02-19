@@ -6,7 +6,7 @@ import {
 import { Permission } from "@sellify/admin-ui-components/enums";
 
 import { getAdminsPreviews } from "./admins-actions";
-import { CreateRoleRequest } from "types";
+import { CreateRoleRequest, EditRoleRequest } from "types";
 
 const rolePreview: RolePreview = {
   roleId: 34,
@@ -130,5 +130,9 @@ export function getRoles(): Array<Role> {
 }
 
 export function createRole(createRoleRequest: CreateRoleRequest): Role {
+  return role;
+}
+
+export function editRole(editRoleRequest: EditRoleRequest): Role {
   return role;
 }
