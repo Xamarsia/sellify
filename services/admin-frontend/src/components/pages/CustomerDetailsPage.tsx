@@ -12,6 +12,7 @@ import CustomerInfo from "@sellify/admin-ui-components/details/CustomerInfo";
 
 import { OrdersFilterSections } from "filter-sections/orders-filter";
 import Filter from "components/Filter";
+import SettingsButton from "components/SettingsButton";
 
 type Props = {
   customer: Customer;
@@ -23,8 +24,10 @@ export default function CustomerDetailsPage({ customer, orders }: Props) {
 
   return (
     <>
-      <h1 className="py-4">{`Customer: ${customer.name} #${customer.customerId}`}</h1>
-
+      <div className="flex justify-between items-center">
+        <h1 className="py-4">{`Customer: ${customer.name} #${customer.customerId}`}</h1>
+        <SettingsButton url={`/customer/${customer.customerId}/settings`} />
+      </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
         <Card label="Orders" value="7" />
         <Card label="Balance" value="$7,823" />
@@ -53,7 +56,6 @@ export default function CustomerDetailsPage({ customer, orders }: Props) {
           pagesAmount={10}
         />
       </InfoSection>
-      <Button variant="destructive">Archive Customer</Button>
     </>
   );
 }

@@ -3,13 +3,13 @@
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import SettingsSection from "@sellify/admin-ui-components/SettingsSection";
 
-export default function CategorySettings() {
+export default function CustomerSettings() {
   return (
     <InfoSection title="Danger Zone">
       <SettingsSection
-        title="Delete Category"
-        description="Permanently delete your category and all associated data. This action cannot be undone"
-        buttonText="Delete"
+        title="Archive Customer"
+        description="Move selected customer data to inactive status."
+        buttonText="Archive"
         type="destructive"
       />
     </InfoSection>

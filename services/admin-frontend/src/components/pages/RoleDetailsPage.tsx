@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@sellify/common-ui-components/buttons/Button";
+import { useState } from "react";
 
 import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
@@ -10,7 +10,7 @@ import PermissionsMultiSelectionCombobox from "@sellify/admin-ui-components/Perm
 
 import Filter from "components/Filter";
 import { AdminPreviewFilterSections } from "filter-sections/admins-filter";
-import { useState } from "react";
+import SettingsButton from "components/SettingsButton";
 
 type Props = {
   role: Role;
@@ -22,9 +22,13 @@ export default function RoleDetailsPage({ role, relatedAdmins }: Props) {
   const [selectedPermissions, setSelectedPermissions] = useState<
     Map<number, string>
   >(new Map());
+
   return (
     <>
-      <h1 className="py-4">{`Role: ${role.title}`}</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="py-4">{`Role: ${role.title}`}</h1>
+        <SettingsButton url={`/role/${role.roleId}/settings`} />
+      </div>
       <Card label="Related Users" value="5" />
 
       <InfoSection title="Permissions List">
@@ -45,11 +49,6 @@ export default function RoleDetailsPage({ role, relatedAdmins }: Props) {
           pagesAmount={10}
         />
       </InfoSection>
-
-      <div className="flex w-full justify-between">
-        <Button variant="destructive">Remove Role</Button>
-        <Button>Edit Role</Button>
-      </div>
     </>
   );
 }

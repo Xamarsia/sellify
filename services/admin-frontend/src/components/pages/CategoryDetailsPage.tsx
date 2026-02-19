@@ -9,7 +9,7 @@ import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPr
 
 import Filter from "components/Filter";
 import { ProductsPreviewFilterSections } from "filter-sections/products-filter";
-import CategorySettings from "setting-sections/category-settings";
+import SettingsButton from "components/SettingsButton";
 
 type Props = {
   category: Category;
@@ -24,7 +24,10 @@ export default function CategoryDetailsPage({
 
   return (
     <>
-      <h1 className="py-4">{`Category: ${category.title}`}</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="py-4">{`Category: ${category.title}`}</h1>
+        <SettingsButton url={`/category/${category.categoryId}/settings`} />
+      </div>
       <Card label="Related Products" value="5" />
       <InfoSection title="Related Products">
         <Filter filterSections={ProductsPreviewFilterSections} />
@@ -34,10 +37,6 @@ export default function CategoryDetailsPage({
           onPageChanged={setPage}
           pagesAmount={10}
         />
-      </InfoSection>
-
-      <InfoSection title="Danger Zone">
-        <CategorySettings />
       </InfoSection>
     </>
   );
