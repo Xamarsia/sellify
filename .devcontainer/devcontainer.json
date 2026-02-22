@@ -18,6 +18,5 @@
       ]
     }
   },
-  // "postCreateCommand": "pnpm install && python3 -m venv venv-selenium" // install dependencies
-  "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh"
+  "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh"
 }
