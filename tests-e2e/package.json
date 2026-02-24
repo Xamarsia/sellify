@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": ". ./envsetup.sh -h && python3 first_script.py"
+    "test": ". ./envsetup.sh && python3 first_script.py",
+    "force_setup": ". ./envsetup.sh -f"
   }
 }
