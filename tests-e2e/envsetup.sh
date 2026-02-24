@@ -4,7 +4,7 @@
 
 print_usage() {
     echo "
-Runs e2e tests env setup script
+Runs e2e tests environment setup.
 
 Options:
     -h, --help      Display help message
