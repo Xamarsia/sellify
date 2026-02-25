@@ -57,12 +57,12 @@ setup_selenium_venv() {
 
 if [ -f ]; then
     echo "Virtual environment forced rebuild."
-    rm -rf venv-selenium
+    rm -rf ./venv/venv-selenium
 fi
 
 echo "Install Selenium in Python Virtual Environment"
-python3 -m venv venv-selenium
-. ./venv-selenium/bin/activate ## run this command with source instead of dot (.) to run venv
+python3 -m venv ./venv/venv-selenium
+. ./venv/venv-selenium/bin/activate ## run this command with source instead of dot (.) to run venv
 
 echo "Installing requirements..."
 pip install -r ./requirements.txt

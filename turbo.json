@@ -19,6 +19,11 @@
     },
     "//#clean": {
       "cache": false
+    },
+    "test": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^test"]
     }
   }
 }
