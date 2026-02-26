@@ -22,8 +22,10 @@ RUN apt install ./google-chrome*.deb -y
 RUN apt update -y
 RUN apt upgrade -y
 
-RUN LATEST_CHROMEDRIVER_VERSION=$(curl https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
-wget https://storage.googleapis.com/chrome-for-testing-public/${LATEST_CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip
+RUN wget https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.77/linux64/chromedriver-linux64.zip
+
+# RUN LATEST_CHROMEDRIVER_VERSION=$(curl https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+# wget https://storage.googleapis.com/chrome-for-testing-public/${LATEST_CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip
 
 RUN unzip chromedriver-linux64.zip || rm chromedriver-linux64.zip
 RUN chmod +x chromedriver-linux64/chromedriver 
