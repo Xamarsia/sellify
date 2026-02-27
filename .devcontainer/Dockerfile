@@ -4,7 +4,7 @@ FROM node:24 AS base
 
 RUN npm install -g pnpm
 
-# Install python & pip
+# Install python3 and pip
 
 RUN apt update
 RUN apt install python3 python3-pip -y
@@ -22,6 +22,7 @@ RUN apt install ./google-chrome*.deb -y
 RUN apt update -y
 RUN apt upgrade -y
 
+# TODO: Pin specific Chrome and ChromeDriver versions for reproducible builds
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.77/linux64/chromedriver-linux64.zip
 
 # RUN LATEST_CHROMEDRIVER_VERSION=$(curl https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
