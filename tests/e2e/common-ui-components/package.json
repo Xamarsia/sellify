@@ -1,0 +1,9 @@
+{
+  "name": "common-ui-components-e2e-tests",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "pnpm turbo common-ui-components-example#dev && pytest test.py"
+  }
+}

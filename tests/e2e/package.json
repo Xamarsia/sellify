@@ -1,10 +1,10 @@
 {
   "name": "e2e-tests",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "test": ". ./envsetup.sh && python3 first_script.py",
-    "force_setup": ". ./envsetup.sh -f"
+    "force_setup": ". ./envsetup.sh -f",
+    "e2e-test": ". ./envsetup.sh && pytest ./common-ui-components/test.py"
   }
 }
