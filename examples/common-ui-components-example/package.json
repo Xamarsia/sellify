@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "check-types": "tsc --noEmit",
-    "clean": "git clean -xdf .cache .next .turbo dist node_modules"
+    "clean": "git clean -xdf .cache .next .turbo dist node_modules",
+    "e2e-tests": ". ../../scripts/e2e-envsetup.sh && start-server-and-test dev http://localhost:3000 'pytest ./tests/test.py' > /dev/null"
   },
   "peerDependencies": {
     "next": "16.1.1",
@@ -20,6 +21,7 @@
     "@sellify/typescript-config": "workspace:*",
     "@sellify/common-icons": "workspace:*",
     "@tailwindcss/postcss": "~4.1.18",
+    "start-server-and-test": "2.1.5",
     "@types/node": "~25.0.7",
     "@types/react": "~19.2.8",
     "@types/react-dom": "~19.2.3",
@@ -28,3 +30,4 @@
     "typescript": "~5.9.3"
   }
 }
+ 
