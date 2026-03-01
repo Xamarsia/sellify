@@ -20,22 +20,10 @@
     "//#clean": {
       "cache": false
     },
-    "test": {
+    "e2e-tests": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["^test"]
-    },
-
-    "common-ui-test": {
-      "with": ["common-ui-components-example#dev"],
-      "persistent": true,
-      "cache": false
-    },
-
-    "e2e-test": {
-      "dependsOn": ["common-ui-test", "^e2e-test"],
-      "persistent": true,
-      "cache": false
+      "dependsOn": ["^e2e-tests"]
     }
   }
 }

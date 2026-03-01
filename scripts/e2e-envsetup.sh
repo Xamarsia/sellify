@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Function to display script usage
 
@@ -7,8 +7,8 @@ print_usage() {
 Runs e2e tests environment setup.
 
 Options:
-    -h, --help      Display help message
-    -f, --force     Force venv rebuild (remove existing venv)
+    -h, --help                       Display help message
+    -f, --force                      Force venv rebuild (remove existing venv)
 "
 exit 2
 }
@@ -57,15 +57,22 @@ setup_selenium_venv() {
 
 if [ -f ]; then
     echo "Virtual environment forced rebuild."
-    rm -rf ./venv/venv-selenium
+    rm -rf ~/venv/venv-selenium
 fi
 
 echo "Install Selenium in Python Virtual Environment"
-python3 -m venv ./venv/venv-selenium
-. ./venv/venv-selenium/bin/activate ## run this command with source instead of dot (.) to run venv
+python3 -m venv ~/venv/venv-selenium
+. ~/venv/venv-selenium/bin/activate ## run this command with source instead of dot (.) to run venv
 
 echo "Installing requirements..."
-pip install -r ./requirements.txt
+
+# Create and fill requirements file
+cat > ~/venv/requirements.txt << EOF
+selenium==4.38.0
+pytest==9.0.2
+EOF
+
+pip install -r ~/venv/requirements.txt
 
 echo "Setup complete. To activate the venv in a new shell run: \\n source ./envsetup.sh"
 }
