@@ -7,7 +7,7 @@ on:
 jobs:
   container-run-tests:
     runs-on: ubuntu-latest
-    container: xamarsia/sellify:0.0.0
+    container: xamarsia/sellify:0.0.1
     steps:
       - name: Install all dependencies for the project
         run: pnpm install
