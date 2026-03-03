@@ -19,7 +19,7 @@ def setup():
     driver = webdriver.Chrome(
         options=chrome_options,
     )
-    driver.get("http://loca lhost:3000/")
+    driver.get("http://localhost:3000/")
     return driver
 
 

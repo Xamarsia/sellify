@@ -1,3 +1,5 @@
+# Dockerfile for CI
+
 FROM node:24 AS base
 
 # install latest available stable pnpm
@@ -34,11 +36,3 @@ RUN mv chromedriver-linux64/chromedriver /usr/local/bin/
 
 # Install venv for python
 RUN apt install python3-venv -y
-
-WORKDIR /workspace
-
-COPY packages ./packages
-COPY examples ./examples
-COPY scripts ./scripts
-
-COPY package.json pnpm-lock.yaml turbo.json pnpm-workspace.yaml ./
