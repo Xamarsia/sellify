@@ -43,5 +43,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# python testing virtual environment
-tests/e2e/venv/**/*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Unit test / coverage reports
+.pytest_cache/
