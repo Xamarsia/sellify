@@ -14,6 +14,8 @@ RUN apt install python3 python3-pip -y
 RUN apt update -y
 RUN apt upgrade -y
 
+# Setup environment for e2e-testing 
+
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN apt install ./google-chrome*.deb -y
 
