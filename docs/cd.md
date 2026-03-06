@@ -49,9 +49,9 @@ docker compose down
 
 Each deployable service has its own production `Dockerfile` inside its directory under [**services/**](https://github.com/Xamarsia/sellify/tree/main/services):
 
-| Service              | Dockerfile Location                        |
-| -------------------- | ------------------------------------------ |
-| `customer-frontend`  | `services/customer-frontend/Dockerfile`    |
+| Service             | Dockerfile Location                     |
+| ------------------- | --------------------------------------- |
+| `customer-frontend` | `services/customer-frontend/Dockerfile` |
 
 <!-- TODO: Add more services as they are created -->
 
