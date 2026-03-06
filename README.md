@@ -261,6 +261,7 @@ These commands should be executed in the root directory of the `sellify` project
 - `pnpm format` - formats every .ts, .tsx or .md file with Prettier.
 - `pnpm store prune` - removes unreferenced packages from the store.
 - `pnpm turbo clean` - removes .pnpm-store and node_modules folders; run `pnpm install` afterward.
+- `pnpm turbo e2e-tests` - runs e2e tests.
 
 [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters) by package is a simple way to only run tasks for the selected packages.
 
