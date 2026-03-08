@@ -35,8 +35,8 @@ export default function Radio({
             enabled:checked:border-black enabled:cursor-pointer disabled:cursor-not-allowed"
         />
         <span
-          className="absolute pointer-events-none bg-black peer-disabled:bg-disabled 
-            size-2.5 rounded-full opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 
+          className="absolute pointer-events-none bg-black peer-disabled:bg-disabled
+            size-2.5 rounded-full opacity-0 peer-checked:opacity-100 top-1/2 left-1/2
             transform -translate-x-1/2 -translate-y-1/2"
         />
       </label>

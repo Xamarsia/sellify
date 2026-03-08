@@ -34,7 +34,7 @@ export default function MainMenuDrawer() {
     <div className="w-full flex flex-col gap-4">
       <button
         onClick={onDropdownClick}
-        className={`flex w-full items-center justify-between cursor-pointer 
+        className={`flex w-full items-center justify-between cursor-pointer
         bg-white text-secondary hover:text-black`}
       >
         <h3>{selectedItem?.title}</h3>

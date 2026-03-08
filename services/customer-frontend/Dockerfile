@@ -1,6 +1,6 @@
-# Stage 1 and Stage 2 were split to decrease the number of `pnpm install` runs. 
+# Stage 1 and Stage 2 were split to decrease the number of `pnpm install` runs.
 # Any change to a package will cause a redeployment of other services.
-# In a large monorepo, this can result in a huge amount of lost time, 
+# In a large monorepo, this can result in a huge amount of lost time,
 # as any change to a monorepo's lockfile cascades into tens or hundreds of deploys.
 # Please refer to the https://turborepo.com/docs/guides/tools/docker for more details.
 
@@ -40,7 +40,7 @@ RUN pnpm turbo build
 
 
 #
-# Stage 3: Run stage 
+# Stage 3: Run stage
 #
 FROM base AS runner
 

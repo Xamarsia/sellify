@@ -65,7 +65,7 @@ export default function AddAmountButton({
 
   return (
     <div
-      className={`group flex justify-evenly w-44 h-11 has-enabled:hover:border-black has-focus:border-black 
+      className={`group flex justify-evenly w-44 h-11 has-enabled:hover:border-black has-focus:border-black
             ${value !== undefined && !disabled && "not-disabled:border-black"}  rounded-lg border border-stroke`}
     >
       <input
@@ -86,9 +86,9 @@ export default function AddAmountButton({
         onClick={onQuantitySubmit}
         disabled={disabled || value === undefined}
         className={`
-            ${disabled ? "text-disabled" : "group-has-hover:border-black peer-focus:border-black "} 
-            ${value !== undefined && !disabled && "bg-primary-hover text-white border-black enabled:hover:bg-black"} 
-            enabled:cursor-pointer disabled:cursor-not-allowed flex-1 border-l rounded-r-md border-stroke 
+            ${disabled ? "text-disabled" : "group-has-hover:border-black peer-focus:border-black "}
+            ${value !== undefined && !disabled && "bg-primary-hover text-white border-black enabled:hover:bg-black"}
+            enabled:cursor-pointer disabled:cursor-not-allowed flex-1 border-l rounded-r-md border-stroke
         `}
       >
         Add

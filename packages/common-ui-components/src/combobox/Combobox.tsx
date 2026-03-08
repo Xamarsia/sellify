@@ -129,7 +129,7 @@ export default function Combobox<T>({
           disabled={disabled}
           placeholder="--"
           className={`w-full h-full min-w-8 placeholder-placeholder disabled:text-disabled
-              focus:outline-hidden accent-transparent appearance-none 
+              focus:outline-hidden accent-transparent appearance-none
             `}
         />
 

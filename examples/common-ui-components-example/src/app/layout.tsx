@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Common ui components library",
-  description: "Showcase the usage of the @sellify/common-ui-components React component library",
+  description:
+    "Showcase the usage of the @sellify/common-ui-components React component library",
 };
 
 export default function RootLayout({

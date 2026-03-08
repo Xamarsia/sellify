@@ -76,7 +76,7 @@ echo "Install the git hook scripts"
 # It will read instructions from .pre-commit-config.yaml and install hooks locally under .git/hooks/
 pre-commit install
 
-echo "Setup complete. To activate the venv in a new shell run: \\n source ./envsetup.sh"
+echo "Setup complete. To activate the venv in a new shell run: \\n source ./cd-envsetup.sh"
 }
 
 ################################################################################
