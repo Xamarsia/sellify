@@ -3,6 +3,7 @@ exclude: |
       .*cache.*/.*|       # Exclude cache directories
       .*venv.*/.*|        # Exclude virtual environment directories
       .*pnpm-store.*/.*|  # Exclude dependency directories
+      .pnpm-lock.yaml
   )$
 # fail_fast: true # stop running hooks after the first failure.
 default_install_hook_types:
@@ -10,70 +11,68 @@ default_install_hook_types:
   - pre-push
 repos:
 
-# ------------------------------- Security Tools ------------------------------- #
+  # ------------------------------- Security Tools ------------------------------- #
 
-- repo: https://github.com/gitleaks/gitleaks
-  rev: v8.30.0
-  hooks:
-    - id: gitleaks
-      name: "Check for secrets leak"
-      # stages: [pre-commit, pre-push]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+        name: "Check for secrets leak"
+        stages: [pre-commit, pre-push]
 
-# ----------------------------- Code Quality Tools ----------------------------- #
+  # ----------------------------- Code Quality Tools ----------------------------- #
 
-# Auto-format and lint Python with Ruff
+  # Auto-format and lint Python with Ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.5
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+        name: "ruff: Run linter for python"
+        stages: [pre-push]
+      - id: ruff-format
+        name: "ruff: Run formatter for python"
+        stages: [pre-push]
 
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.15.5
-  hooks:
-    - id: ruff-check
-      args: [--fix]
-      name: "ruff: run linter for python"
-    - id: ruff-format
-      name: "ruff: run formatter for python"
-      # stages: [pre-push]
+  # Format with Prettier
+  - repo: local
+    hooks:
+      - id: prettier-check
+        name: Auto-format ts, md, css, mjs, json with prettier
+        language: system
+        pass_filenames: false
+        always_run: true
+        entry: |
+          npx prettier --check --write --trailing-comma=all '**/*.{md,js,jsx,ts,tsx,css,scss}'
+        stages: [pre-push]
 
-# # Format with Prettier
-# - repo: local
-#     hooks:
-#       - id: run-prettier
-#         name: Auto-format ts, md, css, mjs, json with prettier
-#         language: system
-#         # types_or: [bash, json, javascript, markdown, css, typescript, tsx, jsx]
-#         pass_filenames: false
-#         entry: |
-#           bash -c 'pnpm run fix:prettier "${@}"' --
-#         # stages: [pre-push]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml # Attempts to load all YAML files to verify syntax
+        name: Verify YAML syntax
+      - id: end-of-file-fixer # Ensures files end with a single newline
+        name: Fix end of files
+      - id: trailing-whitespace # Trims trailing whitespace
+        name: Trim trailing whitespace
 
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v2.3.0
-  hooks:
-    - id: check-yaml  # Attempts to load all YAML files to verify syntax
-      name: Verify YAML syntax
-    - id: end-of-file-fixer  # Ensures files end with a single newline
-      name: Fix end of files
-    - id: trailing-whitespace  # Trims trailing whitespace
-      name: Trim trailing whitespace
+  # Shell
+  - repo: https://github.com/openstack/bashate
+    rev: 2.1.1
+    hooks:
+      - id: bashate
+        name: "Check shell script code style"
+        stages: [pre-commit, pre-push]
 
-# Shell
-- repo: https://github.com/openstack/bashate
-  rev: 2.1.1
-  hooks:
-    - id: bashate
-      name: "Check shell script code style"
-      # stages: [pre-commit, pre-push]
+  # ----------------------------- Fast Tests (Local) ----------------------------- #
 
-# ---------------------------------------------------------------------------- #
-#                               Fast Tests (Local)                             #
-# ---------------------------------------------------------------------------- #
-
-- repo: local
-  hooks:
-    - id: run-e2e-tests
-      name: Run e2e-tests
-      entry: pnpm
-      language: system
-      args: ["turbo", "e2e-tests"]
-      pass_filenames: false
-      always_run: true
-      # stages: [pre-push]
+  - repo: local
+    hooks:
+      - id: run-e2e-tests
+        name: Run e2e-tests
+        entry: pnpm
+        language: system
+        args: ["turbo", "e2e-tests"]
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

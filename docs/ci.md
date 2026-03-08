@@ -16,11 +16,11 @@ This document describes the Continuous Integration (CI) setup for Sellify.
 
 CI is configured with GitHub Actions. For more details, see [GitHub Actions documentation](https://docs.github.com/en/actions).
 
-| Detail              | Value                                                                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Workflow file**   | [**ci.yaml**](https://github.com/Xamarsia/sellify/tree/main/.github/workflows/docs/ci.yaml)                                        |
-| **Container image** | [**xamarsia/sellify-ci**](https://hub.docker.com/r/xamarsia/sellify-ci) (see [Docker Guide — CI Docker Image](https://github.com/Xamarsia/sellify/tree/main/.github/workflows/docs/docker.md#ci-docker-image) for update instructions)                                                                                                               |
-| **Trigger events**  | push, pull_request (opened, reopened, close)                                                                                       |
+| Detail              | Value                                                                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Workflow file**   | [**ci.yaml**](https://github.com/Xamarsia/sellify/tree/main/.github/workflows/docs/ci.yaml)                                                                                                                          |
+| **Container image** | [**xamarsia/sellify-ci**](https://hub.docker.com/r/xamarsia/sellify-ci) (see [Docker Guide — CI Docker Image](https://github.com/Xamarsia/sellify/blob/main/docs/docker.md#ci-docker-image) for update instructions) |
+| **Trigger events**  | push, pull_request (opened, reopened, close)                                                                                                                                                                         |
 
 **Current CI stages:**
 
