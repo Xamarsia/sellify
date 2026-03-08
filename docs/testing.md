@@ -26,12 +26,12 @@ For container and environment prerequisites, see [Docker Guide](https://github.c
 
 ### Overview
 
-| Detail              | Value                                                   |
-| ------------------- | ------------------------------------------------------- |
-| **Location**        | `examples/**/tests/`, `services/*-frontend/tests/`      |
-| **Runner**          | `pytest`, `start-server-and-test`                       |
-| **Browser automation** | Selenium + Chrome / ChromeDriver                     |
-| **Environment setup** | [scripts/e2e-envsetup.sh](https://github.com/Xamarsia/sellify/tree/main/scripts/e2e-envsetup.sh) — creates a Python venv and installs test dependencies |
+| Detail                 | Value                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Location**           | `examples/**/tests/`, `services/*-frontend/tests/`                                                                                                      |
+| **Runner**             | `pytest`, `start-server-and-test`                                                                                                                       |
+| **Browser automation** | Selenium + Chrome / ChromeDriver                                                                                                                        |
+| **Environment setup**  | [scripts/e2e-envsetup.sh](https://github.com/Xamarsia/sellify/tree/main/scripts/e2e-envsetup.sh) — creates a Python venv and installs test dependencies |
 
 ### Quick Execution
 
@@ -81,9 +81,9 @@ The quick commands above handle everything automatically. If you prefer to run e
 
 These are not runtime tests but static analysis checks:
 
-| Command                  | Description              |
-| ------------------------ | ------------------------ |
-| `pnpm turbo lint`        | Run ESLint checks.       |
+| Command                  | Description                 |
+| ------------------------ | --------------------------- |
+| `pnpm turbo lint`        | Run ESLint checks.          |
 | `pnpm turbo check-types` | Run TypeScript type checks. |
 
 <!-- TODO: Add Prettier check here -->

@@ -72,38 +72,38 @@ All commands should be executed from the root directory of the `sellify` project
 
 ### Build & Run
 
-| Command             | Description                                      |
-| ------------------- | ------------------------------------------------ |
-| `pnpm install`      | Install workspace dependencies.                  |
-| `pnpm turbo dev`    | Start the development server (non-cached, persistent). |
-| `pnpm turbo build`  | Build the project for production.                |
-| `pnpm turbo start`  | Start the production server.                     |
+| Command            | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `pnpm install`     | Install workspace dependencies.                        |
+| `pnpm turbo dev`   | Start the development server (non-cached, persistent). |
+| `pnpm turbo build` | Build the project for production.                      |
+| `pnpm turbo start` | Start the production server.                           |
 
 ### Format & Lint
 
-| Command           | Description                                       |
-| ----------------- | ------------------------------------------------- |
+| Command           | Description                                              |
+| ----------------- | -------------------------------------------------------- |
 | `pnpm format`     | Format every `.ts`, `.tsx`, or `.md` file with Prettier. |
-| `pnpm turbo lint` | Run ESLint tasks.                                 |
+| `pnpm turbo lint` | Run ESLint tasks.                                        |
 
 ### Type Checking
 
-| Command                  | Description                    |
-| ------------------------ | ------------------------------ |
+| Command                  | Description                   |
+| ------------------------ | ----------------------------- |
 | `pnpm turbo check-types` | Run TypeScript type checking. |
 
 ### Testing
 
-| Command                  | Description           |
-| ------------------------ | --------------------- |
-| `pnpm turbo e2e-tests`  | Run the E2E tests.    |
+| Command                | Description        |
+| ---------------------- | ------------------ |
+| `pnpm turbo e2e-tests` | Run the E2E tests. |
 
 ### Cleaning
 
-| Command              | Description                                                         |
-| -------------------- | ------------------------------------------------------------------- |
-| `pnpm store prune`   | Remove unreferenced packages from the store.                        |
-| `pnpm turbo clean`   | Clean build/cache outputs via Turbo task. Run `pnpm install` after. |
+| Command            | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `pnpm store prune` | Remove unreferenced packages from the store.                        |
+| `pnpm turbo clean` | Clean build/cache outputs via Turbo task. Run `pnpm install` after. |
 
 ### Filtering by Package
 
