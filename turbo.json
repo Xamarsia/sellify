@@ -15,10 +15,8 @@
       "persistent": true
     },
     "clean": {
-      "cache": false
-    },
-    "//#clean": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["^clean"]
     },
     "e2e-tests": {
       "cache": false,

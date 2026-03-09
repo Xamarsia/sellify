@@ -10,6 +10,8 @@
   },
   "scripts": {
     "check-types": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:strict": "eslint . --max-warnings 0",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
@@ -18,6 +20,8 @@
   "devDependencies": {
     "@sellify/tailwind-config": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
+    "@sellify/eslint-config": "workspace:*",
+    "eslint": "^9.39.1",
     "@types/react": "~19.2.8",
     "tailwindcss": "~4.1.18",
     "typescript": "~5.9.3"
