@@ -27,7 +27,7 @@ export default function TransparentIconButton({
   return (
     <button
       type={type}
-      className={`flex justify-center items-center rounded-lg enabled:cursor-pointer 
+      className={`flex justify-center items-center rounded-lg enabled:cursor-pointer
         disabled:cursor-not-allowed body min-w-6 ${variantStyle}
       `}
       disabled={disabled}

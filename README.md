@@ -9,7 +9,6 @@ Sellify is a microservice demo of an e-commerce web platform.
 - [Description](#description)
 - [Project Status](#project-status)
 - [Project's Services](#projects-services)
-- 
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [Examples](#examples)

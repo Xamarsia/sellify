@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+
 def test_eight_components():
     driver = setup()
 
@@ -8,6 +9,7 @@ def test_eight_components():
     assert title == "Common ui components library"
 
     teardown(driver)
+
 
 def setup():
     chrome_options = Options()

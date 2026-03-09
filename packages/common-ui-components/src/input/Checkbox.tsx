@@ -33,12 +33,12 @@ export default function Checkbox({
           checked={checked}
           readOnly={readOnly}
           id={`checkbox-${value}`}
-          className="peer size-5 appearance-none rounded-md border border-stroke bg-white group-hover:border-black 
+          className="peer size-5 appearance-none rounded-md border border-stroke bg-white group-hover:border-black
             enabled:hover:border-black focus:border-black checked:bg-black checked:border-black checked:disabled:bg-disabled
             enabled:checked:border-black enabled:cursor-pointer disabled:cursor-not-allowed disabled:border-disabled"
         />
         <span
-          className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 
+          className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2
             transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         >
           <CheckMiniIcon size={Size.xs} />

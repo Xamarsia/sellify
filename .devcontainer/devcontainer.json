@@ -7,7 +7,7 @@
   "updateRemoteUserUID": true,
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "mounts": [
-  "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
   ],
   "customizations": {
     "vscode": {

@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 shrink-0 flex items-center justify-between 
+      className="fixed top-0 shrink-0 flex items-center justify-between
       w-full border-y bg-white border-stroke h-20 z-20 px-8 xl:px-12"
     >
       <p className="body not-md:order-2">LOGO</p>
