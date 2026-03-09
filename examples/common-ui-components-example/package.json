@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "clean": "git clean -xdf .cache .next .turbo dist node_modules",
     "e2e-tests": ". ../../scripts/e2e-envsetup.sh && start-server-and-test dev http://localhost:3000 'pytest ./tests/test.py' > /dev/null"
@@ -20,6 +20,8 @@
     "@sellify/common-ui-components": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
     "@sellify/common-icons": "workspace:*",
+    "@sellify/eslint-config": "workspace:*",
+    "eslint": "^9.39.1",
     "@tailwindcss/postcss": "~4.1.18",
     "start-server-and-test": "2.1.5",
     "@types/node": "~25.0.7",

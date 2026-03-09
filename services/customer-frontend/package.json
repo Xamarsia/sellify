@@ -7,7 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },
@@ -23,6 +23,8 @@
     "@sellify/customer-ui-components": "workspace:*",
     "@sellify/common-icons": "workspace:*",
     "@tailwindcss/postcss": "~4.1.18",
+    "@sellify/eslint-config": "workspace:*",
+    "eslint": "^9.39.1",
     "@types/node": "~25.0.7",
     "@types/react": "~19.2.8",
     "@types/react-dom": "~19.2.3",
