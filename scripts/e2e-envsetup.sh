@@ -20,7 +20,7 @@ parse_args() {
     PARSED_ARGS=$(getopt -n init --options $SHORT_OPTS --longoptions $LONG_OPTS -- "$@")
     VALID_ARGS=$?
 
-    # Print getopt's Invalid output if it is unseccessful
+    # Print getopt's invalid output if it is unsuccessful
     if [ "$VALID_ARGS" != "0" ]; then
         echo "It is Invalid option: $1"
         exit 2
@@ -64,15 +64,15 @@ echo "Install Selenium in Python Virtual Environment"
 python3 -m venv ~/venv/venv-selenium
 . ~/venv/venv-selenium/bin/activate ## run this command with source instead of dot (.) to run venv
 
-echo "Installing requirements..."
+echo "Installing e2e-requirements..."
 
 # Create and fill requirements file
-cat > ~/venv/requirements.txt << EOF
+cat > ~/venv/e2e-requirements.txt << EOF
 selenium==4.38.0
 pytest==9.0.2
 EOF
 
-pip install -r ~/venv/requirements.txt
+pip install -r ~/venv/e2e-requirements.txt
 
 echo "Setup complete. To activate the venv in a new shell run: \\n source ./envsetup.sh"
 }

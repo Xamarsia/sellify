@@ -20,7 +20,7 @@ parse_args() {
     PARSED_ARGS=$(getopt -n init --options $SHORT_OPTS --longoptions $LONG_OPTS -- "$@")
     VALID_ARGS=$?
 
-    # Print getopt's Invalid output if it is unseccessful
+    # Print getopt's invalid output if it is unsuccessful
     if [ "$VALID_ARGS" != "0" ]; then
         echo "It is Invalid option: $1"
         exit 2
