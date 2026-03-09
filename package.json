@@ -14,7 +14,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,css,mjs,json}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "git clean -xdf node_modules .pnpm-store .turbo/cache .turbo/cookies"
+    "clean": "git clean -xdf node_modules .pnpm-store .turbo/ .ruff_cache"
   },
   "dependencies": {},
   "devDependencies": {
