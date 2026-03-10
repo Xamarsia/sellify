@@ -94,7 +94,13 @@ To run pre-commit hooks locally, you should:
    . scripts/cd-envsetup.sh
    ```
 
-2. Run against all files:
+2. Install hooks:
+
+   ```bash
+   pre-commit install
+   ```
+
+3. Run against all files:
 
    ```bash
    pre-commit run --all-files
@@ -111,10 +117,10 @@ To add or change hooks:
    ```
 
 2. Edit [**.pre-commit-config.yaml**](https://github.com/Xamarsia/sellify/tree/main/.pre-commit-config.yaml).
-3. Reinstall hooks:
+3. Replace existing git hook scripts:
 
    ```bash
-   pre-commit install
+   pre-commit install --install-hooks --overwrite
    ```
 
 If you add any new stage(s) to hooks in [**.pre-commit-config.yaml**](https://github.com/Xamarsia/sellify/tree/main/.pre-commit-config.yaml), add the same stage(s) to `default_install_hook_types` as well. Otherwise, `pre-commit install` command will not install hooks for those new stage(s).

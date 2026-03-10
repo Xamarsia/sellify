@@ -1,4 +1,4 @@
-FROM node:24 AS base
+FROM node:25-trixie AS base
 
 # install latest available stable pnpm
 

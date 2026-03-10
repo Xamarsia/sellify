@@ -53,26 +53,26 @@ parse_args() {
 # functions
 ################################################################################
 
-setup_cd_venv() {
+setup_ci_venv() {
 
 if [ -f ]; then
     echo "Virtual environment forced rebuild."
-    rm -rf ~/venv/venv-cd
+    rm -rf ./venv/venv-ci
 fi
 
-python3 -m venv ~/venv/venv-cd
-. ~/venv/venv-cd/bin/activate ## run this command with source instead of dot (.) to run venv
+python3 -m venv ./venv/venv-ci
+. ./venv/venv-ci/bin/activate ## run this command with source instead of dot (.) to run venv
 
-echo "Installing cd-requirements..."
+echo "Installing ci-requirements..."
 
 # Create and fill requirements file
-cat > ~/venv/cd-requirements.txt << EOF
+cat > ./venv/ci-requirements.txt << EOF
 pre-commit==4.5.0
 EOF
 
-pip install -r ~/venv/cd-requirements.txt
+pip install -r ./venv/ci-requirements.txt
 
-echo "Setup complete. To activate the venv in a new shell run: \\n source ./cd-envsetup.sh"
+echo "Setup complete. To activate the venv in a new shell run: \\n source ./ci-envsetup.sh"
 }
 
 ################################################################################
@@ -81,4 +81,4 @@ echo "Setup complete. To activate the venv in a new shell run: \\n source ./cd-e
 
 parse_args $@
 
-setup_cd_venv
+setup_ci_venv
