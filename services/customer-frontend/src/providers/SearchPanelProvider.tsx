@@ -34,7 +34,7 @@ export default function SearchPanelProvider({
   const onSearch = useCallback((): void => {
     router.push(`/search/${query.replace(/\s/g, "-")}`);
     onSearchPanelClose();
-  }, [router, query]);
+  }, [router, query, onSearchPanelClose]);
 
   const contextValue: SearchPanelController = {
     openSearchPanel: () => {

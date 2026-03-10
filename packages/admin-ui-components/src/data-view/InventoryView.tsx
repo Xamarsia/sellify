@@ -34,6 +34,7 @@ export default function InventoryView({
   ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((inventory) => [
       <ProductImageTableItem src={inventory.image} />,
       <LinkTableItem
@@ -48,7 +49,7 @@ export default function InventoryView({
         disabled={disabled}
       />,
     ]);
-  }, [content, disabled]);
+  }, [content, disabled, onSubmit]);
 
   return (
     <AdaptiveDataView

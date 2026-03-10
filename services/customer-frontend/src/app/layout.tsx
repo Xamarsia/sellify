@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";

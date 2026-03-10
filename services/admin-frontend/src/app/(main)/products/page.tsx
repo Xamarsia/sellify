@@ -17,8 +17,7 @@ import Filter from "components/Filter";
 export default function ProductsPage() {
   const [page, setPage] = useState<number>(1);
   const products: Array<Product> = getProducts();
-  const [currentProducts, setCurrentProducts] =
-    useState<Array<Product>>(products);
+  const [currentProducts] = useState<Array<Product>>(products);
   const router = useRouter();
 
   return (

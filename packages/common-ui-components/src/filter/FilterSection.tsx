@@ -50,7 +50,7 @@ export default function FilterSectionComponent({
 
   const getPropertyComponent = useCallback(
     (property: FilterProperty): ReactNode => {
-      let modifiedProperty = modifiedProperties?.get(property.key);
+      const modifiedProperty = modifiedProperties?.get(property.key);
 
       if (property instanceof CheckboxFilterProperty) {
         return (
@@ -116,7 +116,7 @@ export default function FilterSectionComponent({
               MultiSelectionComboboxFilterPropertyValue
                 ? modifiedProperty
                 : new MultiSelectionComboboxFilterPropertyValue(
-                    new Map<any, string>(),
+                    new Map<unknown, string>(),
                   )
             }
             initialSelectedKeys={property.initialSelectedKeys}
@@ -126,7 +126,7 @@ export default function FilterSectionComponent({
         );
       }
     },
-    [modifiedProperties, onFilterPropertyChange],
+    [modifiedProperties, onFilterPropertyChange, sectionKey],
   );
 
   return (

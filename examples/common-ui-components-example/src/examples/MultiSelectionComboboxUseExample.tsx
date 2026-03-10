@@ -29,8 +29,8 @@ export default function MultiSelectionComboboxUseExample({
     [selectedItems],
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onItemRemoved = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (key: string, value: string) => {
       const newSelectedItemsMap = new Map([...selectedItems]);
       newSelectedItemsMap.delete(key);

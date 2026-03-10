@@ -34,10 +34,11 @@ export default function MultiSelectionComboboxFilterPropertyView<
         new MultiSelectionComboboxFilterPropertyValue(newSelectedItemsMap),
       );
     },
-    [propertyKey, onFilterPropertyChange],
+    [selectedItems.value, onFilterPropertyChange, propertyKey],
   );
 
   const onItemRemoved = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (key: T, value: string) => {
       const newSelectedItemsMap = new Map([...selectedItems.value]);
       newSelectedItemsMap.delete(key);
@@ -46,7 +47,7 @@ export default function MultiSelectionComboboxFilterPropertyView<
         new MultiSelectionComboboxFilterPropertyValue(newSelectedItemsMap),
       );
     },
-    [propertyKey, onFilterPropertyChange],
+    [selectedItems.value, onFilterPropertyChange, propertyKey],
   );
 
   useEffect(() => {

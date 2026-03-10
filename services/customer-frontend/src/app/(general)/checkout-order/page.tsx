@@ -17,7 +17,6 @@ import {
   CartItem,
   ContactInfo,
   DeliveryAddress,
-  OrderDetails,
   OrderRequest,
 } from "@sellify/customer-ui-components/types";
 import InfoSection from "@sellify/customer-ui-components/InfoSection";
@@ -56,11 +55,11 @@ import {
 } from "actions/profile-actions";
 
 export default function CheckoutPage() {
-  const [cartItems, setCartItems] = useState<Array<CartItem>>(getCartItems());
+  const [cartItems] = useState<Array<CartItem>>(getCartItems());
   const [paymentProvider, setPaymentProvider] = useState<PaymentProviderType>(
     PaymentProvider.Balance,
   );
-  const [deliveryFee, setDeliveryFee] = useState<number>(getDeliveryFee());
+  const [deliveryFee] = useState<number>(getDeliveryFee());
   const [contactInfo, setContactInfo] = useState<ContactInfo | undefined>(
     getDefaultContactInfo(),
   );
@@ -121,7 +120,7 @@ export default function CheckoutPage() {
       updateDefaultDeliveryAddress(deliveryAddress);
     }
 
-    let orderId: number | undefined = order(orderRequest);
+    const orderId: number | undefined = order(orderRequest);
 
     if (!orderId) {
       return;
@@ -166,6 +165,11 @@ export default function CheckoutPage() {
     deliveryFee,
     itemsSubtotalPrice,
     totalPrice,
+    isDefaultContactInfo,
+    isDefaultDeliveryAddress,
+    showAlertDialog,
+    router,
+    closeAlertDialog,
   ]);
 
   const onDeliveryAddressChange = useCallback(
@@ -294,13 +298,17 @@ export default function CheckoutPage() {
     return contents.get(currentStep);
   }, [
     cartItems,
-    contactInfo,
-    deliveryAddress,
-    paymentProvider,
-    currentStep,
-    isPaymentProviderValid,
     isDeliveryAddressValid,
     isContactInfoValid,
+    contactInfo,
+    onContactInfoChange,
+    deliveryAddress,
+    onDeliveryAddressChange,
+    isPaymentProviderValid,
+    paymentProvider,
+    onPaymentProviderChange,
+    paymentMethodInfo?.title,
+    currentStep,
   ]);
 
   const onNextStep = useCallback(() => {
@@ -313,7 +321,7 @@ export default function CheckoutPage() {
       // Scroll To Top
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [currentStepContent, currentStep]);
+  }, [currentStepContent?.isValid, currentStep, onOrder]);
 
   return (
     <div className="flex w-full flex-col gap-12">

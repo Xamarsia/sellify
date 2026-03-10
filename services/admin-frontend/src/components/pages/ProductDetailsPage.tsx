@@ -2,7 +2,6 @@
 
 import { useCallback, useContext } from "react";
 
-import Button from "@sellify/common-ui-components/buttons/Button";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
@@ -25,8 +24,9 @@ export default function ProductDetailsPage({ product }: Props) {
 
   const onDeleteProduct = useCallback((): void => {
     deleteProduct(product.productId);
-  }, [showRiskDialog]);
+  }, [product.productId]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const openRiskDialog = useCallback((): void => {
     const alertDialogContent: RiskDialogContent = {
       title: "Delete Product",
@@ -36,7 +36,7 @@ export default function ProductDetailsPage({ product }: Props) {
       onPasswordValidated: onDeleteProduct,
     };
     showRiskDialog(alertDialogContent);
-  }, [showRiskDialog]);
+  }, [onDeleteProduct, showRiskDialog]);
 
   return (
     <>

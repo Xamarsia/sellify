@@ -53,7 +53,7 @@ export default function DeliveryAddressForm({
       //TODO Add Validation function here
       onChange(deliveryAddress, false, useAsDefault);
     },
-    [country, address, onChange],
+    [country, address, onChange, useAsDefault],
   );
 
   const onUseAsDefaultChangeHandler = useCallback(

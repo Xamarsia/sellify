@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Permission, RolePreview } from "@sellify/admin-ui-components/types";
 
 import { getRolePreviews } from "./roles-actions";

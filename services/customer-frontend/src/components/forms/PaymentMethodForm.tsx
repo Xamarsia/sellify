@@ -50,7 +50,7 @@ export default function PaymentMethodForm({
       //TODO Add Validation function here
       onPaymentMethodChange(paymentProvider, false);
     },
-    [onPaymentMethodChange],
+    [getPaymentProvider, onPaymentMethodChange],
   );
 
   return (

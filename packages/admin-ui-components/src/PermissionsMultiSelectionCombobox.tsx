@@ -38,6 +38,7 @@ export default function PermissionsMultiSelectionCombobox({
   );
 
   const onItemRemoved = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (key: number, value: string) => {
       const newSelectedItemsMap = new Map([...selectedPermissions]);
       newSelectedItemsMap.delete(key);

@@ -27,7 +27,7 @@ export default function CollectionsPageContent({ collections }: Props) {
 
   useEffect(() => {
     setNavItem(breadcrumbs);
-  }, [breadcrumbs]);
+  }, [breadcrumbs, setNavItem]);
 
   return (
     <>

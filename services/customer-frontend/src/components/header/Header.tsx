@@ -2,6 +2,7 @@
 
 import { useCallback, useContext, useMemo } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import UserIcon from "@sellify/common-icons/user";
 import { Size } from "@sellify/common-icons/enums";
@@ -75,11 +76,11 @@ export default function Header() {
         <TransparentIconButton onClick={openSearchPanel}>
           <MagnifyingGlassIcon size={Size.md} />
         </TransparentIconButton>
-        <a href="/profile">
+        <Link href="/profile">
           <TransparentIconButton>
             <UserIcon size={Size.md} />
           </TransparentIconButton>
-        </a>
+        </Link>
         <TransparentIconButton onClick={openCartPanel}>
           <ShoppingBagIcon size={Size.md} />
         </TransparentIconButton>

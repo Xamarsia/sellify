@@ -1,7 +1,4 @@
-import {
-  OrderStatus,
-  ShippingProvider,
-} from "@sellify/common-ui-components/types";
+import { OrderStatus } from "@sellify/common-ui-components/types";
 
 export type ProgressStepInfo = {
   step: number;

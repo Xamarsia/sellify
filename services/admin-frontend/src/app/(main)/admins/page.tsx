@@ -17,7 +17,7 @@ import { AdminFilterSections } from "filter-sections/admins-filter";
 
 export default function AdminsPage() {
   const defaultAdmins: Array<Admin> = getAdmins();
-  const [admins, setAdmins] = useState<Array<Admin>>(defaultAdmins);
+  const [admins] = useState<Array<Admin>>(defaultAdmins);
   const [page, setPage] = useState<number>(1);
   const router = useRouter();
 

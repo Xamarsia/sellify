@@ -10,7 +10,6 @@ import {
   Customer,
   DeliveryAddress,
   InventoryProduct,
-  Order,
   OrderPreview,
   Product,
   ProductPreview,
@@ -86,15 +85,6 @@ export default function Home() {
     customerName: "John Thomson",
     total: 345.46,
     status: OrderStatus.Shipped,
-  };
-
-  const order4: Order = {
-    orderId: 245,
-    date: "Aug 18, 2025",
-    customerName: "John Thomson",
-    total: 253.82,
-    status: OrderStatus.New,
-    items: 10,
   };
 
   const product: Product = {

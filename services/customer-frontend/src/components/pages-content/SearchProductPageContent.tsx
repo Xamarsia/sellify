@@ -15,7 +15,7 @@ export default function SearchProductPageContent({ query }: Props) {
 
   useEffect(() => {
     setInitialQuery(query);
-  }, [query]);
+  }, [query, setInitialQuery]);
 
   return (
     <div className="flex w-full flex-col gap-9 ">

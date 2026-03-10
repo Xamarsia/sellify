@@ -28,7 +28,7 @@ export default function MainMenuDrawer() {
         return item.href === pathname;
       }) ?? notFound()
     );
-  }, []);
+  }, [pathname]);
 
   return (
     <div className="w-full flex flex-col gap-4">

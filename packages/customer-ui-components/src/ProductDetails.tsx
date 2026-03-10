@@ -21,7 +21,7 @@ export default function ProductDetails({
 
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(product);
-  }, [onAddProductToCart]);
+  }, [onAddProductToCart, product]);
 
   return (
     <div className="flex gap-8 items-center flex-col lg:flex-row w-full">

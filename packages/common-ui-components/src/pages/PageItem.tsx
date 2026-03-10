@@ -17,7 +17,7 @@ export default function PageItem({
     if (!selected && onPageSelected) {
       onPageSelected(pageNumber);
     }
-  }, [selected, onPageSelected]);
+  }, [selected, onPageSelected, pageNumber]);
 
   return (
     <PageButton

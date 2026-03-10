@@ -18,7 +18,7 @@ export default function MediaInputImage({
     if (onRemoveImage) {
       onRemoveImage(image.name);
     }
-  }, [onRemoveImage]);
+  }, [image.name, onRemoveImage]);
 
   return (
     <div className="relative size-full rounded-lg shrink-0 border border-placeholder aspect-square">

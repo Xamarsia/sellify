@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 import FormItem from "@sellify/common-ui-components/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
@@ -49,17 +49,14 @@ export default function ContactInfoForm({
     [setUseAsDefault],
   );
 
-  const onContactInfoFormChange = useCallback(
-    (e: FormEvent<HTMLFormElement>): void => {
-      const contactInfo: ContactInfo = {
-        fullName: fullName,
-        phoneNumber: phoneNumber,
-      };
-      //TODO Add Validation function here
-      onChange(contactInfo, false, useAsDefault);
-    },
-    [fullName, phoneNumber, onChange],
-  );
+  const onContactInfoFormChange = useCallback((): void => {
+    const contactInfo: ContactInfo = {
+      fullName: fullName,
+      phoneNumber: phoneNumber,
+    };
+    //TODO Add Validation function here
+    onChange(contactInfo, false, useAsDefault);
+  }, [fullName, phoneNumber, onChange, useAsDefault]);
 
   return (
     <FormSection onChange={onContactInfoFormChange}>

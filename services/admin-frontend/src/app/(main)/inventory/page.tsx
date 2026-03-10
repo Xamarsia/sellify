@@ -23,7 +23,7 @@ import { InventoryFilterSections } from "filter-sections/inventory-filter";
 export default function InventoryPage() {
   const [page, setPage] = useState<number>(1);
   const defaultProducts: Array<InventoryProduct> = getInventoryProducts();
-  const [inventoryProducts, setInventoryProducts] =
+  const [inventoryProducts] =
     useState<Array<InventoryProduct>>(defaultProducts);
   const { showAlertDialog, closeAlertDialog } =
     useContext<AlertDialogController>(AlertDialogContext);
@@ -50,7 +50,7 @@ export default function InventoryPage() {
       };
       showAlertDialog(alertDialogContent);
     },
-    [showAlertDialog, closeAlertDialog, setProductQuantity],
+    [showAlertDialog, closeAlertDialog],
   );
 
   return (

@@ -15,8 +15,7 @@ import { CategoriesFilterSections } from "filter-sections/categories-filter";
 
 export default function CategoriesPage() {
   const categories: Array<Category> = getCategories();
-  const [currentCategories, setCurrentCategories] =
-    useState<Array<Category>>(categories);
+  const [currentCategories] = useState<Array<Category>>(categories);
   const [page, setPage] = useState<number>(1);
 
   return (

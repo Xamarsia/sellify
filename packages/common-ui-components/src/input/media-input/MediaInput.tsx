@@ -17,9 +17,9 @@ export default function MediaInput({
 }: MediaInputFieldProps) {
   const onImageSelected = useCallback(
     (files: FileList): void => {
-      let newImagesList = [...images];
-      for (var i = 0; i < files.length; ++i) {
-        let file: File | null = files.item(i);
+      const newImagesList = [...images];
+      for (let i = 0; i < files.length; ++i) {
+        const file: File | null = files.item(i);
         if (file) {
           newImagesList.push(file);
         }
@@ -34,7 +34,7 @@ export default function MediaInput({
       const updatedImages = images.filter((image) => image.name !== name);
       onImagesChanged(updatedImages);
     },
-    [images],
+    [images, onImagesChanged],
   );
 
   return (

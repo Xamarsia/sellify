@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useCallback, useMemo, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import Button from "@sellify/common-ui-components/buttons/Button";
@@ -44,7 +44,7 @@ export default function FilterPanelProvider({
 
   const onFilterSectionChange = useCallback(
     (sectionKey: string, propertyKey: string, value: FilterPropertyValue) => {
-      let sectionValues =
+      const sectionValues =
         modifiedSectionProperties.get(sectionKey) ??
         new Map<string, FilterPropertyValue>();
 

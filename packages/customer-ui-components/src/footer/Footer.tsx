@@ -26,7 +26,7 @@ export default function Footer({ copyright, onSubscribe }: FooterProps) {
     if (onSubscribe) {
       onSubscribe(email);
     }
-  }, [email]);
+  }, [email, onSubscribe]);
 
   return (
     <footer className="flex flex-col justify-center items-center h-fit w-full bg-black text-white pt-9 pb-4 px-8 body gap-5 lg:gap-2">

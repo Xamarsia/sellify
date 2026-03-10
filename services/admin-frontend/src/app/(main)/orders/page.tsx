@@ -18,7 +18,7 @@ import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
 export default function OrdersPage() {
   const [page, setPage] = useState<number>(1);
   const oderHistory: Array<OrderPreview> = getOrdersPreview();
-  const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
+  const [orders] = useState<Array<OrderPreview>>(oderHistory);
 
   return (
     <>

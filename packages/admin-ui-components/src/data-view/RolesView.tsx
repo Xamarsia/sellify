@@ -21,6 +21,7 @@ export default function RolesView({
   const tableHeader: Array<string> = ["Role", "Related Users Amount"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((role) => [
       <LinkTableItem href={`/role/${role.roleId}`} text={role.title} />,
       <p>{role.relatedUsersCount}</p>,

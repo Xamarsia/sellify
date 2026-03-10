@@ -21,7 +21,7 @@ export default function AllProductsPageContent() {
 
   useEffect(() => {
     setNavItem(breadcrumbs);
-  }, [breadcrumbs]);
+  }, [breadcrumbs, setNavItem]);
 
   return (
     <>

@@ -21,7 +21,7 @@ export default function CartItemQuantitySelector({
       setCount(quantity);
       onCartItemQuantityChanged(cartItem.cartItemId, quantity);
     },
-    [setCount, onCartItemQuantityChanged],
+    [onCartItemQuantityChanged, cartItem.cartItemId],
   );
 
   return (

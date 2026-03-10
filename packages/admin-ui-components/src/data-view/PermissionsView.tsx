@@ -21,6 +21,7 @@ export default function PermissionsView({
   const tableHeader: Array<string> = ["Permission", "Related Roles Amount"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((permission) => [
       <LinkTableItem
         href={`/permission/${permission.permissionId}`}

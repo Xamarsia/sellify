@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { InventoryProduct } from "@sellify/admin-ui-components/types";
 
 import image from "resources/1/image.jpg";

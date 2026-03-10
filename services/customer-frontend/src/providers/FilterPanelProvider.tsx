@@ -105,7 +105,7 @@ export default function FilterPanelProvider({
 
   const onFilterSectionChange = useCallback(
     (sectionKey: string, propertyKey: string, value: FilterPropertyValue) => {
-      let sectionValues =
+      const sectionValues =
         modifiedSectionProperties.get(sectionKey) ??
         new Map<string, FilterPropertyValue>();
 
