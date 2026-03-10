@@ -66,25 +66,25 @@ export default function Pagination({
     if (onPageChanged) {
       onPageChanged(currentPage - 1);
     }
-  }, [onPageChanged]);
+  }, [currentPage, onPageChanged]);
 
   const getNextPage = useCallback((): void => {
     if (onPageChanged) {
       onPageChanged(currentPage + 1);
     }
-  }, [onPageChanged]);
+  }, [currentPage, onPageChanged]);
 
   const fastForwardPages = useCallback((): void => {
     if (onPageChanged) {
       onPageChanged(currentPage + pagesBarHalfLength);
     }
-  }, [onPageChanged]);
+  }, [currentPage, onPageChanged, pagesBarHalfLength]);
 
   const fastRewindPages = useCallback((): void => {
     if (onPageChanged) {
       onPageChanged(currentPage - pagesBarHalfLength);
     }
-  }, [onPageChanged]);
+  }, [currentPage, onPageChanged, pagesBarHalfLength]);
 
   return (
     <nav

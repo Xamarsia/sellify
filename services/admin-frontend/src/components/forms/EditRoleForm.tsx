@@ -30,7 +30,7 @@ export default function EditRoleForm({ role }: EditRoleFormProps) {
     };
 
     editRole(editRoleRequest);
-  }, [title, selectedPermissions, editRole]);
+  }, [role.roleId, title, selectedPermissions]);
 
   const handleTitleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {

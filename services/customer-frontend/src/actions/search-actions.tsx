@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   ProductPreview,
   SearchItem,
@@ -56,7 +57,7 @@ const searchItem3: SearchItem = {
   title: productPreview3.title,
 };
 
-let searchItems: Array<SearchItem> = [
+const searchItems: Array<SearchItem> = [
   searchItem,
   searchItem2,
   searchItem3,

@@ -16,7 +16,7 @@ export default function ProductPreview({
 }: ProductPreviewProps) {
   const onAddToCart = useCallback((): void => {
     onAddProductToCart(productPreview);
-  }, [onAddProductToCart]);
+  }, [onAddProductToCart, productPreview]);
 
   return (
     <div className="flex flex-row md:flex-col body gap-4 md:gap-0 justify-between wrap-anywhere not-md:border-b border-stroke not-md:py-4">

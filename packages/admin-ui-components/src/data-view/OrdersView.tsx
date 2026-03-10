@@ -34,6 +34,7 @@ export default function OrdersView({
   }, []);
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((order) => [
       <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
       <DateTableItem date={order.date} />,

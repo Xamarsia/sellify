@@ -30,6 +30,7 @@ export default function AdminsView({
   ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((admin) => [
       <LinkTableItem href={`/admin/${admin.adminId}`} text={admin.name} />,
       <IdTableItem id={admin.adminId} />,

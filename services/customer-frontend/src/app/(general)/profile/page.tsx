@@ -31,9 +31,8 @@ export default function ProfilePage() {
     getDefaultDeliveryAddress();
   const contactInfo: ContactInfo | undefined = getDefaultContactInfo();
 
-  const [isContactInfoValid, setIsContactInfoValid] = useState<boolean>(true);
-  const [isDeliveryAddressValid, setIsDeliveryAddressValid] =
-    useState<boolean>(true);
+  const [isContactInfoValid] = useState<boolean>(true);
+  const [isDeliveryAddressValid] = useState<boolean>(true);
 
   const [fullName, setFullName] = useState<string>(contactInfo?.fullName ?? "");
   const [phoneNumber, setPhoneNumber] = useState<string>(
@@ -72,7 +71,7 @@ export default function ProfilePage() {
     };
     //TODO Add Validation function here
     editProfile(editProfileRequest);
-  }, [fullName, phoneNumber]);
+  }, [address, country, fullName, phoneNumber]);
 
   const onFullNameChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {

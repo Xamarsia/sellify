@@ -14,8 +14,7 @@ import { PermissionsFilterSections } from "filter-sections/permissions-filter";
 export default function PermissionsPage() {
   const [page, setPage] = useState<number>(1);
   const defaultPermissions: Array<Permission> = getPermissions();
-  const [permissions, setPermissions] =
-    useState<Array<Permission>>(defaultPermissions);
+  const [permissions] = useState<Array<Permission>>(defaultPermissions);
 
   return (
     <>

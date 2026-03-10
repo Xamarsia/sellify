@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   CartItem,
   ProductPreview,
@@ -44,7 +45,7 @@ const cartItem: CartItem = {
   cartItemId: 0,
 };
 
-let cartItems: Array<CartItem> = [
+const cartItems: Array<CartItem> = [
   cartItem,
   cartItem,
   cartItem,

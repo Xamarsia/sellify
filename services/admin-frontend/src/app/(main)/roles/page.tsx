@@ -16,7 +16,7 @@ import { RolesFilterSections } from "filter-sections/roles-filter";
 
 export default function RolesPage() {
   const defaultRoles: Array<Role> = getRoles();
-  const [roles, setRoles] = useState<Array<Role>>(defaultRoles);
+  const [roles] = useState<Array<Role>>(defaultRoles);
   const [page, setPage] = useState<number>(1);
   const router = useRouter();
 

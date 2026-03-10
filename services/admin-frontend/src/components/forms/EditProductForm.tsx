@@ -55,7 +55,6 @@ export default function EditProductForm({ product }: EditProductFormProps) {
     quantity,
     category,
     price,
-    editProduct,
   ]);
 
   const handleTitleChange = useCallback(
@@ -115,7 +114,6 @@ export default function EditProductForm({ product }: EditProductFormProps) {
         return;
       }
 
-      let num = parseInt(possibleNumber);
       setQuantity(possibleNumber);
     },
     [setQuantity],

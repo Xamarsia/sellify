@@ -25,7 +25,7 @@ export default function CreateAdminForm() {
       role: role,
     };
     createAdmin(createAdminRequest);
-  }, [firstName, lastName, email, createAdmin]);
+  }, [firstName, lastName, email, role]);
 
   const handleFirstNameChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {

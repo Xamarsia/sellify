@@ -45,7 +45,7 @@ export default function ProductFeedContent({ productLabel }: Props) {
       const cartItem: CartItem = addToCart(productPreview);
       openProductAddedDialog(cartItem);
     },
-    [],
+    [openProductAddedDialog],
   );
 
   return (

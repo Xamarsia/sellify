@@ -26,6 +26,7 @@ export default function CategoriesView({
   ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((category) => {
       return [
         <LinkTableItem

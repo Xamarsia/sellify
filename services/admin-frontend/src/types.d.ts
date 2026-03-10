@@ -5,7 +5,7 @@ export type RiskDialogContent = {
   description?: string;
   buttonActionTitle: string;
   onConfirm: (password: string) => boolean;
-  onPasswordValidated: (...args: any) => void;
+  onPasswordValidated: (...args: unknown) => void;
 };
 
 export type RiskDialogController = {

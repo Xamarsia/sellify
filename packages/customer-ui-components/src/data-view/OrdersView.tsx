@@ -23,6 +23,7 @@ export default function OrdersView({ content }: OrdersViewProps) {
   }, []);
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((order) => [
       <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
       <OrderStatusComponent status={order.status} />,

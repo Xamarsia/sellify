@@ -1,5 +1,6 @@
 import { SliderRange } from "../../types";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FilterPropertyValue {}
 
 export abstract class FilterPropertyValueImpl<T>

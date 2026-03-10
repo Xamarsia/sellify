@@ -33,6 +33,7 @@ export default function ProductsView({
   ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((product) => [
       <ProductImageTableItem src={product.image} />,
       <LinkTableItem

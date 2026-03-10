@@ -34,7 +34,7 @@ export default function Dropdown({
       return selectedOptionText ?? title;
     }
     return title;
-  }, [selectedKey]);
+  }, [items, selectedKey, title]);
 
   const onDropdownClick = useCallback(() => {
     if (setIsExtended) {

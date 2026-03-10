@@ -1,4 +1,3 @@
-import type { OrderStatus } from "@sellify/common-ui-components/types";
 import type { CartItem } from "@sellify/customer-ui-components/types";
 import { ReactNode } from "react";
 
@@ -19,7 +18,7 @@ export type RiskDialogContent = {
   description?: string;
   buttonActionTitle: string;
   onConfirm: (password: string) => boolean;
-  onPasswordValidated: (...args: any) => void;
+  onPasswordValidated: (...args: unknown) => void;
 };
 
 export type ProductAddedDialogController = {

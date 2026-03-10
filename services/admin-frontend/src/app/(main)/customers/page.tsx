@@ -18,7 +18,7 @@ import Filter from "components/Filter";
 export default function CustomersPage() {
   const defaultCustomers: Array<Customer> = getCustomers();
   const [page, setPage] = useState<number>(1);
-  const [customers, setCustomers] = useState<Array<Customer>>(defaultCustomers);
+  const [customers] = useState<Array<Customer>>(defaultCustomers);
 
   return (
     <>

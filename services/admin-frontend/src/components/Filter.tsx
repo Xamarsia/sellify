@@ -18,7 +18,7 @@ export default function Filter({ filterSections }: Props) {
 
   const openFilter = useCallback((): void => {
     openFilterPanel(filterSections);
-  }, [openFilterPanel]);
+  }, [filterSections, openFilterPanel]);
 
   return <FilterButton onClick={openFilter} />;
 }

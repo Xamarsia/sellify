@@ -34,16 +34,7 @@ export default function CreateProductForm() {
       price: parseInt(price),
     };
     createProduct(createProductRequest);
-  }, [
-    images,
-    title,
-    shortDescription,
-    description,
-    quantity,
-    category,
-    price,
-    createProduct,
-  ]);
+  }, [images, title, shortDescription, description, quantity, category, price]);
 
   const handleTitleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -102,7 +93,6 @@ export default function CreateProductForm() {
         return;
       }
 
-      let num = parseInt(possibleNumber);
       setQuantity(possibleNumber);
     },
     [setQuantity],

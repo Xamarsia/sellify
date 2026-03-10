@@ -22,6 +22,7 @@ export default function RolesPreviewView({
   const tableHeader: Array<string> = ["Title", "Role ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((role) => [
       <LinkTableItem href={`/role/${role.roleId}`} text={role.title} />,
       <IdTableItem id={role.roleId} />,

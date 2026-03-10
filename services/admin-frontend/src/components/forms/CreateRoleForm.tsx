@@ -24,7 +24,7 @@ export default function CreateRoleForm() {
     };
 
     createRole(createRoleRequest);
-  }, [title, selectedPermissions, createRole]);
+  }, [title, selectedPermissions]);
 
   const handleTitleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {

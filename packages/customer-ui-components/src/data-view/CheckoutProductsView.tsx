@@ -37,6 +37,7 @@ export default function CheckoutProductsView({
   }, []);
 
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((item) => [
       <ProductImageTableItem src={item.product.image} size="large" />,
       <LinkTableItem
@@ -57,7 +58,7 @@ export default function CheckoutProductsView({
         />
       </div>,
     ]);
-  }, [content]);
+  }, [content, getProductMaxQuantity, onCartItemQuantityChanged, onItemRemove]);
 
   return (
     <AdaptiveDataView

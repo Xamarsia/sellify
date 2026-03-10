@@ -32,7 +32,7 @@ export default function OrdersHistoryPage() {
       setQuery(query);
       setOrders(query ? filterOrdersHistory(query) : oderHistory);
     },
-    [],
+    [oderHistory],
   );
 
   return (

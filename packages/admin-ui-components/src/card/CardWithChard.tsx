@@ -29,7 +29,7 @@ export default function CardWithChard({
       return Trend.Negative;
     }
     return Trend.Neutral;
-  }, [trendValue]);
+  }, [Trend, trendValue]);
 
   const trendColor = useMemo<string>(() => {
     switch (trend) {
@@ -40,7 +40,7 @@ export default function CardWithChard({
       case Trend.Neutral:
         return "text-essential-orange";
     }
-  }, [trend]);
+  }, [Trend, trend]);
 
   const chart = useMemo<ReactNode>(() => {
     switch (trend) {
@@ -51,7 +51,7 @@ export default function CardWithChard({
       case Trend.Neutral:
         return <DefaultChart style="not-md:size-full max-w-32 max-h-12" />;
     }
-  }, [trend]);
+  }, [Trend, trend]);
 
   const valueLabel = useMemo<string>(() => {
     switch (trend) {
@@ -61,7 +61,7 @@ export default function CardWithChard({
       case Trend.Neutral:
         return trendValue + "%";
     }
-  }, [trend, trendValue]);
+  }, [Trend, trend, trendValue]);
 
   return (
     <Card label={label} value={value}>

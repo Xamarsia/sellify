@@ -33,11 +33,11 @@ export default function RangeSlider({
 
   const minPercent = useMemo<number>(() => {
     return getPercent(currentRange.min);
-  }, [currentRange.min]);
+  }, [currentRange.min, getPercent]);
 
   const maxPercent = useMemo<number>(() => {
     return getPercent(currentRange.max);
-  }, [currentRange.max]);
+  }, [currentRange.max, getPercent]);
 
   // Set range width to decrease from the left
   useEffect(() => {
@@ -45,14 +45,14 @@ export default function RangeSlider({
       selectedRange.current.style.left = `${minPercent}%`;
       selectedRange.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [currentRange.min]);
+  }, [currentRange.min, maxPercent, minPercent]);
 
   // Set range width to decrease from the right
   useEffect(() => {
     if (selectedRange.current) {
       selectedRange.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [currentRange.max]);
+  }, [currentRange.max, maxPercent, minPercent]);
 
   const handleMinValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -62,7 +62,7 @@ export default function RangeSlider({
       );
       onMinValueChange(newMinValue);
     },
-    [currentRange.max],
+    [currentRange.max, onMinValueChange],
   );
 
   const handleMaxValueChange = useCallback(
@@ -73,7 +73,7 @@ export default function RangeSlider({
       );
       onMaxValueChange(newMaxValue);
     },
-    [currentRange.min],
+    [currentRange.min, onMaxValueChange],
   );
 
   return (

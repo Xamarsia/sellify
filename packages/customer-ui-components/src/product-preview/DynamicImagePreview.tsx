@@ -18,7 +18,7 @@ export default function DynamicImagePreview({
         setImageSrc(hoveredSrc);
       }
     },
-    [src],
+    [hoveredSrc],
   );
 
   const onMouseLeave = useCallback(

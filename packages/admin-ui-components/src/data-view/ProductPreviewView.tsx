@@ -23,6 +23,7 @@ export default function ProductPreviewView({
   const tableHeader: Array<string> = ["", "Product", "Product ID"];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((product) => [
       <ProductImageTableItem src={product.image} />,
       <LinkTableItem

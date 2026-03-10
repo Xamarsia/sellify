@@ -12,12 +12,9 @@ export default function CartItemRemoveButton({
   cartItemId,
   onCartItemRemove,
 }: CartItemRemoveButtonProps) {
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      onCartItemRemove(cartItemId);
-    },
-    [cartItemId, onCartItemRemove],
-  );
+  const handleClick = useCallback((): void => {
+    onCartItemRemove(cartItemId);
+  }, [cartItemId, onCartItemRemove]);
 
   return (
     <TransparentIconButton variant="destructive" onClick={handleClick}>

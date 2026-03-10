@@ -18,6 +18,7 @@ type RiskDialogProps = {
   buttonActionTitle: string;
   onDialogClose: () => void;
   onConfirm: (password: string) => boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onPasswordValidated: (...args: any) => void;
 };
 
@@ -45,7 +46,7 @@ export default function RiskDialog({
     if (isConfirmed) {
       onPasswordValidated();
     }
-  }, [onConfirm, password]);
+  }, [onConfirm, onPasswordValidated, password]);
 
   return (
     <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose}>

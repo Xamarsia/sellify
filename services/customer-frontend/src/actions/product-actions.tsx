@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ProductDetails } from "@sellify/customer-ui-components/types";
 import { TabItemInfo } from "@sellify/common-ui-components/types";
 

@@ -50,7 +50,7 @@ export default function ProductPageContent({ product }: Props) {
 
   useEffect(() => {
     setNavItem(breadcrumbs);
-  }, [breadcrumbs]);
+  }, [breadcrumbs, setNavItem]);
 
   const validHash = useMemo<string>(() => {
     if (!tabs[0]) {
@@ -74,7 +74,7 @@ export default function ProductPageContent({ product }: Props) {
       const cartItem: CartItem = addToCart(preview);
       openProductAddedDialog(cartItem);
     },
-    [],
+    [openProductAddedDialog],
   );
 
   return (

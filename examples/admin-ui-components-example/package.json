@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --fix --max-warnings 0",
     "check-types": "tsc --noEmit",
     "clean": "git clean -xdf .cache .next .turbo dist node_modules"
   },

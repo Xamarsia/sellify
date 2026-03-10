@@ -30,6 +30,7 @@ export default function CustomersView({
   ];
 
   const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
+    /* eslint-disable react/jsx-key */
     return content.map((customer) => [
       <LinkTableItem
         href={`/customer/${customer.customerId}`}

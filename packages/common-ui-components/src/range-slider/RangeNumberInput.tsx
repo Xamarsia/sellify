@@ -34,7 +34,7 @@ export default function RangeNumberInput({
         return;
       }
 
-      let num = parseInt(possibleNumber);
+      const num = parseInt(possibleNumber);
 
       if (num >= max) {
         onChange(max);

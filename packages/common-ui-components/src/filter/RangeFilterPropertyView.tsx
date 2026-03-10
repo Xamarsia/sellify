@@ -28,7 +28,7 @@ export default function RangeFilterPropertyView({
         }),
       );
     },
-    [selectedRange],
+    [onFilterPropertyChange, propertyKey, selectedRange.value.max],
   );
 
   const onMaxValueChange = useCallback(
@@ -41,7 +41,7 @@ export default function RangeFilterPropertyView({
         }),
       );
     },
-    [selectedRange],
+    [onFilterPropertyChange, propertyKey, selectedRange.value.min],
   );
 
   return (

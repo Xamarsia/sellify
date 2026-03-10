@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AdminStatus } from "@sellify/admin-ui-components/constants";
 import {
   Admin,
