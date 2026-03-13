@@ -57,17 +57,17 @@ This package is a React component library. It contains a collection of common co
   <tr align="center">
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-       <img width="267" height="292" alt="DefaultButton" src="https://github.com/user-attachments/assets/e58431ad-5982-4452-8f5d-1f8ca324cca1" />
+        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/ba504cb3-3bd6-4b49-887c-3840973df1c5" />
       </a>
     </td>
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-        <img width="267" height="292" alt="OutlineButton" src="https://github.com/user-attachments/assets/506973b1-fdf5-42e0-a208-c8fdb7a63658" />
+        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/028a9e99-355b-4927-bda8-58dafc22ee7d" />
       </a>
     </td>
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-        <img width="287" height="292" alt="DestructiveButton" src="https://github.com/user-attachments/assets/f1e5c612-893c-4083-9b5b-a3167c35ef42" />
+        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/3d2cb3c6-ca5d-490a-96ce-617b92bacc0e" />
       </a>
     </td>
   </tr>
@@ -77,43 +77,34 @@ This package is a React component library. It contains a collection of common co
 
 <table>
   <tr>
-    <td width="44%">Default</td>
-    <td width="44%">Outline</td>
+    <td width="22%">Default</td>
+    <td width="22%">Outline</td>
+    <td width="22%">Transparent</td>
+    <td width="22%">Transparent Destructive</td>
   </tr>
   <tr align="center">
-    <td width="44%" style="padding: 0;">
+    <td width="22%" style="padding: 0;">
       <a href="./src/buttons/IconButton.tsx">
-        <img alt="IconButton" src="https://github.com/user-attachments/assets/356e16dd-409b-4c1d-b2a9-fe075c737271" />
+        <img width="143" height="241" alt="image" src="https://github.com/user-attachments/assets/58b02adc-9e65-4b02-8821-46d8aeeda98a" />
       </a>
     </td>
-    <td width="44%" style="padding: 0;">
+    <td width="22%" style="padding: 0;">
       <a href="./src/buttons/IconButton.tsx">
-        <img alt="OutlineIconButton" src="https://github.com/user-attachments/assets/2f81b88d-acb0-44bf-8b76-a79e90aed58a" />
+        <img width="143" height="241" alt="image" src="https://github.com/user-attachments/assets/bff2a492-ff19-4336-8317-720c0577e1ef" />
       </a>
     </td>
-  </tr>
-
-</table>
-
-### Transparent Icon Button
-
-<table>
-  <tr>
-    <td width="44%">Default</td>
-    <td width="44%">Destructive</td>
-  </tr>
-  <tr align="center">
-    <td width="44%" style="padding: 0;">
+        <td width="22%" style="padding: 0;">
       <a href="./src/buttons/TransparentIconButton.tsx">
-        <img width="66" height="140" alt="TransparentIconButton" src="https://github.com/user-attachments/assets/d8e3ee3b-ba64-4e99-88b0-e8a5a342e2c3" />
+        <img width="126" height="224" alt="image" src="https://github.com/user-attachments/assets/f497e286-e12c-4ff3-9ce0-8246b35e1331" />
       </a>
     </td>
-    <td width="44%" style="padding: 0;">
+    <td width="22%" style="padding: 0;">
       <a href="./src/buttons/TransparentIconButton.tsx">
-        <img width="66" height="140" alt="TransparentIconButtonDestructive" src="https://github.com/user-attachments/assets/6119d694-c163-4814-b741-30cf8e29a8b8" />
+ <img width="126" height="224" alt="image" src="https://github.com/user-attachments/assets/e6ab808a-4755-4491-b34d-b2d9bf4fabba" />
       </a>
     </td>
   </tr>
+
 </table>
 
 ### Checkbox & Radio Buttons
@@ -126,12 +117,12 @@ This package is a React component library. It contains a collection of common co
   <tr align="center">
     <td width="44%" style="padding: 0;">
       <a href="./src/input/Checkbox.tsx">
-        <img width="287" height="172" alt="Checkbox" src="https://github.com/user-attachments/assets/b1799a4e-2fdd-4c82-b52b-f487f5916ea2" />
+        <img width="437" height="212" alt="image" src="https://github.com/user-attachments/assets/19dd1bf5-95df-4dca-91bc-4f9a19e0b40a" />
       </a>
     </td>
     <td width="44%" style="padding: 0;">
       <a href="./src/input/Radio.tsx">
-        <img width="287" height="172" alt="Radio" src="https://github.com/user-attachments/assets/2e8aefd5-2fbf-406d-b20b-e56fac45b4f5" />
+        <img width="437" height="212" alt="image" src="https://github.com/user-attachments/assets/034d08fe-bc24-4a39-b411-fbdebdd56501" />
       </a>
     </td>
   </tr>
@@ -141,52 +132,69 @@ This package is a React component library. It contains a collection of common co
 
 <table>
   <tr>
-    <td width="33%">Input</td>
-    <td width="33%">Media Input Field</td>
-    <td width="33%">Search Input</td>
+    <td width="36%">Default</td>
+    <td width="36%">Search</td>
   </tr>
   <tr align="center">
-    <td width="33%" style="padding: 0;">
-      <a href="./src/input/Input.tsx">
-        <img width="462" height="325" alt="Input" src="https://github.com/user-attachments/assets/76f5cc5a-4e3d-4b0a-ba7b-c35e0d6251ee" />
+    <td width="36%" style="padding: 0;">
+      <a href="./src/combobox/Combobox.tsx">
+        <img width="673" height="299" alt="image" src="https://github.com/user-attachments/assets/2ab30281-75b3-4a21-9b3a-67dac8ba209e" />
       </a>
     </td>
-    <td width="33%" style="padding: 0;">
-      <a href="./src/input/MediaInputField.tsx">
-        <img width="559" height="269" alt="MediaInputField" src="https://github.com/user-attachments/assets/6085be32-6d9b-47e8-851d-1625546f2969" />
+    <td width="36%" style="padding: 0;">
+      <a href="./src/combobox/MultiSelectionCombobox.tsx">
+        <img width="452" height="191" alt="image" src="https://github.com/user-attachments/assets/9441724a-91cc-4819-ae3f-d17e01883a55" />
       </a>
     </td>
-      <td width="33%" style="padding: 0;">
-        <a href="./src/input/SearchInput.tsx">
-          <img width="421" height="104" alt="SearchInput" src="https://github.com/user-attachments/assets/1fdd57ff-2095-48f9-a7f4-9fc3e6dc2259" />
-      </a>
-    </td>
-
   </tr>
 </table>
 
-### Dropdown & Combobox
+### Textarea
 
 <table>
   <tr>
-    <td width="20">Dropdown</td>
-    <td width="38%">Combobox</td>
-    <td width="38%">Multi Selection Combobox</td>
+    <td width="99%">Default</td>
   </tr>
   <tr align="center">
-    <td width="20%" style="padding: 0;">
-      <a href="./src/dropdown/Dropdown.tsx">
-        <img width="269" height="385" alt="Dropdown" src="https://github.com/user-attachments/assets/188355da-13c6-4f11-821e-d8530823427c" />
+    <td width="99%" style="padding: 0;">
+      <a href="./src/tabs/Tabs.tsx">
+        <img width="673" height="571" alt="image" src="https://github.com/user-attachments/assets/24598a9c-a706-4b18-b615-e9c41f9ceb8e" />
       </a>
     </td>
-    <td width="38%" style="padding: 0;">
+  </tr>
+</table>
+
+### Dropdown
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/tabs/Tabs.tsx">
+        <img width="317" height="448" alt="image" src="https://github.com/user-attachments/assets/40408216-c8eb-4e57-981d-d1a62112cf60" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Combobox
+
+<table>
+  <tr>
+    <td width="36%">Default</td>
+    <td width="36%">Multi Selection</td>
+  </tr>
+  <tr align="center">
+    <td width="36%" style="padding: 0;">
       <a href="./src/combobox/Combobox.tsx">
-          <img width="625" height="461" alt="Combobox" src="https://github.com/user-attachments/assets/db49f866-c52f-4aac-876b-94d1da497941" />
+        <img width="472" height="439" alt="image" src="https://github.com/user-attachments/assets/3f383976-d144-4127-940d-ffd1bcff0a0d" />
       </a>
     </td>
-    <td width="38%" style="padding: 0;">
+    <td width="36%" style="padding: 0;">
       <a href="./src/combobox/MultiSelectionCombobox.tsx">
-        <img width="609" height="482" alt="MultiSelectionCombobox" src="https://github.com/user-attachments/assets/612dfffd-19fc-4091-bf5f-ae568e4c9303" />
+        <img width="472" height="512" alt="image" src="https://github.com/user-attachments/assets/e91ea8d4-8391-4c75-9ef2-b82918e6826c" />
       </a>
     </td>
   </tr>
@@ -202,12 +210,102 @@ This package is a React component library. It contains a collection of common co
   <tr align="center">
     <td width="36%" style="padding: 0;">
       <a href="./src/dialog/Dialog.tsx">
-        <img width="617" height="473" alt="Dialog" src="https://github.com/user-attachments/assets/2ad93f4c-f4b0-4706-9851-2cdd5cf7cc3d" />
+        <img width="676" height="536" alt="image" src="https://github.com/user-attachments/assets/9c94d6e8-04dc-4e88-9fd5-dafc457c29fb" />
       </a>
     </td>
     <td width="36%" style="padding: 0;">
       <a href="./src/dialog/AlertDialog.tsx">
-        <img width="617" height="378" alt="AlertDialog" src="https://github.com/user-attachments/assets/68f631b9-76f4-40f1-9967-b7209f8132aa" />
+        <img width="676" height="536" alt="image" src="https://github.com/user-attachments/assets/9c4d98ee-6b2c-4243-95f6-a64291690863" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Range Slider
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/range-slider/PriceRangeSlider.tsx">
+        <img width="723" height="227" alt="image" src="https://github.com/user-attachments/assets/dc6519ec-fe00-430d-b7aa-988b97c03f0d" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Media Input Field
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/input/media-input/MediaInput.tsx">
+        <img width="723" height="370" alt="image" src="https://github.com/user-attachments/assets/1051d23a-e006-4904-9c54-b8a4d487e2bd" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Side Menu
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/side-menu/SideMenu.tsx">
+        <img width="270" height="240" alt="image" src="https://github.com/user-attachments/assets/03ed0998-d3e1-4a41-8b86-3de0300e3985" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Tab
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/tabs/Tabs.tsx">
+        <img width="643" height="127" alt="image" src="https://github.com/user-attachments/assets/593704e5-4354-40e0-820b-8d816ab9eef6" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Pagination
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/tabs/Tabs.tsx">
+        <img width="643" height="127" alt="image" src="https://github.com/user-attachments/assets/fe61aa27-25fa-48da-9569-45dc3c3baa2e" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Collapsible Panel
+
+<table>
+  <tr>
+    <td width="99%">Default</td>
+  </tr>
+  <tr align="center">
+    <td width="99%" style="padding: 0;">
+      <a href="./src/tabs/Tabs.tsx">
+        <img width="685" height="348" alt="image" src="https://github.com/user-attachments/assets/e48b0ac8-ce7b-42cd-950b-57817fdb6f8b" />
       </a>
     </td>
   </tr>
