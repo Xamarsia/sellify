@@ -13,11 +13,18 @@ This package is a React component library. It contains a collection of common co
 - [Components](#components)
   - [Button](#button)
   - [Icon Button](#icon-button)
-  - [Transparent Icon Button](#transparent-icon-button)
   - [Checkbox & Radio Buttons](#checkbox--radio-buttons)
   - [Input](#input)
-  - [Dropdown & Combobox](#dropdown--combobox)
+  - [Textarea](#textarea)
+  - [Dropdown](#dropdown)
+  - [Combobox](#combobox)
   - [Dialog](#dialog)
+  - [Range Slider](#range-slider)
+  - [Media Input Field](#media-input-field)
+  - [Side Menu](#side-menu)
+  - [Tab](#tab)
+  - [Pagination](#pagination)
+  - [Collapsible Panel](#collapsible-panel)
 - [License](#license)
 
 ## Related Services
@@ -57,17 +64,17 @@ This package is a React component library. It contains a collection of common co
   <tr align="center">
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/ba504cb3-3bd6-4b49-887c-3840973df1c5" />
+        <img width="368" height="272" alt="Default Button" src="https://github.com/user-attachments/assets/ba504cb3-3bd6-4b49-887c-3840973df1c5" />
       </a>
     </td>
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/028a9e99-355b-4927-bda8-58dafc22ee7d" />
+        <img width="368" height="272" alt="Outline Button" src="https://github.com/user-attachments/assets/028a9e99-355b-4927-bda8-58dafc22ee7d" />
       </a>
     </td>
     <td width="33.3333%" style="padding: 0;">
       <a href="./src/buttons/Button.tsx">
-        <img width="368" height="272" alt="image" src="https://github.com/user-attachments/assets/3d2cb3c6-ca5d-490a-96ce-617b92bacc0e" />
+        <img width="368" height="272" alt="Destructive Button" src="https://github.com/user-attachments/assets/3d2cb3c6-ca5d-490a-96ce-617b92bacc0e" />
       </a>
     </td>
   </tr>
@@ -137,12 +144,12 @@ This package is a React component library. It contains a collection of common co
   </tr>
   <tr align="center">
     <td width="36%" style="padding: 0;">
-      <a href="./src/combobox/Combobox.tsx">
+      <a href="./src/input/Input.tsx">
         <img width="673" height="299" alt="image" src="https://github.com/user-attachments/assets/2ab30281-75b3-4a21-9b3a-67dac8ba209e" />
       </a>
     </td>
     <td width="36%" style="padding: 0;">
-      <a href="./src/combobox/MultiSelectionCombobox.tsx">
+      <a href="./src/input/SearchInput.tsx">
         <img width="452" height="191" alt="image" src="https://github.com/user-attachments/assets/9441724a-91cc-4819-ae3f-d17e01883a55" />
       </a>
     </td>
@@ -157,7 +164,7 @@ This package is a React component library. It contains a collection of common co
   </tr>
   <tr align="center">
     <td width="99%" style="padding: 0;">
-      <a href="./src/tabs/Tabs.tsx">
+      <a href="./src/input/Textarea.tsx">
         <img width="673" height="571" alt="image" src="https://github.com/user-attachments/assets/24598a9c-a706-4b18-b615-e9c41f9ceb8e" />
       </a>
     </td>
@@ -172,7 +179,7 @@ This package is a React component library. It contains a collection of common co
   </tr>
   <tr align="center">
     <td width="99%" style="padding: 0;">
-      <a href="./src/tabs/Tabs.tsx">
+      <a href="./src/dropdown/Dropdown.tsx">
         <img width="317" height="448" alt="image" src="https://github.com/user-attachments/assets/40408216-c8eb-4e57-981d-d1a62112cf60" />
       </a>
     </td>
@@ -289,7 +296,7 @@ This package is a React component library. It contains a collection of common co
   </tr>
   <tr align="center">
     <td width="99%" style="padding: 0;">
-      <a href="./src/tabs/Tabs.tsx">
+      <a href="./src/pages/Pagination.tsx">
         <img width="643" height="127" alt="image" src="https://github.com/user-attachments/assets/fe61aa27-25fa-48da-9569-45dc3c3baa2e" />
       </a>
     </td>
@@ -304,7 +311,7 @@ This package is a React component library. It contains a collection of common co
   </tr>
   <tr align="center">
     <td width="99%" style="padding: 0;">
-      <a href="./src/tabs/Tabs.tsx">
+      <a href="./src/CollapsiblePanel.tsx">
         <img width="685" height="348" alt="image" src="https://github.com/user-attachments/assets/e48b0ac8-ce7b-42cd-950b-57817fdb6f8b" />
       </a>
     </td>
