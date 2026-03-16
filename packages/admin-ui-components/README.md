@@ -11,7 +11,6 @@ This package is a React component library. It contains a collection of admin com
 - [Development Stack](#development-stack)
 - [UI Prototype](#ui-prototype)
 - [Components](#components)
-  - [Product Image](#product-image)
   - [Add Amount Button](#add-amount-button)
   - [Card](#card)
   - [Table](#table)
@@ -43,12 +42,6 @@ This package is a React component library. It contains a collection of admin com
 
 ## Components
 
-### Product Image
-
-<a href="./src/ProductImage.tsx">
-    <img alt="Product Image" src="https://github.com/user-attachments/assets/76166254-7822-4e0d-ba44-3525b2b62d98" />
- </a>
-
 ### Add Amount Button
 
 <a href="./src/AddAmountButton.tsx">
@@ -70,3 +63,6 @@ This package is a React component library. It contains a collection of admin com
 ## License
 
 Licensed under the MIT License. See [LICENSE](./LICENSE) file for more details.
+
+
+
