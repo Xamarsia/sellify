@@ -129,12 +129,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/ProductsView.tsx">
-        <img width="927" height="686" alt="Products Table" src="https://github.com/user-attachments/assets/b81f1b0c-a3ea-4c4b-aa0d-e1d56b4cca01" />
+        <img width="930" height="674" alt="Products Table" src="https://github.com/user-attachments/assets/fb7c18de-1890-461a-8e27-97da93c97ada" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/ProductsView.tsx">
-        <img width="468" height="831" alt="Products List" src="https://github.com/user-attachments/assets/292f4cc2-ef9f-4f3e-a204-df55952e96e3" />
+        <img width="470" height="829" alt="Products List" src="https://github.com/user-attachments/assets/389cce93-a105-4d2c-87c4-494100d40ef5" />
       </a>
     </td>
   </tr>
@@ -150,12 +150,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/InventoryView.tsx">
-        <img width="908" height="582" alt="Inventory Table" src="https://github.com/user-attachments/assets/6e5a01e4-9e5f-43e1-b12f-c3f402207c78" />
+        <img width="930" height="572" alt="Inventory Table" src="https://github.com/user-attachments/assets/9a505f04-30b9-4596-8bd2-a2edfaac1227" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/InventoryView.tsx">
-        <img width="468" height="719" alt="Inventory List" src="https://github.com/user-attachments/assets/bca7d574-f752-4d9f-a354-66e0e74b7a6f" />
+        <img width="470" height="706" alt="Inventory List" src="https://github.com/user-attachments/assets/3d852844-7ff6-4548-9bd8-2e4914e83dd8" />
       </a>
     </td>
   </tr>
@@ -255,12 +255,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/ProductPreviewView.tsx">
-        <img width="927" height="384" alt="Product Preview Table" src="https://github.com/user-attachments/assets/be65c398-e200-4ba1-b572-2523c124f2dd" />
+        <img width="930" height="365" alt="Product Preview Table" src="https://github.com/user-attachments/assets/38452c02-127d-4c74-9ea6-2866319d6f8e" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/ProductPreviewView.tsx">
-        <img width="470" height="518" alt="Product Preview List" src="https://github.com/user-attachments/assets/1118187a-62f1-4bab-8702-a4edb862c82d" />
+        <img width="470" height="491" alt="Product Preview List" src="https://github.com/user-attachments/assets/06358ede-05ec-47f5-b1bd-61952bdcb052" />
       </a>
     </td>
   </tr>
