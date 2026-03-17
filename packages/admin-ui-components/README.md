@@ -108,7 +108,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/OrdersView.tsx">
-        <img width="908" height="360" alt="Orders Table" src="https://github.com/user-attachments/assets/ad6de8e0-5565-4e09-bf54-36792094ea6f" />
+        <img width="927" height="456" alt="image" src="https://github.com/user-attachments/assets/74eb5602-19de-4ac2-868f-88db613c896c" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -129,7 +129,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/ProductsView.tsx">
-        <img width="908" height="582" alt="Products Table" src="https://github.com/user-attachments/assets/0241422b-93c5-4615-b2be-f665607997f7" />
+        <img width="927" height="686" alt="image" src="https://github.com/user-attachments/assets/b81f1b0c-a3ea-4c4b-aa0d-e1d56b4cca01" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -171,7 +171,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/CustomersView.tsx">
-        <img width="908" height="359" alt="Customers Table" src="https://github.com/user-attachments/assets/225fe61e-febd-434b-a499-8fdf29f120fc" />
+        <img width="927" height="453" alt="image" src="https://github.com/user-attachments/assets/c48e7b1c-7831-4d54-861f-70c9ead743e3" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -192,7 +192,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/CategoriesView.tsx">
-        <img width="908" height="406" alt="Categories Table" src="https://github.com/user-attachments/assets/55e22c12-d369-42bb-8eba-9245ed04eb76" />
+        <img width="927" height="357" alt="image" src="https://github.com/user-attachments/assets/27e5fcc8-2370-4e31-a328-57b91e1607b3" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
