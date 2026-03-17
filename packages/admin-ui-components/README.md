@@ -2,7 +2,7 @@
 @sellify/admin-ui-components
 </h1>
 
-This package is a React component library. It contains a collection of admin components of **sellify** project.
+This package is a React component library. It contains a collection of admin components for the **sellify** project.
 
 ## Table Of Content
 
@@ -108,7 +108,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/OrdersView.tsx">
-        <img width="927" height="456" alt="image" src="https://github.com/user-attachments/assets/74eb5602-19de-4ac2-868f-88db613c896c" />
+        <img width="927" height="456" alt="Orders Table" src="https://github.com/user-attachments/assets/74eb5602-19de-4ac2-868f-88db613c896c" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -129,12 +129,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/ProductsView.tsx">
-        <img width="927" height="686" alt="image" src="https://github.com/user-attachments/assets/b81f1b0c-a3ea-4c4b-aa0d-e1d56b4cca01" />
+        <img width="927" height="686" alt="Products Table" src="https://github.com/user-attachments/assets/b81f1b0c-a3ea-4c4b-aa0d-e1d56b4cca01" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/ProductsView.tsx">
-        <img width="468" height="831" alt="image" src="https://github.com/user-attachments/assets/292f4cc2-ef9f-4f3e-a204-df55952e96e3" />
+        <img width="468" height="831" alt="Products List" src="https://github.com/user-attachments/assets/292f4cc2-ef9f-4f3e-a204-df55952e96e3" />
       </a>
     </td>
   </tr>
@@ -155,7 +155,7 @@ This package is a React component library. It contains a collection of admin com
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/InventoryView.tsx">
-        <img width="468" height="719" alt="image" src="https://github.com/user-attachments/assets/bca7d574-f752-4d9f-a354-66e0e74b7a6f" />
+        <img width="468" height="719" alt="Inventory List" src="https://github.com/user-attachments/assets/bca7d574-f752-4d9f-a354-66e0e74b7a6f" />
       </a>
     </td>
   </tr>
@@ -171,12 +171,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/CustomersView.tsx">
-        <img width="927" height="453" alt="image" src="https://github.com/user-attachments/assets/c48e7b1c-7831-4d54-861f-70c9ead743e3" />
+        <img width="927" height="453" alt="Customers Table" src="https://github.com/user-attachments/assets/c48e7b1c-7831-4d54-861f-70c9ead743e3" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/CustomersView.tsx">
-        <img width="468" height="564" alt="image" src="https://github.com/user-attachments/assets/d01d042a-7690-48fd-8d31-8824ae30798e" />
+        <img width="468" height="564" alt="Customers List" src="https://github.com/user-attachments/assets/d01d042a-7690-48fd-8d31-8824ae30798e" />
       </a>
     </td>
   </tr>
@@ -192,7 +192,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/CategoriesView.tsx">
-        <img width="927" height="357" alt="image" src="https://github.com/user-attachments/assets/27e5fcc8-2370-4e31-a328-57b91e1607b3" />
+        <img width="927" height="357" alt="Categories Table" src="https://github.com/user-attachments/assets/27e5fcc8-2370-4e31-a328-57b91e1607b3" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -234,12 +234,12 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/RolesView.tsx">
-        <img width="930" height="409" alt="image" src="https://github.com/user-attachments/assets/dff51b8d-0fee-4cb6-b109-94e2fe676342" />
+        <img width="930" height="409" alt="Roles Table" src="https://github.com/user-attachments/assets/dff51b8d-0fee-4cb6-b109-94e2fe676342" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/RolesView.tsx">
-        <img width="472" height="552" alt="image" src="https://github.com/user-attachments/assets/2f42a888-ab3a-4177-a9fa-68bae9247d7c" />
+        <img width="472" height="552" alt="Roles List" src="https://github.com/user-attachments/assets/2f42a888-ab3a-4177-a9fa-68bae9247d7c" />
       </a>
     </td>
   </tr>
@@ -255,7 +255,7 @@ This package is a React component library. It contains a collection of admin com
   <tr align="center">
     <td width="70%" style="padding: 0;">
       <a href="./src/data-view/ProductPreviewView.tsx">
-        <img width="908" height="483" alt="Product Preview Table" src="https://github.com/user-attachments/assets/cabd8451-7656-46c2-8a94-64aa509fb80e" />
+        <img width="927" height="384" alt="Product Preview Table" src="https://github.com/user-attachments/assets/be65c398-e200-4ba1-b572-2523c124f2dd" />
       </a>
     </td>
     <td width="30%" style="padding: 0;">
@@ -281,7 +281,7 @@ This package is a React component library. It contains a collection of admin com
     </td>
     <td width="30%" style="padding: 0;">
       <a href="./src/data-view/AdminsPreviewView.tsx">
-        <img width="470" height="441" alt="image" src="https://github.com/user-attachments/assets/699e5ea0-0fef-4b4e-8be7-3135b1e6d138" />
+        <img width="470" height="441" alt="Admins Preview List" src="https://github.com/user-attachments/assets/699e5ea0-0fef-4b4e-8be7-3135b1e6d138" />
       </a>
     </td>
   </tr>
