@@ -38,6 +38,7 @@ This is a Next.js application designed to showcase the usage of the **@sellify/c
 4. Open [http://localhost:3000](http://localhost:3000) in a browser to see the example.
 
 ## View
+
 <p align="center">
    <img width="1249" height="1202" alt="image" src="https://github.com/user-attachments/assets/e311ca2d-89f3-48d7-af9e-5c0241a9cb1e" />
    <img width="1249" height="1152" alt="image" src="https://github.com/user-attachments/assets/67aab04e-49a8-462f-a3ae-0566b14830be" />
