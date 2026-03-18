@@ -16,7 +16,7 @@ For CI configuration, see [CI Guide](https://github.com/Xamarsia/sellify/tree/ma
   - [Hook Stages](#hook-stages)
   - [Running Hooks](#running-hooks)
   - [Editing Hooks](#editing-hooks)
-- [Command Reference](#command-reference)
+- [Commands](#commands)
   - [Production Commands](#production-commands)
   - [Git Hooks Commands](#git-hooks-commands)
 - [Mandatory Actions](#mandatory-actions)
@@ -88,35 +88,29 @@ The repository uses the [pre-commit](https://pre-commit.com/) framework for mana
 
 To run pre-commit hooks locally, you should:
 
-1. From the repository root, activate the CD virtual environment:
+1. From the repository root, activate the pre-commit virtual environment setup:
 
    ```bash
-   . scripts/cd-envsetup.sh
+   . scripts/pre-commit-setup.sh
    ```
 
-2. Install hooks:
+2. Run against all files:
 
    ```bash
-   pre-commit install
-   ```
-
-3. Run against all files:
-
-   ```bash
-   pre-commit run --all-files
+   pre-commit run --all-files --hook-stage manual
    ```
 
 ### Editing Hooks
 
 To add or change hooks:
 
-1. From the repository root, activate the CD virtual environment:
+1. Edit [**.pre-commit-config.yaml**](https://github.com/Xamarsia/sellify/tree/main/.pre-commit-config.yaml).
+2. From the repository root, activate the pre-commit virtual environment setup:
 
    ```bash
-   . scripts/cd-envsetup.sh
+   . scripts/pre-commit-setup.sh
    ```
 
-2. Edit [**.pre-commit-config.yaml**](https://github.com/Xamarsia/sellify/tree/main/.pre-commit-config.yaml).
 3. Replace existing git hook scripts:
 
    ```bash
@@ -125,11 +119,11 @@ To add or change hooks:
 
 If you add any new stage(s) to hooks in [**.pre-commit-config.yaml**](https://github.com/Xamarsia/sellify/tree/main/.pre-commit-config.yaml), add the same stage(s) to `default_install_hook_types` as well. Otherwise, `pre-commit install` command will not install hooks for those new stage(s).
 
-## Command Reference
-
-All commands should be executed from the root directory of the `sellify` project after activating the [**cd-envsetup**](https://github.com/Xamarsia/sellify/tree/main/scripts/cd-envsetup.sh) virtual environment.
+## Commands
 
 ### Production Commands
+
+All commands should be executed from the root directory of the `sellify` project.
 
 | Command                        | Description                             |
 | ------------------------------ | --------------------------------------- |
@@ -138,6 +132,14 @@ All commands should be executed from the root directory of the `sellify` project
 | `docker compose down`          | Stop all services                       |
 
 ### Git Hooks Commands
+
+All commands should be executed from the root directory of the `sellify` project after activating the [**pre-commit-setup**](https://github.com/Xamarsia/sellify/tree/main/scripts/pre-commit-setup.sh) virtual environment.
+
+To activate [**pre-commit-setup**](https://github.com/Xamarsia/sellify/tree/main/scripts/pre-commit-setup.sh), run next command in the root directory:
+
+```bash
+. scripts/pre-commit-setup.sh
+```
 
 | Command                                          | Description                                           |
 | ------------------------------------------------ | ----------------------------------------------------- |
