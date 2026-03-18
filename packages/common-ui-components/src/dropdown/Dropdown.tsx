@@ -74,7 +74,7 @@ export default function Dropdown({
       <button
         onClick={onDropdownClick}
         disabled={disabled}
-        className={`flex items-center gap-x-4 h-13 enabled:cursor-pointer disabled:cursor-not-allowed
+        className={`flex items-center h-13 gap-x-4 enabled:cursor-pointer disabled:cursor-not-allowed
           bg-white text-secondary enabled:hover:text-black disabled:text-disabled`}
       >
         <span className="body">{getCurrentText().toUpperCase()}</span>
@@ -86,7 +86,7 @@ export default function Dropdown({
       </button>
 
       {isExtended && (
-        <div className="absolute right-0 top-12 rounded-lg bg-white border border-stroke p-4 z-10">
+        <div className="absolute left-2 top-14 rounded-lg bg-white border border-stroke p-4 z-10">
           <div className="w-56 flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
             {[...items].map(([key, value]) => {
               return (

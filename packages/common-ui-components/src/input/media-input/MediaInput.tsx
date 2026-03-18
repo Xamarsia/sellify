@@ -39,7 +39,7 @@ export default function MediaInput({
 
   return (
     <div
-      className={`w-full min-h-72 ${images.length && "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"}`}
+      className={`w-full h-72 ${images.length && "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"}`}
     >
       {images.map((image, index) => {
         return (
