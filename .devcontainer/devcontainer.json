@@ -23,5 +23,5 @@
       ]
     }
   },
-  "postCreateCommand": "pnpm install" // install dependencies
+  "postCreateCommand": "bash ./.devcontainer/postCreateCommands.sh"
 }

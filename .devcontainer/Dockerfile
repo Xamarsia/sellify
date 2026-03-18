@@ -1,13 +1,8 @@
-FROM node:24 AS base
+FROM node:25-trixie AS base
 
 # install latest available stable pnpm
 
 RUN npm install -g pnpm
-
-# Install python3 and pip
-
-RUN apt update
-RUN apt install python3 python3-pip -y
 
 # Install latest stable version of Chrome for Testing
 
@@ -33,6 +28,10 @@ RUN wget https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.77/
 RUN unzip chromedriver-linux64.zip || rm chromedriver-linux64.zip
 RUN chmod +x chromedriver-linux64/chromedriver
 RUN mv chromedriver-linux64/chromedriver /usr/local/bin/
+
+# Install python3 and pip
+RUN apt update
+RUN apt install python3 python3-pip -y
 
 # Install venv for python
 RUN apt install python3-venv -y

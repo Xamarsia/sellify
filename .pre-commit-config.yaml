@@ -18,7 +18,7 @@ repos:
     hooks:
       - id: gitleaks
         name: "Check for secret leaks"
-        stages: [pre-commit, pre-push]
+        stages: [pre-commit, pre-push, manual]
 
   # ----------------------------- Code Quality Checks ---------------------------- #
 
@@ -29,10 +29,10 @@ repos:
       - id: ruff-check
         args: [--fix]
         name: "Lint Python with Ruff"
-        stages: [pre-push]
+        stages: [pre-push, manual]
       - id: ruff-format
         name: "Format Python with Ruff"
-        stages: [pre-push]
+        stages: [pre-push, manual]
 
   # Format with Prettier
   - repo: local
@@ -44,7 +44,7 @@ repos:
         always_run: true
         entry: |
           npx prettier --check --write --trailing-comma=all '**/*.{md,js,jsx,ts,tsx,css,scss}'
-        stages: [pre-push]
+        stages: [pre-push, manual]
 
   # Lint with ESLint
   - repo: local
@@ -55,10 +55,10 @@ repos:
         always_run: true
         language: system
         entry: pnpm lint
-        stages: [pre-commit, pre-push]
+        stages: [pre-commit, pre-push, manual]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v6.0.0
     hooks:
       - id: check-yaml # Attempts to load all YAML files to verify syntax
         name: "Validate YAML syntax"
@@ -73,7 +73,7 @@ repos:
     hooks:
       - id: bashate
         name: "Check shell script style"
-        stages: [pre-commit, pre-push]
+        stages: [pre-commit, pre-push, manual]
 
   # ------------------------------- Local Fast Tests ------------------------------ #
 
@@ -86,4 +86,4 @@ repos:
         args: ["turbo", "e2e-tests"]
         pass_filenames: false
         always_run: true
-        stages: [pre-push]
+        stages: [pre-push, manual]

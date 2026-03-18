@@ -6,17 +6,16 @@ on:
 jobs:
   container-run-tests:
     runs-on: ubuntu-latest
-    container: xamarsia/sellify-ci:0.0.0
+    container: xamarsia/sellify-ci:0.0.1
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          sparse-checkout: |
-            packages
-            examples
-            scripts
-
-      - name: Install all dependencies for the project
-        run: pnpm install
-
-      - name: Run all e2e tests
-        run: pnpm turbo e2e-tests
+          python-version: 3.x
+      - name: Add git safe directory before pre-commit/action
+        run: git config --global --add safe.directory '*'
+        # Runs pre-commit hooks on all files, including those that would normally be skipped due to the hook stage.
+        # This ensures that all checks with hook-stage ["manual"] are performed during CI.
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files --hook-stage manual
