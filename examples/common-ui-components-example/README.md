@@ -38,14 +38,11 @@ This is a Next.js application designed to showcase the usage of the **@sellify/c
 4. Open [http://localhost:3000](http://localhost:3000) in a browser to see the example.
 
 ## View
-
 <p align="center">
-
-   <img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/e0d32394-fc92-4d2b-8012-2afceda833a2" />
-   <img width="1284" height="781" alt="image" src="https://github.com/user-attachments/assets/1b57e74b-95f5-4f32-81ab-63e419a944ed" />
-   <img width="1284" height="730" alt="image" src="https://github.com/user-attachments/assets/4ed61702-d333-4cf9-8e0b-869bf61cbf2b" />
-   <img width="1284" height="765" alt="image" src="https://github.com/user-attachments/assets/648401f5-bd72-4f06-8256-20fcde16171b" />
-   <img width="1284" height="856" alt="image" src="https://github.com/user-attachments/assets/7d436ae7-3c29-4b28-a87a-def1823ebb82" />
-   <img width="1284" height="675" alt="image" src="https://github.com/user-attachments/assets/108cf836-b8dc-4566-a951-7498d7f29712" />
-   <img width="1284" height="433" alt="image" src="https://github.com/user-attachments/assets/96ee274b-b831-4587-b5a8-7c5a3cb77fb7" />
+   <img width="1249" height="1202" alt="image" src="https://github.com/user-attachments/assets/e311ca2d-89f3-48d7-af9e-5c0241a9cb1e" />
+   <img width="1249" height="1152" alt="image" src="https://github.com/user-attachments/assets/67aab04e-49a8-462f-a3ae-0566b14830be" />
+   <img width="1249" height="841" alt="image" src="https://github.com/user-attachments/assets/b51e1212-cbec-4f7f-9437-5b245341f2bf" />
+   <img width="1249" height="1144" alt="image" src="https://github.com/user-attachments/assets/a9d7cc58-f9bb-41cb-91bd-f7e1537d3dac" />
+   <img width="1249" height="1090" alt="image" src="https://github.com/user-attachments/assets/5ec00f3f-2c23-4e93-848a-85d5399eb947" />
+   <img width="1249" height="1408" alt="image" src="https://github.com/user-attachments/assets/b7a7d196-1a47-42d7-99b4-0a3686dfcf08" />
 </p>
