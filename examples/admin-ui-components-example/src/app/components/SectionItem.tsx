@@ -16,7 +16,7 @@ export default function SectionItem({ title, children }: Props) {
         </div>
       )}
 
-      <div className="flex flex-row gap-4 justify-between px-4 sm:px-6 lg:px-8 py-6">
+      <div className="flex flex-col gap-4 justify-between px-4 sm:px-6 lg:px-8 py-6">
         {children}
       </div>
     </>

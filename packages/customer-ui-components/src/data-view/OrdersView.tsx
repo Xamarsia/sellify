@@ -25,7 +25,7 @@ export default function OrdersView({ content }: OrdersViewProps) {
   const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
     /* eslint-disable react/jsx-key */
     return content.map((order) => [
-      <LinkIdTableItem href={`/order/${order.orderId}`} text={order.orderId} />,
+      <LinkIdTableItem href={`/order/${order.orderId}`} id={order.orderId} />,
       <OrderStatusComponent status={order.status} />,
       <DateTableItem date={order.date} />,
       <CurrencyTableItem amount={order.total} />,

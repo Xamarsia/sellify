@@ -144,41 +144,35 @@ export default function Home() {
             <Button>
               Default Button <PlusIcon size={Size.lg} />
             </Button>
+            <Button size="small">
+              Small Default Button <PlusIcon size={Size.lg} />
+            </Button>
+            <Button disabled>
+              Disabled Default Button <PlusIcon size={Size.lg} />
+            </Button>
+          </SectionItem>
 
+          <SectionItem>
             <Button variant="outline">
               Outline Button <PlusIcon size={Size.lg} />
             </Button>
+            <Button size="small" variant="outline">
+              Small Outline Button <PlusIcon size={Size.lg} />
+            </Button>
+            <Button disabled variant="outline">
+              Disabled Outline Button <PlusIcon size={Size.lg} />
+            </Button>
+          </SectionItem>
 
+          <SectionItem>
             <Button variant="destructive">
               Destructive Button <PlusIcon size={Size.lg} />
             </Button>
-          </SectionItem>
-
-          <SectionItem>
+            <Button size="small" variant="destructive">
+              Small Destructive Button <PlusIcon size={Size.lg} />
+            </Button>
             <Button disabled variant="destructive">
-              Disabled Destructive <PlusIcon size={Size.lg} />
-            </Button>
-
-            <Button disabled variant="outline">
-              Disabled Outline <PlusIcon size={Size.lg} />
-            </Button>
-
-            <Button disabled variant="destructive">
-              Disabled Destructive <PlusIcon size={Size.lg} />
-            </Button>
-          </SectionItem>
-
-          <SectionItem>
-            <Button size="small">
-              Small Button <PlusIcon size={Size.lg} />
-            </Button>
-
-            <Button variant="outline" size="small">
-              Small Button <PlusIcon size={Size.lg} />
-            </Button>
-
-            <Button variant="destructive" size="small">
-              Small Button <PlusIcon size={Size.lg} />
+              Disabled Destructive Button <PlusIcon size={Size.lg} />
             </Button>
           </SectionItem>
         </Section>
@@ -190,17 +184,15 @@ export default function Home() {
             <IconButton>
               <PlusIcon size={Size.lg} />
             </IconButton>
-
-            <IconButton variant="outline">
+            <IconButton disabled>
               <PlusIcon size={Size.lg} />
             </IconButton>
           </SectionItem>
 
           <SectionItem>
-            <IconButton disabled>
+            <IconButton variant="outline">
               <PlusIcon size={Size.lg} />
             </IconButton>
-
             <IconButton variant="outline" disabled>
               <PlusIcon size={Size.lg} />
             </IconButton>
@@ -229,21 +221,19 @@ export default function Home() {
         <Section title={"Transparent Icon Button"}>
           <SectionItem>
             <TransparentIconButton>
-              <PlusIcon size={Size.lg} />
+              <PlusIcon size={Size.xxl} />
             </TransparentIconButton>
-
-            <TransparentIconButton variant="destructive">
-              <PlusIcon size={Size.lg} />
+            <TransparentIconButton disabled>
+              <PlusIcon size={Size.xxl} />
             </TransparentIconButton>
           </SectionItem>
 
           <SectionItem>
-            <TransparentIconButton disabled>
-              <PlusIcon size={Size.lg} />
+            <TransparentIconButton variant="destructive">
+              <PlusIcon size={Size.xxl} />
             </TransparentIconButton>
-
             <TransparentIconButton variant="destructive" disabled>
-              <PlusIcon size={Size.lg} />
+              <PlusIcon size={Size.xxl} />
             </TransparentIconButton>
           </SectionItem>
         </Section>
@@ -392,12 +382,12 @@ export default function Home() {
 
         <Section title={"Dropdown"}>
           <SectionItem>
+            <DropdownUseExample items={comboboxItems} title="Sort By" />
             <DropdownUseExample
               items={comboboxItems}
               title="Sort By"
               disabled
             />
-            <DropdownUseExample items={comboboxItems} title="Sort By" />
           </SectionItem>
         </Section>
 
@@ -460,8 +450,14 @@ export default function Home() {
 
         <Section title={"Collapsible Panel"}>
           <SectionItem>
-            <CollapsiblePanel panelTitle="Collapsible Panel">
-              <p>Content</p>
+            <CollapsiblePanel panelTitle="Closed Collapsible Panel">
+              <p>
+                Content. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Nullam finibus, massa venenatis ornare aliquam, urna enim
+                interdum nibh, non fermentum magna odio eget odio. Vivamus a
+                egestas nulla. Morbi hendrerit efficitur urna, et porta sapien
+                blandit nec.
+              </p>
             </CollapsiblePanel>
           </SectionItem>
         </Section>

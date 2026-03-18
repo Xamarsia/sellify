@@ -177,7 +177,7 @@ export default function Home() {
               onSubmit={setQuantity}
             />
             <AddAmountButton
-              value={quantity}
+              value={-34}
               onChange={setQuantity}
               onSubmit={setQuantity}
               disabled
@@ -206,6 +206,8 @@ export default function Home() {
                 orderPreview2,
                 orderPreview3,
                 orderPreview4,
+                orderPreview,
+                orderPreview2,
               ]}
               currentPage={page}
               onPageChanged={setPage}
@@ -224,7 +226,7 @@ export default function Home() {
 
           <SectionItem title="Inventory Table">
             <InventoryView
-              content={[inventory, inventory, inventory, inventory, inventory]}
+              content={[inventory, inventory]}
               onSubmit={setQuantity}
               currentPage={page}
               onPageChanged={setPage}
@@ -234,7 +236,14 @@ export default function Home() {
 
           <SectionItem title="Customers Table">
             <CustomersView
-              content={[customer, customer, customer, customer]}
+              content={[
+                customer,
+                customer,
+                customer,
+                customer,
+                customer,
+                customer,
+              ]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
@@ -243,7 +252,7 @@ export default function Home() {
 
           <SectionItem title="Categories Table">
             <CategoriesView
-              content={[category, category, category, category, category]}
+              content={[category, category, category, category]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
@@ -252,7 +261,7 @@ export default function Home() {
 
           <SectionItem title="Admins Table">
             <AdminsView
-              content={[admin, admin, admin, admin, admin, admin]}
+              content={[admin, admin]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
@@ -261,7 +270,7 @@ export default function Home() {
 
           <SectionItem title="Roles Table">
             <RolesView
-              content={[role, role, role, role, role, role]}
+              content={[role, role, role, role]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
@@ -270,13 +279,7 @@ export default function Home() {
 
           <SectionItem title="Product Preview Table">
             <ProductPreviewView
-              content={[
-                productPreview,
-                productPreview,
-                productPreview,
-                productPreview,
-                productPreview,
-              ]}
+              content={[productPreview, productPreview]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
@@ -285,14 +288,7 @@ export default function Home() {
 
           <SectionItem title="Admins Preview Table">
             <AdminsPreviewView
-              content={[
-                adminPreview,
-                adminPreview,
-                adminPreview,
-                adminPreview,
-                adminPreview,
-                adminPreview,
-              ]}
+              content={[adminPreview, adminPreview, adminPreview]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
