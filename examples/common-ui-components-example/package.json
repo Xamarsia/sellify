@@ -17,6 +17,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@sellify/example-ui-components": "workspace:*",
     "@sellify/common-ui-components": "workspace:*",
     "@sellify/typescript-config": "workspace:*",
     "@sellify/common-icons": "workspace: *",

@@ -17,6 +17,7 @@ This is a Next.js application designed to showcase the usage of the **@sellify/a
 - `@sellify/tailwind-config` - tailwindcss presets and shared-styles.
 - `@sellify/eslint-config` - ESLint presets.
 - `@sellify/admin-ui-components` - admin UI components.
+- `@sellify/example-ui-components` - UI components for a consistent example page structure.
 
 ## Environment Setup
 

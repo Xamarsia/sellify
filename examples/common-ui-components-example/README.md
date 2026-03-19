@@ -18,6 +18,7 @@ This is a Next.js application designed to showcase the usage of the **@sellify/c
 - `@sellify/eslint-config` - ESLint presets.
 - `@sellify/common-ui-components` - common UI components.
 - `@sellify/common-icons` - common UI icons components.
+- `@sellify/example-ui-components` - UI components for a consistent example page structure.
 
 ## Environment Setup
 

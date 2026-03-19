@@ -3,6 +3,11 @@
 import { usePathname } from "next/navigation";
 import { ChangeEvent, useCallback, useState } from "react";
 
+import Section from "@sellify/example-ui-components/Section";
+import SectionItem from "@sellify/example-ui-components/SectionItem";
+import Header from "@sellify/example-ui-components/Header";
+import MainLayout from "@sellify/example-ui-components/MainLayout";
+
 import PlusIcon from "@sellify/common-icons/plus";
 import { Size } from "@sellify/common-icons/enums";
 
@@ -27,9 +32,6 @@ import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
 import FormItem from "@sellify/common-ui-components/FormItem";
-
-import Section from "components/Section";
-import SectionItem from "components/SectionItem";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
@@ -126,11 +128,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-full">
-      <header className="flex items-center h-32 bg-primary px-4 sm:px-6 lg:px-8">
-        <h1 className="text-white text-3xl">Common UI Components</h1>
-      </header>
-      <main className="flex flex-col w-full ">
+    <>
+      <Header title="Common UI Components" />
+      <MainLayout>
         <Section title={"Price Range Slider"}>
           <SectionItem>
             <PriceRangeSlider range={range} />
@@ -461,7 +461,7 @@ export default function Home() {
             </CollapsiblePanel>
           </SectionItem>
         </Section>
-      </main>
-    </div>
+      </MainLayout>
+    </>
   );
 }
