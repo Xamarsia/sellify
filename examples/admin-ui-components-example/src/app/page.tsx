@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+import Section from "@sellify/example-ui-components/Section";
+import SectionItem from "@sellify/example-ui-components/SectionItem";
+import Header from "@sellify/example-ui-components/Header";
+import MainLayout from "@sellify/example-ui-components/MainLayout";
+
 import {
   Admin,
   AdminPreview,
@@ -38,8 +43,6 @@ import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
 import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 
 import image from "resources/image.jpg";
-import Section from "./components/Section";
-import SectionItem from "./components/SectionItem";
 import { Permission } from "@sellify/admin-ui-components/enums";
 
 export default function Home() {
@@ -164,11 +167,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-full">
-      <header className="flex items-center h-32 bg-primary px-4 sm:px-6 lg:px-8">
-        <h1 className="text-white text-3xl">Admin UI Components</h1>
-      </header>
-      <main className="flex flex-col w-full ">
+    <>
+      <Header title="Admin UI Components" />
+      <MainLayout>
         <Section title={"Add Amount Button"}>
           <SectionItem>
             <AddAmountButton
@@ -295,7 +296,7 @@ export default function Home() {
             />
           </SectionItem>
         </Section>
-      </main>
-    </div>
+      </MainLayout>
+    </>
   );
 }

@@ -2,8 +2,10 @@
 
 import { useCallback, useMemo, useState } from "react";
 
-import Section from "./components/Section";
-import SectionItem from "./components/SectionItem";
+import Section from "@sellify/example-ui-components/Section";
+import SectionItem from "@sellify/example-ui-components/SectionItem";
+import Header from "@sellify/example-ui-components/Header";
+import MainLayout from "@sellify/example-ui-components/MainLayout";
 
 import image from "resources/1/image.jpg";
 import image2 from "resources/1/image2.jpg";
@@ -114,11 +116,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-full">
-      <header className="flex items-center h-32 bg-primary px-4 sm:px-6 lg:px-8">
-        <h1 className="text-white text-3xl">Customer UI Components</h1>
-      </header>
-      <main className="flex flex-col w-full ">
+    <>
+      <Header title="Customer UI Components" />
+      <MainLayout>
         <Section title={"Counter Button"}>
           <SectionItem>
             <CounterButton
@@ -191,7 +191,7 @@ export default function Home() {
             </ul>
           </SectionItem>
         </Section>
-      </main>
-    </div>
+      </MainLayout>
+    </>
   );
 }
