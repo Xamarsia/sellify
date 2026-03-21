@@ -15,7 +15,11 @@ export default function MainLayout({
         <div className="flex-none w-64 not-lg:hidden py-4">
           <MainMenu />
         </div>
-        <main className="flex flex-1 flex-col gap-8 h-full overflow-x-auto">
+        {/*
+          `overflow-x-auto` clips focus rings on elements inside `children`.
+          Adding `-mx-3 px-3` provides enough horizontal space to keep them visible.
+        */}
+        <main className="flex flex-1 flex-col gap-8 h-full overflow-x-auto -mx-3 px-3">
           {children}
         </main>
       </div>

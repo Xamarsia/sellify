@@ -51,7 +51,7 @@ export default function SidePanel({
     >
       <div
         ref={modal}
-        className="relative flex flex-col bg-white w-full max-w-xl rounded-s-lg border border-stroke p-8 overflow-y-auto"
+        className="relative flex flex-col bg-white w-full max-w-xl rounded-s-lg border border-stroke p-8"
       >
         <div className="flex flex-none justify-between items-center mb-8">
           <h2>{title}</h2>

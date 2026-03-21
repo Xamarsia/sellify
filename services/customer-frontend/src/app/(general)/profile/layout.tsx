@@ -20,7 +20,11 @@ export default function ProfileLayout({
         <div className="flex-none w-64 not-lg:hidden">
           <ProfileMenu />
         </div>
-        <div className="flex flex-1 overflow-x-auto">{children}</div>
+        {/*
+          `overflow-x-auto` clips focus rings on elements inside `children`.
+          Adding `-m-3 p-3` provides enough space to keep them visible.
+        */}
+        <div className="flex flex-1 overflow-x-auto -m-3 p-3">{children}</div>
       </div>
     </div>
   );
