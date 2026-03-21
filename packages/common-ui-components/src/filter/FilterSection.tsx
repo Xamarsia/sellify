@@ -131,7 +131,7 @@ export default function FilterSectionComponent({
 
   return (
     <CollapsiblePanel panelTitle={sectionKey}>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-4">
         {properties.map((property) => getPropertyComponent(property))}
       </div>
     </CollapsiblePanel>

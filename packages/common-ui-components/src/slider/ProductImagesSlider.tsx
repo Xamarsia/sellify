@@ -14,7 +14,7 @@ export default function ProductImagesSlider({
 
   return (
     <div className="flex flex-col md:flex-row gap-2 md:gap-3 not-md:w-full lg:h-[536px] shrink-0">
-      <div className="flex md:order-2  ">
+      <div className="flex md:order-2">
         <img
           src={images[currentSlide]}
           alt="Product image"

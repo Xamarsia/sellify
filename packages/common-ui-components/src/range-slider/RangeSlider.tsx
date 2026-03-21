@@ -96,7 +96,7 @@ export default function RangeSlider({
           />
         </div>
 
-        <div className="multi-slide-input-container w-full">
+        <div className="multi-slide-input-container w-full my-2.5">
           <RangeSliderInput
             min={range.min}
             max={range.max}
