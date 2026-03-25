@@ -63,8 +63,12 @@ export default function FilterPanelProvider({
         onClose={onFilterPanelClose}
         title="Filter"
       >
-        <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto">
-          <div className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
+        {/*
+          `overflow-y-auto` clips focus rings on elements inside.
+          Adding `-m-3 p-3` provides enough horizontal and vertical space to keep them visible.
+       */}
+        <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto -m-3 p-3">
+          <div className="flex flex-col gap-4 overflow-y-auto scrollbar pr-4 -mx-3 px-3">
             {filterSections &&
               filterSections.map((section) => (
                 <FilterSection

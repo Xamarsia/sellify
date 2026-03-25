@@ -30,16 +30,20 @@ export default function CartPanel({
   return (
     <SidePanel open={open} onClose={onClose} title="Cart">
       {cartItems.length ? (
-        <div className="grow flex flex-col justify-between h-full gap-5 overflow-y-auto">
-          <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
+        /*
+          `overflow-y-auto` clips focus rings on elements inside.
+          Adding `-m-3 p-3` provides enough horizontal and vertical space to keep them visible.
+        */
+        <div className="flex grow flex-col justify-between h-full gap-5 overflow-y-auto -m-3 p-3">
+          <ul className="flex flex-col gap-4 scrollbar overflow-y-auto pr-4 -mx-3 px-3">
             {cartItems.map((item, index) => (
               <li key={item.product.productId.toString() + index}>
                 <CartItem cartItem={item} onItemRemove={onCartItemRemove} />
               </li>
             ))}
           </ul>
-          <div className="flex flex-col gap-4">
-            <div className="flex justify-between my-2">
+          <div className="flex flex-col shrink-0 gap-4">
+            <div className="flex justify-between">
               <h2>Subtotal</h2>
               <h2>${totalPrice}</h2>
             </div>
