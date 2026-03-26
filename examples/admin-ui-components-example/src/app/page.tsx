@@ -10,12 +10,14 @@ import MainLayout from "@sellify/example-ui-components/MainLayout";
 import {
   Admin,
   AdminPreview,
+  CartItem,
   Category,
   CategoryPreview,
   Customer,
   DeliveryAddress,
   InventoryProduct,
   OrderPreview,
+  Permission as PermissionData,
   Product,
   ProductPreview,
   Role,
@@ -27,9 +29,13 @@ import {
   CustomerStatus,
 } from "@sellify/admin-ui-components/constants";
 
-import { OrderStatus } from "@sellify/common-ui-components/constants";
+import {
+  OrderStatus,
+  ProductStatus,
+} from "@sellify/common-ui-components/constants";
 
 import AddAmountButton from "@sellify/admin-ui-components/AddAmountButton";
+import SettingsSection from "@sellify/admin-ui-components/SettingsSection";
 import Card from "@sellify/admin-ui-components/card/Card";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
 import AdminsPreviewView from "@sellify/admin-ui-components/data-view/AdminsPreviewView";
@@ -41,6 +47,13 @@ import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 import ProductPreviewView from "@sellify/admin-ui-components/data-view/ProductPreviewView";
 import ProductsView from "@sellify/admin-ui-components/data-view/ProductsView";
 import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
+import OrderProductsView from "@sellify/admin-ui-components/data-view/OrderProductsView";
+import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
+import RolesPreviewView from "@sellify/admin-ui-components/data-view/RolesPreviewView";
+import AdminStatusComponent from "@sellify/admin-ui-components/statuses/AdminStatusComponent";
+import CustomerStatusComponent from "@sellify/admin-ui-components/statuses/CustomerStatusComponent";
+import OrderStatusComponent from "@sellify/admin-ui-components/statuses/OrderStatusComponent";
+import ProductStatusComponent from "@sellify/admin-ui-components/statuses/ProductStatusComponent";
 
 import image from "resources/image.jpg";
 import { Permission } from "@sellify/admin-ui-components/enums";
@@ -166,6 +179,18 @@ export default function Home() {
     ],
   };
 
+  const cartItem: CartItem = {
+    cartItemId: 1,
+    product: productPreview,
+    amount: 3,
+  };
+
+  const permissionDataItem: PermissionData = {
+    permissionId: 1,
+    title: "View Product",
+    relatedRolesCount: 3,
+  };
+
   return (
     <>
       <Header title="Admin UI Components" />
@@ -194,6 +219,48 @@ export default function Home() {
             <CardWithChard label="Revenue" value="$7,823" trendValue={-10} />
             <CardWithChard label="Revenue" value="$7,823" trendValue={0} />
             <Card label="Revenue" value="$7,823" />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Settings Section"}>
+          <SectionItem>
+            <SettingsSection
+              title="Regular Action"
+              description="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              buttonText="Edit"
+            />
+            <SettingsSection
+              title="Destructive Action"
+              description="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus, massa venenatis ornare aliquam, urna enim interdum nibh, non fermentum magna odio eget odio."
+              buttonText="Delete"
+              type="destructive"
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Statuses"}>
+          <SectionItem title="Admin Status">
+            <AdminStatusComponent status={AdminStatus.Active} />
+            <AdminStatusComponent status={AdminStatus.Invited} />
+            <AdminStatusComponent status={AdminStatus.Disabled} />
+          </SectionItem>
+          <SectionItem title="Customer Status">
+            <CustomerStatusComponent status={CustomerStatus.Active} />
+            <CustomerStatusComponent status={CustomerStatus.Archived} />
+          </SectionItem>
+          <SectionItem title="Order Status">
+            <OrderStatusComponent status={OrderStatus.New} />
+            <OrderStatusComponent status={OrderStatus.InProgress} />
+            <OrderStatusComponent status={OrderStatus.Shipped} />
+            <OrderStatusComponent status={OrderStatus.Canceled} />
+          </SectionItem>
+          <SectionItem title="Product Status">
+            <ProductStatusComponent status={ProductStatus.Active} />
+            <ProductStatusComponent status={ProductStatus.Archived} />
           </SectionItem>
         </Section>
 
@@ -290,6 +357,37 @@ export default function Home() {
           <SectionItem title="Admins Preview Table">
             <AdminsPreviewView
               content={[adminPreview, adminPreview, adminPreview]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
+          </SectionItem>
+
+          <SectionItem title="Order Products Table">
+            <OrderProductsView
+              content={[cartItem, cartItem, cartItem]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
+          </SectionItem>
+
+          <SectionItem title="Permissions Table">
+            <PermissionsView
+              content={[
+                permissionDataItem,
+                permissionDataItem,
+                permissionDataItem,
+              ]}
+              currentPage={page}
+              onPageChanged={setPage}
+              pagesAmount={10}
+            />
+          </SectionItem>
+
+          <SectionItem title="Roles Preview Table">
+            <RolesPreviewView
+              content={[rolePreview, rolePreview]}
               currentPage={page}
               onPageChanged={setPage}
               pagesAmount={10}
