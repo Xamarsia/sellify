@@ -17,6 +17,13 @@ import {
   TabItemInfo,
 } from "@sellify/common-ui-components/types";
 
+import image from "resources/1/image.jpg";
+import image2 from "resources/1/image2.jpg";
+import image3 from "resources/2/image.jpg";
+import image4 from "resources/2/image2.jpg";
+import image5 from "resources/3/image.jpg";
+import image6 from "resources/3/image2.jpg";
+
 import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
@@ -32,6 +39,9 @@ import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
 import FormItem from "@sellify/common-ui-components/FormItem";
+import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
+import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
+import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
@@ -40,6 +50,9 @@ import DropdownUseExample from "examples/DropdownUseExample";
 import MultiSelectionComboboxUseExample from "examples/MultiSelectionComboboxUseExample";
 import PagesExample from "examples/PagesExample";
 import SearchBarExample from "examples/SearchBarExample";
+import SidePanelExample from "examples/SidePanelExample";
+import RiskDialogExample from "examples/RiskDialogExample";
+import AdaptiveDataViewExample from "examples/AdaptiveDataViewExample";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -419,10 +432,48 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
+        <Section title={"Breadcrumbs"}>
+          <SectionItem>
+            <Breadcrumbs
+              items={[
+                { href: "/", title: "Home" },
+                { href: "/", title: "Products" },
+                { href: "/", title: "Product title" },
+              ]}
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Side Panel"}>
+          <SectionItem>
+            <SidePanelExample />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
         <Section title={"Dialog"}>
           <SectionItem>
             <DialogExample title="Dialog" />
             <AlertDialogExample title="Alert Dialog" />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Risk Dialog"}>
+          <SectionItem>
+            <RiskDialogExample />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Filter Button"}>
+          <SectionItem>
+            <FilterButton />
           </SectionItem>
         </Section>
 
@@ -450,7 +501,7 @@ export default function Home() {
 
         <Section title={"Collapsible Panel"}>
           <SectionItem>
-            <CollapsiblePanel panelTitle="Closed Collapsible Panel">
+            <CollapsiblePanel panelTitle="Collapsible Panel">
               <p>
                 Content. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit. Nullam finibus, massa venenatis ornare aliquam, urna enim
@@ -459,6 +510,31 @@ export default function Home() {
                 blandit nec.
               </p>
             </CollapsiblePanel>
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Product Images Slider"}>
+          <SectionItem>
+            <ProductImagesSlider
+              images={[
+                image.src,
+                image2.src,
+                image3.src,
+                image4.src,
+                image5.src,
+                image6.src,
+              ]}
+            />
+          </SectionItem>
+        </Section>
+
+        {/* ------------------------------------------------------------- */}
+
+        <Section title={"Adaptive Data View"}>
+          <SectionItem>
+            <AdaptiveDataViewExample />
           </SectionItem>
         </Section>
       </MainLayout>
