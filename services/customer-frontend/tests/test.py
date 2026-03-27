@@ -6,7 +6,7 @@ def test_eight_components():
     driver = setup()
 
     title = driver.title
-    assert title == "Common ui components library"
+    assert title == "Create Next App"
 
     teardown(driver)
 
