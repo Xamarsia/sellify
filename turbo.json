@@ -22,6 +22,11 @@
       "cache": false,
       "persistent": true,
       "dependsOn": ["^e2e-tests"]
+    },
+    "test:unit": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^test:unit"]
     }
   }
 }
