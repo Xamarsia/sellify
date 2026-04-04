@@ -127,10 +127,7 @@ export default function EditProductForm({ product }: EditProductFormProps) {
   );
 
   return (
-    <form
-      className="grow flex flex-col gap-14 items-end"
-      onSubmit={onFormSubmit}
-    >
+    <form className="grow flex flex-col gap-14" onSubmit={onFormSubmit}>
       <div className="flex flex-col w-full gap-6">
         <FormItem title="Title" required>
           <Input
@@ -170,8 +167,9 @@ export default function EditProductForm({ product }: EditProductFormProps) {
           <Input value={quantity} required onChange={handleQuantityChange} />
         </FormItem>
       </div>
-
-      <Button type="submit">Update Product</Button>
+      <div className="sm:w-xs w-full">
+        <Button type="submit">Update Product</Button>
+      </div>
     </form>
   );
 }

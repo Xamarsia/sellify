@@ -55,7 +55,9 @@ export default function CreateRoleForm() {
         />
       </div>
 
-      <Button type="submit">Create Role</Button>
+      <div className="sm:w-xs">
+        <Button type="submit">Create Role</Button>
+      </div>
     </form>
   );
 }

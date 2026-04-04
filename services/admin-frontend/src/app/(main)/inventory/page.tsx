@@ -36,13 +36,10 @@ export default function InventoryPage() {
         description: `Are you certain you'd like to add ${quantity} to product #${productId}?`,
         controlPanel: (
           <>
-            <Button variant="outline" fill="parent" onClick={closeAlertDialog}>
+            <Button variant="outline" onClick={closeAlertDialog}>
               Cancel
             </Button>
-            <Button
-              fill="parent"
-              onClick={() => setProductQuantity(productId, quantity)}
-            >
+            <Button onClick={() => setProductQuantity(productId, quantity)}>
               Add Quantity
             </Button>
           </>

@@ -73,12 +73,11 @@ export default function RiskDialog({
         </div>
         {/* Control Panel */}
         <div className="flex justify-between gap-6">
-          <Button variant="outline" fill="parent" onClick={onDialogClose}>
+          <Button variant="outline" onClick={onDialogClose}>
             Go Back
           </Button>
           <Button
             variant="destructive"
-            fill="parent"
             onClick={confirmPassword}
             disabled={!password}
           >

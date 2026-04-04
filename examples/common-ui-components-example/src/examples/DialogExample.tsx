@@ -32,7 +32,7 @@ export default function DialogExample({ title }: DialogProps) {
             <div className="h-2.5 bg-gray-200 rounded-full " />
             <div className="h-2.5 bg-gray-200 rounded-full " />
           </div>
-          <div className="flex justify-between ">
+          <div className="flex justify-between gap-6">
             <Button variant="outline">
               <div className="h-2.5 my-3 bg-gray-200 rounded-full w-32" />
             </Button>

@@ -149,7 +149,9 @@ export default function CreateProductForm() {
           <Input value={quantity} required onChange={handleQuantityChange} />
         </FormItem>
       </div>
-      <Button type="submit">Create Product</Button>
+      <div className="sm:w-xs">
+        <Button type="submit">Create Product</Button>
+      </div>
     </form>
   );
 }

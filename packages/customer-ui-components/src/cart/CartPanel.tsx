@@ -49,7 +49,7 @@ export default function CartPanel({
             </div>
             {/* TODO: Enhance button and link relationships to ensure proper functionality*/}
             <a href={`/checkout-order`}>
-              <Button fill="parent">Checkout</Button>
+              <Button>Checkout</Button>
             </a>
           </div>
         </div>
@@ -58,10 +58,8 @@ export default function CartPanel({
           <h3 className="py-4 uppercase ">
             Cart is empty :-( Please add products
           </h3>
-          <Button fill="parent">Sign In</Button>
-          <Button fill="parent" variant="outline">
-            Continue Shopping
-          </Button>
+          <Button>Sign In</Button>
+          <Button variant="outline">Continue Shopping</Button>
         </div>
       )}
     </SidePanel>
