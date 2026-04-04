@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint . --fix  --max-warnings 0",
     "check-types": "tsc --noEmit",
-    "clean": "git clean -xdf .cache .next .turbo dist node_modules"
+    "clean": "git clean -xdf .cache .next .turbo dist node_modules",
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch",
+    "test:unit:coverage": "jest --coverage"
   },
   "peerDependencies": {
     "next": "16.1.1",
@@ -16,18 +19,26 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@sellify/example-ui-components": "workspace:*",
-    "@sellify/common-ui-components": "workspace:*",
-    "@sellify/typescript-config": "workspace:*",
     "@sellify/common-icons": "workspace: *",
+    "@sellify/common-ui-components": "workspace:*",
     "@sellify/eslint-config": "workspace:*",
-    "eslint": "^9.39.1",
+    "@sellify/example-ui-components": "workspace:*",
+    "@sellify/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "~4.1.18",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "~25.0.7",
     "@types/react": "~19.2.8",
     "@types/react-dom": "~19.2.3",
+    "eslint": "^9.39.1",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "~4.1.18",
+    "ts-node": "^10.9.2",
     "typescript": "~5.9.3"
   }
 }

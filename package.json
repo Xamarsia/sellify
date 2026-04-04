@@ -12,7 +12,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,css,mjs,json}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "turbo run test:unit",
     "clean": "git clean -xdf node_modules .pnpm-store .turbo/ .ruff_cache"
   },
   "dependencies": {},
