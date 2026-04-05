@@ -477,7 +477,9 @@ export default function Home() {
 
         <Section title={"Filter Button"}>
           <SectionItem>
-            <FilterButton />
+            <div className="flex-none">
+              <FilterButton />
+            </div>
           </SectionItem>
         </Section>
 
