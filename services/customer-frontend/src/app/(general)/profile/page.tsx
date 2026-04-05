@@ -143,7 +143,6 @@ export default function ProfilePage() {
         <div className="w-2/9">
           <Button
             variant="default"
-            fill="parent"
             onClick={onEditProfile}
             disabled={!isContactInfoValid || !isDeliveryAddressValid}
           >

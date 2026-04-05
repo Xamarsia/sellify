@@ -6,7 +6,6 @@ type ButtonProps = {
   size?: "default" | "small";
   variant?: "default" | "outline" | "destructive";
   type?: "button" | "submit";
-  fill?: "content" | "parent";
   disabled?: boolean;
   children: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -16,7 +15,6 @@ export default function Button({
   size = "default",
   variant = "default",
   type = "button",
-  fill = "content",
   disabled,
   children,
   onClick,
@@ -35,24 +33,16 @@ export default function Button({
     small: "h-10",
   }[size];
 
-  const fillStyle = {
-    content: "",
-    parent: "w-full",
-  }[fill];
-
   return (
-    /* External div for anti-flex */
-    <div className={`${fillStyle}`}>
-      <button
-        type={type}
-        className={`flex justify-center body items-center px-6 gap-x-4 rounded-lg enabled:active:ring-4 group
-          enabled:cursor-pointer disabled:cursor-not-allowed ${variantStyle} ${sizeStyle} ${fillStyle}
+    <button
+      type={type}
+      className={`flex w-full justify-center body items-center px-6 gap-x-4 rounded-lg enabled:active:ring-4
+        group enabled:cursor-pointer disabled:cursor-not-allowed ${variantStyle} ${sizeStyle}
         `}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    </div>
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }

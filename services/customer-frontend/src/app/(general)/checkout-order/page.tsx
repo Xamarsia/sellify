@@ -135,7 +135,6 @@ export default function CheckoutPage() {
         <>
           <Button
             variant="outline"
-            fill="parent"
             onClick={() => {
               router.push(`/`);
               closeAlertDialog();
@@ -144,7 +143,6 @@ export default function CheckoutPage() {
             Back to home
           </Button>
           <Button
-            fill="parent"
             onClick={() => {
               router.push(`/order/${orderId}`);
               closeAlertDialog();
@@ -343,7 +341,6 @@ export default function CheckoutPage() {
             deliveryFee={5}
           >
             <Button
-              fill="parent"
               disabled={!currentStepContent?.isValid}
               onClick={onNextStep}
             >

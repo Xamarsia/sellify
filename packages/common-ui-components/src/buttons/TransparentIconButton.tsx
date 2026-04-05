@@ -25,18 +25,15 @@ export default function TransparentIconButton({
   }[variant];
 
   return (
-    /* External div for anti-flex */
-    <div>
-      <button
-        type={type}
-        className={`flex justify-center items-center rounded-lg enabled:cursor-pointer
+    <button
+      type={type}
+      className={`flex justify-center items-center rounded-lg enabled:cursor-pointer
         disabled:cursor-not-allowed body min-w-6 ${variantStyle}
       `}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    </div>
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }

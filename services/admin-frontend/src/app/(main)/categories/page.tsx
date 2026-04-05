@@ -22,7 +22,9 @@ export default function CategoriesPage() {
     <>
       <div className="flex justify-between items-center">
         <PageTitle />
-        <Button size="small">Add Category</Button>
+        <div>
+          <Button size="small">Add Category</Button>
+        </div>
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -38,7 +38,7 @@ export default function SettingsSection({
         <p className="text-placeholder">{description}</p>
       </div>
       <div className="flex w-2/9 justify-center truncate">
-        <Button variant={type} onClick={onClick} fill="parent">
+        <Button variant={type} onClick={onClick}>
           <p className="truncate">{buttonText}</p>
         </Button>
       </div>

@@ -141,10 +141,10 @@ export default function FilterPanelProvider({
             ))}
           </div>
           <div className="flex gap-4">
-            <Button fill="parent" variant="outline" onClick={onFilterReset}>
+            <Button variant="outline" onClick={onFilterReset}>
               Reset
             </Button>
-            <Button fill="parent">Apply</Button>
+            <Button>Apply</Button>
           </div>
         </div>
       </SidePanel>

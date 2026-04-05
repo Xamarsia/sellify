@@ -35,12 +35,7 @@ export default function ProductPreview({
           </a>
           <p>${productPreview.price}</p>
         </div>
-        <Button
-          variant="outline"
-          size="small"
-          onClick={onAddToCart}
-          fill="parent"
-        >
+        <Button variant="outline" size="small" onClick={onAddToCart}>
           <p>Add to Cart</p>
         </Button>
       </div>

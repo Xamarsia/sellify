@@ -233,21 +233,25 @@ export default function Home() {
 
         <Section title={"Transparent Icon Button"}>
           <SectionItem>
-            <TransparentIconButton>
-              <PlusIcon size={Size.xxl} />
-            </TransparentIconButton>
-            <TransparentIconButton disabled>
-              <PlusIcon size={Size.xxl} />
-            </TransparentIconButton>
+            <div className="flex-none">
+              <TransparentIconButton>
+                <PlusIcon size={Size.xxl} />
+              </TransparentIconButton>
+              <TransparentIconButton disabled>
+                <PlusIcon size={Size.xxl} />
+              </TransparentIconButton>
+            </div>
           </SectionItem>
 
           <SectionItem>
-            <TransparentIconButton variant="destructive">
-              <PlusIcon size={Size.xxl} />
-            </TransparentIconButton>
-            <TransparentIconButton variant="destructive" disabled>
-              <PlusIcon size={Size.xxl} />
-            </TransparentIconButton>
+            <div className="flex-none">
+              <TransparentIconButton variant="destructive">
+                <PlusIcon size={Size.xxl} />
+              </TransparentIconButton>
+              <TransparentIconButton variant="destructive" disabled>
+                <PlusIcon size={Size.xxl} />
+              </TransparentIconButton>
+            </div>
           </SectionItem>
         </Section>
 
@@ -473,7 +477,9 @@ export default function Home() {
 
         <Section title={"Filter Button"}>
           <SectionItem>
-            <FilterButton />
+            <div className="flex-none">
+              <FilterButton />
+            </div>
           </SectionItem>
         </Section>
 

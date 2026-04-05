@@ -40,7 +40,7 @@ export default function ProductDetails({
             min={1}
             max={product.quantity}
           />
-          <Button onClick={onAddToCart} fill="parent">
+          <Button onClick={onAddToCart}>
             <p>Add to Cart</p>
           </Button>
         </div>

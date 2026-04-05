@@ -41,10 +41,7 @@ export default function EditRoleForm({ role }: EditRoleFormProps) {
   );
 
   return (
-    <form
-      className="grow flex flex-col gap-14 items-end"
-      onSubmit={onFormSubmit}
-    >
+    <form className="grow flex flex-col gap-14" onSubmit={onFormSubmit}>
       <div className="flex flex-col gap-6 w-full">
         <FormItem title={"Title"} required>
           <Input
@@ -61,7 +58,9 @@ export default function EditRoleForm({ role }: EditRoleFormProps) {
           defaultSelectedPermissions={role.permissions}
         />
       </div>
-      <Button type="submit">Edit Role</Button>
+      <div className="sm:w-xs w-full">
+        <Button type="submit">Edit Role</Button>
+      </div>
     </form>
   );
 }

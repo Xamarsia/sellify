@@ -41,9 +41,11 @@ export default function CustomerDetailsPage({ customer, orders }: Props) {
       <InfoSection title="Delivery address">
         <div className="flex w-full justify-between">
           {`${customer.deliveryAddress.address}, ${customer.deliveryAddress.country}`}
-          <Button variant="outline" size="small">
-            Change shipping address
-          </Button>
+          <div>
+            <Button variant="outline" size="small">
+              Change shipping address
+            </Button>
+          </div>
         </div>
       </InfoSection>
 

@@ -36,7 +36,7 @@ export default function ProductAddedDialogContent({
           </div>
         </div>
       </div>
-      <Button variant="default" size="small" fill="parent" onClick={onCheckout}>
+      <Button variant="default" size="small" onClick={onCheckout}>
         <p>Checkout</p>
       </Button>
     </div>

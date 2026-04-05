@@ -101,7 +101,9 @@ export default function CreateAdminForm() {
           />
         </FormItem>
       </div>
-      <Button type="submit">Invite New Admin</Button>
+      <div className="sm:w-xs">
+        <Button type="submit">Invite New Admin</Button>
+      </div>
     </form>
   );
 }

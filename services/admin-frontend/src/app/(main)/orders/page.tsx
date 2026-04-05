@@ -25,9 +25,11 @@ export default function OrdersPage() {
       <div className="flex justify-between items-center">
         <PageTitle />
         {/* TODO: Replace this button with a calendar component */}
-        <Button variant="outline" size="small">
-          Jan 01 - Jan 28 <ChevronDownIcon size={Size.lg} />
-        </Button>
+        <div>
+          <Button variant="outline" size="small">
+            Jan 01 - Jan 28 <ChevronDownIcon size={Size.lg} />
+          </Button>
+        </div>
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
