@@ -94,9 +94,9 @@ All commands should be executed from the root directory of the `sellify` project
 
 ### Testing
 
-| Command                | Description        |
-| ---------------------- | ------------------ |
-| `pnpm turbo e2e-tests` | Run the E2E tests. |
+| Command               | Description        |
+| --------------------- | ------------------ |
+| `pnpm turbo test:e2e` | Run the E2E tests. |
 
 ### Cleaning
 

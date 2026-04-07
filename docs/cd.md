@@ -82,7 +82,7 @@ The repository uses the [pre-commit](https://pre-commit.com/) framework for mana
 | `end-of-file-fixer`   | Ensure files end with a single newline               | `pre-commit`             |
 | `trailing-whitespace` | Remove trailing whitespace                           | `pre-commit`             |
 | `bashate`             | Shell script style checks                            | `pre-commit`, `pre-push` |
-| `run-e2e-tests`       | Run local E2E test command (`pnpm turbo e2e-tests`)  | `pre-push`               |
+| `run-e2e-tests`       | Run local E2E test command (`pnpm turbo test:e2e`)   | `pre-push`               |
 
 ### Running Hooks
 
