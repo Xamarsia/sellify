@@ -24,6 +24,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@sellify/jest-config": "workspace:*",
     "@sellify/common-icons": "workspace:*",
     "@sellify/eslint-config": "workspace:*",
     "@sellify/tailwind-config": "workspace:*",
