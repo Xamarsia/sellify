@@ -1,8 +1,5 @@
 {
-  "compilerOptions": {
-    "jsx": "react"
-  },
-  "extends": "@sellify/typescript-config/nextjs.json",
+  "extends": "@sellify/typescript-config/react-library",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

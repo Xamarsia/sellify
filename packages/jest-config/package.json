@@ -1,0 +1,16 @@
+{
+  "name": "@sellify/jest-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./config": "./config.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo dist node_modules"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9"
+  }
+}

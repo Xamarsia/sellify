@@ -281,6 +281,9 @@ importers:
       '@sellify/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@sellify/jest-config':
+        specifier: workspace:*
+        version: link:../jest-config
       '@sellify/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
@@ -322,7 +325,7 @@ importers:
         version: 4.1.18
       ts-jest:
         specifier: ^29.4.9
-        version: 29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@25.0.7)(ts-node@10.9.2(@types/node@25.0.7)(typescript@5.9.3)))(typescript@5.9.3)
+        version: 29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0)(typescript@5.9.3)
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -424,6 +427,15 @@ importers:
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
+
+  packages/jest-config:
+    devDependencies:
+      jest:
+        specifier: ^30.3.0
+        version: 30.3.0(@types/node@25.0.7)(ts-node@10.9.2(@types/node@25.0.7)(typescript@5.9.3))
+      ts-jest:
+        specifier: ^29.4.9
+        version: 29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0)(typescript@5.9.3)
 
   packages/tailwind-config:
     devDependencies:
@@ -6918,7 +6930,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-jest@29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@25.0.7)(ts-node@10.9.2(@types/node@25.0.7)(typescript@5.9.3)))(typescript@5.9.3):
+  ts-jest@29.4.9(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0)(typescript@5.9.3):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0

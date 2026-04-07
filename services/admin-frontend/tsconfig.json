@@ -1,5 +1,5 @@
 {
-  "extends": "@sellify/typescript-config/nextjs.json",
+  "extends": "@sellify/typescript-config/nextjs",
   "compilerOptions": {
     "baseUrl": "src",
     "plugins": [

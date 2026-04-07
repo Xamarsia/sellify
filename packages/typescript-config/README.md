@@ -11,5 +11,5 @@ This package provides **TypeScript** configuration to maintain consistency throu
 2. Extend a desired configuration. For example, for a React library:
 
    ```json
-   "extends": "@sellify/typescript-config/react-library.json",
+   "extends": "@sellify/typescript-config/react-library",
    ```
