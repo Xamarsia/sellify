@@ -38,13 +38,13 @@ For container and environment prerequisites, see [Docker Guide](https://github.c
 Run E2E tests for a **single package** (from the package directory):
 
 ```bash
-pnpm run e2e-tests
+pnpm run test:e2e
 ```
 
 Run E2E tests for the **whole project** (from the root):
 
 ```bash
-pnpm turbo e2e-tests
+pnpm turbo test:e2e
 ```
 
 ### Running Tests Step by Step
@@ -75,7 +75,7 @@ The quick commands above handle everything automatically. If you prefer to run e
 
 4. **Shut down the server** when the tests finish.
 
-> **Note:** The `start-server-and-test` dependency automates steps 2–4. It starts the Next.js app, waits for it to be available on the specified port, executes the tests, and then shuts down the server. See the [`e2e-tests` script in package.json](https://github.com/Xamarsia/sellify/tree/main/examples/common-ui-components-example/package.json) for an example.
+> **Note:** The `start-server-and-test` dependency automates steps 2–4. It starts the Next.js app, waits for it to be available on the specified port, executes the tests, and then shuts down the server. See the [`test:e2e` script in package.json](https://github.com/Xamarsia/sellify/tree/main/examples/common-ui-components-example/package.json) for an example.
 
 ## Static Quality Checks
 

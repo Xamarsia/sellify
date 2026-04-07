@@ -83,7 +83,7 @@ repos:
         name: "Run E2E tests"
         entry: pnpm
         language: system
-        args: ["turbo", "e2e-tests"]
+        args: ["turbo", "test:e2e"]
         pass_filenames: false
         always_run: true
         stages: [pre-push, manual]

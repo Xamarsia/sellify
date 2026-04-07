@@ -18,14 +18,13 @@
       "cache": false,
       "dependsOn": ["^clean"]
     },
-    "e2e-tests": {
+    "test:e2e": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["^e2e-tests"]
+      "dependsOn": ["^test:e2e"]
     },
     "test:unit": {
       "cache": false,
-      "persistent": true,
       "dependsOn": ["^test:unit"]
     }
   }

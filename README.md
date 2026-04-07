@@ -257,10 +257,11 @@ These commands should be executed in the root directory of the `sellify` project
 - `pnpm turbo build` - builds the project for production.
 - `pnpm turbo start` - starts the production server.
 - `pnpm turbo check-types` - runs type checking.
-- `pnpm turbo e2e-tests` - runs e2e tests.
+- `pnpm turbo test:e2e` - runs e2e tests.
 - `pnpm turbo test:unit` - runs Jest + RTL unit tests.
 - `pnpm lint` - runs ESLint.
 - `pnpm format` - formats every .ts, .tsx or .md file with Prettier.
+- `pnpm turbo clean`- removes .cache, .turbo and node_modules folders.
 - `pnpm store prune` - removes unreferenced packages from the store.
 - `pnpm clean` - removes .pnpm-store and node_modules folders; run `pnpm install` afterward.
 
