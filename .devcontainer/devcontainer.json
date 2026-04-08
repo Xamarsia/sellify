@@ -19,7 +19,8 @@
         "DavidAnson.vscode-markdownlint",
         "streetsidesoftware.code-spell-checker",
         "littlefoxteam.vscode-python-test-adapter",
-        "charliermarsh.ruff" // python community formatter
+        "charliermarsh.ruff", // python community formatter
+        "openai.chatgpt"
       ]
     }
   },

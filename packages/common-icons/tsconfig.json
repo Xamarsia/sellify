@@ -1,5 +1,5 @@
 {
-  "extends": "@sellify/typescript-config/react-library.json",
+  "extends": "@sellify/typescript-config/react-library",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
