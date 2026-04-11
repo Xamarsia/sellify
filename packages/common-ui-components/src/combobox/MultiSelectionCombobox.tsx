@@ -4,7 +4,6 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
 import ChevronUpIcon from "@sellify/common-icons/chevron-up";
-import { Size } from "@sellify/common-icons/enums";
 
 import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
@@ -124,13 +123,12 @@ export default function MultiSelectionCombobox<T extends string | number>({
           </div>
         </div>
         <div className={`${disabled && "hidden"}`}>
-          <TransparentIconButton onClick={onDropdownClick} disabled={disabled}>
-            {isExtended ? (
-              <ChevronUpIcon size={Size.sm} />
-            ) : (
-              <ChevronDownIcon size={Size.sm} />
-            )}
-          </TransparentIconButton>
+          <TransparentIconButton
+            onClick={onDropdownClick}
+            disabled={disabled}
+            size="xs"
+            icon={isExtended ? <ChevronUpIcon /> : <ChevronDownIcon />}
+          />
         </div>
       </div>
 

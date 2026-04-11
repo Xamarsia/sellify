@@ -3,7 +3,6 @@
 import { ChangeEvent } from "react";
 
 import CheckMiniIcon from "@sellify/common-icons/check-mini";
-import { Size } from "@sellify/common-icons/enums";
 
 type CheckboxProps = {
   checked: boolean;
@@ -39,9 +38,9 @@ export default function Checkbox({
         />
         <span
           className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2
-            transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            transform -translate-x-1/2 -translate-y-1/2 pointer-events-none *:size-3"
         >
-          <CheckMiniIcon size={Size.xs} />
+          <CheckMiniIcon />
         </span>
       </label>
       <label

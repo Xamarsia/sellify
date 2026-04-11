@@ -8,7 +8,6 @@ import { ReactElement, ComponentProps } from "react";
 
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import PlusIcon from "@sellify/common-icons/plus";
-import { Size } from "@sellify/common-icons/enums";
 
 type IconButtonProps = ComponentProps<typeof IconButton>;
 
@@ -25,7 +24,7 @@ describe("IconButton", () => {
     props: Partial<IconButtonProps> = {},
   ): ButtonRenderResult => {
     const { rerender, container } = render(
-      <IconButton {...props}> {<PlusIcon size={Size.lg} />} </IconButton>,
+      <IconButton icon={<PlusIcon />} {...props} />,
     );
 
     return {
@@ -39,9 +38,7 @@ describe("IconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<IconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(
-      <IconButton {...props}> {<PlusIcon size={Size.lg} />} </IconButton>,
-    );
+    rerender(<IconButton icon={<PlusIcon />} {...props} />);
     return getIconButton();
   };
 

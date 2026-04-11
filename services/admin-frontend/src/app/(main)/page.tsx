@@ -1,7 +1,6 @@
 "use client";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
-import { Size } from "@sellify/common-icons/enums";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
@@ -20,7 +19,10 @@ export default function Home() {
         {/* TODO: Replace this button with a calendar component */}
         <div>
           <Button variant="outline" size="small">
-            Jan 01 - Jan 28 <ChevronDownIcon size={Size.lg} />
+            Jan 01 - Jan 28
+            <div className="flex *h-5">
+              <ChevronDownIcon />
+            </div>
           </Button>
         </div>
       </div>
@@ -33,7 +35,10 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <h2>Latest Orders</h2>
           <LinkButton href="/orders">
-            More <ArrowLongRightIcon size={Size.lg} />
+            More
+            <div className="flex *h-5">
+              <ArrowLongRightIcon />
+            </div>
           </LinkButton>
         </div>
         <OrdersView content={getOrdersPreview()} pagesAmount={0} />

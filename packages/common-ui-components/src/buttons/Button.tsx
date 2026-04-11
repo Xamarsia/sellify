@@ -37,7 +37,7 @@ export default function Button({
     <button
       type={type}
       className={`flex w-full justify-center body items-center px-6 gap-x-4 rounded-lg enabled:active:ring-4
-        group enabled:cursor-pointer disabled:cursor-not-allowed ${variantStyle} ${sizeStyle}
+        group enabled:cursor-pointer disabled:cursor-not-allowed ${variantStyle} ${sizeStyle} *:h-6
         `}
       disabled={disabled}
       onClick={onClick}

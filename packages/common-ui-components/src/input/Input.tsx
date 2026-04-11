@@ -31,7 +31,7 @@ export default function Input({
           border border-stroke has-focus:border-black has-enabled:hover:border-black rounded-lg
           ${state === "invalid" && "[&:not(:placeholder-shown):not(:focus-within)]:border-destructive"} `}
     >
-      {icon && <label className="text-placeholder pr-4">{icon}</label>}
+      {icon && <label className="text-placeholder pr-4 *:h-5">{icon}</label>}
       <input
         type={type}
         value={value}

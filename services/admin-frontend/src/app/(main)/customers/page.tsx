@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
-import { Size } from "@sellify/common-icons/enums";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 import { Customer } from "@sellify/admin-ui-components/types";
@@ -27,7 +26,10 @@ export default function CustomersPage() {
         {/* TODO: Replace this button with a calendar component */}
         <div>
           <Button variant="outline" size="small">
-            Jan 01 - Jan 28 <ChevronDownIcon size={Size.lg} />
+            Jan 01 - Jan 28
+            <div className="flex *h-5">
+              <ChevronDownIcon />
+            </div>
           </Button>
         </div>
       </div>

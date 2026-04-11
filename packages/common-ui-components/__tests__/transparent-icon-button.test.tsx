@@ -8,7 +8,6 @@ import { ReactElement, ComponentProps } from "react";
 
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import PlusIcon from "@sellify/common-icons/plus";
-import { Size } from "@sellify/common-icons/enums";
 
 type TransparentIconButtonProps = ComponentProps<typeof TransparentIconButton>;
 
@@ -26,9 +25,7 @@ describe("TransparentIconButton", () => {
     props: Partial<TransparentIconButtonProps> = {},
   ): ButtonRenderResult => {
     const { rerender, container } = render(
-      <TransparentIconButton {...props}>
-        <PlusIcon size={Size.lg} />
-      </TransparentIconButton>,
+      <TransparentIconButton icon={<PlusIcon />} {...props} />,
     );
 
     return {
@@ -42,11 +39,7 @@ describe("TransparentIconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<TransparentIconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(
-      <TransparentIconButton {...props}>
-        <PlusIcon size={Size.lg} />
-      </TransparentIconButton>,
-    );
+    rerender(<TransparentIconButton icon={<PlusIcon />} {...props} />);
     return getTransparentIconButton();
   };
 

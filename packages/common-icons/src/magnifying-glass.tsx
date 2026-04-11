@@ -1,13 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type MagnifyingGlassIconProps = {
-  size?: Size;
-};
-
-export default function MagnifyingGlassIcon({
-  size = Size.md,
-}: MagnifyingGlassIconProps) {
+export default function MagnifyingGlassIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +6,6 @@ export default function MagnifyingGlassIcon({
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

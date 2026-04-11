@@ -1,11 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type CheckMiniIconProps = {
-  size?: Size;
-};
-
-export default function CheckMiniIcon({ size = Size.xs }: CheckMiniIconProps) {
+export default function CheckMiniIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +6,6 @@ export default function CheckMiniIcon({ size = Size.xs }: CheckMiniIconProps) {
       viewBox="0 0 20 20"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         fillRule="evenodd"

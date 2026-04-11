@@ -1,11 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type CreditCardIconProps = {
-  size?: Size;
-};
-
-export default function Cog6ToothIcon({ size = Size.lg }: CreditCardIconProps) {
+export default function Cog6ToothIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +6,6 @@ export default function Cog6ToothIcon({ size = Size.lg }: CreditCardIconProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

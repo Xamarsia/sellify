@@ -1,11 +1,9 @@
 "use client";
 
 import { useCallback, useContext, useMemo } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 import UserIcon from "@sellify/common-icons/user";
-import { Size } from "@sellify/common-icons/enums";
 
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
@@ -32,6 +30,7 @@ export default function Header() {
   const { openNavbarDrawer } =
     useContext<NavbarDrawerController>(NavbarDrawerContext);
   const pathname: string = usePathname();
+  const router = useRouter();
 
   const menuItem = useMemo<Array<NavMenuItem>>(() => {
     return [
@@ -54,9 +53,11 @@ export default function Header() {
       <p className="body not-md:order-2">LOGO</p>
 
       <div className="md:hidden not-md:order-1">
-        <TransparentIconButton onClick={openDrawer}>
-          <Bars3Icon size={Size.xxl} />
-        </TransparentIconButton>
+        <TransparentIconButton
+          size="xl"
+          onClick={openDrawer}
+          icon={<Bars3Icon />}
+        />
       </div>
 
       <nav className="flex gap-9 not-md:hidden">
@@ -73,17 +74,23 @@ export default function Header() {
       </nav>
 
       <div className="flex gap-4 not-md:order-3">
-        <TransparentIconButton onClick={openSearchPanel}>
-          <MagnifyingGlassIcon size={Size.md} />
-        </TransparentIconButton>
-        <Link href="/profile">
-          <TransparentIconButton>
-            <UserIcon size={Size.md} />
-          </TransparentIconButton>
-        </Link>
-        <TransparentIconButton onClick={openCartPanel}>
-          <ShoppingBagIcon size={Size.md} />
-        </TransparentIconButton>
+        <TransparentIconButton
+          size="sm"
+          onClick={openSearchPanel}
+          icon={<MagnifyingGlassIcon />}
+        />
+        <TransparentIconButton
+          size="sm"
+          onClick={() => {
+            router.push("/profile");
+          }}
+          icon={<UserIcon />}
+        />
+        <TransparentIconButton
+          size="sm"
+          onClick={openCartPanel}
+          icon={<ShoppingBagIcon />}
+        />
       </div>
     </header>
   );

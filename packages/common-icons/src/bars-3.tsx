@@ -1,11 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type Bars3IconProps = {
-  size?: Size;
-};
-
-export default function Bars3Icon({ size = Size.xxl }: Bars3IconProps) {
+export default function Bars3Icon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +6,6 @@ export default function Bars3Icon({ size = Size.xxl }: Bars3IconProps) {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

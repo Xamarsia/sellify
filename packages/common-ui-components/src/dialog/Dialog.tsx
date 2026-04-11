@@ -3,7 +3,6 @@
 import { ReactNode } from "react";
 
 import XMarkIcon from "@sellify/common-icons/x-mark";
-import { Size } from "@sellify/common-icons/enums";
 
 import DialogBase from "./DialogBase";
 import TransparentIconButton from "../buttons/TransparentIconButton";
@@ -27,9 +26,7 @@ export default function Dialog({
         {/* DialogHeader  */}
         <div className="flex justify-between items-center pb-9">
           <h2>{title}</h2>
-          <TransparentIconButton onClick={onDialogClose}>
-            <XMarkIcon size={Size.lg} />
-          </TransparentIconButton>
+          <TransparentIconButton onClick={onDialogClose} icon={<XMarkIcon />} />
         </div>
         {content}
       </div>

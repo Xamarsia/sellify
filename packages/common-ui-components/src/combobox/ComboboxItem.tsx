@@ -3,7 +3,6 @@
 import { useCallback } from "react";
 
 import XMarkIcon from "@sellify/common-icons/x-mark";
-import { Size } from "@sellify/common-icons/enums";
 
 import TransparentIconButton from "../buttons/TransparentIconButton";
 
@@ -36,9 +35,11 @@ export default function ComboboxItem<T>({
         {label}
       </span>
       {!disabled && (
-        <TransparentIconButton onClick={onClick}>
-          <XMarkIcon size={Size.sm} />
-        </TransparentIconButton>
+        <TransparentIconButton
+          onClick={onClick}
+          icon={<XMarkIcon />}
+          size="xs"
+        />
       )}
     </div>
   );

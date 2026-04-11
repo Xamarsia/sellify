@@ -9,7 +9,6 @@ import Header from "@sellify/example-ui-components/Header";
 import MainLayout from "@sellify/example-ui-components/MainLayout";
 
 import PlusIcon from "@sellify/common-icons/plus";
-import { Size } from "@sellify/common-icons/enums";
 
 import {
   NavMenuItem,
@@ -155,37 +154,37 @@ export default function Home() {
         <Section title={"Button"}>
           <SectionItem>
             <Button>
-              Default Button <PlusIcon size={Size.lg} />
+              Default Button <PlusIcon />
             </Button>
             <Button size="small">
-              Small Default Button <PlusIcon size={Size.lg} />
+              Small Default Button <PlusIcon />
             </Button>
             <Button disabled>
-              Disabled Default Button <PlusIcon size={Size.lg} />
+              Disabled Default Button <PlusIcon />
             </Button>
           </SectionItem>
 
           <SectionItem>
             <Button variant="outline">
-              Outline Button <PlusIcon size={Size.lg} />
+              Outline Button <PlusIcon />
             </Button>
             <Button size="small" variant="outline">
-              Small Outline Button <PlusIcon size={Size.lg} />
+              Small Outline Button <PlusIcon />
             </Button>
             <Button disabled variant="outline">
-              Disabled Outline Button <PlusIcon size={Size.lg} />
+              Disabled Outline Button <PlusIcon />
             </Button>
           </SectionItem>
 
           <SectionItem>
             <Button variant="destructive">
-              Destructive Button <PlusIcon size={Size.lg} />
+              Destructive Button <PlusIcon />
             </Button>
             <Button size="small" variant="destructive">
-              Small Destructive Button <PlusIcon size={Size.lg} />
+              Small Destructive Button <PlusIcon />
             </Button>
             <Button disabled variant="destructive">
-              Disabled Destructive Button <PlusIcon size={Size.lg} />
+              Disabled Destructive Button <PlusIcon />
             </Button>
           </SectionItem>
         </Section>
@@ -194,21 +193,13 @@ export default function Home() {
 
         <Section title={"Icon Button"}>
           <SectionItem>
-            <IconButton>
-              <PlusIcon size={Size.lg} />
-            </IconButton>
-            <IconButton disabled>
-              <PlusIcon size={Size.lg} />
-            </IconButton>
+            <IconButton icon={<PlusIcon />} />
+            <IconButton icon={<PlusIcon />} disabled />
           </SectionItem>
 
           <SectionItem>
-            <IconButton variant="outline">
-              <PlusIcon size={Size.lg} />
-            </IconButton>
-            <IconButton variant="outline" disabled>
-              <PlusIcon size={Size.lg} />
-            </IconButton>
+            <IconButton icon={<PlusIcon />} variant="outline" />
+            <IconButton icon={<PlusIcon />} variant="outline" disabled />
           </SectionItem>
         </Section>
 
@@ -218,10 +209,10 @@ export default function Home() {
           <SectionItem>
             <LinkButton>Link Button</LinkButton>
             <LinkButton>
-              Link Button <PlusIcon size={Size.lg} />
+              Link Button <PlusIcon />
             </LinkButton>
             <LinkButton>
-              <PlusIcon size={Size.lg} />
+              <PlusIcon />
             </LinkButton>
             <div className="bg-black text-white">
               <LinkButton>Link Button</LinkButton>
@@ -234,23 +225,22 @@ export default function Home() {
         <Section title={"Transparent Icon Button"}>
           <SectionItem>
             <div className="flex-none">
-              <TransparentIconButton>
-                <PlusIcon size={Size.xxl} />
-              </TransparentIconButton>
-              <TransparentIconButton disabled>
-                <PlusIcon size={Size.xxl} />
-              </TransparentIconButton>
+              <TransparentIconButton icon={<PlusIcon />} />
+              <TransparentIconButton icon={<PlusIcon />} disabled />
             </div>
           </SectionItem>
 
           <SectionItem>
             <div className="flex-none">
-              <TransparentIconButton variant="destructive">
-                <PlusIcon size={Size.xxl} />
-              </TransparentIconButton>
-              <TransparentIconButton variant="destructive" disabled>
-                <PlusIcon size={Size.xxl} />
-              </TransparentIconButton>
+              <TransparentIconButton
+                variant="destructive"
+                icon={<PlusIcon />}
+              />
+              <TransparentIconButton
+                variant="destructive"
+                icon={<PlusIcon />}
+                disabled
+              />
             </div>
           </SectionItem>
         </Section>
