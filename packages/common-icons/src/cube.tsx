@@ -1,11 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type CubeIconProps = {
-  size?: Size;
-};
-
-export default function CubeIcon({ size = Size.lg }: CubeIconProps) {
+export default function CubeIcon() {
   return (
     <svg
       fill="none"
@@ -13,7 +6,6 @@ export default function CubeIcon({ size = Size.lg }: CubeIconProps) {
       strokeWidth="1.5"
       stroke="currentColor"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

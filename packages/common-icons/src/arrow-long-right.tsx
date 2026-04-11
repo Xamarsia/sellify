@@ -1,13 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type ArrowLongRightIconProps = {
-  size?: Size;
-};
-
-export default function ArrowLongRightIcon({
-  size = Size.md,
-}: ArrowLongRightIconProps) {
+export default function ArrowLongRightIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +6,6 @@ export default function ArrowLongRightIcon({
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)} shrink-0`}
     >
       <path
         strokeLinecap="round"

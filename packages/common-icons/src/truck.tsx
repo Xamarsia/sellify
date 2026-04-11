@@ -1,11 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type TruckIconProps = {
-  size?: Size;
-};
-
-export default function TruckIcon({ size = Size.lg }: TruckIconProps) {
+export default function TruckIcon() {
   return (
     <svg
       fill="none"
@@ -13,7 +6,6 @@ export default function TruckIcon({ size = Size.lg }: TruckIconProps) {
       strokeWidth="1.5"
       stroke="currentColor"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

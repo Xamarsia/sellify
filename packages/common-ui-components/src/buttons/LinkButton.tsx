@@ -11,7 +11,7 @@ export default function LinkButton({ children, href }: LinkButtonProps) {
   return (
     <a
       href={href}
-      className={`flex items-center gap-x-2 m-1 underline-offset-4 hover:underline cursor-pointer body`}
+      className={`flex items-center gap-x-2 m-1 underline-offset-4 hover:underline cursor-pointer body *:h-6`}
     >
       {children}
     </a>

@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 
 import ArrowLongLeftIcon from "@sellify/common-icons/arrow-long-left";
-import { Size } from "@sellify/common-icons/enums";
 
 type ButtonProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -15,9 +14,9 @@ export default function BackButton({ onClick }: ButtonProps) {
   return (
     <button
       onClick={onClick ? onClick : router.back}
-      className="inline-flex items-center gap-x-2 m-1 truncate cursor-pointer text-black hover:text-secondary "
+      className="inline-flex items-center gap-x-2 m-1 truncate cursor-pointer text-black hover:text-secondary *:h-5"
     >
-      <ArrowLongLeftIcon size={Size.md} /> Back
+      <ArrowLongLeftIcon /> Back
     </button>
   );
 }

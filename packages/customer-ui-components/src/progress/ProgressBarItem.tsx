@@ -32,10 +32,10 @@ export default function ProgressBarItem({
         disabled={!isSelected}
         className={`flex justify-center items-center rounded-lg enabled:cursor-pointer disabled:cursor-not-allowed
               body size-10 min-w-10 ring-primary-outline enabled:active:ring-4 text-white bg-primary-hover enabled:hover:bg-primary
-              active:bg-primary-hover disabled:text-disabled disabled:bg-white disabled:border disabled:border-stroke
+              active:bg-primary-hover disabled:text-disabled disabled:bg-white disabled:border disabled:border-stroke *:h-6
           `}
       >
-        <div className="size-6 stroke-2">{icon}</div>
+        {icon}
       </button>
       <label className={`label absolute top-12 truncate ${positionStyle}`}>
         {label}

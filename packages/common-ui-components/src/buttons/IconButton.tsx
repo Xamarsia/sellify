@@ -6,7 +6,7 @@ type IconButtonProps = {
   variant?: "default" | "outline";
   type?: "button" | "submit";
   disabled?: boolean;
-  children: ReactNode;
+  icon: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -14,7 +14,7 @@ export default function IconButton({
   variant = "default",
   type = "button",
   disabled,
-  children,
+  icon,
   onClick,
 }: IconButtonProps) {
   const variantStyle = {
@@ -29,12 +29,12 @@ export default function IconButton({
       type={type}
       className={`flex justify-center items-center rounded-lg
         enabled:cursor-pointer disabled:cursor-not-allowed body size-10 min-w-10
-        ring-primary-outline enabled:active:ring-4 ${variantStyle}
+        ring-primary-outline enabled:active:ring-4 ${variantStyle} *:size-6
       `}
       disabled={disabled}
       onClick={onClick}
     >
-      {children}
+      {icon}
     </button>
   );
 }

@@ -2,7 +2,6 @@ import { useCallback, useMemo } from "react";
 
 import ChevronRightMiniIcon from "@sellify/common-icons/chevron-right-mini";
 import ChevronLeftMiniIcon from "@sellify/common-icons/chevron-left-mini";
-import { Size } from "@sellify/common-icons/enums";
 
 import TransparentIconButton from "../buttons/TransparentIconButton";
 import PageButton from "./PageButton";
@@ -93,9 +92,9 @@ export default function Pagination({
       <TransparentIconButton
         disabled={currentPage === 1}
         onClick={getPreviousPage}
-      >
-        <ChevronLeftMiniIcon size={Size.md} />
-      </TransparentIconButton>
+        icon={<ChevronLeftMiniIcon />}
+        size="sm"
+      />
 
       <nav className="flex flex-row gap-2">
         {isMinPageVisible && (
@@ -129,9 +128,9 @@ export default function Pagination({
       <TransparentIconButton
         disabled={currentPage === pagesAmount}
         onClick={getNextPage}
-      >
-        <ChevronRightMiniIcon size={Size.md} />
-      </TransparentIconButton>
+        icon={<ChevronRightMiniIcon />}
+        size="sm"
+      />
     </nav>
   );
 }

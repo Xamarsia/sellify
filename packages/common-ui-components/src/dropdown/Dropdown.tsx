@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
 import ChevronUpIcon from "@sellify/common-icons/chevron-up";
-import { Size } from "@sellify/common-icons/enums";
 
 import DropdownItem from "./DropdownItem";
 
@@ -78,11 +77,9 @@ export default function Dropdown({
           bg-white text-secondary enabled:hover:text-black disabled:text-disabled`}
       >
         <span className="body">{getCurrentText().toUpperCase()}</span>
-        {isExtended ? (
-          <ChevronUpIcon size={Size.sm} />
-        ) : (
-          <ChevronDownIcon size={Size.sm} />
-        )}
+        <div className="size-4">
+          {isExtended ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        </div>
       </button>
 
       {isExtended && (

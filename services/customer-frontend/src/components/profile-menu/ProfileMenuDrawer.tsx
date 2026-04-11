@@ -5,7 +5,6 @@ import { notFound, usePathname } from "next/navigation";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
 import ChevronUpIcon from "@sellify/common-icons/chevron-up";
-import { Size } from "@sellify/common-icons/enums";
 
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
@@ -38,11 +37,9 @@ export default function ProfileMenuDrawer() {
         bg-white text-secondary hover:text-black`}
       >
         <h3>{selectedItem?.title}</h3>
-        {isExtended ? (
-          <ChevronUpIcon size={Size.sm} />
-        ) : (
-          <ChevronDownIcon size={Size.sm} />
-        )}
+        <div className="size-4">
+          {isExtended ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        </div>
       </button>
 
       {isExtended && <SideMenu items={ProfileMenuItems} pathname={pathname} />}

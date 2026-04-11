@@ -1,13 +1,4 @@
-import { sizeToCSS } from "./common/common";
-import { Size } from "./common/enums";
-
-type ShieldExclamationIconProps = {
-  size?: Size;
-};
-
-export default function ShieldExclamationIcon({
-  size = Size.lg,
-}: ShieldExclamationIconProps) {
+export default function ShieldExclamationIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +6,6 @@ export default function ShieldExclamationIcon({
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${sizeToCSS(size)}`}
     >
       <path
         strokeLinecap="round"

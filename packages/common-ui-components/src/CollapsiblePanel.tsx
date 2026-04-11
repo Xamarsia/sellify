@@ -4,7 +4,6 @@ import { ReactNode, useCallback, useState } from "react";
 
 import PlusIcon from "@sellify/common-icons/plus";
 import MinusIcon from "@sellify/common-icons/minus";
-import { Size } from "@sellify/common-icons/enums";
 
 type CollapsiblePanelProps = {
   panelTitle: string;
@@ -25,15 +24,11 @@ export default function CollapsiblePanel({
     <div className="flex flex-col w-full border-b border-b-stroke">
       <button
         onClick={onSectionClick}
-        className={`flex items-center h-16 justify-between w-full bg-white capitalize
+        className={`flex items-center h-16 justify-between w-full bg-white capitalize *:h-6
           cursor-pointer ${isExtended ? "text-black" : "text-secondary hover:text-black"}`}
       >
         <h4>{panelTitle}</h4>
-        {isExtended ? (
-          <MinusIcon size={Size.lg} />
-        ) : (
-          <PlusIcon size={Size.lg} />
-        )}
+        {isExtended ? <MinusIcon /> : <PlusIcon />}
       </button>
       <div className="flex w-full">
         {isExtended && <div className="flex w-full pb-4">{content}</div>}

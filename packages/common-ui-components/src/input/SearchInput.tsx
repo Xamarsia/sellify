@@ -3,7 +3,6 @@
 import { ChangeEvent, FormEvent } from "react";
 
 import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
-import { Size } from "@sellify/common-icons/enums";
 
 import Input from "./Input";
 
@@ -32,7 +31,7 @@ export default function SearchInput({
         value={value}
         placeholder="Search for..."
         onChange={onChange}
-        icon={<MagnifyingGlassIcon size={Size.md} />}
+        icon={<MagnifyingGlassIcon />}
         required
       />
     </form>

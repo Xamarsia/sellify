@@ -17,8 +17,10 @@ export default function CartItemRemoveButton({
   }, [cartItemId, onCartItemRemove]);
 
   return (
-    <TransparentIconButton variant="destructive" onClick={handleClick}>
-      <TrashIcon />
-    </TransparentIconButton>
+    <TransparentIconButton
+      variant="destructive"
+      onClick={handleClick}
+      icon={<TrashIcon />}
+    />
   );
 }
