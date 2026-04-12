@@ -1,13 +1,11 @@
 import "@testing-library/jest-dom";
-
 import userEvent from "@testing-library/user-event";
-
 import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
-import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 import PlusIcon from "@sellify/common-icons/plus";
+import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 type TransparentIconButtonProps = ComponentProps<typeof TransparentIconButton>;
 
@@ -162,6 +160,38 @@ describe("TransparentIconButton", () => {
     });
   });
 
+  describe("size", () => {
+    it("defaults to medium icon size", () => {
+      const { button } = renderButton();
+
+      expect(button).toHaveClass("*:h-6");
+    });
+
+    it("applies extra small icon size", () => {
+      const { button } = renderButton({ size: "xs" });
+
+      expect(button).toHaveClass("*:h-4");
+    });
+
+    it("applies small icon size", () => {
+      const { button } = renderButton({ size: "sm" });
+
+      expect(button).toHaveClass("*:h-5");
+    });
+
+    it("applies large icon size", () => {
+      const { button } = renderButton({ size: "lg" });
+
+      expect(button).toHaveClass("*:h-7");
+    });
+
+    it("applies extra large icon size", () => {
+      const { button } = renderButton({ size: "xl" });
+
+      expect(button).toHaveClass("*:h-8");
+    });
+  });
+
   describe("disabled state", () => {
     it("is enabled by default", () => {
       const { button } = renderButton({});
@@ -173,6 +203,20 @@ describe("TransparentIconButton", () => {
       const { button } = renderButton({ disabled: true });
 
       expect(button).toBeDisabled();
+    });
+  });
+
+  describe("type", () => {
+    it("defaults to button type", () => {
+      const { button } = renderButton({});
+
+      expect(button).toHaveAttribute("type", "button");
+    });
+
+    it("supports submit type", () => {
+      const { button } = renderButton({ type: "submit" });
+
+      expect(button).toHaveAttribute("type", "submit");
     });
   });
 });

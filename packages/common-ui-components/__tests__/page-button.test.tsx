@@ -1,7 +1,5 @@
 import "@testing-library/jest-dom";
-
 import userEvent from "@testing-library/user-event";
-
 import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
@@ -111,6 +109,20 @@ describe("PageButton", () => {
       const selectedButton = rerenderButton(rerender, { selected: true }, "7");
 
       expect(selectedButton).toHaveClass("border");
+    });
+  });
+
+  describe("text updates", () => {
+    it("updates the visible page label after rerender", () => {
+      const { rerender } = renderButton({}, "8");
+      expect(getButton("8")).toBeVisible();
+
+      rerender(<PageButton text="9" onPageSelected={jest.fn()} />);
+
+      expect(getButton("9")).toBeVisible();
+      expect(
+        screen.queryByRole("button", { name: "8" }),
+      ).not.toBeInTheDocument();
     });
   });
 });

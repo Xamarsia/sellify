@@ -1,7 +1,5 @@
 import "@testing-library/jest-dom";
-
 import userEvent from "@testing-library/user-event";
-
 import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
@@ -32,11 +30,12 @@ describe("FilterButton", () => {
   };
 
   describe("rendering", () => {
-    it.only("renders content properly", () => {
+    it("renders content properly", () => {
       const { button, container } = renderButton();
 
       expect(button).toBeInTheDocument();
       expect(button).toBeVisible();
+      expect(button).toHaveAttribute("type", "button");
 
       const root = container.firstElementChild as HTMLElement;
       const icon = root.children[0];
