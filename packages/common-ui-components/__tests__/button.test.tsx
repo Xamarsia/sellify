@@ -1,11 +1,10 @@
 import "@testing-library/jest-dom";
-
 import userEvent from "@testing-library/user-event";
-
 import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
+import PlusIcon from "@sellify/common-icons/plus";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 type ButtonProps = ComponentProps<typeof Button>;
@@ -41,11 +40,30 @@ describe("Button", () => {
   };
 
   describe("rendering", () => {
-    it("renders content properly", () => {
+    it("renders text content properly", () => {
       const { button } = renderButton({}, "Button Content");
 
       expect(button).toBeInTheDocument();
       expect(button).toBeVisible();
+    });
+
+    it("renders icon and text content properly", () => {
+      const { container } = render(
+        <Button>
+          <PlusIcon />
+          <span>Text Content</span>
+        </Button>,
+      );
+
+      const root = container.firstElementChild as HTMLElement;
+      const icon = root.children[0];
+      const text = root.children[1];
+
+      expect(icon).toBeInstanceOf(SVGSVGElement);
+      expect(icon).toBeVisible();
+
+      expect(text).toHaveTextContent("Text Content");
+      expect(text).toBeVisible();
     });
   });
 
@@ -60,6 +78,13 @@ describe("Button", () => {
       const { button } = renderButton({ size: "default" }, "Default Button");
 
       expect(button).toHaveClass("h-13");
+    });
+
+    it("uses default size when no size prop is passed", () => {
+      const { button } = renderButton({}, "Implicit Default Button");
+
+      expect(button).toHaveClass("h-13");
+      expect(button).not.toHaveClass("h-10");
     });
   });
 
@@ -185,6 +210,20 @@ describe("Button", () => {
       const { button } = renderButton({ disabled: true }, "Disabled Button");
 
       expect(button).toBeDisabled();
+    });
+  });
+
+  describe("type", () => {
+    it("defaults to button type", () => {
+      const { button } = renderButton({}, "Default Type");
+
+      expect(button).toHaveAttribute("type", "button");
+    });
+
+    it("supports submit type", () => {
+      const { button } = renderButton({ type: "submit" }, "Submit Button");
+
+      expect(button).toHaveAttribute("type", "submit");
     });
   });
 });

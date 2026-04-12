@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
-
 import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
+import PlusIcon from "@sellify/common-icons/plus";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 type LinkButtonProps = ComponentProps<typeof LinkButton>;
@@ -39,6 +39,25 @@ describe("LinkButton", () => {
 
       expect(link).toBeInTheDocument();
       expect(link).toBeVisible();
+    });
+
+    it("renders text and icon content properly", () => {
+      const { container } = render(
+        <LinkButton>
+          <span>Text Content</span>
+          <PlusIcon />
+        </LinkButton>,
+      );
+
+      const root = container.firstElementChild as HTMLElement;
+      const text = root.children[0];
+      const icon = root.children[1];
+
+      expect(text).toHaveTextContent("Text Content");
+      expect(text).toBeVisible();
+
+      expect(icon).toBeInstanceOf(SVGSVGElement);
+      expect(icon).toBeVisible();
     });
   });
 
