@@ -15,7 +15,7 @@ type ButtonRenderResult = {
 };
 
 describe("Button", () => {
-  const getButton = (content = "Button") =>
+  const getButton = (content: string) =>
     screen.getByRole("button", { name: content }) as HTMLButtonElement;
 
   const renderButton = (
