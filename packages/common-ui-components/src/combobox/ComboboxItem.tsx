@@ -10,7 +10,7 @@ type ComboboxItemProps<T> = {
   value: T;
   label: string;
   disabled?: boolean;
-  onRemove?: (value: T, labe: string) => void;
+  onRemove: (value: T, labe: string) => void;
 };
 
 export default function ComboboxItem<T>({
@@ -22,9 +22,7 @@ export default function ComboboxItem<T>({
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      if (onRemove) {
-        onRemove(value, label);
-      }
+      onRemove(value, label);
     },
     [value, label, onRemove],
   );

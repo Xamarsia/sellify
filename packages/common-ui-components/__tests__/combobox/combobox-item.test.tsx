@@ -19,7 +19,12 @@ const renderComboboxItem = <T,>(
   props: Partial<ComboboxItemProps<T>> = {},
 ): ComboboxItemRenderResult => {
   const { rerender } = render(
-    <ComboboxItem value={value} label={label} {...props} />,
+    <ComboboxItem
+      value={value}
+      label={label}
+      {...props}
+      onRemove={props.onRemove ?? jest.fn()}
+    />,
   );
 
   return { rerender };
