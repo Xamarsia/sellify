@@ -24,6 +24,20 @@ describe("Combobox", () => {
   const getToggleButton = () =>
     screen.getAllByRole("button")[0] as HTMLButtonElement;
 
+  const expectSuggestedItemsVisible = (items: string[]) => {
+    items.forEach((label) => {
+      expect(screen.getByRole("button", { name: label })).toBeVisible();
+    });
+  };
+
+  const expectSuggestedItemsHidden = (items: string[] = []) => {
+    items.forEach((label) => {
+      expect(
+        screen.queryByRole("button", { name: label }),
+      ).not.toBeInTheDocument();
+    });
+  };
+
   const renderCombobox = (
     props: Partial<ComboboxProps> = {},
   ): ComboboxRenderResult => {
@@ -37,9 +51,7 @@ describe("Combobox", () => {
   };
 
   const expectAllItemsVisible = () => {
-    expect(screen.getByRole("button", { name: "Apple" })).toBeVisible();
-    expect(screen.getByRole("button", { name: "Banana" })).toBeVisible();
-    expect(screen.getByRole("button", { name: "Orange" })).toBeVisible();
+    expectSuggestedItemsVisible(["Apple", "Banana", "Orange"]);
   };
 
   describe("rendering", () => {
@@ -86,6 +98,12 @@ describe("Combobox", () => {
       expect(toggleButton).toHaveAttribute("type", "button");
       expect(toggleButton.querySelector("svg")).toBeInTheDocument();
     });
+
+    it("dropdown closed by default", () => {
+      renderCombobox();
+
+      expectSuggestedItemsHidden(["Apple", "Banana", "Orange"]);
+    });
   });
 
   describe("dropdown behavior", () => {
@@ -108,9 +126,7 @@ describe("Combobox", () => {
       expectAllItemsVisible();
 
       await user.click(toggleButton);
-      expect(
-        screen.queryByRole("button", { name: "Apple" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsHidden(["Apple"]);
     });
 
     it("filters suggestions using case-insensitive substring matching", async () => {
@@ -122,11 +138,8 @@ describe("Combobox", () => {
       await user.click(input);
       await user.type(input, "AN");
 
-      expect(screen.getByRole("button", { name: "Banana" })).toBeVisible();
-      expect(screen.getByRole("button", { name: "Orange" })).toBeVisible();
-      expect(
-        screen.queryByRole("button", { name: "Apple" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsVisible(["Banana", "Orange"]);
+      expectSuggestedItemsHidden(["Apple"]);
     });
 
     it("shows all items again when query is cleared", async () => {
@@ -137,9 +150,7 @@ describe("Combobox", () => {
 
       await user.click(input);
       await user.type(input, "app");
-      expect(
-        screen.queryByRole("button", { name: "Banana" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsHidden(["Banana"]);
 
       await user.clear(input);
 
@@ -152,13 +163,10 @@ describe("Combobox", () => {
       render(<button type="button">Outside</button>);
 
       await user.click(getInput());
-      expect(screen.getByRole("button", { name: "Apple" })).toBeInTheDocument();
-
+      expectSuggestedItemsVisible(["Apple"]);
       await user.click(screen.getByRole("button", { name: "Outside" }));
 
-      expect(
-        screen.queryByRole("button", { name: "Apple" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsHidden(["Apple"]);
     });
   });
 
@@ -174,9 +182,7 @@ describe("Combobox", () => {
 
       expect(onItemSelectedMock).toHaveBeenCalledTimes(1);
       expect(onItemSelectedMock).toHaveBeenCalledWith(2, "Banana");
-      expect(
-        screen.queryByRole("button", { name: "Banana" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsHidden(["Banana"]);
     });
 
     it("matches typed values case-insensitively", async () => {
@@ -239,9 +245,7 @@ describe("Combobox", () => {
       await user.click(getInput());
       await user.click(getToggleButton());
 
-      expect(
-        screen.queryByRole("button", { name: "Apple" }),
-      ).not.toBeInTheDocument();
+      expectSuggestedItemsHidden(["Apple"]);
     });
   });
 });

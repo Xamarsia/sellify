@@ -122,18 +122,21 @@ export default function MultiSelectionCombobox<T extends string | number>({
             />
           </div>
         </div>
-        <div className={`${disabled && "hidden"}`}>
+        {!disabled && (
           <TransparentIconButton
             onClick={onDropdownClick}
             disabled={disabled}
             size="xs"
             icon={isExtended ? <ChevronUpIcon /> : <ChevronDownIcon />}
           />
-        </div>
+        )}
       </div>
 
       {isExtended && (
-        <div className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10">
+        <div
+          accessKey="suggestedItemsDropdown"
+          className="absolute w-full rounded-lg bg-white border border-stroke p-4 min-h-12 z-10"
+        >
           <div className="w-full flex-col min-h-12 max-h-58 overflow-y-auto scrollbar">
             {[...suggestedItems].map(([key, value]) => {
               return (

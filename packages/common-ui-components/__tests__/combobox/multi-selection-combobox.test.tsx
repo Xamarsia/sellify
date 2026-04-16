@@ -85,15 +85,14 @@ describe("MultiSelectionCombobox", () => {
   };
 
   const expectAllSuggestedItemsVisible = () => {
-    expectSuggestedItemsVisible(["Apple", "Banana", "Orange"])
+    expectSuggestedItemsVisible(["Apple", "Banana", "Orange"]);
   };
 
   const expectAllSuggestedItemsHidden = () => {
-    expectSuggestedItemsHidden(["Apple", "Banana", "Orange"])
+    expectSuggestedItemsHidden(["Apple", "Banana", "Orange"]);
   };
 
   describe("rendering", () => {
-
     it("renders an empty input by default", () => {
       renderCombobox();
 
@@ -103,7 +102,7 @@ describe("MultiSelectionCombobox", () => {
     it("dropdown closed by default", () => {
       renderCombobox();
 
-      expectSuggestedItemsHidden(["Apple", "Banana", "Orange"]);
+      expectAllSuggestedItemsHidden();
     });
 
     it("renders initial item", () => {
@@ -229,10 +228,10 @@ describe("MultiSelectionCombobox", () => {
       render(<button type="button">Outside</button>);
 
       await user.click(input);
-      expectSuggestedItemsVisible(["Apple"])
+      expectSuggestedItemsVisible(["Apple"]);
 
       await user.click(screen.getByRole("button", { name: "Outside" }));
-      expectSuggestedItemsHidden(["Apple"])
+      expectSuggestedItemsHidden(["Apple"]);
     });
 
     it("updates suggested items when selected items change after rerender", async () => {
@@ -269,7 +268,7 @@ describe("MultiSelectionCombobox", () => {
       expect(onItemSelectedMock).toHaveBeenCalledWith(2, "Banana");
       expect(input).toHaveValue("");
 
-      expectSuggestedItemsHidden(["Banana"])
+      expectSuggestedItemsHidden(["Banana"]);
     });
 
     it("calls onItemRemoved when a selected item remove button is clicked", async () => {
@@ -291,7 +290,6 @@ describe("MultiSelectionCombobox", () => {
       expect(onItemRemovedMock).toHaveBeenCalledWith(1, "Apple");
     });
 
-
     it("renders remove buttons for each selected item when enabled", () => {
       renderCombobox({
         selectedItems: new Map([
@@ -301,6 +299,73 @@ describe("MultiSelectionCombobox", () => {
       });
 
       expect(screen.getAllByRole("button")).toHaveLength(3);
+    });
+  });
+
+  describe("required prop", () => {
+    it("passes required prop to input", () => {
+      renderCombobox({ required: true });
+
+      expect(getInput()).toBeRequired();
+    });
+
+    it("is not required by default", () => {
+      renderCombobox();
+
+      expect(getInput()).not.toBeRequired();
+    });
+
+    it("marks the input as required only when no items are selected", () => {
+      const { input, rerender } = renderCombobox({ required: true });
+
+      expect(input).toBeRequired();
+
+      const updatedInput = rerenderCombobox(rerender, {
+        required: true,
+        selectedItems: new Map([[1, "Apple"]]),
+      });
+
+      expect(updatedInput).not.toBeRequired();
+    });
+  });
+
+  describe("disabled state", () => {
+    it("is enabled by default", () => {
+      renderCombobox();
+
+      expect(getInput()).toBeEnabled();
+      expect(getToggleButton()).toBeEnabled();
+    });
+
+    it("disables the input and hides the toggle button when disabled", () => {
+      renderCombobox({ disabled: true });
+
+      expect(getInput()).toBeDisabled();
+      const toggleButton = screen.queryByRole("button");
+      expect(toggleButton).toBeNull();
+    });
+
+    it("dropdown closed when disabled", async () => {
+      const user = userEvent.setup();
+      renderCombobox({ disabled: true });
+
+      await user.click(getInput());
+
+      expectAllSuggestedItemsHidden();
+    });
+
+    it("hides selected item remove buttons when disabled", () => {
+      renderCombobox({
+        disabled: true,
+        selectedItems: new Map([[1, "Apple"]]),
+      });
+
+      expect(screen.getByText("Apple")).toBeVisible();
+      expect(
+        within(
+          screen.getByText("Apple").parentElement as HTMLElement,
+        ).queryByRole("button"),
+      ).not.toBeInTheDocument();
     });
   });
 });
