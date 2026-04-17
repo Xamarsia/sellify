@@ -17,6 +17,7 @@ type MultiSelectionComboboxRenderResult = {
   rerender: (ui: ReactElement) => void;
 };
 
+// TODO: Find a way to access `SuggestedItems` and `selectedItems` more reliably in this test.
 describe("MultiSelectionCombobox", () => {
   const items = new Map<number, string>([
     [1, "Apple"],

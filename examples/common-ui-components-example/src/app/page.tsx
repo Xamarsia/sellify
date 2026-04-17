@@ -27,17 +27,17 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import LabeledCheckbox from "@sellify/common-ui-components/form/LabeledCheckbox";
 import Input from "@sellify/common-ui-components/input/Input";
 import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInput";
-import Radio from "@sellify/common-ui-components/input/Radio";
+import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 import Tabs from "@sellify/common-ui-components/tabs/Tabs";
 import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
-import FormItem from "@sellify/common-ui-components/FormItem";
+import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
@@ -329,25 +329,25 @@ export default function Home() {
 
         <Section title={"Checkbox & Radio buttons"}>
           <SectionItem>
-            <Checkbox
+            <LabeledCheckbox
               label="Default Checkbox"
               value="default"
               checked={isChecked}
               onChange={onIsCheckedChange}
             />
-            <Checkbox
+            <LabeledCheckbox
               label="Checked Checkbox"
               value="checked"
               checked={true}
               readOnly
             />
-            <Checkbox
+            <LabeledCheckbox
               label="Disabled Checkbox"
               value="disabled"
               checked={false}
               disabled
             />
-            <Checkbox
+            <LabeledCheckbox
               disabled
               checked
               label="Disabled Checked Checkbox"
@@ -356,10 +356,20 @@ export default function Home() {
             />
           </SectionItem>
           <SectionItem>
-            <Radio label="Default Radio" value="default" />
-            <Radio checked label="Checked Radio" value="checked" readOnly />
-            <Radio disabled label="Disabled Radio" value="disabled" readOnly />
-            <Radio
+            <LabeledRadio label="Default Radio" value="default" />
+            <LabeledRadio
+              checked
+              label="Checked Radio"
+              value="checked"
+              readOnly
+            />
+            <LabeledRadio
+              disabled
+              label="Disabled Radio"
+              value="disabled"
+              readOnly
+            />
+            <LabeledRadio
               disabled
               checked
               readOnly

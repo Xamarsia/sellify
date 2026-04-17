@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useCallback, useState } from "react";
 
-import FormItem from "@sellify/common-ui-components/FormItem";
+import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";

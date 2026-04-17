@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback } from "react";
 
-import Checkbox from "@sellify/common-ui-components/input/Checkbox";
+import LabeledCheckbox from "../form/LabeledCheckbox";
 import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
 
 type CheckboxFilterPropertyViewProps = {
@@ -29,7 +29,7 @@ export default function CheckboxFilterPropertyView({
 
   return (
     <div className="flex gap-1">
-      <Checkbox
+      <LabeledCheckbox
         checked={selectedValue.value}
         onChange={onChange}
         value={propertyKey}

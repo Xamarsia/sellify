@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect } from "react";
 
-import FormItem from "@sellify/common-ui-components/FormItem";
+import FormItem from "@sellify/common-ui-components/form/FormItem";
 import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
 
 import { Permissions } from "@sellify/admin-ui-components/constants";
