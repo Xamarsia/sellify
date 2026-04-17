@@ -8,7 +8,7 @@ import DialogBase from "./DialogBase";
 import AlertDialogIcon from "./AlertDialogIcon";
 
 import Button from "../buttons/Button";
-import FormItem from "../FormItem";
+import FormItem from "../form/FormItem";
 import Input from "../input/Input";
 
 type RiskDialogProps = {

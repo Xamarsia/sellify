@@ -1,7 +1,7 @@
 import React, { useCallback, ChangeEvent, useState, useEffect } from "react";
 
 import Input from "../input/Input";
-import FormItem from "../FormItem";
+import FormItem from "../form/FormItem";
 
 type RangeNumberInputProps = {
   min: number;
