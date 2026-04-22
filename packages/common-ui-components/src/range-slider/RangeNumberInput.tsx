@@ -1,4 +1,4 @@
-import React, { useCallback, ChangeEvent, useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 import Input from "../input/Input";
 import FormItem from "../form/FormItem";
@@ -21,9 +21,7 @@ export default function RangeNumberInput({
   const [quantity, setQuantity] = useState<string>(value.toString());
 
   const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const possibleNumber: string = e.target.value;
-
+    (possibleNumber: string): void => {
       if (possibleNumber === "") {
         setQuantity(possibleNumber);
         return;

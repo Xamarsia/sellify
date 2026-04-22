@@ -1,7 +1,5 @@
 "use client";
 
-import { ChangeEvent, FormEvent } from "react";
-
 import MagnifyingGlassIcon from "@sellify/common-icons/magnifying-glass";
 
 import Input from "./Input";
@@ -9,8 +7,8 @@ import Input from "./Input";
 type SearchInputProps = {
   value: string;
   fill?: "default" | "parent";
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  onChange: (query: string) => void;
+  onSubmit?: () => void;
 };
 
 export default function SearchInput({

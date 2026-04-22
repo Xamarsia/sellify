@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 
 import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
@@ -35,14 +35,6 @@ export default function DeliveryAddressForm({
 
   const availableCountries: Map<string, string> = getAvailableCountries();
 
-  const onAddressChangeHandler = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      setAddress(e.target.value);
-    },
-    [setAddress],
-  );
-
   const onChangeAddressForm = useCallback(
     (e: FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
@@ -54,13 +46,6 @@ export default function DeliveryAddressForm({
       onChange(deliveryAddress, false, useAsDefault);
     },
     [country, address, onChange, useAsDefault],
-  );
-
-  const onUseAsDefaultChangeHandler = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setUseAsDefault(e.target.checked);
-    },
-    [setUseAsDefault],
   );
 
   const onItemSelected = useCallback(
@@ -81,13 +66,13 @@ export default function DeliveryAddressForm({
         />
       </FormItem>
       <FormItem title={"Address"} required>
-        <Input value={address} required onChange={onAddressChangeHandler} />
+        <Input value={address} required onChange={setAddress} />
       </FormItem>
       <LabeledCheckbox
         value="use_as_default_address"
         label="Use as my default address"
         checked={useAsDefault}
-        onChange={onUseAsDefaultChangeHandler}
+        onChange={setUseAsDefault}
       />
     </FormSection>
   );

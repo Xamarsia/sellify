@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
@@ -32,14 +32,6 @@ export default function EditRoleForm({ role }: EditRoleFormProps) {
     editRole(editRoleRequest);
   }, [role.roleId, title, selectedPermissions]);
 
-  const handleTitleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setTitle(value);
-    },
-    [setTitle],
-  );
-
   return (
     <form className="grow flex flex-col gap-14" onSubmit={onFormSubmit}>
       <div className="flex flex-col gap-6 w-full">
@@ -48,7 +40,7 @@ export default function EditRoleForm({ role }: EditRoleFormProps) {
             value={title}
             placeholder="Title"
             required
-            onChange={handleTitleChange}
+            onChange={setTitle}
           />
         </FormItem>
         <PermissionsMultiSelectionCombobox

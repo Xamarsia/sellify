@@ -1,13 +1,13 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, useCallback } from "react";
 
 type RadioProps = {
   checked?: boolean;
   disabled?: boolean;
   value?: string;
   readOnly?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (isChecked: boolean, value: string) => void;
 };
 
 export default function Radio({
@@ -17,13 +17,20 @@ export default function Radio({
   readOnly,
   onChange,
 }: RadioProps) {
+  const changeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      onChange(e.target.checked, e.target.value);
+    },
+    [onChange],
+  );
+
   return (
     <label className="relative flex items-center">
       <input
         type="radio"
         value={value}
         disabled={disabled}
-        onChange={onChange}
+        onChange={changeHandler}
         checked={checked}
         readOnly={readOnly}
         id={`radio-${value}`}

@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback } from "react";
+import { useCallback } from "react";
 
 import LabeledCheckbox from "../form/LabeledCheckbox";
 import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
@@ -18,10 +18,10 @@ export default function CheckboxFilterPropertyView({
   onFilterPropertyChange,
 }: CheckboxFilterPropertyViewProps) {
   const onChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
+    (isChecked: boolean): void => {
       onFilterPropertyChange(
         propertyKey,
-        new CheckboxFilterPropertyValue(e.target.checked),
+        new CheckboxFilterPropertyValue(isChecked),
       );
     },
     [propertyKey, onFilterPropertyChange],

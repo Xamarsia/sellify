@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, useCallback } from "react";
 
 type TextareaProps = {
   value?: string;
@@ -9,7 +9,7 @@ type TextareaProps = {
   placeholder?: string;
   required?: boolean;
   state?: "invalid" | "valid";
-  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (newValue: string) => void;
 };
 
 export default function Textarea({
@@ -21,11 +21,19 @@ export default function Textarea({
   placeholder,
   onChange,
 }: TextareaProps) {
+  const onValueChanged = useCallback(
+    (e: ChangeEvent<HTMLTextAreaElement>): void => {
+      e.preventDefault();
+      onChange(e.target.value);
+    },
+    [onChange],
+  );
+
   return (
     <textarea
       value={value}
       required={required}
-      onChange={onChange}
+      onChange={onValueChanged}
       disabled={disabled}
       maxLength={maxLength}
       placeholder={placeholder}

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, ReactNode } from "react";
+import { ChangeEvent, ReactNode, useCallback } from "react";
 
 type InputProps = {
   value?: string;
@@ -11,7 +11,7 @@ type InputProps = {
   state?: "invalid" | "valid";
   type?: "text" | "email" | "password";
   icon?: ReactNode;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (newValue: string) => void;
 };
 
 export default function Input({
@@ -25,6 +25,14 @@ export default function Input({
   icon,
   onChange,
 }: InputProps) {
+  const onValueChanged = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      e.preventDefault();
+      onChange(e.target.value);
+    },
+    [onChange],
+  );
+
   return (
     <div
       className={`flex items-center justify-center h-13 p-4 w-full bg-white text-black body
@@ -36,7 +44,7 @@ export default function Input({
         type={type}
         value={value}
         required={required}
-        onChange={onChange}
+        onChange={onValueChanged}
         disabled={disabled}
         maxLength={maxLength}
         placeholder={placeholder}

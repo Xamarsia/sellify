@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback } from "react";
+import { useCallback } from "react";
 
 import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
 import { PaymentProvider } from "@sellify/common-ui-components/constants";
@@ -43,10 +43,11 @@ export default function PaymentMethodForm({
   );
 
   const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const paymentProvider: PaymentProviderType = getPaymentProvider(
-        e.target.value,
-      );
+    (isChecked: boolean, value?: string): void => {
+      if (!value) {
+        return;
+      }
+      const paymentProvider: PaymentProviderType = getPaymentProvider(value);
       //TODO Add Validation function here
       onPaymentMethodChange(paymentProvider, false);
     },

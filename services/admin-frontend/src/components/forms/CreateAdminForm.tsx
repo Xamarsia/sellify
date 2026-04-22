@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import Combobox from "@sellify/common-ui-components/combobox/Combobox";
@@ -27,30 +27,6 @@ export default function CreateAdminForm() {
     createAdmin(createAdminRequest);
   }, [firstName, lastName, email, role]);
 
-  const handleFirstNameChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setFirstName(value);
-    },
-    [setFirstName],
-  );
-
-  const handleLastNameChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setLastName(value);
-    },
-    [setLastName],
-  );
-
-  const handleEmailChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setEmail(value);
-    },
-    [setEmail],
-  );
-
   const onRoleSelected = useCallback(
     (key?: number, newValue?: string) => {
       setRole(newValue ? newValue : "");
@@ -70,7 +46,7 @@ export default function CreateAdminForm() {
               value={firstName}
               placeholder="First Name"
               required
-              onChange={handleFirstNameChange}
+              onChange={setFirstName}
             />
           </FormItem>
 
@@ -79,7 +55,7 @@ export default function CreateAdminForm() {
               value={lastName}
               placeholder="Last Name"
               required
-              onChange={handleLastNameChange}
+              onChange={setLastName}
             />
           </FormItem>
         </div>
@@ -89,7 +65,7 @@ export default function CreateAdminForm() {
             value={email}
             placeholder="axample@domain.com"
             required
-            onChange={handleEmailChange}
+            onChange={setEmail}
           />
         </FormItem>
         <FormItem title={"Role"} required>

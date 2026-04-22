@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -20,16 +20,5 @@ export default function SearchBarExample() {
     [query, router],
   );
 
-  const onSearchChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
-      setQuery(query);
-    },
-    [],
-  );
-
-  return (
-    <SearchInput value={query} onChange={onSearchChanged} onSubmit={onSubmit} />
-  );
+  return <SearchInput value={query} onChange={setQuery} onSubmit={onSubmit} />;
 }

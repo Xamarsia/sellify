@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent } from "react";
 import Radio from "../input/Radio";
 
 type LabeledRadioProps = {
@@ -9,7 +8,7 @@ type LabeledRadioProps = {
   value?: string;
   label?: string;
   readOnly?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (isChecked: boolean, value?: string) => void;
 };
 
 export default function LabeledRadio({

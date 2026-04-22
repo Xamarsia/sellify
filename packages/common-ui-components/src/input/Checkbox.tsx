@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, useCallback } from "react";
 
 import CheckMiniIcon from "@sellify/common-icons/check-mini";
 
@@ -9,7 +9,7 @@ type CheckboxProps = {
   disabled?: boolean;
   value: string;
   readOnly?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (isChecked: boolean) => void;
 };
 
 export default function Checkbox({
@@ -19,13 +19,20 @@ export default function Checkbox({
   readOnly,
   onChange,
 }: CheckboxProps) {
+  const changeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      onChange(e.target.checked);
+    },
+    [onChange],
+  );
+
   return (
     <label className="relative flex items-center">
       <input
         type="checkbox"
         value={value}
         disabled={disabled}
-        onChange={onChange}
+        onChange={changeHandler}
         checked={checked}
         readOnly={readOnly}
         id={`checkbox-${value}`}
