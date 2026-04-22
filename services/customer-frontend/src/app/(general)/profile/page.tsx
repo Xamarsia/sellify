@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
@@ -46,14 +46,6 @@ export default function ProfilePage() {
     deliveryAddress?.address ?? "",
   );
 
-  const onAddressChangeHandler = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      setAddress(e.target.value);
-    },
-    [setAddress],
-  );
-
   const onEditProfile = useCallback((): void => {
     const contactInfo: ContactInfo = {
       fullName: fullName,
@@ -72,20 +64,6 @@ export default function ProfilePage() {
     //TODO Add Validation function here
     editProfile(editProfileRequest);
   }, [address, country, fullName, phoneNumber]);
-
-  const onFullNameChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setFullName(e.target.value);
-    },
-    [setFullName],
-  );
-
-  const onPhoneNumberChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setPhoneNumber(e.target.value);
-    },
-    [setPhoneNumber],
-  );
 
   const onCountrySelected = useCallback(
     (key?: string, newValue?: string) => {
@@ -107,11 +85,11 @@ export default function ProfilePage() {
     <div className="flex w-full flex-col items-end gap-12">
       <InfoSection title="Contact Information">
         <FormItem title={"Full Name"} required>
-          <Input value={fullName} required onChange={onFullNameChange} />
+          <Input value={fullName} required onChange={setFullName} />
         </FormItem>
 
         <FormItem title={"Phone Number"} required>
-          <Input value={phoneNumber} required onChange={onPhoneNumberChange} />
+          <Input value={phoneNumber} required onChange={setPhoneNumber} />
         </FormItem>
       </InfoSection>
 
@@ -125,7 +103,7 @@ export default function ProfilePage() {
           />
         </FormItem>
         <FormItem title={"Address"} required>
-          <Input value={address} required onChange={onAddressChangeHandler} />
+          <Input value={address} required onChange={setAddress} />
         </FormItem>
       </InfoSection>
 

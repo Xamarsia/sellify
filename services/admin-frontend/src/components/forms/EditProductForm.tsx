@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
@@ -57,34 +57,8 @@ export default function EditProductForm({ product }: EditProductFormProps) {
     price,
   ]);
 
-  const handleTitleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setTitle(value);
-    },
-    [setTitle],
-  );
-
-  const handleDescriptionChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>): void => {
-      const value: string = e.target.value;
-      setDescription(value);
-    },
-    [setDescription],
-  );
-
-  const handleShortDescriptionChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setShortDescription(value);
-    },
-    [setShortDescription],
-  );
-
   const handlePriceChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const possibleNumber: string = e.target.value;
-
+    (possibleNumber: string): void => {
       if (possibleNumber == "") {
         setPrice(possibleNumber);
         return;
@@ -101,9 +75,7 @@ export default function EditProductForm({ product }: EditProductFormProps) {
   );
 
   const handleQuantityChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const possibleNumber: string = e.target.value;
-
+    (possibleNumber: string): void => {
       if (possibleNumber == "") {
         setQuantity(possibleNumber);
         return;
@@ -134,7 +106,7 @@ export default function EditProductForm({ product }: EditProductFormProps) {
             value={title}
             placeholder="Title"
             required
-            onChange={handleTitleChange}
+            onChange={setTitle}
           />
         </FormItem>
         <FormItem title="Short Description" required>
@@ -142,12 +114,12 @@ export default function EditProductForm({ product }: EditProductFormProps) {
             value={shortDescription}
             placeholder="Short Description"
             required
-            onChange={handleShortDescriptionChange}
+            onChange={setShortDescription}
           />
         </FormItem>
 
         <FormItem title={"Description"} required>
-          <Textarea value={description} onChange={handleDescriptionChange} />
+          <Textarea value={description} onChange={setDescription} />
         </FormItem>
         <FormItem title={"Category"} required>
           <Combobox

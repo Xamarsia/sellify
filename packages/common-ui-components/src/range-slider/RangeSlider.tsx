@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useRef,
-  useMemo,
-  ChangeEvent,
-} from "react";
+import { useCallback, useEffect, useRef, useMemo, ChangeEvent } from "react";
 import RangeSliderInput from "./RangeSliderInput";
 import { SliderRange } from "../types";
 import RangeNumberInput from "./RangeNumberInput";

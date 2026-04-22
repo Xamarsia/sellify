@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
@@ -30,9 +30,7 @@ export default function SearchPanel({
   const [searchResults, setSearchResults] = useState<Array<SearchItemType>>([]);
 
   const onQueryChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
+    (query: string): void => {
       setSearchResults(onQueryChange(query));
     },
     [onQueryChange],

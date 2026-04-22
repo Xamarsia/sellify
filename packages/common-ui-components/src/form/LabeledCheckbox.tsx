@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent } from "react";
 import Checkbox from "../input/Checkbox";
 
 type LabeledCheckboxProps = {
@@ -9,7 +8,7 @@ type LabeledCheckboxProps = {
   value: string;
   label?: string;
   readOnly?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (isChecked: boolean) => void;
 };
 
 export default function LabeledCheckbox({

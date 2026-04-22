@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import EmailInputField from "./EmailInputField";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
@@ -12,15 +12,6 @@ type FooterProps = {
 
 export default function Footer({ copyright, onSubscribe }: FooterProps) {
   const [email, setEmail] = useState<string>("");
-
-  const onEmailChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const email: string = e.target.value;
-      setEmail(email);
-    },
-    [],
-  );
 
   const onEmailSubscribe = useCallback((): void => {
     if (onSubscribe) {
@@ -77,7 +68,7 @@ export default function Footer({ copyright, onSubscribe }: FooterProps) {
           <p>Enter your email below to be the firs to know about news</p>
           <EmailInputField
             value={email}
-            onChange={onEmailChanged}
+            onChange={setEmail}
             onSubscribe={onEmailSubscribe}
           />
         </div>

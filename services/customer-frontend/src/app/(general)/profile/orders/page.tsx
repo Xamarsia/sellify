@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { OrderPreview } from "@sellify/customer-ui-components/types";
 import OrdersView from "@sellify/customer-ui-components/data-view/OrdersView";
@@ -26,9 +26,7 @@ export default function OrdersHistoryPage() {
   ]);
 
   const onSearchChanged = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      e.preventDefault();
-      const query: string = e.target.value;
+    (query: string): void => {
       setQuery(query);
       setOrders(query ? filterOrdersHistory(query) : oderHistory);
     },

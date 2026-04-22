@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Input from "@sellify/common-ui-components/input/Input";
@@ -28,27 +28,6 @@ export default function ContactInfoForm({
   );
   const [useAsDefault, setUseAsDefault] = useState<boolean>(false);
 
-  const onFullNameChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setFullName(e.target.value);
-    },
-    [setFullName],
-  );
-
-  const onPhoneNumberChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setPhoneNumber(e.target.value);
-    },
-    [setPhoneNumber],
-  );
-
-  const onUseAsDefaultChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setUseAsDefault(e.target.checked);
-    },
-    [setUseAsDefault],
-  );
-
   const onContactInfoFormChange = useCallback((): void => {
     const contactInfo: ContactInfo = {
       fullName: fullName,
@@ -61,16 +40,16 @@ export default function ContactInfoForm({
   return (
     <FormSection onChange={onContactInfoFormChange}>
       <FormItem title={"Full Name"} required>
-        <Input value={fullName} required onChange={onFullNameChange} />
+        <Input value={fullName} required onChange={setFullName} />
       </FormItem>
       <FormItem title={"Phone Number"} required>
-        <Input value={phoneNumber} required onChange={onPhoneNumberChange} />
+        <Input value={phoneNumber} required onChange={setPhoneNumber} />
       </FormItem>
       <LabeledCheckbox
         value="use_as_default_contact_information"
         label="Use as my default contact information"
         checked={useAsDefault}
-        onChange={onUseAsDefaultChange}
+        onChange={setUseAsDefault}
       />
     </FormSection>
   );

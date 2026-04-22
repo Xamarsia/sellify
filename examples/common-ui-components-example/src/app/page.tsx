@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ChangeEvent, useCallback, useState } from "react";
+import { useState } from "react";
 
 import Section from "@sellify/example-ui-components/Section";
 import SectionItem from "@sellify/example-ui-components/SectionItem";
@@ -58,29 +58,6 @@ export default function Home() {
   const [textareaValue, setTextareaValue] = useState<string>("");
   const [images, setImages] = useState<File[]>([]);
   const [isChecked, setIsChecked] = useState<boolean>(false);
-
-  const onIsCheckedChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setIsChecked(e.target.checked);
-    },
-    [setIsChecked],
-  );
-
-  const handleInputChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setInputValue(value);
-    },
-    [],
-  );
-
-  const handleTextareaChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>): void => {
-      const value: string = e.target.value;
-      setTextareaValue(value);
-    },
-    [],
-  );
 
   const pathname: string = usePathname();
 
@@ -253,18 +230,14 @@ export default function Home() {
               value={inputValue}
               placeholder="Required Input"
               required
-              onChange={handleInputChange}
+              onChange={setInputValue}
             />
-            <Input
-              value="Disabled Input"
-              disabled
-              onChange={handleInputChange}
-            />
+            <Input value="Disabled Input" disabled onChange={setInputValue} />
             <Input
               placeholder="Invalid Input"
               value="Invalid"
               state="invalid"
-              onChange={handleInputChange}
+              onChange={setInputValue}
             />
           </SectionItem>
         </Section>
@@ -286,7 +259,7 @@ export default function Home() {
                 value={inputValue}
                 placeholder="Required Input"
                 required
-                onChange={handleInputChange}
+                onChange={setInputValue}
               />
             </FormItem>
           </SectionItem>
@@ -300,19 +273,19 @@ export default function Home() {
               value={textareaValue}
               placeholder="Required Textarea"
               required
-              onChange={handleTextareaChange}
+              onChange={setTextareaValue}
             />
             <Textarea
               value={textareaValue}
               placeholder="Disabled Textarea"
               disabled
-              onChange={handleTextareaChange}
+              onChange={setTextareaValue}
             />
             <Textarea
               placeholder="Invalid Textarea"
               value="Invalid"
               state="invalid"
-              onChange={handleTextareaChange}
+              onChange={setTextareaValue}
             />
           </SectionItem>
         </Section>
@@ -333,18 +306,20 @@ export default function Home() {
               label="Default Checkbox"
               value="default"
               checked={isChecked}
-              onChange={onIsCheckedChange}
+              onChange={setIsChecked}
             />
             <LabeledCheckbox
               label="Checked Checkbox"
               value="checked"
               checked={true}
+              onChange={setIsChecked}
               readOnly
             />
             <LabeledCheckbox
               label="Disabled Checkbox"
               value="disabled"
               checked={false}
+              onChange={setIsChecked}
               disabled
             />
             <LabeledCheckbox
@@ -352,22 +327,29 @@ export default function Home() {
               checked
               label="Disabled Checked Checkbox"
               value="disabled-checked"
+              onChange={setIsChecked}
               readOnly
             />
           </SectionItem>
           <SectionItem>
-            <LabeledRadio label="Default Radio" value="default" />
+            <LabeledRadio
+              label="Default Radio"
+              value="default"
+              onChange={() => {}}
+            />
             <LabeledRadio
               checked
               label="Checked Radio"
               value="checked"
               readOnly
+              onChange={() => {}}
             />
             <LabeledRadio
               disabled
               label="Disabled Radio"
               value="disabled"
               readOnly
+              onChange={() => {}}
             />
             <LabeledRadio
               disabled
@@ -375,6 +357,7 @@ export default function Home() {
               readOnly
               label="Disabled Checked Radio"
               value="disabled-checked"
+              onChange={() => {}}
             />
           </SectionItem>
         </Section>
