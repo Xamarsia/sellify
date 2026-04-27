@@ -4,44 +4,34 @@ import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
-import PlusIcon from "@sellify/common-icons/plus";
 import Button from "@sellify/common-ui-components/buttons/Button";
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-type ButtonRenderResult = {
-  button: HTMLButtonElement;
-  rerender: (ui: ReactElement) => void;
-};
-
 describe("Button", () => {
-  const getButton = (content: string) =>
-    screen.getByRole("button", { name: content }) as HTMLButtonElement;
+  const getButton = () => screen.getByRole("button") as HTMLButtonElement;
 
-  const renderButton = (
-    props: Partial<ButtonProps> = {},
-    content = "Button",
-  ): ButtonRenderResult => {
-    const { rerender } = render(<Button {...props}>{content}</Button>);
-
+  const renderButton = (props: Partial<ButtonProps> = {}) => {
+    const renderResult = render(
+      <Button {...props}>{props.children ?? "Button Content"}</Button>,
+    );
     return {
-      button: getButton(content),
-      rerender,
+      ...renderResult,
+      button: getButton(),
     };
   };
 
   const rerenderButton = (
     rerender: (ui: ReactElement) => void,
     props: Partial<ButtonProps> = {},
-    content = "Button",
-  ): HTMLButtonElement => {
-    rerender(<Button {...props}>{content}</Button>);
-    return getButton(content);
+  ) => {
+    rerender(<Button {...props}>{props.children ?? "Button Content"}</Button>);
+    return getButton();
   };
 
   describe("rendering", () => {
     it("renders text content properly", () => {
-      const { button } = renderButton({}, "Button Content");
+      const { button } = renderButton();
 
       expect(button).toBeInTheDocument();
       expect(button).toBeVisible();
@@ -50,7 +40,7 @@ describe("Button", () => {
     it("renders icon and text content properly", () => {
       const { container } = render(
         <Button>
-          <PlusIcon />
+          <svg />
           <span>Text Content</span>
         </Button>,
       );
@@ -69,19 +59,25 @@ describe("Button", () => {
 
   describe("size", () => {
     it("applies small size", () => {
-      const { button } = renderButton({ size: "small" }, "Small Button");
+      const { button } = renderButton({
+        size: "small",
+        children: "Small Button",
+      });
 
       expect(button).toHaveClass("h-10");
     });
 
     it("applies default size", () => {
-      const { button } = renderButton({ size: "default" }, "Default Button");
+      const { button } = renderButton({
+        size: "default",
+        children: "Default Button",
+      });
 
       expect(button).toHaveClass("h-13");
     });
 
     it("uses default size when no size prop is passed", () => {
-      const { button } = renderButton({}, "Implicit Default Button");
+      const { button } = renderButton({ children: "Implicit Default Button" });
 
       expect(button).toHaveClass("h-13");
       expect(button).not.toHaveClass("h-10");
@@ -93,10 +89,10 @@ describe("Button", () => {
       const user = userEvent.setup();
       const onClickMock = jest.fn();
 
-      const { button } = renderButton(
-        { onClick: onClickMock },
-        "Default Button",
-      );
+      const { button } = renderButton({
+        onClick: onClickMock,
+        children: "Default Button",
+      });
 
       await user.click(button);
 
@@ -107,10 +103,10 @@ describe("Button", () => {
       const user = userEvent.setup();
       const onClickMock = jest.fn();
 
-      const { button } = renderButton(
-        { onClick: onClickMock },
-        "Default Button",
-      );
+      const { button } = renderButton({
+        onClick: onClickMock,
+        children: "Default Button",
+      });
 
       await user.tripleClick(button);
 
@@ -121,10 +117,11 @@ describe("Button", () => {
       const user = userEvent.setup();
       const onClickMock = jest.fn();
 
-      const { button } = renderButton(
-        { onClick: onClickMock, disabled: true },
-        "Disabled Button",
-      );
+      const { button } = renderButton({
+        onClick: onClickMock,
+        disabled: true,
+        children: "Disabled Button",
+      });
 
       expect(button).toBeDisabled();
 
@@ -201,13 +198,16 @@ describe("Button", () => {
 
   describe("disabled state", () => {
     it("is enabled by default", () => {
-      const { button } = renderButton({}, "Enabled Button");
+      const { button } = renderButton({ children: "Enabled Button" });
 
       expect(button).toBeEnabled();
     });
 
     it("is disabled when disabled prop is true", () => {
-      const { button } = renderButton({ disabled: true }, "Disabled Button");
+      const { button } = renderButton({
+        disabled: true,
+        children: "Disabled Button",
+      });
 
       expect(button).toBeDisabled();
     });
@@ -215,13 +215,16 @@ describe("Button", () => {
 
   describe("type", () => {
     it("defaults to button type", () => {
-      const { button } = renderButton({}, "Default Type");
+      const { button } = renderButton({ children: "Default Type" });
 
       expect(button).toHaveAttribute("type", "button");
     });
 
     it("supports submit type", () => {
-      const { button } = renderButton({ type: "submit" }, "Submit Button");
+      const { button } = renderButton({
+        type: "submit",
+        children: "Submit Button",
+      });
 
       expect(button).toHaveAttribute("type", "submit");
     });

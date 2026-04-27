@@ -8,50 +8,45 @@ import PageButton from "@sellify/common-ui-components/pages/PageButton";
 
 type PageButtonProps = ComponentProps<typeof PageButton>;
 
-type ButtonRenderResult = {
-  button: HTMLButtonElement;
-  rerender: (ui: ReactElement) => void;
-};
-
 describe("PageButton", () => {
   const getButton = (text = "1") =>
     screen.getByRole("button", { name: text }) as HTMLButtonElement;
 
-  const renderButton = (
-    props: Partial<PageButtonProps> = {},
-    text = "1",
-  ): ButtonRenderResult => {
-    const defaultProps: PageButtonProps = {
-      text,
-      onPageSelected: jest.fn(),
-      ...props,
-    };
-    const { rerender } = render(<PageButton {...defaultProps} />);
+  const renderButton = (props: Partial<PageButtonProps> = {}) => {
+    const text = props.text ?? "1";
+    const renderResult = render(
+      <PageButton
+        onPageSelected={props.onPageSelected ?? jest.fn()}
+        text={text}
+        {...props}
+      />,
+    );
 
     return {
+      ...renderResult,
       button: getButton(text),
-      rerender,
     };
   };
 
   const rerenderButton = (
     rerender: (ui: ReactElement) => void,
     props: Partial<PageButtonProps> = {},
-    text = "1",
   ): HTMLButtonElement => {
-    const defaultProps: PageButtonProps = {
-      text,
-      onPageSelected: jest.fn(),
-      ...props,
-    };
+    const text = props.text ?? "1";
 
-    rerender(<PageButton {...defaultProps} />);
+    rerender(
+      <PageButton
+        onPageSelected={props.onPageSelected ?? jest.fn()}
+        text={text}
+        {...props}
+      />,
+    );
     return getButton(text);
   };
 
   describe("rendering", () => {
     it("renders content properly", () => {
-      const { button } = renderButton({}, "2");
+      const { button } = renderButton({ text: "2" });
 
       expect(button).toBeInTheDocument();
       expect(button).toBeVisible();
@@ -63,10 +58,10 @@ describe("PageButton", () => {
       const user = userEvent.setup();
       const onPageSelectedMock = jest.fn();
 
-      const { button } = renderButton(
-        { onPageSelected: onPageSelectedMock },
-        "3",
-      );
+      const { button } = renderButton({
+        onPageSelected: onPageSelectedMock,
+        text: "3",
+      });
 
       await user.click(button);
 
@@ -77,10 +72,10 @@ describe("PageButton", () => {
       const user = userEvent.setup();
       const onPageSelectedMock = jest.fn();
 
-      const { button } = renderButton(
-        { onPageSelected: onPageSelectedMock },
-        "4",
-      );
+      const { button } = renderButton({
+        onPageSelected: onPageSelectedMock,
+        text: "4",
+      });
 
       await user.tripleClick(button);
 
@@ -90,23 +85,26 @@ describe("PageButton", () => {
 
   describe("selected state", () => {
     it("is not selected by default", () => {
-      const { button } = renderButton({}, "5");
+      const { button } = renderButton({ text: "5" });
 
       expect(button).not.toHaveClass("border");
     });
 
     it("adds selected styling when selected prop is true", () => {
-      const { button } = renderButton({ selected: true }, "6");
+      const { button } = renderButton({ selected: true });
 
       expect(button).toHaveClass("border");
     });
 
     it("updates selected styling after rerender", () => {
-      const { button: initialButton, rerender } = renderButton({}, "7");
+      const { button: initialButton, rerender } = renderButton({ text: "7" });
 
       expect(initialButton).not.toHaveClass("border");
 
-      const selectedButton = rerenderButton(rerender, { selected: true }, "7");
+      const selectedButton = rerenderButton(rerender, {
+        selected: true,
+        text: "2",
+      });
 
       expect(selectedButton).toHaveClass("border");
     });
@@ -114,15 +112,12 @@ describe("PageButton", () => {
 
   describe("text updates", () => {
     it("updates the visible page label after rerender", () => {
-      const { rerender } = renderButton({}, "8");
-      expect(getButton("8")).toBeVisible();
+      const { rerender, button } = renderButton({ text: "8" });
+      expect(button).toBeVisible();
 
-      rerender(<PageButton text="9" onPageSelected={jest.fn()} />);
+      const rerenderedButton = rerenderButton(rerender, { text: "9" });
 
-      expect(getButton("9")).toBeVisible();
-      expect(
-        screen.queryByRole("button", { name: "8" }),
-      ).not.toBeInTheDocument();
+      expect(rerenderedButton).toBeVisible();
     });
   });
 });

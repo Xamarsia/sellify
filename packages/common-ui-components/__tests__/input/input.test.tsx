@@ -9,7 +9,7 @@ import Input from "@sellify/common-ui-components/input/Input";
 type InputProps = ComponentProps<typeof Input>;
 
 describe("Input", () => {
-  const getInputField = (container: HTMLElement) =>
+  const getInputElement = (container: HTMLElement) =>
     container.querySelector("input") as HTMLInputElement;
 
   const renderInput = (props: Partial<InputProps> = {}) => {
@@ -18,16 +18,16 @@ describe("Input", () => {
 
     return {
       ...renderResult,
-      onChangeMock: onChangeMock,
+      onChangeMock,
     };
   };
 
-  const renderInputAndReturnInputField = (props: Partial<InputProps> = {}) => {
+  const renderInputAndReturnElement = (props: Partial<InputProps> = {}) => {
     const renderResult = renderInput(props);
 
     return {
       ...renderResult,
-      input: getInputField(renderResult.container),
+      input: getInputElement(renderResult.container),
     };
   };
 
@@ -41,7 +41,7 @@ describe("Input", () => {
 
   describe("rendering", () => {
     it("renders a visible input with the provided placeholder", () => {
-      const { input } = renderInputAndReturnInputField({
+      const { input } = renderInputAndReturnElement({
         placeholder: "Email address",
       });
 
@@ -50,7 +50,7 @@ describe("Input", () => {
     });
 
     it("renders the provided controlled value", () => {
-      const { input } = renderInputAndReturnInputField({
+      const { input } = renderInputAndReturnElement({
         value: "john@sellify.dev",
       });
 
@@ -66,15 +66,15 @@ describe("Input", () => {
     });
   });
 
-  describe("props", () => {
+  describe("input type", () => {
     it("uses text as the default input type", () => {
-      const { input } = renderInputAndReturnInputField();
+      const { input } = renderInputAndReturnElement();
 
       expect(input).toHaveAttribute("type", "text");
     });
 
-    it("updates the input type when type changes", () => {
-      const { rerender, input } = renderInputAndReturnInputField({
+    it("updates the input type when the type changes", () => {
+      const { rerender, input } = renderInputAndReturnElement({
         type: "email",
       });
 
@@ -83,9 +83,11 @@ describe("Input", () => {
       rerenderInput(rerender, { type: "password" });
       expect(input).toHaveAttribute("type", "password");
     });
+  });
 
+  describe("maxLength", () => {
     it("passes maxLength to the native input element", () => {
-      const { input } = renderInputAndReturnInputField({
+      const { input } = renderInputAndReturnElement({
         maxLength: 20,
       });
 
@@ -95,7 +97,7 @@ describe("Input", () => {
 
   describe("controlled updates", () => {
     it("updates the rendered value when rerendered with a new value", () => {
-      const { rerender, input } = renderInputAndReturnInputField({
+      const { rerender, input } = renderInputAndReturnElement({
         value: "john@sellify.dev",
       });
 
@@ -108,7 +110,7 @@ describe("Input", () => {
   });
 
   describe("state styling", () => {
-    it("changes the wrapper className when state switches to invalid", () => {
+    it("changes the wrapper className when the state switches to invalid", () => {
       const { container, rerender } = renderInput({ state: "valid" });
 
       const validClassName = container.firstElementChild?.className;
@@ -118,7 +120,7 @@ describe("Input", () => {
       expect(validClassName).not.toBe(invalidClassName);
     });
 
-    it("uses the same wrapper className when state is omitted or set to valid", () => {
+    it("uses the same wrapper className when the state is omitted or set to valid", () => {
       const { container, rerender } = renderInput();
 
       const implicitDefaultClassName = container.firstElementChild?.className;
@@ -131,19 +133,19 @@ describe("Input", () => {
 
   describe("required state", () => {
     it("leaves the input optional by default", () => {
-      const { input } = renderInputAndReturnInputField();
+      const { input } = renderInputAndReturnElement();
 
       expect(input).not.toBeRequired();
     });
 
     it("marks the input as required when required is true", () => {
-      const { input } = renderInputAndReturnInputField({ required: true });
+      const { input } = renderInputAndReturnElement({ required: true });
 
       expect(input).toBeRequired();
     });
 
     it("keeps the input optional when required is false", () => {
-      const { input } = renderInputAndReturnInputField({ required: false });
+      const { input } = renderInputAndReturnElement({ required: false });
 
       expect(input).not.toBeRequired();
     });
@@ -151,18 +153,18 @@ describe("Input", () => {
 
   describe("disabled state", () => {
     it("leaves the input enabled by default", () => {
-      const { input } = renderInputAndReturnInputField();
+      const { input } = renderInputAndReturnElement();
       expect(input).toBeEnabled();
     });
 
     it("keeps the input enabled when disabled is false", () => {
-      const { input } = renderInputAndReturnInputField({ disabled: false });
+      const { input } = renderInputAndReturnElement({ disabled: false });
 
       expect(input).not.toBeDisabled();
     });
 
     it("disables the input when disabled is true", () => {
-      const { input } = renderInputAndReturnInputField({ disabled: true });
+      const { input } = renderInputAndReturnElement({ disabled: true });
 
       expect(input).toBeDisabled();
     });
@@ -172,7 +174,7 @@ describe("Input", () => {
     it("calls onChange with the progressively typed value", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, input } = renderInputAndReturnInputField();
+      const { onChangeMock, input } = renderInputAndReturnElement();
       await user.type(input, "abc");
 
       expect(onChangeMock).toHaveBeenCalledTimes(3);
@@ -184,7 +186,7 @@ describe("Input", () => {
     it("does not call onChange when the input is disabled", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, input } = renderInputAndReturnInputField({
+      const { onChangeMock, input } = renderInputAndReturnElement({
         disabled: true,
       });
       await user.type(input, "abc");
@@ -195,7 +197,7 @@ describe("Input", () => {
     it("stops calling onChange once maxLength is reached", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, input } = renderInputAndReturnInputField({
+      const { onChangeMock, input } = renderInputAndReturnElement({
         maxLength: 2,
       });
       await user.type(input, "abc");

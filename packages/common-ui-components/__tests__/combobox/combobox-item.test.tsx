@@ -3,31 +3,23 @@ import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 
-import { ComponentProps, ReactElement } from "react";
+import { ComponentProps } from "react";
 
 import ComboboxItem from "@sellify/common-ui-components/combobox/ComboboxItem";
 
-type ComboboxItemProps<T> = ComponentProps<typeof ComboboxItem<T>>;
+type ComboboxItemProps = ComponentProps<typeof ComboboxItem>;
 
-type ComboboxItemRenderResult = {
-  rerender: (ui: ReactElement) => void;
-};
-
-const renderComboboxItem = <T,>(
-  value: T,
-  label = "Selected Item",
-  props: Partial<ComboboxItemProps<T>> = {},
-): ComboboxItemRenderResult => {
-  const { rerender } = render(
+const renderComboboxItem = (props: Partial<ComboboxItemProps> = {}) => {
+  const renderResult = render(
     <ComboboxItem
-      value={value}
-      label={label}
-      {...props}
+      value={props.value ?? 1}
+      label={props.label ?? "Selected Item"}
       onRemove={props.onRemove ?? jest.fn()}
+      {...props}
     />,
   );
 
-  return { rerender };
+  return renderResult;
 };
 
 describe("ComboboxItem", () => {
@@ -35,7 +27,7 @@ describe("ComboboxItem", () => {
     it("renders item label", () => {
       const label = "Selected Item";
 
-      renderComboboxItem(1, label);
+      renderComboboxItem({ label: label });
 
       const comboboxItem = screen.getByText(label);
 
@@ -44,7 +36,7 @@ describe("ComboboxItem", () => {
     });
 
     it("renders remove button with an icon when enabled", () => {
-      renderComboboxItem(1);
+      renderComboboxItem();
 
       const button = screen.getByRole("button");
 
@@ -55,7 +47,7 @@ describe("ComboboxItem", () => {
     });
 
     it("does not render remove button when disabled", () => {
-      renderComboboxItem(1, "Disabled Item", { disabled: true });
+      renderComboboxItem({ disabled: true });
 
       expect(screen.queryByRole("button")).not.toBeInTheDocument();
     });
@@ -68,7 +60,11 @@ describe("ComboboxItem", () => {
       const label = "Item";
       const onRemoveMock = jest.fn();
 
-      renderComboboxItem(value, label, { onRemove: onRemoveMock });
+      renderComboboxItem({
+        value: value,
+        label: label,
+        onRemove: onRemoveMock,
+      });
 
       await user.click(screen.getByRole("button"));
 
@@ -82,7 +78,11 @@ describe("ComboboxItem", () => {
       const label = "Item";
       const onRemoveMock = jest.fn();
 
-      renderComboboxItem(value, label, { onRemove: onRemoveMock });
+      renderComboboxItem({
+        value: value,
+        label: label,
+        onRemove: onRemoveMock,
+      });
 
       await user.click(screen.getByRole("button"));
 
@@ -93,7 +93,7 @@ describe("ComboboxItem", () => {
     it("does not call onRemove when the item is disabled", () => {
       const onRemoveMock = jest.fn();
 
-      renderComboboxItem(1, "Disabled Item", {
+      renderComboboxItem({
         disabled: true,
         onRemove: onRemoveMock,
       });
