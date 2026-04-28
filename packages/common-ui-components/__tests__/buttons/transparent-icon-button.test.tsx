@@ -4,32 +4,22 @@ import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
-import PlusIcon from "@sellify/common-icons/plus";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
 
 type TransparentIconButtonProps = ComponentProps<typeof TransparentIconButton>;
-
-type ButtonRenderResult = {
-  button: HTMLButtonElement;
-  rerender: (ui: ReactElement) => void;
-  container: HTMLElement;
-};
 
 describe("TransparentIconButton", () => {
   const getTransparentIconButton = () =>
     screen.getByRole("button") as HTMLButtonElement;
 
-  const renderButton = (
-    props: Partial<TransparentIconButtonProps> = {},
-  ): ButtonRenderResult => {
-    const { rerender, container } = render(
-      <TransparentIconButton icon={<PlusIcon />} {...props} />,
+  const renderButton = (props: Partial<TransparentIconButtonProps> = {}) => {
+    const renderResult = render(
+      <TransparentIconButton icon={props.icon ?? <svg />} {...props} />,
     );
 
     return {
+      ...renderResult,
       button: getTransparentIconButton(),
-      rerender,
-      container: container,
     };
   };
 
@@ -37,7 +27,7 @@ describe("TransparentIconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<TransparentIconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(<TransparentIconButton icon={<PlusIcon />} {...props} />);
+    rerender(<TransparentIconButton icon={props.icon ?? <svg />} {...props} />);
     return getTransparentIconButton();
   };
 

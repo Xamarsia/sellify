@@ -8,10 +8,6 @@ import Combobox from "@sellify/common-ui-components/combobox/Combobox";
 
 type ComboboxProps = ComponentProps<typeof Combobox<number>>;
 
-type ComboboxRenderResult = {
-  rerender: (ui: ReactElement) => void;
-};
-
 describe("Combobox", () => {
   const fruits = new Map<number, string>([
     [1, "Apple"],
@@ -38,16 +34,29 @@ describe("Combobox", () => {
     });
   };
 
-  const renderCombobox = (
-    props: Partial<ComboboxProps> = {},
-  ): ComboboxRenderResult => {
-    const { rerender } = render(
-      <Combobox items={fruits} onItemSelected={jest.fn()} {...props} />,
+  const renderCombobox = (props: Partial<ComboboxProps> = {}) => {
+    const renderResult = render(
+      <Combobox
+        items={props.items ?? fruits}
+        onItemSelected={props.onItemSelected ?? jest.fn()}
+        {...props}
+      />,
     );
 
-    return {
-      rerender,
-    };
+    return renderResult;
+  };
+
+  const rerenderCombobox = (
+    rerender: (ui: ReactElement) => void,
+    props: Partial<ComboboxProps> = {},
+  ) => {
+    rerender(
+      <Combobox
+        items={props.items ?? fruits}
+        onItemSelected={props.onItemSelected ?? jest.fn()}
+        {...props}
+      />,
+    );
   };
 
   const expectAllItemsVisible = () => {
@@ -82,10 +91,7 @@ describe("Combobox", () => {
 
       expect(getInput()).toHaveValue("Apple");
 
-      rerender(
-        <Combobox items={fruits} onItemSelected={jest.fn()} value="Orange" />,
-      );
-
+      rerenderCombobox(rerender, { value: "Orange" });
       expect(getInput()).toHaveValue("Orange");
     });
 

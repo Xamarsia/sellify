@@ -12,11 +12,6 @@ type MultiSelectionComboboxProps = ComponentProps<
   typeof MultiSelectionCombobox<number>
 >;
 
-type MultiSelectionComboboxRenderResult = {
-  input: HTMLInputElement;
-  rerender: (ui: ReactElement) => void;
-};
-
 // TODO: Find a way to access `SuggestedItems` and `selectedItems` more reliably in this test.
 describe("MultiSelectionCombobox", () => {
   const items = new Map<number, string>([
@@ -30,10 +25,8 @@ describe("MultiSelectionCombobox", () => {
   const getToggleButton = () =>
     screen.getAllByRole("button")[0] as HTMLButtonElement;
 
-  const renderCombobox = (
-    props: Partial<MultiSelectionComboboxProps> = {},
-  ): MultiSelectionComboboxRenderResult => {
-    const { rerender } = render(
+  const renderCombobox = (props: Partial<MultiSelectionComboboxProps> = {}) => {
+    const renderResult = render(
       <MultiSelectionCombobox
         items={props.items ?? items}
         selectedItems={props.selectedItems ?? new Map()}
@@ -44,8 +37,8 @@ describe("MultiSelectionCombobox", () => {
     );
 
     return {
+      ...renderResult,
       input: getInput(),
-      rerender,
     };
   };
 
@@ -215,11 +208,9 @@ describe("MultiSelectionCombobox", () => {
 
       await user.click(input);
       await user.type(input, "or");
-
       expectSuggestedItems(["Orange"], ["Apple", "Banana"]);
 
       await user.clear(input);
-
       expectSuggestedItems(["Banana", "Orange"], ["Apple"]);
     });
 
@@ -242,14 +233,7 @@ describe("MultiSelectionCombobox", () => {
       await user.click(input);
       expectSuggestedItems(["Apple", "Banana", "Orange"]);
 
-      rerender(
-        <MultiSelectionCombobox
-          items={items}
-          selectedItems={new Map([[2, "Banana"]])}
-          onItemSelected={jest.fn()}
-          onItemRemoved={jest.fn()}
-        />,
-      );
+      rerenderCombobox(rerender, { selectedItems: new Map([[2, "Banana"]]) });
 
       expectSuggestedItems(["Apple", "Orange"], ["Banana"]);
     });
@@ -306,26 +290,22 @@ describe("MultiSelectionCombobox", () => {
   describe("required prop", () => {
     it("passes required prop to input", () => {
       renderCombobox({ required: true });
-
       expect(getInput()).toBeRequired();
     });
 
     it("is not required by default", () => {
       renderCombobox();
-
       expect(getInput()).not.toBeRequired();
     });
 
     it("marks the input as required only when no items are selected", () => {
       const { input, rerender } = renderCombobox({ required: true });
-
       expect(input).toBeRequired();
 
       const updatedInput = rerenderCombobox(rerender, {
         required: true,
         selectedItems: new Map([[1, "Apple"]]),
       });
-
       expect(updatedInput).not.toBeRequired();
     });
   });

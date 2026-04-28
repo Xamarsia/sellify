@@ -4,31 +4,19 @@ import { render, screen } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
 
-import PlusIcon from "@sellify/common-icons/plus";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 
 type IconButtonProps = ComponentProps<typeof IconButton>;
 
-type ButtonRenderResult = {
-  button: HTMLButtonElement;
-  rerender: (ui: ReactElement) => void;
-  container: HTMLElement;
-};
-
 describe("IconButton", () => {
   const getIconButton = () => screen.getByRole("button") as HTMLButtonElement;
 
-  const renderButton = (
-    props: Partial<IconButtonProps> = {},
-  ): ButtonRenderResult => {
-    const { rerender, container } = render(
-      <IconButton icon={<PlusIcon />} {...props} />,
-    );
+  const renderButton = (props: Partial<IconButtonProps> = {}) => {
+    const renderResult = render(<IconButton icon={<svg />} {...props} />);
 
     return {
+      ...renderResult,
       button: getIconButton(),
-      rerender,
-      container: container,
     };
   };
 
@@ -36,7 +24,7 @@ describe("IconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<IconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(<IconButton icon={<PlusIcon />} {...props} />);
+    rerender(<IconButton icon={<svg />} {...props} />);
     return getIconButton();
   };
 

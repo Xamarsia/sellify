@@ -1,41 +1,38 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import { ReactElement, ComponentProps } from "react";
-
-import PlusIcon from "@sellify/common-icons/plus";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 
 type LinkButtonProps = ComponentProps<typeof LinkButton>;
 
-type LinkRenderResult = {
-  link: HTMLAnchorElement;
-  rerender: (ui: ReactElement) => void;
-};
-
 describe("LinkButton", () => {
-  const getLink = (content = "Link Button") =>
-    screen.getByRole("link", { name: content }) as HTMLAnchorElement;
+  const getLink = (container: HTMLElement) =>
+    container.querySelector("a") as HTMLAnchorElement;
 
-  const renderLink = (
-    props: Partial<LinkButtonProps> = {},
-    content = "Link Button",
-  ): LinkRenderResult => {
-    const { rerender } = render(
-      <LinkButton href="/target" {...props}>
-        {content}
-      </LinkButton>,
+  const renderLink = (props: Partial<LinkButtonProps> = {}) => {
+    const renderResult = render(
+      <LinkButton {...props}>{props.children ?? "Link Button"}</LinkButton>,
     );
 
     return {
-      link: getLink(content),
-      rerender,
+      ...renderResult,
+      link: getLink(renderResult.container),
     };
+  };
+
+  const rerenderLink = (
+    rerender: (ui: ReactElement) => void,
+    props: Partial<LinkButtonProps> = {},
+  ) => {
+    rerender(
+      <LinkButton {...props}>{props.children ?? "Link Button"}</LinkButton>,
+    );
   };
 
   describe("rendering", () => {
     it("renders text content properly", () => {
-      const { link } = renderLink({}, "Read details");
+      const { link } = renderLink({ children: "Read details" });
 
       expect(link).toBeInTheDocument();
       expect(link).toBeVisible();
@@ -45,7 +42,7 @@ describe("LinkButton", () => {
       const { container } = render(
         <LinkButton>
           <span>Text Content</span>
-          <PlusIcon />
+          <svg />
         </LinkButton>,
       );
 
@@ -63,28 +60,21 @@ describe("LinkButton", () => {
 
   describe("href", () => {
     it("renders href properly", () => {
-      const { link } = renderLink({ href: "/pricing" }, "Pricing");
-
+      const { link } = renderLink({ href: "/pricing" });
       expect(link).toHaveAttribute("href", "/pricing");
     });
 
     it("does not set href when not provided", () => {
-      render(<LinkButton>Read details</LinkButton>);
-
-      expect(screen.getByText("Read details")).not.toHaveAttribute("href");
+      const { link } = renderLink();
+      expect(link).not.toHaveAttribute("href");
     });
 
     it("updates href after rerender", () => {
-      const { link: initialLink, rerender } = renderLink(
-        { href: "/first" },
-        "Help",
-      );
+      const { link, rerender } = renderLink({ href: "/first" });
+      expect(link).toHaveAttribute("href", "/first");
 
-      expect(initialLink).toHaveAttribute("href", "/first");
-
-      rerender(<LinkButton href="/second">Help</LinkButton>);
-
-      expect(getLink("Help")).toHaveAttribute("href", "/second");
+      rerenderLink(rerender, { href: "/second" });
+      expect(link).toHaveAttribute("href", "/second");
     });
   });
 });

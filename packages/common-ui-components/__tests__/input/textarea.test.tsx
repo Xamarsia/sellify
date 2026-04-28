@@ -9,7 +9,7 @@ import Textarea from "@sellify/common-ui-components/input/Textarea";
 type TextareaProps = ComponentProps<typeof Textarea>;
 
 describe("Textarea", () => {
-  const getTextareaField = () =>
+  const getTextareaElement = () =>
     screen.getByRole("textbox") as HTMLTextAreaElement;
 
   const renderTextarea = (props: Partial<TextareaProps> = {}) => {
@@ -24,14 +24,14 @@ describe("Textarea", () => {
     };
   };
 
-  const renderTextareaAndReturnTextareaField = (
+  const renderTextareaAndReturnElement = (
     props: Partial<TextareaProps> = {},
   ) => {
     const renderResult = renderTextarea(props);
 
     return {
       ...renderResult,
-      textarea: getTextareaField(),
+      textarea: getTextareaElement(),
     };
   };
 
@@ -45,7 +45,7 @@ describe("Textarea", () => {
 
   describe("rendering", () => {
     it("renders a visible textarea with the provided placeholder", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         placeholder: "Write a description",
       });
 
@@ -54,7 +54,7 @@ describe("Textarea", () => {
     });
 
     it("renders the provided controlled value", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         value: "Soft cotton hoodie",
       });
 
@@ -63,9 +63,9 @@ describe("Textarea", () => {
     });
   });
 
-  describe("props", () => {
+  describe("maxLength", () => {
     it("passes maxLength to the native textarea element", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         maxLength: 120,
       });
 
@@ -75,7 +75,7 @@ describe("Textarea", () => {
 
   describe("controlled updates", () => {
     it("updates the rendered value when rerendered with a new value", () => {
-      const { rerender, textarea } = renderTextareaAndReturnTextareaField({
+      const { rerender, textarea } = renderTextareaAndReturnElement({
         value: "Soft cotton hoodie",
       });
 
@@ -88,8 +88,8 @@ describe("Textarea", () => {
   });
 
   describe("state styling", () => {
-    it("changes the textarea className when state switches to invalid", () => {
-      const { rerender, textarea } = renderTextareaAndReturnTextareaField({
+    it("changes the textarea className when the state switches to invalid", () => {
+      const { rerender, textarea } = renderTextareaAndReturnElement({
         state: "valid",
       });
 
@@ -100,8 +100,8 @@ describe("Textarea", () => {
       expect(validClassName).not.toBe(invalidClassName);
     });
 
-    it("uses the same textarea className when state is omitted or set to valid", () => {
-      const { rerender, textarea } = renderTextareaAndReturnTextareaField();
+    it("uses the same textarea className when the state is omitted or set to valid", () => {
+      const { rerender, textarea } = renderTextareaAndReturnElement();
 
       const implicitDefaultClassName = textarea.className;
       rerenderTextarea(rerender, { state: "valid" });
@@ -113,13 +113,13 @@ describe("Textarea", () => {
 
   describe("required state", () => {
     it("leaves the textarea optional by default", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField();
+      const { textarea } = renderTextareaAndReturnElement();
 
       expect(textarea).not.toBeRequired();
     });
 
     it("marks the textarea as required when required is true", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         required: true,
       });
 
@@ -127,7 +127,7 @@ describe("Textarea", () => {
     });
 
     it("keeps the textarea optional when required is false", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         required: false,
       });
 
@@ -137,13 +137,13 @@ describe("Textarea", () => {
 
   describe("disabled state", () => {
     it("leaves the textarea enabled by default", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField();
+      const { textarea } = renderTextareaAndReturnElement();
 
       expect(textarea).toBeEnabled();
     });
 
     it("keeps the textarea enabled when disabled is false", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         disabled: false,
       });
 
@@ -151,7 +151,7 @@ describe("Textarea", () => {
     });
 
     it("disables the textarea when disabled is true", () => {
-      const { textarea } = renderTextareaAndReturnTextareaField({
+      const { textarea } = renderTextareaAndReturnElement({
         disabled: true,
       });
 
@@ -163,7 +163,7 @@ describe("Textarea", () => {
     it("calls onChange with the progressively typed value", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, textarea } = renderTextareaAndReturnTextareaField();
+      const { onChangeMock, textarea } = renderTextareaAndReturnElement();
       await user.type(textarea, "abc");
 
       expect(onChangeMock).toHaveBeenCalledTimes(3);
@@ -175,7 +175,7 @@ describe("Textarea", () => {
     it("does not call onChange when the textarea is disabled", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, textarea } = renderTextareaAndReturnTextareaField({
+      const { onChangeMock, textarea } = renderTextareaAndReturnElement({
         disabled: true,
       });
       await user.type(textarea, "abc");
@@ -186,7 +186,7 @@ describe("Textarea", () => {
     it("stops calling onChange once maxLength is reached", async () => {
       const user = userEvent.setup();
 
-      const { onChangeMock, textarea } = renderTextareaAndReturnTextareaField({
+      const { onChangeMock, textarea } = renderTextareaAndReturnElement({
         maxLength: 2,
       });
       await user.type(textarea, "abc");

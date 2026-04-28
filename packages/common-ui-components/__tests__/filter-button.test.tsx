@@ -2,30 +2,21 @@ import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 
-import { ReactElement, ComponentProps } from "react";
+import { ComponentProps } from "react";
 
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 
 type FilterButtonProps = ComponentProps<typeof FilterButton>;
 
-type ButtonRenderResult = {
-  button: HTMLButtonElement;
-  rerender: (ui: ReactElement) => void;
-  container: HTMLElement;
-};
-
 describe("FilterButton", () => {
   const getButton = () => screen.getByRole("button") as HTMLButtonElement;
 
-  const renderButton = (
-    props: Partial<FilterButtonProps> = {},
-  ): ButtonRenderResult => {
-    const { rerender, container } = render(<FilterButton {...props} />);
+  const renderButton = (props: Partial<FilterButtonProps> = {}) => {
+    const renderResult = render(<FilterButton {...props} />);
 
     return {
+      ...renderResult,
       button: getButton(),
-      rerender,
-      container: container,
     };
   };
 
