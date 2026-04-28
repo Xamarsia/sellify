@@ -5,7 +5,7 @@ import { ChangeEvent, useCallback } from "react";
 type RadioProps = {
   checked?: boolean;
   disabled?: boolean;
-  value?: string;
+  value: string;
   readOnly?: boolean;
   onChange: (isChecked: boolean, value: string) => void;
 };
