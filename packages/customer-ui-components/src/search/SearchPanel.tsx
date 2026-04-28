@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import SearchInput from "@sellify/common-ui-components/input/SearchInput";
@@ -36,21 +36,12 @@ export default function SearchPanel({
     [onQueryChange],
   );
 
-  const onSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>): void => {
-      e.preventDefault();
-      onSearch();
-    },
-    [onSearch],
-  );
-
   return (
     <SidePanel open={isOpen} onClose={onClose} title="Search">
       <SearchInput
         value={query}
         onChange={onQueryChanged}
-        onSubmit={onSubmit}
-        fill="parent"
+        onSubmit={onSearch}
       />
       {query ? (
         <div className="grow flex flex-col justify-between h-full gap-5 overflow-y-auto">

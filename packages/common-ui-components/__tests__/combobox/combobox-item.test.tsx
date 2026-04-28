@@ -10,16 +10,20 @@ import ComboboxItem from "@sellify/common-ui-components/combobox/ComboboxItem";
 type ComboboxItemProps = ComponentProps<typeof ComboboxItem>;
 
 const renderComboboxItem = (props: Partial<ComboboxItemProps> = {}) => {
+  const onRemoveMock = props.onRemove ?? jest.fn();
   const renderResult = render(
     <ComboboxItem
       value={props.value ?? 1}
       label={props.label ?? "Selected Item"}
-      onRemove={props.onRemove ?? jest.fn()}
+      onRemove={onRemoveMock}
       {...props}
     />,
   );
 
-  return renderResult;
+  return {
+    ...renderResult,
+    onRemoveMock,
+  };
 };
 
 describe("ComboboxItem", () => {
@@ -58,12 +62,10 @@ describe("ComboboxItem", () => {
       const user = userEvent.setup();
       const value = "value";
       const label = "Item";
-      const onRemoveMock = jest.fn();
 
-      renderComboboxItem({
+      const { onRemoveMock } = renderComboboxItem({
         value: value,
         label: label,
-        onRemove: onRemoveMock,
       });
 
       await user.click(screen.getByRole("button"));
@@ -76,12 +78,10 @@ describe("ComboboxItem", () => {
       const user = userEvent.setup();
       const value = 23443;
       const label = "Item";
-      const onRemoveMock = jest.fn();
 
-      renderComboboxItem({
+      const { onRemoveMock } = renderComboboxItem({
         value: value,
         label: label,
-        onRemove: onRemoveMock,
       });
 
       await user.click(screen.getByRole("button"));
@@ -91,11 +91,8 @@ describe("ComboboxItem", () => {
     });
 
     it("does not call onRemove when the item is disabled", () => {
-      const onRemoveMock = jest.fn();
-
-      renderComboboxItem({
+      const { onRemoveMock } = renderComboboxItem({
         disabled: true,
-        onRemove: onRemoveMock,
       });
 
       expect(screen.queryByRole("button")).not.toBeInTheDocument();

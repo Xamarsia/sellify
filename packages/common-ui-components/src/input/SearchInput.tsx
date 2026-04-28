@@ -6,7 +6,6 @@ import Input from "./Input";
 
 type SearchInputProps = {
   value: string;
-  fill?: "default" | "parent";
   onChange: (query: string) => void;
   onSubmit?: () => void;
 };
@@ -15,15 +14,9 @@ export default function SearchInput({
   value,
   onChange,
   onSubmit,
-  fill = "default",
 }: SearchInputProps) {
-  const fillStyle = {
-    default: "w-94",
-    parent: "w-full",
-  }[fill];
-
   return (
-    <form className={`flex ${fillStyle}`} onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="flex w-full">
       <Input
         type="text"
         value={value}
