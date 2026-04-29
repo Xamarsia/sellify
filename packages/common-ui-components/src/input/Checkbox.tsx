@@ -9,7 +9,7 @@ type CheckboxProps = {
   disabled?: boolean;
   value: string;
   readOnly?: boolean;
-  onChange: (isChecked: boolean) => void;
+  onChange: (isChecked: boolean, value: string) => void;
 };
 
 export default function Checkbox({
@@ -21,7 +21,7 @@ export default function Checkbox({
 }: CheckboxProps) {
   const changeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
-      onChange(e.target.checked);
+      onChange(e.target.checked, e.target.value);
     },
     [onChange],
   );

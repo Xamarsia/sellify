@@ -62,6 +62,14 @@ describe("Radio", () => {
       expect(getRadio()).toBeChecked();
     });
 
+    it("renders as unchecked when checked is false", () => {
+      renderRadio({
+        checked: false,
+      });
+
+      expect(getRadio()).not.toBeChecked();
+    });
+
     it("updates checked state when rerendered", () => {
       const { rerender } = renderRadio({
         checked: false,
