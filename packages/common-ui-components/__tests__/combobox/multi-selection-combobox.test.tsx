@@ -217,12 +217,11 @@ describe("MultiSelectionCombobox", () => {
     it("closes the dropdown when clicking outside", async () => {
       const user = userEvent.setup();
       const { input } = renderCombobox();
-      render(<button type="button">Outside</button>);
 
       await user.click(input);
       expectSuggestedItemsVisible(["Apple"]);
 
-      await user.click(screen.getByRole("button", { name: "Outside" }));
+      await user.click(document.body);
       expectSuggestedItemsHidden(["Apple"]);
     });
 

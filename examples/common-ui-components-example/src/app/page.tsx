@@ -41,11 +41,11 @@ import FormItem from "@sellify/common-ui-components/form/FormItem";
 import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
+import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
 import DialogExample from "examples/DialogExample";
-import DropdownUseExample from "examples/DropdownUseExample";
 import MultiSelectionComboboxUseExample from "examples/MultiSelectionComboboxUseExample";
 import PagesExample from "examples/PagesExample";
 import SearchBarExample from "examples/SearchBarExample";
@@ -58,6 +58,7 @@ export default function Home() {
   const [textareaValue, setTextareaValue] = useState<string>("");
   const [images, setImages] = useState<File[]>([]);
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [selectedKey, setSelectedKey] = useState<string>();
 
   const pathname: string = usePathname();
 
@@ -382,11 +383,18 @@ export default function Home() {
 
         <Section title={"Dropdown"}>
           <SectionItem>
-            <DropdownUseExample items={comboboxItems} title="Sort By" />
-            <DropdownUseExample
+            <Dropdown
               items={comboboxItems}
               title="Sort By"
+              selectedKey={selectedKey}
+              onKeySelected={setSelectedKey}
+            />
+            <Dropdown
+              items={comboboxItems}
+              selectedKey={selectedKey}
+              title="Sort By"
               disabled
+              onKeySelected={setSelectedKey}
             />
           </SectionItem>
         </Section>

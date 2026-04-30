@@ -11,10 +11,8 @@ type DropdownProps = {
   title: string;
   items: Map<string, string>;
   selectedKey?: string;
-  isExtended?: boolean;
   disabled?: boolean;
   onKeySelected: (key: string) => void;
-  setIsExtended?: (isExpanded: boolean) => void;
 };
 
 export default function Dropdown({
@@ -35,22 +33,10 @@ export default function Dropdown({
     return title;
   }, [items, selectedKey, title]);
 
-  const onDropdownClick = useCallback(() => {
-    if (setIsExtended) {
-      setIsExtended(!isExtended);
-    }
-  }, [isExtended, setIsExtended]);
-
-  const onOutsideClicked = useCallback(() => {
-    if (setIsExtended) {
-      setIsExtended(false);
-    }
-  }, [setIsExtended]);
-
   useEffect(() => {
     const onClickOutside = (e: MouseEvent) => {
       if (isExtended && !dropdown.current?.contains(e.target as Node)) {
-        onOutsideClicked();
+        setIsExtended(false);
       }
     };
     if (isExtended) {
@@ -58,7 +44,7 @@ export default function Dropdown({
     } else {
       document.removeEventListener("mousedown", onClickOutside);
     }
-  }, [isExtended, onOutsideClicked]);
+  }, [isExtended]);
 
   const onItemSelected = useCallback(
     (key: string) => {
@@ -71,7 +57,7 @@ export default function Dropdown({
   return (
     <div className="relative" ref={dropdown}>
       <button
-        onClick={onDropdownClick}
+        onClick={() => setIsExtended(!isExtended)}
         disabled={disabled}
         className={`flex items-center h-13 gap-x-4 enabled:cursor-pointer disabled:cursor-not-allowed
           bg-white text-secondary enabled:hover:text-black disabled:text-disabled`}

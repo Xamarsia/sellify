@@ -15,13 +15,9 @@ export default function DropdownItem<T>({
   selected,
   onItemSelected,
 }: DropdownItemProps<T>) {
-  const onClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      onItemSelected(value, label);
-    },
-    [onItemSelected, value, label],
-  );
+  const onClick = useCallback(() => {
+    onItemSelected(value, label);
+  }, [onItemSelected, value, label]);
 
   return (
     <button
