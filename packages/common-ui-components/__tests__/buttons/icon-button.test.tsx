@@ -116,28 +116,28 @@ describe("IconButton", () => {
   });
 
   describe("variant", () => {
-    it("generates different className values for different variants", () => {
+    it("generates different styles values for different variants", () => {
       const { button: defaultButton, rerender } = renderButton({
         variant: "default",
       });
-      const defaultClassName = defaultButton.className;
+      const defaultStyle = defaultButton.className;
 
       const outlineButton = rerenderButton(rerender, { variant: "outline" });
-      const outlineClassName = outlineButton.className;
+      const outlineStyle = outlineButton.className;
 
-      expect(defaultClassName).not.toBe(outlineClassName);
+      expect(defaultStyle).not.toBe(outlineStyle);
     });
 
     it("uses default variant when no variant prop is passed", () => {
       const { button: implicitDefaultButton, rerender } = renderButton();
-      const implicitDefaultClassName = implicitDefaultButton.className;
+      const implicitDefaultStyle = implicitDefaultButton.className;
 
       const explicitDefaultButton = rerenderButton(rerender, {
         variant: "default",
       });
-      const explicitDefaultClassName = explicitDefaultButton.className;
+      const explicitDefaultStyle = explicitDefaultButton.className;
 
-      expect(implicitDefaultClassName).toBe(explicitDefaultClassName);
+      expect(implicitDefaultStyle).toBe(explicitDefaultStyle);
     });
   });
 

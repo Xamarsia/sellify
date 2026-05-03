@@ -88,26 +88,26 @@ describe("Textarea", () => {
   });
 
   describe("state styling", () => {
-    it("changes the textarea className when the state switches to invalid", () => {
+    it("renders different styles for valid and invalid states", () => {
       const { rerender, textarea } = renderTextareaAndReturnElement({
         state: "valid",
       });
 
-      const validClassName = textarea.className;
+      const validStyle = textarea.className;
       rerenderTextarea(rerender, { state: "invalid" });
 
-      const invalidClassName = textarea.className;
-      expect(validClassName).not.toBe(invalidClassName);
+      const invalidStyle = textarea.className;
+      expect(validStyle).not.toBe(invalidStyle);
     });
 
-    it("uses the same textarea className when the state is omitted or set to valid", () => {
+    it("renders valid state style when the state is omitted", () => {
       const { rerender, textarea } = renderTextareaAndReturnElement();
 
-      const implicitDefaultClassName = textarea.className;
+      const implicitDefaultStyle = textarea.className;
       rerenderTextarea(rerender, { state: "valid" });
 
-      const explicitDefaultClassName = textarea.className;
-      expect(implicitDefaultClassName).toBe(explicitDefaultClassName);
+      const explicitDefaultStyle = textarea.className;
+      expect(implicitDefaultStyle).toBe(explicitDefaultStyle);
     });
   });
 
