@@ -164,35 +164,35 @@ describe("Button", () => {
   });
 
   describe("variant", () => {
-    it("generates different className values for different variants", () => {
+    it("renders different styles for different variants", () => {
       const { button: defaultButton, rerender } = renderButton({
         variant: "default",
       });
-      const defaultClassName = defaultButton.className;
+      const defaultStyle = defaultButton.className;
 
       const outlineButton = rerenderButton(rerender, { variant: "outline" });
-      const outlineClassName = outlineButton.className;
+      const outlineStyle = outlineButton.className;
 
       const destructiveButton = rerenderButton(rerender, {
         variant: "destructive",
       });
-      const destructiveClassName = destructiveButton.className;
+      const destructiveStyle = destructiveButton.className;
 
-      expect(defaultClassName).not.toBe(outlineClassName);
-      expect(defaultClassName).not.toBe(destructiveClassName);
-      expect(outlineClassName).not.toBe(destructiveClassName);
+      expect(defaultStyle).not.toBe(outlineStyle);
+      expect(defaultStyle).not.toBe(destructiveStyle);
+      expect(outlineStyle).not.toBe(destructiveStyle);
     });
 
-    it("uses default variant when no variant prop is passed", () => {
+    it("uses default variant style when no variant prop is passed", () => {
       const { button: implicitDefaultButton, rerender } = renderButton();
-      const implicitDefaultClassName = implicitDefaultButton.className;
+      const implicitDefaultStyle = implicitDefaultButton.className;
 
       const explicitDefaultButton = rerenderButton(rerender, {
         variant: "default",
       });
-      const explicitDefaultClassName = explicitDefaultButton.className;
+      const explicitDefaultStyle = explicitDefaultButton.className;
 
-      expect(implicitDefaultClassName).toBe(explicitDefaultClassName);
+      expect(implicitDefaultStyle).toBe(explicitDefaultStyle);
     });
   });
 

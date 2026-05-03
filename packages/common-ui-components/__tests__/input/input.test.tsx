@@ -110,24 +110,24 @@ describe("Input", () => {
   });
 
   describe("state styling", () => {
-    it("changes the wrapper className when the state switches to invalid", () => {
+    it("renders different styles for valid and invalid states", () => {
       const { container, rerender } = renderInput({ state: "valid" });
 
-      const validClassName = container.firstElementChild?.className;
+      const validStyle = container.firstElementChild?.className;
       rerenderInput(rerender, { state: "invalid" });
 
-      const invalidClassName = container.firstElementChild?.className;
-      expect(validClassName).not.toBe(invalidClassName);
+      const invalidStyle = container.firstElementChild?.className;
+      expect(validStyle).not.toBe(invalidStyle);
     });
 
-    it("uses the same wrapper className when the state is omitted or set to valid", () => {
+    it("uses the same wrapper style when the state is omitted or set to valid", () => {
       const { container, rerender } = renderInput();
 
-      const implicitDefaultClassName = container.firstElementChild?.className;
+      const implicitDefaultStyle = container.firstElementChild?.className;
       rerenderInput(rerender, { state: "valid" });
 
-      const explicitDefaultClassName = container.firstElementChild?.className;
-      expect(implicitDefaultClassName).toBe(explicitDefaultClassName);
+      const explicitDefaultStyle = container.firstElementChild?.className;
+      expect(implicitDefaultStyle).toBe(explicitDefaultStyle);
     });
   });
 

@@ -58,7 +58,7 @@ describe("Dropdown", () => {
     items.forEach((label) => {
       expect(
         screen.queryByRole("button", { name: label }),
-      ).not.toBeInDocument();
+      ).not.toBeInTheDocument();
     });
   };
 
@@ -80,7 +80,7 @@ describe("Dropdown", () => {
     it("renders a visible toggle button with  title in uppercase", () => {
       const { button } = renderDropdown({ title: "Choose Step" });
 
-      expect(button).toBeInDocument();
+      expect(button).toBeInTheDocument();
       expect(button).toBeVisible();
       expect(button).toHaveTextContent("CHOOSE STEP");
     });
