@@ -29,16 +29,18 @@ export default function DialogBase({
   }, [onDialogClose, dialogOpen]);
 
   return (
-    <div
-      className={`fixed top-0 left-0 z-50 size-full bg-black/20 flex justify-center
-        items-center backdrop-blur-xs ${dialogOpen ? "no-doc-scroll" : "hidden"}`}
-    >
+    dialogOpen && (
       <div
-        ref={modal}
-        className="bg-white w-full max-w-xl h-fit max-h-screen m-4 p-8 rounded-lg border border-stroke"
+        className={`fixed top-0 left-0 z-50 size-full bg-black/20 flex justify-center
+        items-center backdrop-blur-xs no-doc-scroll`}
       >
-        {content}
+        <div
+          ref={modal}
+          className="bg-white w-full max-w-xl h-fit max-h-screen m-4 p-8 rounded-lg border border-stroke"
+        >
+          {content}
+        </div>
       </div>
-    </div>
+    )
   );
 }
