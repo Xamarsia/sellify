@@ -34,9 +34,9 @@ export default function RiskDialogProvider({
           dialogOpen={dialogOpened}
           description={content.description}
           onDialogClose={onDialogCloseClicked}
-          buttonActionTitle={content.buttonActionTitle}
-          onConfirm={content.onConfirm}
-          onPasswordValidated={content.onPasswordValidated}
+          confirmButtonLabel={content.buttonActionTitle}
+          validatePassword={content.onConfirm}
+          onValidationSuccess={content.onPasswordValidated}
         />
       )}
       {children}

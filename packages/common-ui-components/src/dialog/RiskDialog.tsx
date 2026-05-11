@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import FireIcon from "@sellify/common-icons/fire";
 
@@ -15,38 +15,41 @@ type RiskDialogProps = {
   title: string;
   description?: string;
   dialogOpen: boolean;
-  buttonActionTitle: string;
+  confirmButtonLabel: string;
   onDialogClose: () => void;
-  onConfirm: (password: string) => boolean;
+  validatePassword: (password: string) => boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onPasswordValidated: (...args: any) => void;
+  onValidationSuccess: (...args: any) => void;
 };
 
+/**
+ * Displays a high-risk confirmation dialog that requires password entry.
+ * Prompts the user to enter a password before completing a destructive action.
+ * @param title - Main heading displayed in the dialog
+ * @param description - Optional explanatory text shown under the title
+ * @param dialogOpen - Whether the dialog is currently open
+ * @param confirmButtonLabel - Label displayed on the destructive confirmation button
+ * @param onDialogClose - Callback fired when the dialog should close
+ * @param validatePassword - Validates the entered password before the action proceeds
+ * @param onValidationSuccess - Invoked after the password has been validated successfully
+ */
 export default function RiskDialog({
   title,
   description,
   dialogOpen,
-  buttonActionTitle,
+  confirmButtonLabel,
   onDialogClose,
-  onConfirm,
-  onPasswordValidated,
+  validatePassword,
+  onValidationSuccess,
 }: RiskDialogProps) {
   const [password, setPassword] = useState<string>("");
 
-  const handlePasswordChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-      setPassword(value);
-    },
-    [setPassword],
-  );
-
   const confirmPassword = useCallback((): void => {
-    const isConfirmed: boolean = onConfirm(password);
+    const isConfirmed: boolean = validatePassword(password);
     if (isConfirmed) {
-      onPasswordValidated();
+      onValidationSuccess();
     }
-  }, [onConfirm, onPasswordValidated, password]);
+  }, [validatePassword, onValidationSuccess, password]);
 
   return (
     <DialogBase dialogOpen={dialogOpen} onDialogClose={onDialogClose}>
@@ -61,13 +64,13 @@ export default function RiskDialog({
           {description && (
             <p className="text-justify wrap-break-word">{description}</p>
           )}
-          <FormItem title="Required Input" required>
+          <FormItem title="Password" required>
             <Input
               type="password"
               value={password}
-              placeholder="Required Input"
+              placeholder="Enter your password"
               required
-              onChange={handlePasswordChange}
+              onChange={setPassword}
             />
           </FormItem>
         </div>
@@ -81,7 +84,7 @@ export default function RiskDialog({
             onClick={confirmPassword}
             disabled={!password}
           >
-            {buttonActionTitle}
+            {confirmButtonLabel}
           </Button>
         </div>
       </div>
