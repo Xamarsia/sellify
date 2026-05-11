@@ -33,10 +33,10 @@ export default function RiskDialogExample() {
         title="Confirm Dangerous Action"
         description="Please enter your password to confirm this action."
         dialogOpen={opened}
-        buttonActionTitle="Confirm"
+        confirmButtonLabel="Confirm"
         onDialogClose={onClose}
-        onConfirm={onConfirm}
-        onPasswordValidated={onPasswordValidated}
+        validatePassword={onConfirm}
+        onValidationSuccess={onPasswordValidated}
       />
     </>
   );
