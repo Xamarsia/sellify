@@ -41,7 +41,11 @@ export default function Home() {
             </div>
           </LinkButton>
         </div>
-        <OrdersView content={getOrdersPreview()} pagesAmount={0} />
+        <OrdersView
+          content={getOrdersPreview()}
+          pagesAmount={0}
+          onPageChanged={() => {}}
+        />
       </div>
     </>
   );

@@ -13,7 +13,7 @@ type OrdersViewProps = {
   content: Array<OrderPreview>;
   pagesAmount: number;
   currentPage?: number;
-  onPageChanged?: (page: number) => void;
+  onPageChanged: (page: number) => void;
 };
 
 export default function OrdersView({

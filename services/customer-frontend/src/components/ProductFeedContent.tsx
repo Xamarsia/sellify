@@ -63,20 +63,11 @@ export default function ProductFeedContent({ productLabel }: Props) {
         onProductAddedToCart={handleAddToCartClick}
         previews={getProductPreviews(productLabel)}
       />
-      <div className="pt-14 w-full hidden lg:block">
+      <div className="pt-14 w-full">
         <Pagination
           currentPage={page}
-          pagesAmount={20}
-          pagesBarLength={5}
-          onPageChanged={onPageChanged}
-        />
-      </div>
-      <div className="pt-14 w-full lg:hidden">
-        <Pagination
-          currentPage={page}
-          pagesAmount={20}
-          pagesBarLength={3}
-          onPageChanged={onPageChanged}
+          totalPages={20}
+          onPageChange={onPageChanged}
         />
       </div>
     </div>

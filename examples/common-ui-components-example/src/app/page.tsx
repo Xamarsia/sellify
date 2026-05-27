@@ -42,12 +42,12 @@ import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
 import DialogExample from "examples/DialogExample";
 import MultiSelectionComboboxUseExample from "examples/MultiSelectionComboboxUseExample";
-import PagesExample from "examples/PagesExample";
 import SearchBarExample from "examples/SearchBarExample";
 import SidePanelExample from "examples/SidePanelExample";
 import RiskDialogExample from "examples/RiskDialogExample";
@@ -59,6 +59,7 @@ export default function Home() {
   const [images, setImages] = useState<File[]>([]);
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [selectedKey, setSelectedKey] = useState<string>();
+  const [currentPage, setCurrentPage] = useState<number>(3);
 
   const pathname: string = usePathname();
 
@@ -478,7 +479,37 @@ export default function Home() {
 
         <Section title={"Pagination"}>
           <SectionItem>
-            <PagesExample />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={1}
+              onPageChange={setCurrentPage}
+            />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={3}
+              onPageChange={setCurrentPage}
+            />
+
+            <Pagination
+              currentPage={currentPage}
+              totalPages={8}
+              barLength={7}
+              onPageChange={setCurrentPage}
+            />
+
+            <Pagination
+              currentPage={currentPage}
+              totalPages={20}
+              barLength={8}
+              onPageChange={setCurrentPage}
+            />
+
+            <Pagination
+              currentPage={currentPage}
+              totalPages={2000}
+              barLength={7}
+              onPageChange={setCurrentPage}
+            />
           </SectionItem>
         </Section>
 
