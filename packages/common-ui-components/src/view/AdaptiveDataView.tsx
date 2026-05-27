@@ -9,7 +9,7 @@ type AdaptiveDataViewProps = {
   content: Array<Array<ReactNode>>;
   pagesAmount: number;
   currentPage?: number;
-  onPageChanged?: (page: number) => void;
+  onPageChanged: (page: number) => void;
 };
 
 export default function AdaptiveDataView({
@@ -20,25 +20,20 @@ export default function AdaptiveDataView({
   onPageChanged,
 }: AdaptiveDataViewProps) {
   return (
-    <>
-      <div className="flex flex-col w-full not-sm:hidden gap-6">
+    <div className="flex flex-col w-full gap-6">
+      <div className="not-sm:hidden">
         <TableView head={head} content={content} />
-        <Pagination
-          currentPage={currentPage}
-          pagesAmount={pagesAmount}
-          onPageChanged={onPageChanged}
-          pagesBarLength={5}
-        />
       </div>
-      <div className="flex flex-col w-full sm:hidden gap-6">
+
+      <div className="sm:hidden">
         <ListView head={head} content={content} />
-        <Pagination
-          currentPage={currentPage}
-          pagesAmount={pagesAmount}
-          onPageChanged={onPageChanged}
-          pagesBarLength={3}
-        />
       </div>
-    </>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={pagesAmount}
+        onPageChange={onPageChanged}
+      />
+    </div>
   );
 }
