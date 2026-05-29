@@ -3,6 +3,7 @@ export type ProductStatus = "ACTIVE" | "ARCHIVED";
 export type PaymentProvider = "BALANCE" | "CARD" | "GOOGLE_PAY" | "PAYPAL";
 export type DeliveryProvider = "DHL" | "UPS" | "PUROLATOR";
 export type ProductLabel = "NEW" | "BESTSELLER" | "GIFT";
+export type SidePanelPlacement = "LEFT" | "RIGHT";
 
 export type NavMenuItem = {
   href: string;

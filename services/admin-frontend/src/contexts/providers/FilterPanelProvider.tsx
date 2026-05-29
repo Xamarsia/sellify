@@ -59,7 +59,7 @@ export default function FilterPanelProvider({
   return (
     <FilterPanelContext.Provider value={contextValue}>
       <SidePanel
-        open={filterPanelOpened}
+        isOpen={filterPanelOpened}
         onClose={onFilterPanelClose}
         title="Filter"
       >
