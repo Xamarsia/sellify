@@ -19,7 +19,7 @@ export default function SidePanelExample() {
   return (
     <>
       <Button onClick={onOpen}>Open Side Panel</Button>
-      <SidePanel title="Side Panel" open={opened} onClose={onClose}>
+      <SidePanel title="Side Panel" isOpen={opened} onClose={onClose}>
         <div className="grow flex flex-col gap-4">
           <div className="h-2.5 bg-gray-200 rounded-full" />
           <div className="h-2.5 bg-gray-200 rounded-full" />

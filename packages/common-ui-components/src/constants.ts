@@ -16,3 +16,8 @@ export const PaymentProvider = {
   GooglePay: "GOOGLE_PAY",
   Paypal: "PAYPAL",
 } as const;
+
+export const SIDE_PANEL_PLACEMENT = {
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;

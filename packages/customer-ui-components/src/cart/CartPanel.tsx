@@ -28,7 +28,7 @@ export default function CartPanel({
   }, [cartItems]);
 
   return (
-    <SidePanel open={open} onClose={onClose} title="Cart">
+    <SidePanel isOpen={open} onClose={onClose} title="Cart">
       {cartItems.length ? (
         /*
           `overflow-y-auto` clips focus rings on elements inside.

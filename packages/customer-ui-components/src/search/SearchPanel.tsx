@@ -37,7 +37,7 @@ export default function SearchPanel({
   );
 
   return (
-    <SidePanel open={isOpen} onClose={onClose} title="Search">
+    <SidePanel isOpen={isOpen} onClose={onClose} title="Search">
       <SearchInput
         value={query}
         onChange={onQueryChanged}

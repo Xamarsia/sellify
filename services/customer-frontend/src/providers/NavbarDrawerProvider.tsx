@@ -5,6 +5,7 @@ import { ReactNode, useCallback, useState } from "react";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 import SidePanel from "@sellify/common-ui-components/SidePanel";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
+import { SIDE_PANEL_PLACEMENT } from "@sellify/common-ui-components/constants";
 
 import { NavbarDrawerContext } from "contexts/common-context";
 import { usePathname } from "next/navigation";
@@ -34,10 +35,10 @@ export default function NavbarDrawerProvider({
     <NavbarDrawerContext.Provider value={contextValue}>
       {sideMenuItems && (
         <SidePanel
-          open={navbarDrawerOpened}
+          isOpen={navbarDrawerOpened}
           onClose={onNavbarDrawerClose}
           title="Brand Title"
-          side="left"
+          placement={SIDE_PANEL_PLACEMENT.LEFT}
         >
           <SideMenu items={sideMenuItems} pathname={pathname} />
         </SidePanel>
