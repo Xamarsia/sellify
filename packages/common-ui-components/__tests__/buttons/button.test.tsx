@@ -11,12 +11,22 @@ type ButtonProps = ComponentProps<typeof Button>;
 describe("Button", () => {
   const getButton = () => screen.getByRole("button") as HTMLButtonElement;
 
+  const defaultProps = {
+    children: "Button Content",
+  } satisfies Pick<ButtonProps, "children">;
+
+  const buildProps = (props: Partial<ButtonProps> = {}): ButtonProps => ({
+    ...defaultProps,
+    onClick: jest.fn(),
+    ...props,
+  });
+
   const renderButton = (props: Partial<ButtonProps> = {}) => {
-    const renderResult = render(
-      <Button {...props}>{props.children ?? "Button Content"}</Button>,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Button {...resolvedProps} />);
     return {
       ...renderResult,
+      onClickMock: resolvedProps.onClick,
       button: getButton(),
     };
   };
@@ -25,7 +35,9 @@ describe("Button", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<ButtonProps> = {},
   ) => {
-    rerender(<Button {...props}>{props.children ?? "Button Content"}</Button>);
+    const resolvedProps = buildProps(props);
+
+    rerender(<Button {...resolvedProps} />);
     return getButton();
   };
 
@@ -87,10 +99,8 @@ describe("Button", () => {
   describe("click handling", () => {
     it("calls onClick once after a single click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
 
-      const { button } = renderButton({
-        onClick: onClickMock,
+      const { button, onClickMock } = renderButton({
         children: "Default Button",
       });
 
@@ -101,10 +111,8 @@ describe("Button", () => {
 
     it("calls onClick three times after triple click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
 
-      const { button } = renderButton({
-        onClick: onClickMock,
+      const { button, onClickMock } = renderButton({
         children: "Default Button",
       });
 
@@ -115,10 +123,8 @@ describe("Button", () => {
 
     it("does not call onClick when disabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
 
-      const { button } = renderButton({
-        onClick: onClickMock,
+      const { button, onClickMock } = renderButton({
         disabled: true,
         children: "Disabled Button",
       });
@@ -132,11 +138,8 @@ describe("Button", () => {
 
     it("becomes clickable again after being re-enabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
 
-      const { button: initialButton, rerender } = renderButton({
-        onClick: onClickMock,
-      });
+      const { button: initialButton, rerender, onClickMock } = renderButton();
 
       await user.click(initialButton);
       expect(onClickMock).toHaveBeenCalledTimes(1);

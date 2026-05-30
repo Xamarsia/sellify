@@ -15,6 +15,16 @@ describe("Combobox", () => {
     [3, "Orange"],
   ]);
 
+  const defaultProps = {
+    items: fruits,
+  } satisfies Pick<ComboboxProps, "items">;
+
+  const buildProps = (props: Partial<ComboboxProps> = {}): ComboboxProps => ({
+    ...defaultProps,
+    onItemSelected: jest.fn(),
+    ...props,
+  });
+
   const getInput = () => screen.getByRole("textbox") as HTMLInputElement;
 
   const getToggleButton = () =>
@@ -35,28 +45,22 @@ describe("Combobox", () => {
   };
 
   const renderCombobox = (props: Partial<ComboboxProps> = {}) => {
-    const renderResult = render(
-      <Combobox
-        items={props.items ?? fruits}
-        onItemSelected={props.onItemSelected ?? jest.fn()}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Combobox {...resolvedProps} />);
 
-    return renderResult;
+    return {
+      ...renderResult,
+      onItemSelectedMock: resolvedProps.onItemSelected,
+    };
   };
 
   const rerenderCombobox = (
     rerender: (ui: ReactElement) => void,
     props: Partial<ComboboxProps> = {},
   ) => {
-    rerender(
-      <Combobox
-        items={props.items ?? fruits}
-        onItemSelected={props.onItemSelected ?? jest.fn()}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+
+    rerender(<Combobox {...resolvedProps} />);
   };
 
   const expectAllItemsVisible = () => {
@@ -178,9 +182,7 @@ describe("Combobox", () => {
   describe("selection", () => {
     it("calls onItemSelected with selected item and closes dropdown", async () => {
       const user = userEvent.setup();
-      const onItemSelectedMock = jest.fn();
-
-      renderCombobox({ onItemSelected: onItemSelectedMock });
+      const { onItemSelectedMock } = renderCombobox();
 
       await user.click(getInput());
       await user.click(screen.getByRole("button", { name: "Banana" }));
@@ -192,9 +194,7 @@ describe("Combobox", () => {
 
     it("matches typed values case-insensitively", async () => {
       const user = userEvent.setup();
-      const onItemSelectedMock = jest.fn();
-
-      renderCombobox({ onItemSelected: onItemSelectedMock });
+      const { onItemSelectedMock } = renderCombobox();
 
       await user.type(getInput(), "banana");
 
@@ -203,9 +203,7 @@ describe("Combobox", () => {
 
     it("clears selected item callback for unmatched values", async () => {
       const user = userEvent.setup();
-      const onItemSelectedMock = jest.fn();
-
-      renderCombobox({ onItemSelected: onItemSelectedMock });
+      const { onItemSelectedMock } = renderCombobox();
 
       await user.type(getInput(), "Pear");
 

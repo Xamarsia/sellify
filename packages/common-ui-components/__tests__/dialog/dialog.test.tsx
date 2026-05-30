@@ -9,22 +9,25 @@ import Dialog from "@sellify/common-ui-components/dialog/Dialog";
 type DialogProps = ComponentProps<typeof Dialog>;
 
 describe("Dialog", () => {
+  const defaultProps = {
+    title: "Dialog Title",
+    dialogOpen: true,
+  } satisfies Pick<DialogProps, "title" | "dialogOpen">;
+
+  const buildProps = (props: Partial<DialogProps> = {}): DialogProps => ({
+    ...defaultProps,
+    children: <p>Dialog Body</p>,
+    onDialogClose: jest.fn(),
+    ...props,
+  });
+
   const renderDialog = (props: Partial<DialogProps> = {}) => {
-    const onDialogCloseMock = props.onDialogClose ?? jest.fn();
-    const renderResult = render(
-      <Dialog
-        title={props.title ?? "Dialog Title"}
-        dialogOpen={props.dialogOpen ?? true}
-        onDialogClose={onDialogCloseMock}
-        {...props}
-      >
-        {props.children ?? <p>Dialog Body</p>}
-      </Dialog>,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Dialog {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onDialogCloseMock,
+      onDialogCloseMock: resolvedProps.onDialogClose,
     };
   };
 

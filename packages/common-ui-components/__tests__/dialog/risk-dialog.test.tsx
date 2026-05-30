@@ -14,29 +14,35 @@ const getPasswordInput = () =>
 const getButton = (name: string) => screen.getByRole("button", { name });
 
 describe("RiskDialog", () => {
-  const renderRiskDialog = (props: Partial<RiskDialogProps> = {}) => {
-    const onDialogCloseMock = props.onDialogClose ?? jest.fn();
-    const validatePasswordMock = props.validatePassword ?? jest.fn(() => true);
-    const onValidationSuccessMock = props.onValidationSuccess ?? jest.fn();
+  const defaultProps = {
+    title: "Delete Account",
+    dialogOpen: true,
+    confirmButtonLabel: "Delete",
+  } satisfies Pick<
+    RiskDialogProps,
+    "title" | "dialogOpen" | "confirmButtonLabel"
+  >;
 
-    const renderResult = render(
-      <RiskDialog
-        title={props.title ?? "Delete Account"}
-        description={props.description ?? "This action cannot be undone."}
-        dialogOpen={props.dialogOpen ?? true}
-        confirmButtonLabel={props.confirmButtonLabel ?? "Delete"}
-        onDialogClose={onDialogCloseMock}
-        validatePassword={validatePasswordMock}
-        onValidationSuccess={onValidationSuccessMock}
-        {...props}
-      />,
-    );
+  const buildProps = (
+    props: Partial<RiskDialogProps> = {},
+  ): RiskDialogProps => ({
+    ...defaultProps,
+    description: "This action cannot be undone.",
+    onDialogClose: jest.fn(),
+    validatePassword: jest.fn(() => true),
+    onValidationSuccess: jest.fn(),
+    ...props,
+  });
+
+  const renderRiskDialog = (props: Partial<RiskDialogProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<RiskDialog {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onDialogCloseMock,
-      validatePasswordMock,
-      onValidationSuccessMock,
+      onDialogCloseMock: resolvedProps.onDialogClose,
+      validatePasswordMock: resolvedProps.validatePassword,
+      onValidationSuccessMock: resolvedProps.onValidationSuccess,
     };
   };
 

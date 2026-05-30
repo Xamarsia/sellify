@@ -10,18 +10,16 @@ import { SIDE_PANEL_PLACEMENT } from "@sellify/common-ui-components/constants";
 describe("SidePanel", () => {
   type SidePanelProps = ComponentProps<typeof SidePanel>;
 
-  const requeuedDefaultProps = {
+  const defaultProps = {
     title: "Panel title",
     isOpen: false,
     children: <div>Panel content</div>,
   } satisfies Pick<SidePanelProps, "title" | "isOpen" | "children">;
 
   const buildProps = (props: Partial<SidePanelProps> = {}): SidePanelProps => ({
-    onClose: props.onClose ?? jest.fn(),
-    children: props.children ?? requeuedDefaultProps.children,
-    title: props.title ?? requeuedDefaultProps.title,
-    isOpen: props.isOpen ?? requeuedDefaultProps.isOpen,
-    placement: props.placement,
+    ...defaultProps,
+    onClose: jest.fn(),
+    ...props,
   });
 
   const renderPanel = (props: Partial<SidePanelProps> = {}) => {
@@ -30,7 +28,7 @@ describe("SidePanel", () => {
 
     return {
       ...renderResult,
-      onClose: resolvedProps.onClose,
+      onCloseMock: resolvedProps.onClose,
     };
   };
 
@@ -89,32 +87,32 @@ describe("SidePanel", () => {
   describe("closing", () => {
     it("calls onClose when the close button is clicked", async () => {
       const user = userEvent.setup();
-      const { onClose } = renderPanel({ isOpen: true });
+      const { onCloseMock } = renderPanel({ isOpen: true });
 
       await user.click(screen.getByRole("button"));
 
-      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 
     it("calls onClose when clicking outside the panel", async () => {
       const user = userEvent.setup();
-      const { onClose } = renderPanel({ isOpen: true });
+      const { onCloseMock } = renderPanel({ isOpen: true });
 
       await user.click(document.body);
 
-      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 
     it("does not call onClose when clicking inside the panel", async () => {
       const user = userEvent.setup();
-      const { onClose, container } = renderPanel({ isOpen: true });
+      const { onCloseMock, container } = renderPanel({ isOpen: true });
 
       const panel = getPanel(container);
       expect(panel).toBeInTheDocument();
 
       await user.click(panel);
 
-      expect(onClose).not.toHaveBeenCalled();
+      expect(onCloseMock).not.toHaveBeenCalled();
     });
   });
 

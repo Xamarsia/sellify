@@ -12,15 +12,21 @@ describe("Textarea", () => {
   const getTextareaElement = () =>
     screen.getByRole("textbox") as HTMLTextAreaElement;
 
+  const defaultProps = {} satisfies Partial<TextareaProps>;
+
+  const buildProps = (props: Partial<TextareaProps> = {}): TextareaProps => ({
+    ...defaultProps,
+    onChange: jest.fn(),
+    ...props,
+  });
+
   const renderTextarea = (props: Partial<TextareaProps> = {}) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const renderResult = render(
-      <Textarea onChange={onChangeMock} {...props} />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Textarea {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onChangeMock,
+      onChangeMock: resolvedProps.onChange,
     };
   };
 
@@ -39,8 +45,9 @@ describe("Textarea", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<TextareaProps> = {},
   ) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    rerender(<Textarea onChange={onChangeMock} {...props} />);
+    const resolvedProps = buildProps(props);
+
+    rerender(<Textarea {...resolvedProps} />);
   };
 
   describe("rendering", () => {

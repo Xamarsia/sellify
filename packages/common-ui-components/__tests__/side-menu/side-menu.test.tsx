@@ -12,16 +12,21 @@ describe("SideMenu", () => {
     { href: "/orders", title: "Orders" },
     { href: "/products", title: "Products" },
     { href: "/settings", title: "Settings" },
-  ];
+  ] satisfies SideMenuProps["items"];
+
+  const defaultProps = {
+    items: defaultItems,
+    pathname: "/orders",
+  } satisfies Pick<SideMenuProps, "items" | "pathname">;
+
+  const buildProps = (props: Partial<SideMenuProps> = {}): SideMenuProps => ({
+    ...defaultProps,
+    ...props,
+  });
 
   const renderMenu = (props: Partial<SideMenuProps> = {}) => {
-    const renderResult = render(
-      <SideMenu
-        items={props.items ?? defaultItems}
-        pathname={props.pathname ?? "/orders"}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<SideMenu {...resolvedProps} />);
 
     return {
       ...renderResult,

@@ -15,22 +15,27 @@ describe("SearchInput", () => {
   const getFormElement = (container: HTMLElement) =>
     container.querySelector("form") as HTMLFormElement;
 
+  const defaultProps = {
+    value: "",
+  } satisfies Pick<SearchInputProps, "value">;
+
+  const buildProps = (
+    props: Partial<SearchInputProps> = {},
+  ): SearchInputProps => ({
+    ...defaultProps,
+    onChange: jest.fn(),
+    onSubmit: jest.fn(),
+    ...props,
+  });
+
   const renderSearchInput = (props: Partial<SearchInputProps> = {}) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const onSubmitMock = props.onSubmit ?? jest.fn();
-    const renderResult = render(
-      <SearchInput
-        value={props.value ?? ""}
-        onChange={onChangeMock}
-        onSubmit={onSubmitMock}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<SearchInput {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onChangeMock,
-      onSubmitMock,
+      onChangeMock: resolvedProps.onChange,
+      onSubmitMock: resolvedProps.onSubmit,
     };
   };
 
@@ -38,17 +43,9 @@ describe("SearchInput", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<SearchInputProps> = {},
   ) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const onSubmitMock = props.onSubmit ?? jest.fn();
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <SearchInput
-        value={props.value ?? ""}
-        onChange={onChangeMock}
-        onSubmit={onSubmitMock}
-        {...props}
-      />,
-    );
+    rerender(<SearchInput {...resolvedProps} />);
   };
 
   describe("rendering", () => {

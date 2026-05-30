@@ -9,24 +9,28 @@ import AlertDialog from "@sellify/common-ui-components/dialog/AlertDialog";
 type AlertDialogProps = ComponentProps<typeof AlertDialog>;
 
 describe("AlertDialog", () => {
-  const renderAlertDialog = (props: Partial<AlertDialogProps> = {}) => {
-    const onDialogCloseMock = props.onDialogClose ?? jest.fn();
+  const defaultProps = {
+    icon: <svg data-testid="alert-icon" />,
+    title: "Alert Title",
+    dialogOpen: true,
+  } satisfies Pick<AlertDialogProps, "icon" | "title" | "dialogOpen">;
 
-    const renderResult = render(
-      <AlertDialog
-        icon={props.icon ?? <svg data-testid="alert-icon" />}
-        title={props.title ?? "Alert Title"}
-        dialogOpen={props.dialogOpen ?? true}
-        onDialogClose={onDialogCloseMock}
-        {...props}
-      >
-        {props.children ?? <button type="button">Continue</button>}
-      </AlertDialog>,
-    );
+  const buildProps = (
+    props: Partial<AlertDialogProps> = {},
+  ): AlertDialogProps => ({
+    ...defaultProps,
+    children: <button type="button">Continue</button>,
+    onDialogClose: jest.fn(),
+    ...props,
+  });
+
+  const renderAlertDialog = (props: Partial<AlertDialogProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<AlertDialog {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onDialogCloseMock,
+      onDialogCloseMock: resolvedProps.onDialogClose,
     };
   };
 

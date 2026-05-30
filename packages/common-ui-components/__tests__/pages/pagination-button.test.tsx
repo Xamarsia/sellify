@@ -12,20 +12,28 @@ describe("PaginationButton", () => {
   const getButton = (label: string | number) =>
     screen.getByRole("button", { name: label.toString() }) as HTMLButtonElement;
 
+  const defaultProps = {
+    label: "1",
+  } satisfies Pick<PaginationButtonProps, "label">;
+
+  const buildProps = (
+    props: Partial<PaginationButtonProps> = {},
+  ): PaginationButtonProps => ({
+    ...defaultProps,
+    onClick: jest.fn(),
+    ...props,
+  });
+
   const renderPaginationButton = (
     props: Partial<PaginationButtonProps> = {},
   ) => {
-    const label = props.label ?? "1";
-    const onClickMock = props.onClick ?? jest.fn();
-
-    const renderResult = render(
-      <PaginationButton onClick={onClickMock} label={label} {...props} />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<PaginationButton {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onClickMock,
-      button: getButton(label),
+      onClickMock: resolvedProps.onClick,
+      button: getButton(resolvedProps.label),
     };
   };
 
@@ -33,16 +41,10 @@ describe("PaginationButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<PaginationButtonProps> = {},
   ): HTMLButtonElement => {
-    const label = props.label ?? "1";
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <PaginationButton
-        onClick={props.onClick ?? jest.fn()}
-        label={label}
-        {...props}
-      />,
-    );
-    return getButton(label);
+    rerender(<PaginationButton {...resolvedProps} />);
+    return getButton(resolvedProps.label);
   };
 
   describe("rendering", () => {

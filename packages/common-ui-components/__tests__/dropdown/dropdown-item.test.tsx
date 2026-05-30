@@ -12,23 +12,27 @@ describe("DropdownItem", () => {
   const getButton = (label = "Option One") =>
     screen.getByRole("button", { name: label }) as HTMLButtonElement;
 
-  const renderItem = (props: Partial<DropdownItemProps> = {}) => {
-    const onItemSelectedMock = props.onItemSelected ?? jest.fn();
-    const label = props.label ?? "Option One";
+  const defaultProps = {
+    value: "option-1",
+    label: "Option One",
+  } satisfies Pick<DropdownItemProps, "value" | "label">;
 
-    const renderResult = render(
-      <DropdownItem
-        value={props.value ?? "option-1"}
-        label={label}
-        onItemSelected={onItemSelectedMock}
-        {...props}
-      />,
-    );
+  const buildProps = (
+    props: Partial<DropdownItemProps> = {},
+  ): DropdownItemProps => ({
+    ...defaultProps,
+    onItemSelected: jest.fn(),
+    ...props,
+  });
+
+  const renderItem = (props: Partial<DropdownItemProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<DropdownItem {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onItemSelected: onItemSelectedMock,
-      button: getButton(label),
+      onItemSelectedMock: resolvedProps.onItemSelected,
+      button: getButton(resolvedProps.label),
     };
   };
 
@@ -36,19 +40,11 @@ describe("DropdownItem", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<DropdownItemProps> = {},
   ) => {
-    const onItemSelectedMock = props.onItemSelected ?? jest.fn();
-    const label = props.label ?? "Option One";
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <DropdownItem
-        value={props.value ?? "option-1"}
-        label={label}
-        onItemSelected={onItemSelectedMock}
-        {...props}
-      />,
-    );
+    rerender(<DropdownItem {...resolvedProps} />);
 
-    return getButton(label);
+    return getButton(resolvedProps.label);
   };
 
   describe("rendering", () => {
@@ -95,23 +91,23 @@ describe("DropdownItem", () => {
   describe("click handling", () => {
     it("calls onItemSelected with the value and label after single click", async () => {
       const user = userEvent.setup();
-      const { button, onItemSelected } = renderItem({
+      const { button, onItemSelectedMock } = renderItem({
         value: "option-2",
         label: "Option Two",
       });
 
       await user.click(button);
 
-      expect(onItemSelected).toHaveBeenCalledTimes(1);
-      expect(onItemSelected).toHaveBeenCalledWith("option-2", "Option Two");
+      expect(onItemSelectedMock).toHaveBeenCalledTimes(1);
+      expect(onItemSelectedMock).toHaveBeenCalledWith("option-2", "Option Two");
     });
 
     it("calls onClick three times after triple click", async () => {
       const user = userEvent.setup();
-      const { button, onItemSelected } = renderItem();
+      const { button, onItemSelectedMock } = renderItem();
       await user.tripleClick(button);
 
-      expect(onItemSelected).toHaveBeenCalledTimes(3);
+      expect(onItemSelectedMock).toHaveBeenCalledTimes(3);
     });
   });
 });

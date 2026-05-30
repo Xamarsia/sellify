@@ -10,10 +10,20 @@ describe("LinkButton", () => {
   const getLink = (container: HTMLElement) =>
     container.querySelector("a") as HTMLAnchorElement;
 
+  const defaultProps = {
+    children: "Link Button",
+  } satisfies Pick<LinkButtonProps, "children">;
+
+  const buildProps = (
+    props: Partial<LinkButtonProps> = {},
+  ): LinkButtonProps => ({
+    ...defaultProps,
+    ...props,
+  });
+
   const renderLink = (props: Partial<LinkButtonProps> = {}) => {
-    const renderResult = render(
-      <LinkButton {...props}>{props.children ?? "Link Button"}</LinkButton>,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<LinkButton {...resolvedProps} />);
 
     return {
       ...renderResult,
@@ -25,9 +35,9 @@ describe("LinkButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<LinkButtonProps> = {},
   ) => {
-    rerender(
-      <LinkButton {...props}>{props.children ?? "Link Button"}</LinkButton>,
-    );
+    const resolvedProps = buildProps(props);
+
+    rerender(<LinkButton {...resolvedProps} />);
   };
 
   describe("rendering", () => {

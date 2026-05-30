@@ -11,11 +11,25 @@ type IconButtonProps = ComponentProps<typeof IconButton>;
 describe("IconButton", () => {
   const getIconButton = () => screen.getByRole("button") as HTMLButtonElement;
 
+  const defaultProps = {
+    icon: <svg />,
+  } satisfies Pick<IconButtonProps, "icon">;
+
+  const buildProps = (
+    props: Partial<IconButtonProps> = {},
+  ): IconButtonProps => ({
+    ...defaultProps,
+    onClick: jest.fn(),
+    ...props,
+  });
+
   const renderButton = (props: Partial<IconButtonProps> = {}) => {
-    const renderResult = render(<IconButton icon={<svg />} {...props} />);
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<IconButton {...resolvedProps} />);
 
     return {
       ...renderResult,
+      onClickMock: resolvedProps.onClick,
       button: getIconButton(),
     };
   };
@@ -24,7 +38,9 @@ describe("IconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<IconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(<IconButton icon={<svg />} {...props} />);
+    const resolvedProps = buildProps(props);
+
+    rerender(<IconButton {...resolvedProps} />);
     return getIconButton();
   };
 
@@ -46,9 +62,7 @@ describe("IconButton", () => {
   describe("click handling", () => {
     it("calls onClick once after a single click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({ onClick: onClickMock });
+      const { button, onClickMock } = renderButton();
 
       await user.click(button);
 
@@ -57,9 +71,7 @@ describe("IconButton", () => {
 
     it("calls onClick three times after triple click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({ onClick: onClickMock });
+      const { button, onClickMock } = renderButton();
 
       await user.tripleClick(button);
 
@@ -68,12 +80,7 @@ describe("IconButton", () => {
 
     it("does not call onClick when disabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({
-        onClick: onClickMock,
-        disabled: true,
-      });
+      const { button, onClickMock } = renderButton({ disabled: true });
 
       expect(button).toBeDisabled();
 
@@ -84,18 +91,14 @@ describe("IconButton", () => {
 
     it("becomes clickable again after being re-enabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button: initialButton, rerender } = renderButton({
-        onClick: onClickMock,
-      });
+      const { button: initialButton, rerender, onClickMock } = renderButton();
 
       await user.click(initialButton);
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
       const disabledButton = rerenderButton(rerender, {
-        onClick: onClickMock,
         disabled: true,
+        onClick: onClickMock,
       });
 
       expect(disabledButton).toBeDisabled();
@@ -104,8 +107,8 @@ describe("IconButton", () => {
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
       const reEnabledButton = rerenderButton(rerender, {
-        onClick: onClickMock,
         disabled: false,
+        onClick: onClickMock,
       });
 
       expect(reEnabledButton).toBeEnabled();
