@@ -12,13 +12,21 @@ describe("Input", () => {
   const getInputElement = (container: HTMLElement) =>
     container.querySelector("input") as HTMLInputElement;
 
+  const defaultProps = {} satisfies Partial<InputProps>;
+
+  const buildProps = (props: Partial<InputProps> = {}): InputProps => ({
+    ...defaultProps,
+    onChange: jest.fn(),
+    ...props,
+  });
+
   const renderInput = (props: Partial<InputProps> = {}) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const renderResult = render(<Input onChange={onChangeMock} {...props} />);
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Input {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onChangeMock,
+      onChangeMock: resolvedProps.onChange,
     };
   };
 
@@ -35,8 +43,9 @@ describe("Input", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<InputProps> = {},
   ) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    rerender(<Input onChange={onChangeMock} {...props} />);
+    const resolvedProps = buildProps(props);
+
+    rerender(<Input {...resolvedProps} />);
   };
 
   describe("rendering", () => {

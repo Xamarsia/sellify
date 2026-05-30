@@ -9,21 +9,25 @@ import DialogBase from "@sellify/common-ui-components/dialog/DialogBase";
 type DialogBaseProps = ComponentProps<typeof DialogBase>;
 
 describe("DialogBase", () => {
+  const defaultProps = {
+    dialogOpen: true,
+  } satisfies Pick<DialogBaseProps, "dialogOpen">;
+
+  const buildProps = (
+    props: Partial<DialogBaseProps> = {},
+  ): DialogBaseProps => ({
+    ...defaultProps,
+    onDialogClose: jest.fn(),
+    ...props,
+  });
+
   const renderDialogBase = (props: Partial<DialogBaseProps> = {}) => {
-    const onDialogCloseMock = props.onDialogClose ?? jest.fn();
-    const renderResult = render(
-      <DialogBase
-        dialogOpen={props.dialogOpen ?? true}
-        onDialogClose={onDialogCloseMock}
-        {...props}
-      >
-        {props.children}
-      </DialogBase>,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<DialogBase {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onDialogCloseMock,
+      onDialogCloseMock: resolvedProps.onDialogClose,
     };
   };
 
@@ -31,17 +35,9 @@ describe("DialogBase", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<DialogBaseProps> = {},
   ) => {
-    const onDialogCloseMock = props.onDialogClose ?? jest.fn();
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <DialogBase
-        dialogOpen={props.dialogOpen ?? true}
-        onDialogClose={onDialogCloseMock}
-        {...props}
-      >
-        {props.children}
-      </DialogBase>,
-    );
+    rerender(<DialogBase {...resolvedProps} />);
   };
 
   describe("rendering", () => {

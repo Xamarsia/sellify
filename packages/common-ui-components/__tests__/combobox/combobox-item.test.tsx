@@ -9,20 +9,26 @@ import ComboboxItem from "@sellify/common-ui-components/combobox/ComboboxItem";
 
 type ComboboxItemProps = ComponentProps<typeof ComboboxItem>;
 
+const defaultProps = {
+  value: 1,
+  label: "Selected Item",
+} satisfies Pick<ComboboxItemProps, "value" | "label">;
+
+const buildProps = (
+  props: Partial<ComboboxItemProps> = {},
+): ComboboxItemProps => ({
+  ...defaultProps,
+  onRemove: jest.fn(),
+  ...props,
+});
+
 const renderComboboxItem = (props: Partial<ComboboxItemProps> = {}) => {
-  const onRemoveMock = props.onRemove ?? jest.fn();
-  const renderResult = render(
-    <ComboboxItem
-      value={props.value ?? 1}
-      label={props.label ?? "Selected Item"}
-      onRemove={onRemoveMock}
-      {...props}
-    />,
-  );
+  const resolvedProps = buildProps(props);
+  const renderResult = render(<ComboboxItem {...resolvedProps} />);
 
   return {
     ...renderResult,
-    onRemoveMock,
+    onRemoveMock: resolvedProps.onRemove,
   };
 };
 

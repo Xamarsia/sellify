@@ -11,11 +11,23 @@ type FilterButtonProps = ComponentProps<typeof FilterButton>;
 describe("FilterButton", () => {
   const getButton = () => screen.getByRole("button") as HTMLButtonElement;
 
+  const defaultProps = {} satisfies Partial<FilterButtonProps>;
+
+  const buildProps = (
+    props: Partial<FilterButtonProps> = {},
+  ): FilterButtonProps => ({
+    ...defaultProps,
+    onClick: jest.fn(),
+    ...props,
+  });
+
   const renderButton = (props: Partial<FilterButtonProps> = {}) => {
-    const renderResult = render(<FilterButton {...props} />);
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<FilterButton {...resolvedProps} />);
 
     return {
       ...renderResult,
+      onClickMock: resolvedProps.onClick,
       button: getButton(),
     };
   };
@@ -42,9 +54,7 @@ describe("FilterButton", () => {
     describe("click handling", () => {
       it("calls onClick once after a single click", async () => {
         const user = userEvent.setup();
-        const onClickMock = jest.fn();
-
-        const { button } = renderButton({ onClick: onClickMock });
+        const { button, onClickMock } = renderButton();
 
         await user.click(button);
 
@@ -53,9 +63,7 @@ describe("FilterButton", () => {
 
       it("calls onClick three times after triple click", async () => {
         const user = userEvent.setup();
-        const onClickMock = jest.fn();
-
-        const { button } = renderButton({ onClick: onClickMock });
+        const { button, onClickMock } = renderButton();
 
         await user.tripleClick(button);
 

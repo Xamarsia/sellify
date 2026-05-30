@@ -11,22 +11,24 @@ type CheckboxProps = ComponentProps<typeof Checkbox>;
 describe("Checkbox", () => {
   const getCheckbox = () => screen.getByRole("checkbox") as HTMLInputElement;
 
-  const renderCheckbox = (props: Partial<CheckboxProps> = {}) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const value = props.value ?? "value-1";
+  const defaultProps = {
+    checked: false,
+    value: "value-1",
+  } satisfies Pick<CheckboxProps, "checked" | "value">;
 
-    const renderResult = render(
-      <Checkbox
-        checked={false}
-        value={value}
-        onChange={onChangeMock}
-        {...props}
-      />,
-    );
+  const buildProps = (props: Partial<CheckboxProps> = {}): CheckboxProps => ({
+    ...defaultProps,
+    onChange: jest.fn(),
+    ...props,
+  });
+
+  const renderCheckbox = (props: Partial<CheckboxProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Checkbox {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onChangeMock,
+      onChangeMock: resolvedProps.onChange,
     };
   };
 
@@ -34,17 +36,9 @@ describe("Checkbox", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<CheckboxProps> = {},
   ) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const value = props.value ?? "value-1";
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <Checkbox
-        checked={false}
-        value={value}
-        onChange={onChangeMock}
-        {...props}
-      />,
-    );
+    rerender(<Checkbox {...resolvedProps} />);
   };
 
   describe("rendering", () => {

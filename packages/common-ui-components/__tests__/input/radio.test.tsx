@@ -11,17 +11,23 @@ type RadioProps = ComponentProps<typeof Radio>;
 describe("Radio", () => {
   const getRadio = () => screen.getByRole("radio") as HTMLInputElement;
 
-  const renderRadio = (props: Partial<RadioProps> = {}) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const value = props.value ?? "value-1";
+  const defaultProps = {
+    value: "value-1",
+  } satisfies Pick<RadioProps, "value">;
 
-    const renderResult = render(
-      <Radio value={value} onChange={onChangeMock} {...props} />,
-    );
+  const buildProps = (props: Partial<RadioProps> = {}): RadioProps => ({
+    ...defaultProps,
+    onChange: jest.fn(),
+    ...props,
+  });
+
+  const renderRadio = (props: Partial<RadioProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Radio {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onChangeMock,
+      onChangeMock: resolvedProps.onChange,
     };
   };
 
@@ -29,10 +35,9 @@ describe("Radio", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<RadioProps> = {},
   ) => {
-    const onChangeMock = props.onChange ?? jest.fn();
-    const value = props.value ?? "standard";
+    const resolvedProps = buildProps(props);
 
-    rerender(<Radio value={value} onChange={onChangeMock} {...props} />);
+    rerender(<Radio {...resolvedProps} />);
   };
 
   describe("rendering", () => {

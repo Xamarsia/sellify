@@ -25,20 +25,29 @@ describe("MultiSelectionCombobox", () => {
   const getToggleButton = () =>
     screen.getAllByRole("button")[0] as HTMLButtonElement;
 
+  const defaultProps = {
+    items,
+    selectedItems: new Map<number, string>(),
+  } satisfies Pick<MultiSelectionComboboxProps, "items" | "selectedItems">;
+
+  const buildProps = (
+    props: Partial<MultiSelectionComboboxProps> = {},
+  ): MultiSelectionComboboxProps => ({
+    ...defaultProps,
+    onItemSelected: jest.fn(),
+    onItemRemoved: jest.fn(),
+    ...props,
+  });
+
   const renderCombobox = (props: Partial<MultiSelectionComboboxProps> = {}) => {
-    const renderResult = render(
-      <MultiSelectionCombobox
-        items={props.items ?? items}
-        selectedItems={props.selectedItems ?? new Map()}
-        onItemSelected={props.onItemSelected ?? jest.fn()}
-        onItemRemoved={props.onItemRemoved ?? jest.fn()}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<MultiSelectionCombobox {...resolvedProps} />);
 
     return {
       ...renderResult,
       input: getInput(),
+      onItemSelectedMock: resolvedProps.onItemSelected,
+      onItemRemovedMock: resolvedProps.onItemRemoved,
     };
   };
 
@@ -46,15 +55,9 @@ describe("MultiSelectionCombobox", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<MultiSelectionComboboxProps> = {},
   ): HTMLInputElement => {
-    rerender(
-      <MultiSelectionCombobox
-        items={props.items ?? items}
-        selectedItems={props.selectedItems ?? new Map()}
-        onItemSelected={props.onItemSelected ?? jest.fn()}
-        onItemRemoved={props.onItemRemoved ?? jest.fn()}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+
+    rerender(<MultiSelectionCombobox {...resolvedProps} />);
 
     return getInput();
   };
@@ -241,8 +244,7 @@ describe("MultiSelectionCombobox", () => {
   describe("selection", () => {
     it("calls onItemSelected and clears the input after selection", async () => {
       const user = userEvent.setup();
-      const onItemSelectedMock = jest.fn();
-      const { input } = renderCombobox({ onItemSelected: onItemSelectedMock });
+      const { input, onItemSelectedMock } = renderCombobox();
 
       await user.click(input);
       await user.type(input, "Ban");
@@ -257,11 +259,8 @@ describe("MultiSelectionCombobox", () => {
 
     it("calls onItemRemoved when a selected item remove button is clicked", async () => {
       const user = userEvent.setup();
-      const onItemRemovedMock = jest.fn();
-
-      renderCombobox({
+      const { onItemRemovedMock } = renderCombobox({
         selectedItems: new Map([[1, "Apple"]]),
-        onItemRemoved: onItemRemovedMock,
       });
 
       await user.click(

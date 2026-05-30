@@ -83,6 +83,10 @@ const BOTH_SIDE_JUMP_LAYOUT_SCENARIOS: Array<PaginationLayoutScenario> = [
 ];
 
 describe("Pagination", () => {
+  const defaultProps = {
+    totalPages: 10,
+  } satisfies Pick<PaginationProps, "totalPages">;
+
   const getPageButtonByLabel = (pageLabel: string) =>
     screen.getByRole("button", { name: pageLabel }) as HTMLButtonElement;
 
@@ -110,20 +114,21 @@ describe("Pagination", () => {
     });
   };
 
-  const renderPagination = (props: Partial<PaginationProps> = {}) => {
-    const onPageChangeMock = props.onPageChange ?? jest.fn();
+  const buildProps = (
+    props: Partial<PaginationProps> = {},
+  ): PaginationProps => ({
+    ...defaultProps,
+    onPageChange: jest.fn(),
+    ...props,
+  });
 
-    const view = render(
-      <Pagination
-        totalPages={props.totalPages ?? 10}
-        onPageChange={onPageChangeMock}
-        {...props}
-      />,
-    );
+  const renderPagination = (props: Partial<PaginationProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const view = render(<Pagination {...resolvedProps} />);
 
     return {
       ...view,
-      onPageChangeMock,
+      onPageChangeMock: resolvedProps.onPageChange,
     };
   };
 
@@ -131,15 +136,9 @@ describe("Pagination", () => {
     rerender: RerenderFn,
     props: Partial<PaginationProps> = {},
   ) => {
-    const onPageChangeMock = props.onPageChange ?? jest.fn();
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <Pagination
-        totalPages={props.totalPages ?? 10}
-        onPageChange={onPageChangeMock}
-        {...props}
-      />,
-    );
+    rerender(<Pagination {...resolvedProps} />);
   };
 
   const getNavigationButtons = (container: HTMLElement) => {

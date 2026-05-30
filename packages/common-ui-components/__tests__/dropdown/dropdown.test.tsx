@@ -13,25 +13,28 @@ describe("Dropdown", () => {
     ["delivery", "Delivery"],
     ["payment", "Payment"],
     ["review", "Review"],
-  ]);
+  ]) satisfies DropdownProps["items"];
+
+  const defaultProps = {
+    title: "Default title",
+    items: defaultItems,
+  } satisfies Pick<DropdownProps, "title" | "items">;
+
+  const buildProps = (props: Partial<DropdownProps> = {}): DropdownProps => ({
+    ...defaultProps,
+    onKeySelected: jest.fn(),
+    ...props,
+  });
 
   const getToggleButton = () => screen.getByRole("button") as HTMLButtonElement;
 
   const renderDropdown = (props: Partial<DropdownProps> = {}) => {
-    const onKeySelectedMock = props.onKeySelected ?? jest.fn();
-
-    const renderResult = render(
-      <Dropdown
-        title={props.title ?? "Default title"}
-        items={props.items ?? defaultItems}
-        onKeySelected={onKeySelectedMock}
-        {...props}
-      />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<Dropdown {...resolvedProps} />);
 
     return {
       ...renderResult,
-      onKeySelected: onKeySelectedMock,
+      onKeySelectedMock: resolvedProps.onKeySelected,
       button: getToggleButton(),
     };
   };
@@ -40,16 +43,9 @@ describe("Dropdown", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<DropdownProps> = {},
   ) => {
-    const onKeySelected = props.onKeySelected ?? jest.fn();
+    const resolvedProps = buildProps(props);
 
-    rerender(
-      <Dropdown
-        title={props.title ?? "Default title"}
-        items={props.items ?? defaultItems}
-        onKeySelected={onKeySelected}
-        {...props}
-      />,
-    );
+    rerender(<Dropdown {...resolvedProps} />);
 
     return getToggleButton();
   };
@@ -169,31 +165,31 @@ describe("Dropdown", () => {
     it("calls onKeySelected with selected key", async () => {
       const user = userEvent.setup();
 
-      const { button, onKeySelected } = renderDropdown();
+      const { button, onKeySelectedMock } = renderDropdown();
 
       await user.click(button);
       await user.click(screen.getByRole("button", { name: "Payment" }));
 
-      expect(onKeySelected).toHaveBeenCalledTimes(1);
-      expect(onKeySelected).toHaveBeenCalledWith("payment");
+      expect(onKeySelectedMock).toHaveBeenCalledTimes(1);
+      expect(onKeySelectedMock).toHaveBeenCalledWith("payment");
 
       await user.click(button);
       await user.click(screen.getByRole("button", { name: "Review" }));
 
-      expect(onKeySelected).toHaveBeenCalledTimes(2);
-      expect(onKeySelected).toHaveBeenCalledWith("review");
+      expect(onKeySelectedMock).toHaveBeenCalledTimes(2);
+      expect(onKeySelectedMock).toHaveBeenCalledWith("review");
     });
 
     it("closes dropdown after selecting an item", async () => {
       const user = userEvent.setup();
 
-      const { button, onKeySelected } = renderDropdown();
+      const { button, onKeySelectedMock } = renderDropdown();
 
       await user.click(button);
       await user.click(screen.getByRole("button", { name: "Payment" }));
 
-      expect(onKeySelected).toHaveBeenCalledTimes(1);
-      expect(onKeySelected).toHaveBeenCalledWith("payment");
+      expect(onKeySelectedMock).toHaveBeenCalledTimes(1);
+      expect(onKeySelectedMock).toHaveBeenCalledWith("payment");
 
       expectAllSuggestedItemsHidden();
     });

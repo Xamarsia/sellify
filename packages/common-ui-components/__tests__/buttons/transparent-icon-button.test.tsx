@@ -12,13 +12,25 @@ describe("TransparentIconButton", () => {
   const getTransparentIconButton = () =>
     screen.getByRole("button") as HTMLButtonElement;
 
+  const defaultProps = {
+    icon: <svg />,
+  } satisfies Pick<TransparentIconButtonProps, "icon">;
+
+  const buildProps = (
+    props: Partial<TransparentIconButtonProps> = {},
+  ): TransparentIconButtonProps => ({
+    ...defaultProps,
+    onClick: jest.fn(),
+    ...props,
+  });
+
   const renderButton = (props: Partial<TransparentIconButtonProps> = {}) => {
-    const renderResult = render(
-      <TransparentIconButton icon={props.icon ?? <svg />} {...props} />,
-    );
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<TransparentIconButton {...resolvedProps} />);
 
     return {
       ...renderResult,
+      onClickMock: resolvedProps.onClick,
       button: getTransparentIconButton(),
     };
   };
@@ -27,7 +39,9 @@ describe("TransparentIconButton", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<TransparentIconButtonProps> = {},
   ): HTMLButtonElement => {
-    rerender(<TransparentIconButton icon={props.icon ?? <svg />} {...props} />);
+    const resolvedProps = buildProps(props);
+
+    rerender(<TransparentIconButton {...resolvedProps} />);
     return getTransparentIconButton();
   };
 
@@ -49,9 +63,7 @@ describe("TransparentIconButton", () => {
   describe("click handling", () => {
     it("calls onClick once after a single click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({ onClick: onClickMock });
+      const { button, onClickMock } = renderButton();
 
       await user.click(button);
 
@@ -60,9 +72,7 @@ describe("TransparentIconButton", () => {
 
     it("calls onClick three times after triple click", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({ onClick: onClickMock });
+      const { button, onClickMock } = renderButton();
 
       await user.tripleClick(button);
 
@@ -71,9 +81,7 @@ describe("TransparentIconButton", () => {
 
     it("does not call onClick when disabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button } = renderButton({ onClick: onClickMock, disabled: true });
+      const { button, onClickMock } = renderButton({ disabled: true });
 
       expect(button).toBeDisabled();
 
@@ -84,18 +92,14 @@ describe("TransparentIconButton", () => {
 
     it("becomes clickable again after being re-enabled", async () => {
       const user = userEvent.setup();
-      const onClickMock = jest.fn();
-
-      const { button: initialButton, rerender } = renderButton({
-        onClick: onClickMock,
-      });
+      const { button: initialButton, rerender, onClickMock } = renderButton();
 
       await user.click(initialButton);
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
       const disabledButton = rerenderButton(rerender, {
-        onClick: onClickMock,
         disabled: true,
+        onClick: onClickMock,
       });
 
       expect(disabledButton).toBeDisabled();
@@ -104,8 +108,8 @@ describe("TransparentIconButton", () => {
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
       const reEnabledButton = rerenderButton(rerender, {
-        onClick: onClickMock,
         disabled: false,
+        onClick: onClickMock,
       });
 
       expect(reEnabledButton).toBeEnabled();

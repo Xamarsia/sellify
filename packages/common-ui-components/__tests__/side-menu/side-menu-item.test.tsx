@@ -11,17 +11,25 @@ describe("SideMenuItem", () => {
   const getMenuItem = (text = "Orders") =>
     screen.getByRole("link", { name: text }) as HTMLAnchorElement;
 
-  const renderItem = (props: Partial<SideMenuItemProps> = {}) => {
-    const text = props.text ?? "Orders";
-    const href = props.href ?? "/orders";
+  const defaultProps = {
+    text: "Orders",
+    href: "/orders",
+  } satisfies Pick<SideMenuItemProps, "text" | "href">;
 
-    const renderResult = render(
-      <SideMenuItem href={href} text={text} {...props} />,
-    );
+  const buildProps = (
+    props: Partial<SideMenuItemProps> = {},
+  ): SideMenuItemProps => ({
+    ...defaultProps,
+    ...props,
+  });
+
+  const renderItem = (props: Partial<SideMenuItemProps> = {}) => {
+    const resolvedProps = buildProps(props);
+    const renderResult = render(<SideMenuItem {...resolvedProps} />);
 
     return {
       ...renderResult,
-      menuItem: getMenuItem(text),
+      menuItem: getMenuItem(resolvedProps.text),
     };
   };
 
@@ -29,12 +37,11 @@ describe("SideMenuItem", () => {
     rerender: (ui: ReactElement) => void,
     props: Partial<SideMenuItemProps> = {},
   ) => {
-    const text = props.text ?? "Orders";
-    const href = props.href ?? "/orders";
+    const resolvedProps = buildProps(props);
 
-    rerender(<SideMenuItem href={href} text={text} {...props} />);
+    rerender(<SideMenuItem {...resolvedProps} />);
 
-    return getMenuItem(text);
+    return getMenuItem(resolvedProps.text);
   };
 
   describe("rendering", () => {
