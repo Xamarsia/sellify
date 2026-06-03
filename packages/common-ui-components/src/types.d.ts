@@ -30,3 +30,8 @@ export type CollapsiblePanelInfo = {
   title: string;
   content: ReactNode;
 };
+
+export type Summary = {
+  label: string;
+  amount: number;
+};

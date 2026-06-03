@@ -1,6 +1,6 @@
 import "server-only";
 
-import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
 
 import { OrderDetails } from "@sellify/customer-ui-components/types";
 
@@ -21,7 +21,7 @@ export default async function OrderPage({ params }: Props) {
       <div className="flex w-full justify-between gap-12 xl:gap-24 xl:flex-row flex-col">
         <OrderContentSections order={order} />
         <div className="xl:w-min">
-          <OrderSubtotal
+          <OrderSummary
             itemsSubtotal={order.itemsSubtotal}
             deliveryFee={order.deliveryFee}
             totalPrice={order.totalPrice}
