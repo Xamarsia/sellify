@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
-import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
 import { PaymentProvider } from "@sellify/common-ui-components/constants";
 import {
   PaymentMethodInfo,
@@ -335,7 +335,7 @@ export default function CheckoutPage() {
           </div>
         </div>
         <div className="xl:w-min">
-          <OrderSubtotal
+          <OrderSummary
             itemsSubtotal={itemsSubtotalPrice}
             totalPrice={totalPrice}
             deliveryFee={5}
@@ -348,7 +348,7 @@ export default function CheckoutPage() {
                 ? "Confirm and Proceed"
                 : "Final Confirm"}
             </Button>
-          </OrderSubtotal>
+          </OrderSummary>
         </div>
       </div>
     </div>
