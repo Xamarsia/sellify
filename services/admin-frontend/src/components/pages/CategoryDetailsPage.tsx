@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import { Category, ProductPreview } from "@sellify/admin-ui-components/types";
@@ -31,12 +32,8 @@ export default function CategoryDetailsPage({
       <Card label="Related Products" value="5" />
       <InfoSection title="Related Products">
         <Filter filterSections={ProductsPreviewFilterSections} />
-        <ProductPreviewView
-          content={relatedProducts}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <ProductPreviewView content={relatedProducts} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </InfoSection>
     </>
   );

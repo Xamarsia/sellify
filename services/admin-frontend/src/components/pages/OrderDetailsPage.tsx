@@ -1,5 +1,6 @@
 "use client";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import { PaymentMethodInfo } from "@sellify/common-ui-components/types";
 
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
@@ -54,13 +55,10 @@ export default function OrderDetailsPage({
 
       <InfoSection title="Products">
         <Filter filterSections={OrderProductsFilterSections} />
-        <OrderProductsView
-          content={order.products}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <OrderProductsView content={order.products} />
       </InfoSection>
+
+      <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
     </>
   );
 }

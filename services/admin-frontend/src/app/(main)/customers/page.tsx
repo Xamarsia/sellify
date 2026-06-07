@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import { Customer } from "@sellify/admin-ui-components/types";
 import CardWithChard from "@sellify/admin-ui-components/card/CardWithChard";
@@ -52,12 +53,8 @@ export default function CustomersPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={CustomersFilterSections} />
         </div>
-        <CustomersView
-          content={customers}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <CustomersView content={customers} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

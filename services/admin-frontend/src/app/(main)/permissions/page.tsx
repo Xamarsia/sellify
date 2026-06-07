@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import { Permission } from "@sellify/admin-ui-components/types";
 import Card from "@sellify/admin-ui-components/card/Card";
 import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
@@ -29,12 +30,8 @@ export default function PermissionsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={PermissionsFilterSections} />
         </div>
-        <PermissionsView
-          content={permissions}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <PermissionsView content={permissions} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

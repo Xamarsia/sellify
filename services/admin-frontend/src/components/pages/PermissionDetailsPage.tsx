@@ -1,5 +1,6 @@
 "use client";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import Card from "@sellify/admin-ui-components/card/Card";
 import { Permission, RolePreview } from "@sellify/admin-ui-components/types";
 import RolesPreviewView from "@sellify/admin-ui-components/data-view/RolesPreviewView";
@@ -26,12 +27,8 @@ export default function PermissionDetailsPage({
       <Card label="Related Roles" value={`${permission.relatedRolesCount}`} />
       <InfoSection title="Related Roles">
         <Filter filterSections={RolesFilterSections} />
-        <RolesPreviewView
-          content={relatedRoles}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <RolesPreviewView content={relatedRoles} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </InfoSection>
     </>
   );

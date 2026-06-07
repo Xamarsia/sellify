@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import { Admin } from "@sellify/admin-ui-components/types";
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -46,12 +47,8 @@ export default function AdminsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={AdminFilterSections} />
         </div>
-        <AdminsView
-          content={admins}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <AdminsView content={admins} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import { OrderPreview } from "@sellify/customer-ui-components/types";
 import OrdersView from "@sellify/customer-ui-components/data-view/OrdersView";
 
@@ -16,6 +17,7 @@ export default function OrdersHistoryPage() {
   const [query, setQuery] = useState<string>("");
   const [sortByKey, setSortByKey] = useState<string>();
   const [orders, setOrders] = useState<Array<OrderPreview>>(oderHistory);
+  const [page, setPage] = useState<number>(1);
 
   const comboboxSortItems = new Map<string, string>([
     ["newest", "Rank by newest date"],
@@ -47,6 +49,7 @@ export default function OrdersHistoryPage() {
         />
       </div>
       <OrdersView content={orders} />
+      <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
     </div>
   );
 }

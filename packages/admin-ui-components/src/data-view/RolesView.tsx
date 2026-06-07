@@ -1,40 +1,26 @@
-import { ReactNode, useMemo } from "react";
-
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
+import type { Cell } from "@sellify/common-ui-components/types";
 
 import { Role } from "../types";
 
 type RolesViewProps = {
   content: Array<Role>;
-  pagesAmount: number;
-  currentPage: number;
-  onPageChanged: (page: number) => void;
 };
 
-export default function RolesView({
-  content,
-  pagesAmount,
-  currentPage,
-  onPageChanged,
-}: RolesViewProps) {
-  const tableHeader: Array<string> = ["Role", "Related Users Amount"];
+const cellPrototypes: ReadonlyArray<Cell<Role>> = [
+  {
+    title: "Role",
+    viewBuilder: ({ roleId, title }) => (
+      <LinkTableItem href={`/role/${roleId}`} text={title} />
+    ),
+  },
+  {
+    title: "Related Users Amount",
+    viewBuilder: ({ relatedUsersCount }) => <p>{relatedUsersCount}</p>,
+  },
+];
 
-  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    /* eslint-disable react/jsx-key */
-    return content.map((role) => [
-      <LinkTableItem href={`/role/${role.roleId}`} text={role.title} />,
-      <p>{role.relatedUsersCount}</p>,
-    ]);
-  }, [content]);
-
-  return (
-    <AdaptiveDataView
-      head={tableHeader}
-      content={getContentArray}
-      currentPage={currentPage}
-      onPageChanged={onPageChanged}
-      pagesAmount={pagesAmount}
-    />
-  );
+export default function RolesView({ content }: RolesViewProps) {
+  return <AdaptiveDataView cellPrototypes={cellPrototypes} data={content} />;
 }

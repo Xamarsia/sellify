@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
@@ -51,12 +52,8 @@ export default function CustomerDetailsPage({ customer, orders }: Props) {
 
       <InfoSection title="Orders">
         <Filter filterSections={OrdersFilterSections} />
-        <OrdersView
-          content={orders}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <OrdersView content={orders} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </InfoSection>
     </>
   );

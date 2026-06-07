@@ -1,12 +1,11 @@
 "use client";
 
-import { ReactNode, useMemo, useState } from "react";
-
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
+import type { Cell } from "@sellify/common-ui-components/types";
 
 import { OrderPreview } from "../types";
 
@@ -14,31 +13,27 @@ type OrdersViewProps = {
   content: Array<OrderPreview>;
 };
 
+const cellPrototypes: ReadonlyArray<Cell<OrderPreview>> = [
+  {
+    title: "Order Number",
+    viewBuilder: ({ orderId }) => (
+      <LinkIdTableItem href={`/order/${orderId}`} id={orderId} />
+    ),
+  },
+  {
+    title: "Status",
+    viewBuilder: ({ status }) => <OrderStatusComponent status={status} />,
+  },
+  {
+    title: "Date",
+    viewBuilder: ({ date }) => <DateTableItem date={date} />,
+  },
+  {
+    title: "Total",
+    viewBuilder: ({ total }) => <CurrencyTableItem amount={total} />,
+  },
+];
+
 export default function OrdersView({ content }: OrdersViewProps) {
-  const [page, setPage] = useState<number>(1);
-
-  const tableHeader = useMemo<Array<string>>(() => {
-    const header: Array<string> = ["Order Number", "Status", "Date", "Total"];
-    return header;
-  }, []);
-
-  const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    /* eslint-disable react/jsx-key */
-    return content.map((order) => [
-      <LinkIdTableItem href={`/order/${order.orderId}`} id={order.orderId} />,
-      <OrderStatusComponent status={order.status} />,
-      <DateTableItem date={order.date} />,
-      <CurrencyTableItem amount={order.total} />,
-    ]);
-  }, [content]);
-
-  return (
-    <AdaptiveDataView
-      head={tableHeader}
-      content={contentArray}
-      currentPage={page}
-      onPageChanged={setPage}
-      pagesAmount={10}
-    />
-  );
+  return <AdaptiveDataView cellPrototypes={cellPrototypes} data={content} />;
 }

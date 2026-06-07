@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import ChevronDownIcon from "@sellify/common-icons/chevron-down";
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import OrdersView from "@sellify/admin-ui-components/data-view/OrdersView";
 import { OrderPreview } from "@sellify/admin-ui-components/types";
@@ -52,12 +53,8 @@ export default function OrdersPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={OrdersFilterSections} />
         </div>
-        <OrdersView
-          content={orders}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <OrdersView content={orders} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

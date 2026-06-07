@@ -5,6 +5,7 @@ import { useCallback, useContext, useState } from "react";
 import FireIcon from "@sellify/common-icons/fire";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import Card from "@sellify/admin-ui-components/card/Card";
 import { InventoryProduct } from "@sellify/admin-ui-components/types";
@@ -66,10 +67,8 @@ export default function InventoryPage() {
         <InventoryView
           content={inventoryProducts}
           onSubmit={openAddQuantityAlertDialog}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
         />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

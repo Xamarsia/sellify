@@ -31,6 +31,11 @@ export type CollapsiblePanelInfo = {
   content: ReactNode;
 };
 
+export type Cell<T> = Readonly<{
+  title: string;
+  viewBuilder: (value: T) => ReactNode;
+}>;
+
 export type Summary = {
   label: string;
   amount: number;
