@@ -1,59 +1,44 @@
-import { ReactNode, useMemo } from "react";
-
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
 import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
+import type { Cell } from "@sellify/common-ui-components/types";
 
 import { OrderPreview } from "../types";
 
 type OrdersViewProps = {
   content: Array<OrderPreview>;
-  pagesAmount: number;
-  currentPage?: number;
-  onPageChanged: (page: number) => void;
 };
 
-export default function OrdersView({
-  content,
-  pagesAmount,
-  currentPage,
-  onPageChanged,
-}: OrdersViewProps) {
-  const tableHeader = useMemo<Array<string>>(() => {
-    const header: Array<string> = [
-      "Order ID",
-      "Date",
-      "Customer",
-      "Total",
-      "Status",
-    ];
-    return header;
-  }, []);
+const cellPrototypes: ReadonlyArray<Cell<OrderPreview>> = [
+  {
+    title: "Order ID",
+    viewBuilder: ({ orderId }) => (
+      <LinkIdTableItem href={`/order/${orderId}`} id={orderId} />
+    ),
+  },
+  {
+    title: "Date",
+    viewBuilder: ({ date }) => <DateTableItem date={date} />,
+  },
+  {
+    title: "Customer",
+    viewBuilder: ({ customerId, customerName }) => (
+      <LinkTableItem href={`/customer/${customerId}`} text={customerName} />
+    ),
+  },
+  {
+    title: "Total",
+    viewBuilder: ({ total }) => <CurrencyTableItem amount={total} />,
+  },
+  {
+    title: "Status",
+    viewBuilder: ({ status }) => <OrderStatusComponent status={status} />,
+  },
+];
 
-  const contentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    /* eslint-disable react/jsx-key */
-    return content.map((order) => [
-      <LinkIdTableItem href={`/order/${order.orderId}`} id={order.orderId} />,
-      <DateTableItem date={order.date} />,
-      <LinkTableItem
-        href={`/customer/${order.customerId}`}
-        text={order.customerName}
-      />,
-      <CurrencyTableItem amount={order.total} />,
-      <OrderStatusComponent status={order.status} />,
-    ]);
-  }, [content]);
-
-  return (
-    <AdaptiveDataView
-      head={tableHeader}
-      content={contentArray}
-      currentPage={currentPage}
-      onPageChanged={onPageChanged}
-      pagesAmount={pagesAmount}
-    />
-  );
+export default function OrdersView({ content }: OrdersViewProps) {
+  return <AdaptiveDataView cellPrototypes={cellPrototypes} data={content} />;
 }

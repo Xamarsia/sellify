@@ -1,55 +1,43 @@
-import { ReactNode, useMemo } from "react";
-
 import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
 import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
 import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
 import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
+import type { Cell } from "@sellify/common-ui-components/types";
 
 import { Customer } from "../types";
 import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
 
 type CustomersViewProps = {
   content: Array<Customer>;
-  pagesAmount: number;
-  currentPage: number;
-  onPageChanged: (page: number) => void;
 };
 
-export default function CustomersView({
-  content,
-  pagesAmount,
-  currentPage,
-  onPageChanged,
-}: CustomersViewProps) {
-  const tableHeader: Array<string> = [
-    "Customer name",
-    "Customer ID",
-    "Orders Amount",
-    "Total expenses",
-    "Status",
-  ];
+const cellPrototypes: ReadonlyArray<Cell<Customer>> = [
+  {
+    title: "Customer name",
+    viewBuilder: ({ customerId, name }) => (
+      <LinkTableItem href={`/customer/${customerId}`} text={name} />
+    ),
+  },
+  {
+    title: "Customer ID",
+    viewBuilder: ({ customerId }) => <IdTableItem id={customerId} />,
+  },
+  {
+    title: "Orders Amount",
+    viewBuilder: ({ ordersCount }) => <p>{ordersCount}</p>,
+  },
+  {
+    title: "Total expenses",
+    viewBuilder: ({ totalExpenses }) => (
+      <CurrencyTableItem amount={totalExpenses} />
+    ),
+  },
+  {
+    title: "Status",
+    viewBuilder: ({ status }) => <CustomerStatusComponent status={status} />,
+  },
+];
 
-  const getContentArray = useMemo<Array<Array<ReactNode>>>(() => {
-    /* eslint-disable react/jsx-key */
-    return content.map((customer) => [
-      <LinkTableItem
-        href={`/customer/${customer.customerId}`}
-        text={customer.name}
-      />,
-      <IdTableItem id={customer.customerId} />,
-      <p>{customer.ordersCount}</p>,
-      <CurrencyTableItem amount={customer.totalExpenses} />,
-      <CustomerStatusComponent status={customer.status} />,
-    ]);
-  }, [content]);
-
-  return (
-    <AdaptiveDataView
-      head={tableHeader}
-      content={getContentArray}
-      currentPage={currentPage}
-      onPageChanged={onPageChanged}
-      pagesAmount={pagesAmount}
-    />
-  );
+export default function CustomersView({ content }: CustomersViewProps) {
+  return <AdaptiveDataView cellPrototypes={cellPrototypes} data={content} />;
 }

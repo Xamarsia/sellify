@@ -60,7 +60,6 @@ import { Permission } from "@sellify/admin-ui-components/enums";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>();
-  const [page, setPage] = useState<number>(1);
 
   const categoryPreview: CategoryPreview = {
     categoryId: 324534,
@@ -277,18 +276,12 @@ export default function Home() {
                 orderPreview,
                 orderPreview2,
               ]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Products Table">
             <ProductsView
               content={[product, product, product, product, product]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
@@ -296,9 +289,6 @@ export default function Home() {
             <InventoryView
               content={[inventory, inventory]}
               onSubmit={setQuantity}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
@@ -312,64 +302,35 @@ export default function Home() {
                 customer,
                 customer,
               ]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Categories Table">
             <CategoriesView
               content={[category, category, category, category]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Admins Table">
-            <AdminsView
-              content={[admin, admin]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
-            />
+            <AdminsView content={[admin, admin]} />
           </SectionItem>
 
           <SectionItem title="Roles Table">
-            <RolesView
-              content={[role, role, role, role]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
-            />
+            <RolesView content={[role, role, role, role]} />
           </SectionItem>
 
           <SectionItem title="Product Preview Table">
-            <ProductPreviewView
-              content={[productPreview, productPreview]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
-            />
+            <ProductPreviewView content={[productPreview, productPreview]} />
           </SectionItem>
 
           <SectionItem title="Admins Preview Table">
             <AdminsPreviewView
               content={[adminPreview, adminPreview, adminPreview]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Order Products Table">
-            <OrderProductsView
-              content={[cartItem, cartItem, cartItem]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
-            />
+            <OrderProductsView content={[cartItem, cartItem, cartItem]} />
           </SectionItem>
 
           <SectionItem title="Permissions Table">
@@ -379,19 +340,11 @@ export default function Home() {
                 permissionDataItem,
                 permissionDataItem,
               ]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
             />
           </SectionItem>
 
           <SectionItem title="Roles Preview Table">
-            <RolesPreviewView
-              content={[rolePreview, rolePreview]}
-              currentPage={page}
-              onPageChanged={setPage}
-              pagesAmount={10}
-            />
+            <RolesPreviewView content={[rolePreview, rolePreview]} />
           </SectionItem>
         </Section>
       </MainLayout>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import { Product } from "@sellify/admin-ui-components/types";
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -46,12 +47,8 @@ export default function ProductsPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={ProductsFilterSections} />
         </div>
-        <ProductsView
-          content={currentProducts}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <ProductsView content={currentProducts} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

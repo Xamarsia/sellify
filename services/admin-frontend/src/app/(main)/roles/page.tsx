@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import { Role } from "@sellify/admin-ui-components/types";
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -45,12 +46,8 @@ export default function RolesPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={RolesFilterSections} />
         </div>
-        <RolesView
-          content={roles}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <RolesView content={roles} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

@@ -1,39 +1,33 @@
-import { ReactNode } from "react";
-
 import ListView from "./ListView";
 import TableView from "./TableView";
-import Pagination from "../pages/Pagination";
+import type { Cell } from "../types";
 
-type AdaptiveDataViewProps = {
-  head: Array<string>;
-  content: Array<Array<ReactNode>>;
-  pagesAmount: number;
-  currentPage?: number;
-  onPageChanged: (page: number) => void;
+type AdaptiveDataViewProps<T> = {
+  cellPrototypes: ReadonlyArray<Cell<T>>;
+  data: ReadonlyArray<T>;
 };
 
-export default function AdaptiveDataView({
-  head,
-  content,
-  currentPage,
-  pagesAmount,
-  onPageChanged,
-}: AdaptiveDataViewProps) {
+/**
+ * Renders data using responsive table and list layouts.
+ *
+ * The table layout is displayed on larger screens, while the stacked list
+ * layout is displayed on smaller screens. Both layouts use the same cell
+ * prototypes and complete row objects.
+ *
+ * @typeParam T - Shape of each data row
+ * @param cellPrototypes - Definitions used to render labels, headers, and row values
+ * @param data - Rows rendered in both responsive layouts
+ */
+export default function AdaptiveDataView<T>(props: AdaptiveDataViewProps<T>) {
   return (
-    <div className="flex flex-col w-full gap-6">
+    <>
       <div className="not-sm:hidden">
-        <TableView head={head} content={content} />
+        <TableView {...props} />
       </div>
 
       <div className="sm:hidden">
-        <ListView head={head} content={content} />
+        <ListView {...props} />
       </div>
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={pagesAmount}
-        onPageChange={onPageChanged}
-      />
-    </div>
+    </>
   );
 }

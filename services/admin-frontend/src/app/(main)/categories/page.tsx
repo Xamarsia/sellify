@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import { Category } from "@sellify/admin-ui-components/types";
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -36,12 +37,8 @@ export default function CategoriesPage() {
         <div className="flex w-full justify-end">
           <Filter filterSections={CategoriesFilterSections} />
         </div>
-        <CategoriesView
-          content={currentCategories}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <CategoriesView content={currentCategories} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </div>
     </>
   );

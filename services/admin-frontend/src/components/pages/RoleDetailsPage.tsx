@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import Pagination from "@sellify/common-ui-components/pages/Pagination";
 import Card from "@sellify/admin-ui-components/card/Card";
 import InfoSection from "@sellify/admin-ui-components/InfoSection";
 import { AdminPreview, Role } from "@sellify/admin-ui-components/types";
@@ -42,12 +43,8 @@ export default function RoleDetailsPage({ role, relatedAdmins }: Props) {
 
       <InfoSection title="Related Users">
         <Filter filterSections={AdminPreviewFilterSections} />
-        <AdminsPreviewView
-          content={relatedAdmins}
-          currentPage={page}
-          onPageChanged={setPage}
-          pagesAmount={10}
-        />
+        <AdminsPreviewView content={relatedAdmins} />
+        <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
       </InfoSection>
     </>
   );
