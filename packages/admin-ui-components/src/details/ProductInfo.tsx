@@ -1,11 +1,12 @@
-import { ProductStatus } from "@sellify/common-ui-components/types";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
+import ProductStatusComponent, {
+  ProductStatusVariant,
+} from "@sellify/common-ui-components/statuses/ProductStatus";
 
-import ProductStatusComponent from "../statuses/ProductStatusComponent";
 import { CategoryPreview } from "../types";
 
 type ProductInfoProps = {
-  status: ProductStatus;
+  status: ProductStatusVariant;
   category: CategoryPreview;
   price: number;
   creationDate: string;

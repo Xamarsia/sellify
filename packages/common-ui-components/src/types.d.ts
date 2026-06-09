@@ -1,9 +1,6 @@
-export type OrderStatus = "NEW" | "IN_PROGRESS" | "SHIPPED" | "CANCELED";
-export type ProductStatus = "ACTIVE" | "ARCHIVED";
 export type PaymentProvider = "BALANCE" | "CARD" | "GOOGLE_PAY" | "PAYPAL";
 export type DeliveryProvider = "DHL" | "UPS" | "PUROLATOR";
 export type ProductLabel = "NEW" | "BESTSELLER" | "GIFT";
-export type SidePanelPlacement = "LEFT" | "RIGHT";
 
 export type NavMenuItem = {
   href: string;
@@ -30,11 +27,6 @@ export type CollapsiblePanelInfo = {
   title: string;
   content: ReactNode;
 };
-
-export type Cell<T> = Readonly<{
-  title: string;
-  viewBuilder: (value: T) => ReactNode;
-}>;
 
 export type Summary = {
   label: string;

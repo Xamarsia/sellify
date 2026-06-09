@@ -9,7 +9,7 @@ import ChevronUpIcon from "@sellify/common-icons/chevron-up";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
-import { ProfileMenuItems } from "../../constants";
+import { PROFILE_MENU_ITEMS } from "../../constants";
 
 export default function ProfileMenuDrawer() {
   const [isExtended, setIsExtended] = useState<boolean>(false);
@@ -23,7 +23,7 @@ export default function ProfileMenuDrawer() {
 
   const selectedItem = useMemo<NavMenuItem>(() => {
     return (
-      ProfileMenuItems.find((item) => {
+      PROFILE_MENU_ITEMS.find((item) => {
         return item.href === pathname;
       }) ?? notFound()
     );
@@ -42,7 +42,9 @@ export default function ProfileMenuDrawer() {
         </div>
       </button>
 
-      {isExtended && <SideMenu items={ProfileMenuItems} pathname={pathname} />}
+      {isExtended && (
+        <SideMenu items={PROFILE_MENU_ITEMS} pathname={pathname} />
+      )}
     </div>
   );
 }

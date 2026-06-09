@@ -1,6 +1,6 @@
 import { NavMenuItem } from "@sellify/common-ui-components/types";
 
-export const MainMenuItems: Array<NavMenuItem> = [
+export const MAIN_MENU_ITEMS: ReadonlyArray<NavMenuItem> = [
   { href: "/", title: "Home" },
   { href: "/orders", title: "Orders" },
   { href: "/products", title: "Products" },

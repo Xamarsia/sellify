@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
 
-import { ComponentProps, ReactElement } from "react";
+import type { ComponentProps, ReactElement } from "react";
 
-import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
+import AdaptiveDataView from "@sellify/common-ui-components/adaptive-view/AdaptiveDataView";
 
 type Product = {
   name: string;
@@ -15,10 +15,10 @@ type RerenderFn = (ui: ReactElement) => void;
 
 describe("AdaptiveDataView", () => {
   const cellPrototypes: AdaptiveDataViewProps["cellPrototypes"] = [
-    { title: "Name", viewBuilder: (product) => <span>{product.name}</span> },
+    { title: "Name", buildView: (product) => <span>{product.name}</span> },
     {
       title: "Status",
-      viewBuilder: (product) => <span>{product.status}</span>,
+      buildView: (product) => <span>{product.status}</span>,
     },
   ];
 
@@ -43,11 +43,12 @@ describe("AdaptiveDataView", () => {
   const getBodyRows = () => screen.getAllByRole("row").slice(1);
 
   const expectTextInBothLayouts = (text: string) => {
-    expect(screen.getAllByText(text)).toHaveLength(2);
+    expect(within(screen.getByRole("table")).getByText(text)).toBeVisible();
+    expect(within(screen.getByRole("list")).getByText(text)).toBeVisible();
   };
 
   describe("rendering", () => {
-    it("renders table and list representations from the same data", () => {
+    it("renders table and list layouts from the same data", () => {
       renderAdaptiveDataView();
 
       expect(screen.getByRole("table")).toBeVisible();
@@ -58,7 +59,7 @@ describe("AdaptiveDataView", () => {
       expectTextInBothLayouts("Beta");
     });
 
-    it("uses responsive wrappers to switch between table and list layouts", () => {
+    it("wraps each layout with its responsive visibility class", () => {
       renderAdaptiveDataView();
 
       const tableWrapper =
@@ -72,18 +73,25 @@ describe("AdaptiveDataView", () => {
     it("renders prototype titles and values in both layouts", () => {
       renderAdaptiveDataView();
 
+      const table = screen.getByRole("table");
       const list = screen.getByRole("list");
 
-      expect(screen.getAllByRole("columnheader")).toHaveLength(
+      expect(within(table).getAllByRole("columnheader")).toHaveLength(
         cellPrototypes.length,
       );
+      expect(
+        within(table).getByRole("columnheader", { name: "Name" }),
+      ).toBeVisible();
+      expect(
+        within(table).getByRole("columnheader", { name: "Status" }),
+      ).toBeVisible();
       expect(within(list).getAllByText("Name")).toHaveLength(data.length);
       expect(within(list).getAllByText("Status")).toHaveLength(data.length);
       expectTextInBothLayouts("Active");
       expectTextInBothLayouts("Paused");
     });
 
-    it("renders empty table and list bodies when no data is provided", () => {
+    it("renders headers and empty layout bodies when data is empty", () => {
       renderAdaptiveDataView({ data: [] });
 
       expect(screen.getAllByRole("row")).toHaveLength(1);
@@ -115,7 +123,7 @@ describe("AdaptiveDataView", () => {
         cellPrototypes: [
           {
             title: "Summary",
-            viewBuilder: ({ name, status }) => (
+            buildView: ({ name, status }) => (
               <span>{`${name} is ${status}`}</span>
             ),
           },

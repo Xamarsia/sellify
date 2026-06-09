@@ -4,7 +4,7 @@ import { NavMenuItem } from "../types";
 import SideMenuItem from "./SideMenuItem";
 
 type SideMenuProps = {
-  items: Array<NavMenuItem>;
+  items: ReadonlyArray<NavMenuItem>;
   pathname: string;
 };
 

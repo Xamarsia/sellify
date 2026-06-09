@@ -1,10 +1,14 @@
 "use client";
 
-import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
-import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
-import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
-import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
-import type { Cell } from "@sellify/common-ui-components/types";
+import {
+  createCellPrototype,
+  type CellPrototype,
+} from "@sellify/common-ui-components/adaptive-view/AdaptiveCell";
+import AdaptiveDataView from "@sellify/common-ui-components/adaptive-view/AdaptiveDataView";
+import { CurrencyCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/CurrencyCellBuilder";
+import { DateCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/DateCellBuilder";
+import { IdCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/IdCellBuilder";
+import { TextCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/TextCellBuilder";
 
 type ProductRow = {
   id: number;
@@ -13,17 +17,15 @@ type ProductRow = {
   date: string;
 };
 
-const cellPrototypes: ReadonlyArray<Cell<ProductRow>> = [
-  { title: "ID", viewBuilder: ({ id }) => <IdTableItem id={id} /> },
-  { title: "Product", viewBuilder: ({ title }) => <p>{title}</p> },
-  {
-    title: "Price",
-    viewBuilder: ({ price }) => <CurrencyTableItem amount={price} />,
-  },
-  {
-    title: "Date",
-    viewBuilder: ({ date }) => <DateTableItem date={date} />,
-  },
+const cellPrototypes: ReadonlyArray<CellPrototype<ProductRow>> = [
+  createCellPrototype("ID", IdCellBuilder, ({ id }) => ({ id })),
+  createCellPrototype("Product", TextCellBuilder, ({ title }) => ({
+    text: title,
+  })),
+  createCellPrototype("Price", CurrencyCellBuilder, ({ price }) => ({
+    amount: price,
+  })),
+  createCellPrototype("Date", DateCellBuilder, ({ date }) => ({ date })),
 ];
 
 const data: ReadonlyArray<ProductRow> = [

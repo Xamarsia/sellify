@@ -1,9 +1,10 @@
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
-import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
-import { OrderStatus } from "@sellify/common-ui-components/types";
+import OrderStatusComponent, {
+  type OrderStatusVariant,
+} from "@sellify/common-ui-components/statuses/OrderStatus";
 
 type OrderInfoProps = {
-  orderStatus: OrderStatus;
+  orderStatus: OrderStatusVariant;
   customerId: number;
   customerName: string;
   purchaseDate: string;

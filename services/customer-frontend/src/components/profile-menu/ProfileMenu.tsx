@@ -4,10 +4,10 @@ import { usePathname } from "next/navigation";
 
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
-import { ProfileMenuItems } from "../../constants";
+import { PROFILE_MENU_ITEMS } from "../../constants";
 
 export default function ProfileMenu() {
   const pathname: string = usePathname();
 
-  return <SideMenu items={ProfileMenuItems} pathname={pathname} />;
+  return <SideMenu items={PROFILE_MENU_ITEMS} pathname={pathname} />;
 }

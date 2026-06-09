@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  OrderStatus,
-  PaymentProvider,
-} from "@sellify/common-ui-components/constants";
+import { PAYMENT_PROVIDER } from "@sellify/common-ui-components/constants";
+import { ORDER_STATUS } from "@sellify/common-ui-components/statuses/OrderStatus";
 import {
   PaymentMethodInfo,
   PaymentProvider as PaymentProviderType,
@@ -21,28 +19,28 @@ const orderPreview: OrderPreview = {
   orderId: 2343,
   date: "June 23, 2024",
   total: 23.46,
-  status: OrderStatus.Shipped,
+  status: ORDER_STATUS.SHIPPED,
 };
 
 const orderPreview2: OrderPreview = {
   orderId: 67843,
   date: "Aug 7, 2024",
   total: 64.32,
-  status: OrderStatus.InProgress,
+  status: ORDER_STATUS.IN_PROGRESS,
 };
 
 const orderPreview3: OrderPreview = {
   orderId: 56736784,
   date: "Jan 13, 2025",
   total: 345.46,
-  status: OrderStatus.Shipped,
+  status: ORDER_STATUS.SHIPPED,
 };
 
 const orderPreview4: OrderPreview = {
   orderId: 245,
   date: "Aug 18, 2025",
   total: 253.82,
-  status: OrderStatus.New,
+  status: ORDER_STATUS.NEW,
 };
 
 export function getOrderHistory(): Array<OrderPreview> {
@@ -85,12 +83,18 @@ export function getPaymentProviders(): Map<
   const paymentProviders: Map<PaymentProviderType, PaymentMethodInfo> = new Map(
     [
       [
-        PaymentProvider.Balance,
+        PAYMENT_PROVIDER.BALANCE,
         { title: "Balance ($1050.06)", isAvailable: true },
       ],
-      [PaymentProvider.Card, { title: "Debit/Credit Card", isAvailable: true }],
-      [PaymentProvider.GooglePay, { title: "Google Pay", isAvailable: false }],
-      [PaymentProvider.Paypal, { title: "Paypal", isAvailable: false }],
+      [
+        PAYMENT_PROVIDER.CARD,
+        { title: "Debit/Credit Card", isAvailable: true },
+      ],
+      [
+        PAYMENT_PROVIDER.GOOGLE_PAY,
+        { title: "Google Pay", isAvailable: false },
+      ],
+      [PAYMENT_PROVIDER.PAYPAL, { title: "Paypal", isAvailable: false }],
     ],
   );
   return paymentProviders;
@@ -122,11 +126,11 @@ export function getOrder(orderId: number): OrderDetails {
   const order: OrderDetails = {
     orderId: 2343,
     customerId: 567456456,
-    status: OrderStatus.Shipped,
+    status: ORDER_STATUS.SHIPPED,
     purchaseDate: "June 23, 2024",
     contactInfo: contactInfo,
     deliveryAddress: deliveryAddress,
-    paymentProvider: PaymentProvider.Balance,
+    paymentProvider: PAYMENT_PROVIDER.BALANCE,
     totalPrice: 35.46,
     itemsSubtotal: 23.46,
     products: cartItems,

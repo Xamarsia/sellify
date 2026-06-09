@@ -24,15 +24,10 @@ import {
   RolePreview,
 } from "@sellify/admin-ui-components/types";
 
-import {
-  AdminStatus,
-  CustomerStatus,
-} from "@sellify/admin-ui-components/constants";
-
-import {
-  OrderStatus,
-  ProductStatus,
-} from "@sellify/common-ui-components/constants";
+import { ADMIN_STATUS } from "@sellify/admin-ui-components/statuses/AdminStatus";
+import { CUSTOMER_STATUS } from "@sellify/admin-ui-components/statuses/CustomerStatus";
+import { ORDER_STATUS } from "@sellify/common-ui-components/statuses/OrderStatus";
+import { PRODUCT_STATUS } from "@sellify/common-ui-components/statuses/ProductStatus";
 
 import AddAmountButton from "@sellify/admin-ui-components/AddAmountButton";
 import SettingsSection from "@sellify/admin-ui-components/SettingsSection";
@@ -50,10 +45,10 @@ import RolesView from "@sellify/admin-ui-components/data-view/RolesView";
 import OrderProductsView from "@sellify/admin-ui-components/data-view/OrderProductsView";
 import PermissionsView from "@sellify/admin-ui-components/data-view/PermissionsView";
 import RolesPreviewView from "@sellify/admin-ui-components/data-view/RolesPreviewView";
-import AdminStatusComponent from "@sellify/admin-ui-components/statuses/AdminStatusComponent";
-import CustomerStatusComponent from "@sellify/admin-ui-components/statuses/CustomerStatusComponent";
-import OrderStatusComponent from "@sellify/admin-ui-components/statuses/OrderStatusComponent";
-import ProductStatusComponent from "@sellify/admin-ui-components/statuses/ProductStatusComponent";
+import AdminStatusComponent from "@sellify/admin-ui-components/statuses/AdminStatus";
+import CustomerStatusComponent from "@sellify/admin-ui-components/statuses/CustomerStatus";
+import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatus";
+import ProductStatusComponent from "@sellify/common-ui-components/statuses/ProductStatus";
 
 import image from "resources/image.jpg";
 import { Permission } from "@sellify/admin-ui-components/enums";
@@ -70,18 +65,19 @@ export default function Home() {
     orderId: 2343,
     customerId: 23465,
     date: "June 23, 2024",
-    customerName: "John Thomson",
+    customerName: "John Thomsonscsdfsdddddddddddsdfffffffffffffffffffffff",
     total: 23.46,
-    status: OrderStatus.Shipped,
+    status: ORDER_STATUS.SHIPPED,
   };
 
   const orderPreview2: OrderPreview = {
     orderId: 2343,
     customerId: 23465,
     date: "June 23, 2024",
-    customerName: "John Thomson",
+    customerName:
+      "John Thomson sdfsdfgfgrgeee eeeeeeeee tryyyyyyyyyyyy rtyrtyrtyrty rtyrty rtyrt yrtyrtyrt rtyrty rty eeee",
     total: 23.46,
-    status: OrderStatus.Shipped,
+    status: ORDER_STATUS.SHIPPED,
   };
 
   const orderPreview3: OrderPreview = {
@@ -90,7 +86,7 @@ export default function Home() {
     date: "Aug 7, 2024",
     customerName: "John Thomson",
     total: 64.32,
-    status: OrderStatus.InProgress,
+    status: ORDER_STATUS.IN_PROGRESS,
   };
 
   const orderPreview4: OrderPreview = {
@@ -99,7 +95,7 @@ export default function Home() {
     date: "Jan 13, 2025",
     customerName: "John Thomson",
     total: 345.46,
-    status: OrderStatus.Shipped,
+    status: ORDER_STATUS.SHIPPED,
   };
 
   const product: Product = {
@@ -138,7 +134,7 @@ export default function Home() {
     totalExpenses: 234.43,
     createdOn: "Jan 10, 2020",
     deliveryAddress: deliveryAddress,
-    status: CustomerStatus.Active,
+    status: CUSTOMER_STATUS.ACTIVE,
   };
 
   const category: Category = {
@@ -157,7 +153,7 @@ export default function Home() {
     name: "Ronald Jones",
     role: rolePreview,
     createdOn: "Jan 10, 2020",
-    status: AdminStatus.Invited,
+    status: ADMIN_STATUS.INVITED,
   };
 
   const adminPreview: AdminPreview = {
@@ -243,23 +239,23 @@ export default function Home() {
 
         <Section title={"Statuses"}>
           <SectionItem title="Admin Status">
-            <AdminStatusComponent status={AdminStatus.Active} />
-            <AdminStatusComponent status={AdminStatus.Invited} />
-            <AdminStatusComponent status={AdminStatus.Disabled} />
+            <AdminStatusComponent status={ADMIN_STATUS.ACTIVE} />
+            <AdminStatusComponent status={ADMIN_STATUS.INVITED} />
+            <AdminStatusComponent status={ADMIN_STATUS.DISABLED} />
           </SectionItem>
           <SectionItem title="Customer Status">
-            <CustomerStatusComponent status={CustomerStatus.Active} />
-            <CustomerStatusComponent status={CustomerStatus.Archived} />
+            <CustomerStatusComponent status={CUSTOMER_STATUS.ACTIVE} />
+            <CustomerStatusComponent status={CUSTOMER_STATUS.ARCHIVED} />
           </SectionItem>
           <SectionItem title="Order Status">
-            <OrderStatusComponent status={OrderStatus.New} />
-            <OrderStatusComponent status={OrderStatus.InProgress} />
-            <OrderStatusComponent status={OrderStatus.Shipped} />
-            <OrderStatusComponent status={OrderStatus.Canceled} />
+            <OrderStatusComponent status={ORDER_STATUS.NEW} />
+            <OrderStatusComponent status={ORDER_STATUS.IN_PROGRESS} />
+            <OrderStatusComponent status={ORDER_STATUS.SHIPPED} />
+            <OrderStatusComponent status={ORDER_STATUS.CANCELED} />
           </SectionItem>
           <SectionItem title="Product Status">
-            <ProductStatusComponent status={ProductStatus.Active} />
-            <ProductStatusComponent status={ProductStatus.Archived} />
+            <ProductStatusComponent status={PRODUCT_STATUS.ACTIVE} />
+            <ProductStatusComponent status={PRODUCT_STATUS.ARCHIVED} />
           </SectionItem>
         </Section>
 

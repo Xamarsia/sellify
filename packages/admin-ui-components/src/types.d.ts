@@ -3,9 +3,6 @@ import {
   ProductStatus,
 } from "@sellify/common-ui-components/types";
 
-export type AdminStatus = "ACTIVE" | "INVITED" | "DISABLED";
-export type CustomerStatus = "ACTIVE" | "ARCHIVED";
-
 export type Order = {
   orderId: number;
   date: string;

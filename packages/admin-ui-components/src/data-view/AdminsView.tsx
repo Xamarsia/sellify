@@ -1,41 +1,37 @@
-import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
-import LinkTableItem from "@sellify/common-ui-components/table-items/LinkTableItem";
-import IdTableItem from "@sellify/common-ui-components/table-items/IdTableItem";
-import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
-import type { Cell } from "@sellify/common-ui-components/types";
+import {
+  createCellPrototype,
+  type CellPrototype,
+} from "@sellify/common-ui-components/adaptive-view/AdaptiveCell";
+import AdaptiveDataView from "@sellify/common-ui-components/adaptive-view/AdaptiveDataView";
+import { DateCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/DateCellBuilder";
+import { IdCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/IdCellBuilder";
+import { LinkTextCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/LinkTextCellBuilder";
+import { AdminStatusCellBuilder } from "../cell-builders/AdminStatusCellBuilder";
 
 import { Admin } from "../types";
-import AdminStatusComponent from "../statuses/AdminStatusComponent";
 
 type AdminsViewProps = {
   content: Array<Admin>;
 };
 
-const cellPrototypes: ReadonlyArray<Cell<Admin>> = [
-  {
-    title: "Name",
-    viewBuilder: ({ adminId, name }) => (
-      <LinkTableItem href={`/admin/${adminId}`} text={name} />
-    ),
-  },
-  {
-    title: "Admin ID",
-    viewBuilder: ({ adminId }) => <IdTableItem id={adminId} />,
-  },
-  {
-    title: "Created On",
-    viewBuilder: ({ createdOn }) => <DateTableItem date={createdOn} />,
-  },
-  {
-    title: "Role",
-    viewBuilder: ({ role }) => (
-      <LinkTableItem href={`/role/${role.roleId}`} text={role.title} />
-    ),
-  },
-  {
-    title: "Status",
-    viewBuilder: ({ status }) => <AdminStatusComponent status={status} />,
-  },
+const cellPrototypes: ReadonlyArray<CellPrototype<Admin>> = [
+  createCellPrototype("Name", LinkTextCellBuilder, ({ adminId, name }) => ({
+    href: `/admin/${adminId}`,
+    text: name,
+  })),
+  createCellPrototype("Admin ID", IdCellBuilder, ({ adminId }) => ({
+    id: adminId,
+  })),
+  createCellPrototype("Created On", DateCellBuilder, ({ createdOn }) => ({
+    date: createdOn,
+  })),
+  createCellPrototype("Role", LinkTextCellBuilder, ({ role }) => ({
+    href: `/role/${role.roleId}`,
+    text: role.title,
+  })),
+  createCellPrototype("Status", AdminStatusCellBuilder, ({ status }) => ({
+    status,
+  })),
 ];
 
 export default function AdminsView({ content }: AdminsViewProps) {

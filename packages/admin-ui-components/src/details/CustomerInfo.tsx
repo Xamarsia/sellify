@@ -1,6 +1,6 @@
 import { Customer } from "../types";
 
-import CustomerStatusComponent from "../statuses/CustomerStatusComponent";
+import CustomerStatusComponent from "../statuses/CustomerStatus";
 
 type CustomerInfoProps = {
   customer: Customer;

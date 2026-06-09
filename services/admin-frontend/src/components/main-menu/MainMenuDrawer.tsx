@@ -9,7 +9,7 @@ import { NavMenuItem } from "@sellify/common-ui-components/types";
 
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
-import { MainMenuItems } from "../../constants";
+import { MAIN_MENU_ITEMS } from "../../constants";
 
 export default function MainMenuDrawer() {
   const [isExtended, setIsExtended] = useState<boolean>(false);
@@ -23,7 +23,7 @@ export default function MainMenuDrawer() {
 
   const selectedItem = useMemo<NavMenuItem>(() => {
     return (
-      MainMenuItems.find((item) => {
+      MAIN_MENU_ITEMS.find((item) => {
         return item.href === pathname;
       }) ?? notFound()
     );
@@ -42,7 +42,7 @@ export default function MainMenuDrawer() {
         </div>
       </button>
 
-      {isExtended && <SideMenu items={MainMenuItems} pathname={pathname} />}
+      {isExtended && <SideMenu items={MAIN_MENU_ITEMS} pathname={pathname} />}
     </div>
   );
 }

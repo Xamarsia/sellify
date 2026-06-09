@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CustomerStatus } from "@sellify/admin-ui-components/constants";
+import { CUSTOMER_STATUS } from "@sellify/admin-ui-components/statuses/CustomerStatus";
 import { Customer, DeliveryAddress } from "@sellify/admin-ui-components/types";
 
 const deliveryAddress: DeliveryAddress = {
@@ -12,7 +12,7 @@ const customer: Customer = {
   name: "Ronald Jones",
   ordersCount: 0,
   totalExpenses: 234.43,
-  status: CustomerStatus.Active,
+  status: CUSTOMER_STATUS.ACTIVE,
   createdOn: "22 Feb 2025",
   deliveryAddress: deliveryAddress,
 };
@@ -22,7 +22,7 @@ const customer2: Customer = {
   name: "LongUnbreakableCustomerName|LongUnbreakableCustomerNameLongUnbreakableCustomerName",
   ordersCount: 5,
   totalExpenses: 65656.43,
-  status: CustomerStatus.Archived,
+  status: CUSTOMER_STATUS.ARCHIVED,
   createdOn: "25 Feb 2025",
   deliveryAddress: deliveryAddress,
 };
@@ -32,7 +32,7 @@ const customer3: Customer = {
   name: "Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name | Long Customer Name",
   ordersCount: 2324,
   totalExpenses: 4545645656776,
-  status: CustomerStatus.Active,
+  status: CUSTOMER_STATUS.ACTIVE,
   createdOn: "05 Feb 2025",
   deliveryAddress: deliveryAddress,
 };

@@ -3,9 +3,10 @@
 import { ReactNode, useCallback, useState } from "react";
 
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
-import SidePanel from "@sellify/common-ui-components/SidePanel";
+import SidePanel, {
+  SIDE_PANEL_PLACEMENT,
+} from "@sellify/common-ui-components/SidePanel";
 import { NavMenuItem } from "@sellify/common-ui-components/types";
-import { SIDE_PANEL_PLACEMENT } from "@sellify/common-ui-components/constants";
 
 import { NavbarDrawerContext } from "contexts/common-context";
 import { usePathname } from "next/navigation";

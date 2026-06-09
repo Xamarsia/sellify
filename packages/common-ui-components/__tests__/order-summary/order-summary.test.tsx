@@ -5,7 +5,7 @@ import { render } from "@testing-library/react";
 import { ComponentProps } from "react";
 
 import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
-import * as currencyUtils from "../../utils/currency";
+import * as currencyUtils from "../../src/utils/currency";
 
 type OrderSummaryProps = ComponentProps<typeof OrderSummary>;
 type OrderSummaryElements = {

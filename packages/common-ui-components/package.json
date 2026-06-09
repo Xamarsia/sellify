@@ -5,7 +5,9 @@
   "license": "MIT",
   "exports": {
     "./types": "./src/types.d.ts",
+    "./utils/*": "./src/utils/*.ts",
     "./constants": "./src/constants.ts",
+    "./statuses/types": "./src/statuses/types.ts",
     "./styles": "./styles/globals.css",
     "./*": "./src/*.tsx",
     "./**/*": "./src/**/*.tsx"
