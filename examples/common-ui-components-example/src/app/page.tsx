@@ -13,7 +13,7 @@ import PlusIcon from "@sellify/common-icons/plus";
 import {
   NavMenuItem,
   SliderRange,
-  TabItemInfo,
+  // TabItemInfo,
 } from "@sellify/common-ui-components/types";
 
 import image from "resources/1/image.jpg";
@@ -33,8 +33,11 @@ import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInp
 import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
-import Tabs from "@sellify/common-ui-components/tabs/Tabs";
-import OrderSubtotal from "@sellify/common-ui-components/OrderSubtotal";
+
+// import Tabs from "@sellify/common-ui-components/tabs/AdaptiveTabs";
+// import VerticalTabs from "@sellify/common-ui-components/tabs/VerticalTabs";
+
+import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
 import FormItem from "@sellify/common-ui-components/form/FormItem";
@@ -95,23 +98,23 @@ export default function Home() {
     { href: "/category", title: "Category" },
   ];
 
-  const tabs: Array<TabItemInfo> = [
-    {
-      href: "/",
-      title: "Home",
-      content: <p>Here we show information about the client.</p>,
-    },
-    {
-      href: "/description",
-      title: "Description",
-      content: <p>Here we show description.</p>,
-    },
-    {
-      href: "/info",
-      title: "Additional Information",
-      content: <p>Here we show additional information.</p>,
-    },
-  ];
+  // const tabs: Array<TabItemInfo> = [
+  //   {
+  //     href: "/",
+  //     title: "Home",
+  //     content: <p>Here we show information about the client.</p>,
+  //   },
+  //   {
+  //     href: "/description",
+  //     title: "Description",
+  //     content: <p>Here we show description.</p>,
+  //   },
+  //   {
+  //     href: "/info",
+  //     title: "Additional Information",
+  //     content: <p>Here we show additional information.</p>,
+  //   },
+  // ];
 
   const range: SliderRange = {
     min: 200,
@@ -374,11 +377,12 @@ export default function Home() {
 
         {/* ------------------------------------------------------------- */}
 
-        <Section title={"Tab"}>
+        {/* <Section title={"Tab"}>
           <SectionItem>
-            <Tabs items={tabs} hash={""} />
+        <Tabs tabItems={tabs} activeTabHref={""} />
+        <VerticalTabs tabItems={tabs} activeTabHref={"/description"} />
           </SectionItem>
-        </Section>
+        </Section> */}
 
         {/* ------------------------------------------------------------- */}
 
@@ -517,10 +521,10 @@ export default function Home() {
 
         <Section title={"Order Subtotal Card"}>
           <SectionItem>
-            <OrderSubtotal
+            <OrderSummary
               itemsSubtotal={345}
               deliveryFee={5}
-              totalPrice={350}
+              orderTotal={350}
             />
           </SectionItem>
         </Section>

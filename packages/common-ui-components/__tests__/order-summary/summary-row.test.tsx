@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import { ComponentProps, ReactElement } from "react";
 
 import SummaryRow from "@sellify/common-ui-components/order-summary/SummaryRow";
-import * as currencyUtils from "../../src/utils/currency";
+import * as currencyUtils from "@sellify/common-ui-components/utils/currency";
 
 type SummaryRowProps = ComponentProps<typeof SummaryRow>;
 type SummaryRowElements = {

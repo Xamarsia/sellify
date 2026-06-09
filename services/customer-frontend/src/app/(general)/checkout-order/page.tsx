@@ -337,18 +337,19 @@ export default function CheckoutPage() {
         <div className="xl:w-min">
           <OrderSummary
             itemsSubtotal={itemsSubtotalPrice}
-            totalPrice={totalPrice}
-            deliveryFee={5}
-          >
-            <Button
-              disabled={!currentStepContent?.isValid}
-              onClick={onNextStep}
-            >
-              {currentStep < CheckoutStep.REVIEW
-                ? "Confirm and Proceed"
-                : "Final Confirm"}
-            </Button>
-          </OrderSummary>
+            deliveryFee={deliveryFee}
+            orderTotal={totalPrice}
+            actions={[
+              {
+                disabled: !currentStepContent?.isValid,
+                onClick: onNextStep,
+                children:
+                  currentStep < CheckoutStep.REVIEW
+                    ? "Confirm and Proceed"
+                    : "Final Confirm",
+              },
+            ]}
+          />
         </div>
       </div>
     </div>

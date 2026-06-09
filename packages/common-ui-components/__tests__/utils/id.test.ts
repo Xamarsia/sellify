@@ -1,4 +1,4 @@
-import { formatID } from "../../src/utils/id";
+import { formatID } from "@sellify/common-ui-components/utils/id";
 
 describe("formatID", () => {
   it("formats a numeric identifier with a hash prefix", () => {

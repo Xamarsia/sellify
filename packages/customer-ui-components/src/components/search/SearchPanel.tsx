@@ -1,0 +1,82 @@
+"use client";
+
+import { useCallback, useState } from "react";
+
+import SidePanel from "@sellify/common-ui-components/SidePanel";
+import SearchInput from "@sellify/common-ui-components/input/SearchInput";
+import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
+import ArrowLongRightIcon from "@sellify/common-icons/arrow-long-right";
+
+import SearchItem from "./SearchItem";
+import { SearchItem as SearchItemType, NavigationLink } from "../../types";
+
+type SearchPanelProps = {
+  query: string;
+  isOpen: boolean;
+  onClose: () => void;
+  onQueryChange: (query: string) => Array<SearchItemType>;
+  onSearch: () => void;
+  popularQuickLinks: Array<NavigationLink>;
+};
+
+export default function SearchPanel({
+  query,
+  onSearch,
+  isOpen,
+  onClose,
+  onQueryChange,
+  popularQuickLinks,
+}: SearchPanelProps) {
+  const [searchResults, setSearchResults] = useState<Array<SearchItemType>>([]);
+
+  const onQueryChanged = useCallback(
+    (query: string): void => {
+      setSearchResults(onQueryChange(query));
+    },
+    [onQueryChange],
+  );
+
+  return (
+    <SidePanel isOpen={isOpen} onClose={onClose} title="Search">
+      <SearchInput
+        value={query}
+        onChange={onQueryChanged}
+        onSubmit={onSearch}
+      />
+      {query ? (
+        <div className="grow flex flex-col justify-between h-full gap-5 overflow-y-auto">
+          <h4 className="text-disabled capitalize pt-5">Product Results</h4>
+          <ul className="flex grow flex-col gap-4 overflow-y-auto scrollbar pr-4">
+            {searchResults.map((item, index) => (
+              <li key={"SearchResult:" + item.productId.toString() + index}>
+                <SearchItem searchItem={item} />
+              </li>
+            ))}
+          </ul>
+          <LinkButton href={`/search/${query.replace(/\s/g, "-")}`}>
+            See More Results
+            <div className="flex *h-5">
+              <ArrowLongRightIcon />
+            </div>
+          </LinkButton>
+        </div>
+      ) : (
+        <div className="flex flex-col py-9 gap-5">
+          <h4 className="text-disabled capitalize">Quick Links</h4>
+          <ul className="flex grow flex-col gap-2 overflow-y-auto capitalize">
+            {popularQuickLinks.map((navItem, index) => (
+              <li key={"PopularQuickLinks:" + index}>
+                <LinkButton href={navItem.href}>
+                  <div className="flex *h-5">
+                    <ArrowLongRightIcon />
+                  </div>
+                  {navItem.title}
+                </LinkButton>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </SidePanel>
+  );
+}

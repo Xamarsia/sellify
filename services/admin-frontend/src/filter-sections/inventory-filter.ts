@@ -1,13 +1,13 @@
-import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterSection } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 import {
   RangeFilterProperty,
   InputFilterProperty,
   IdInputFilterProperty,
-} from "../../../../packages/common-ui-components/src/filter/common/Property";
+} from "../../../../packages/common-ui-components/src/components/filter/common/Property";
 import {
   RangeFilterPropertyValue,
   InputFilterPropertyValue,
-} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+} from "../../../../packages/common-ui-components/src/components/filter/common/PropertyValues";
 
 export const InventoryFilterSections: Array<FilterSection> = [
   new FilterSection("product-title", [

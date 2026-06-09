@@ -14,12 +14,12 @@ import {
   CheckboxFilterPropertyValue,
   FilterPropertyValue,
   RangeFilterPropertyValue,
-} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+} from "../../../../packages/common-ui-components/src/components/filter/common/PropertyValues";
 import {
   CheckboxFilterProperty,
   RangeFilterProperty,
-} from "../../../../packages/common-ui-components/src/filter/common/Property";
-import { FilterSection as FilterSectionType } from "../../../../packages/common-ui-components/src/filter/common/Section";
+} from "../../../../packages/common-ui-components/src/components/filter/common/Property";
+import { FilterSection as FilterSectionType } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 
 export default function FilterPanelProvider({
   children,

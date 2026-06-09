@@ -24,7 +24,7 @@ export default async function OrderPage({ params }: Props) {
           <OrderSummary
             itemsSubtotal={order.itemsSubtotal}
             deliveryFee={order.deliveryFee}
-            totalPrice={order.totalPrice}
+            orderTotal={order.totalPrice}
           />
         </div>
       </div>
