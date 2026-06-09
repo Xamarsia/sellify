@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import { ComponentProps, ReactElement } from "react";
 
 import EmphasizedSummaryRow from "@sellify/common-ui-components/order-summary/EmphasizedSummaryRow";
-import * as currencyUtils from "../../utils/currency";
+import * as currencyUtils from "@sellify/common-ui-components/utils/currency";
 
 type EmphasizedSummaryRowProps = ComponentProps<typeof EmphasizedSummaryRow>;
 type EmphasizedSummaryRowElements = {

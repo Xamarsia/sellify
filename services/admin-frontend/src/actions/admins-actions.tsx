@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AdminStatus } from "@sellify/admin-ui-components/constants";
+import { ADMIN_STATUS } from "@sellify/admin-ui-components/statuses/AdminStatus";
 import {
   Admin,
   AdminPreview,
@@ -18,7 +18,7 @@ const admin: Admin = {
   name: "Ronald Jones",
   role: rolePreview,
   createdOn: "Jan 10, 2020",
-  status: AdminStatus.Active,
+  status: ADMIN_STATUS.ACTIVE,
 };
 
 const admin2: Admin = {
@@ -26,7 +26,7 @@ const admin2: Admin = {
   name: "Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name | Long Admin Name",
   role: rolePreview,
   createdOn: "Jan 10, 2020",
-  status: AdminStatus.Disabled,
+  status: ADMIN_STATUS.DISABLED,
 };
 
 const admin3: Admin = {
@@ -34,7 +34,7 @@ const admin3: Admin = {
   name: "LongUnbreakableAdminName|LongUnbreakableAdminNameLongUnbreakableAdminName",
   role: rolePreview,
   createdOn: "Jan 10, 2020",
-  status: AdminStatus.Active,
+  status: ADMIN_STATUS.ACTIVE,
 };
 
 const adminPreview: AdminPreview = {

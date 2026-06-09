@@ -1,11 +1,17 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 import XMarkIcon from "@sellify/common-icons/x-mark";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import { SIDE_PANEL_PLACEMENT } from "@sellify/common-ui-components/constants";
-import { SidePanelPlacement } from "@sellify/common-ui-components/types";
+
+export const SIDE_PANEL_PLACEMENT = {
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+export type SidePanelPlacement =
+  (typeof SIDE_PANEL_PLACEMENT)[keyof typeof SIDE_PANEL_PLACEMENT];
 
 type SidePanelProps = {
   title: string;
@@ -46,14 +52,10 @@ export default function SidePanel({
     }
   }, [isOpen, onClose]);
 
-  const panelSide = useMemo<string>(() => {
-    switch (placement) {
-      case SIDE_PANEL_PLACEMENT.LEFT:
-        return "justify-start";
-      case SIDE_PANEL_PLACEMENT.RIGHT:
-        return "justify-end";
-    }
-  }, [placement]);
+  const panelSide = {
+    [SIDE_PANEL_PLACEMENT.LEFT]: "justify-start",
+    [SIDE_PANEL_PLACEMENT.RIGHT]: "justify-end",
+  }[placement];
 
   return (
     isOpen && (

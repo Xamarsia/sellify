@@ -1,6 +1,6 @@
 import { OrderDetails } from "../types";
 
-import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
+import OrderStatus from "@sellify/common-ui-components/statuses/OrderStatus";
 
 type OrderInfoProps = {
   order: OrderDetails;
@@ -11,7 +11,7 @@ export default function OrderInfo({ order }: OrderInfoProps) {
     <>
       <div className="flex w-full gap-4">
         <p>Status:</p>
-        <OrderStatusComponent status={order.status} />
+        <OrderStatus status={order.status} />
       </div>
       <p>Purchase date: {order.purchaseDate}</p>
     </>

@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 
 import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
-import { PaymentProvider } from "@sellify/common-ui-components/constants";
+import { PAYMENT_PROVIDER } from "@sellify/common-ui-components/constants";
 import {
   PaymentMethodInfo,
   PaymentProvider as PaymentProviderType,
@@ -30,13 +30,13 @@ export default function PaymentMethodForm({
     (value: string): PaymentProviderType => {
       switch (value) {
         case "PAYPAL":
-          return PaymentProvider.Paypal;
+          return PAYMENT_PROVIDER.PAYPAL;
         case "CARD":
-          return PaymentProvider.Card;
+          return PAYMENT_PROVIDER.CARD;
         case "GOOGLE_PAY":
-          return PaymentProvider.GooglePay;
+          return PAYMENT_PROVIDER.GOOGLE_PAY;
         default:
-          return PaymentProvider.Balance;
+          return PAYMENT_PROVIDER.BALANCE;
       }
     },
     [],

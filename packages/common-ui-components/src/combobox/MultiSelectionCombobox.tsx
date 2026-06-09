@@ -10,7 +10,7 @@ import DropdownItem from "../dropdown/DropdownItem";
 import ComboboxItem from "./ComboboxItem";
 
 type MultiSelectionComboboxProps<T> = {
-  items: Map<T, string>;
+  items: ReadonlyMap<T, string>;
   selectedItems: Map<T, string>;
   required?: boolean;
   disabled?: boolean;

@@ -46,7 +46,7 @@ import SearchItem from "@sellify/customer-ui-components/search/SearchItem";
 import SearchPanel from "@sellify/customer-ui-components/search/SearchPanel";
 import SettingsSection from "@sellify/customer-ui-components/SettingsSection";
 import Button from "@sellify/common-ui-components/buttons/Button";
-import { OrderStatus } from "@sellify/common-ui-components/constants";
+import { ORDER_STATUS } from "@sellify/common-ui-components/statuses/OrderStatus";
 
 export default function Home() {
   const [count, setCount] = useState<number>(1);
@@ -115,25 +115,25 @@ export default function Home() {
       orderId: 1001,
       date: "2026-03-20",
       total: 452.99,
-      status: OrderStatus.New,
+      status: ORDER_STATUS.NEW,
     },
     {
       orderId: 1002,
       date: "2026-03-15",
       total: 129.5,
-      status: OrderStatus.InProgress,
+      status: ORDER_STATUS.IN_PROGRESS,
     },
     {
       orderId: 1003,
       date: "2026-03-10",
       total: 89.0,
-      status: OrderStatus.Shipped,
+      status: ORDER_STATUS.SHIPPED,
     },
     {
       orderId: 1004,
       date: "2026-02-28",
       total: 320.0,
-      status: OrderStatus.Canceled,
+      status: ORDER_STATUS.CANCELED,
     },
   ];
 

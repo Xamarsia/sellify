@@ -1,11 +1,15 @@
 "use client";
 
-import AdaptiveDataView from "@sellify/common-ui-components/view/AdaptiveDataView";
-import OrderStatusComponent from "@sellify/common-ui-components/statuses/OrderStatusComponent";
-import LinkIdTableItem from "@sellify/common-ui-components/table-items/LinkIdTableItem";
-import CurrencyTableItem from "@sellify/common-ui-components/table-items/CurrencyTableItem";
-import DateTableItem from "@sellify/common-ui-components/table-items/DateTableItem";
-import type { Cell } from "@sellify/common-ui-components/types";
+import {
+  createCellPrototype,
+  type CellPrototype,
+} from "@sellify/common-ui-components/adaptive-view/AdaptiveCell";
+import AdaptiveDataView from "@sellify/common-ui-components/adaptive-view/AdaptiveDataView";
+import { CurrencyCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/CurrencyCellBuilder";
+import { DateCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/DateCellBuilder";
+import { IdCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/IdCellBuilder";
+import { LinkCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/LinkCellBuilder";
+import { OrderStatusCellBuilder } from "@sellify/common-ui-components/adaptive-view/cell-builders/OrderStatusCellBuilder";
 
 import { OrderPreview } from "../types";
 
@@ -13,25 +17,18 @@ type OrdersViewProps = {
   content: Array<OrderPreview>;
 };
 
-const cellPrototypes: ReadonlyArray<Cell<OrderPreview>> = [
-  {
-    title: "Order Number",
-    viewBuilder: ({ orderId }) => (
-      <LinkIdTableItem href={`/order/${orderId}`} id={orderId} />
-    ),
-  },
-  {
-    title: "Status",
-    viewBuilder: ({ status }) => <OrderStatusComponent status={status} />,
-  },
-  {
-    title: "Date",
-    viewBuilder: ({ date }) => <DateTableItem date={date} />,
-  },
-  {
-    title: "Total",
-    viewBuilder: ({ total }) => <CurrencyTableItem amount={total} />,
-  },
+const cellPrototypes: ReadonlyArray<CellPrototype<OrderPreview>> = [
+  createCellPrototype("Order Number", LinkCellBuilder, ({ orderId }) => ({
+    href: `/order/${orderId}`,
+    children: IdCellBuilder.buildView({ id: orderId }),
+  })),
+  createCellPrototype("Status", OrderStatusCellBuilder, ({ status }) => ({
+    status,
+  })),
+  createCellPrototype("Date", DateCellBuilder, ({ date }) => ({ date })),
+  createCellPrototype("Total", CurrencyCellBuilder, ({ total }) => ({
+    amount: total,
+  })),
 ];
 
 export default function OrdersView({ content }: OrdersViewProps) {

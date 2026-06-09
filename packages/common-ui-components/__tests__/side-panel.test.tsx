@@ -4,8 +4,9 @@ import { render, screen } from "@testing-library/react";
 
 import { ComponentProps, ReactElement } from "react";
 
-import SidePanel from "@sellify/common-ui-components/SidePanel";
-import { SIDE_PANEL_PLACEMENT } from "@sellify/common-ui-components/constants";
+import SidePanel, {
+  SIDE_PANEL_PLACEMENT,
+} from "@sellify/common-ui-components/SidePanel";
 
 describe("SidePanel", () => {
   type SidePanelProps = ComponentProps<typeof SidePanel>;

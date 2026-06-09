@@ -4,8 +4,18 @@ import { useCallback, useEffect } from "react";
 
 import FormItem from "@sellify/common-ui-components/form/FormItem";
 import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
+import { Permission } from "./enums";
 
-import { Permissions } from "@sellify/admin-ui-components/constants";
+const PERMISSIONS: Readonly<Record<Permission, string>> = {
+  [Permission.ARCHIVE_ADMIN]: "Archive Admin",
+  [Permission.ARCHIVE_PRODUCT]: "Archive Product",
+  [Permission.EDIT_ADMIN]: "Edit Admin",
+  [Permission.EDIT_PRODUCT]: "Edit Product",
+  [Permission.CREATE_ADMIN]: "Create Admin",
+  [Permission.CREATE_PRODUCT]: "Create Product",
+  [Permission.VIEW_ADMIN]: "View Admin",
+  [Permission.VIEW_PRODUCT]: "View Product",
+};
 
 type PermissionsMultiSelectionComboboxProps = {
   required?: boolean;
@@ -24,7 +34,9 @@ export default function PermissionsMultiSelectionCombobox({
   onSelectedPermissionsChanged,
   defaultSelectedPermissions,
 }: PermissionsMultiSelectionComboboxProps) {
-  const items: Map<number, string> = new Map(Permissions);
+  const items = new Map<number, string>(
+    Object.entries(PERMISSIONS).map(([key, value]) => [Number(key), value]),
+  );
 
   const onItemSelected = useCallback(
     (key: number, value: string) => {
@@ -52,9 +64,9 @@ export default function PermissionsMultiSelectionCombobox({
       return;
     }
 
-    const newSelectedItems = new Map();
-    defaultSelectedPermissions.map((key) => {
-      const value: string | undefined = items.get(key);
+    const newSelectedItems = new Map<Permission, string>();
+    defaultSelectedPermissions.forEach((key) => {
+      const value = PERMISSIONS[key as Permission];
       if (value) {
         newSelectedItems.set(key, value);
       }

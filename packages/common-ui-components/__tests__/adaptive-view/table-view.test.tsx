@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
 
-import { ComponentProps, ReactElement } from "react";
+import type { ComponentProps, ReactElement } from "react";
 
-import TableView from "@sellify/common-ui-components/view/TableView";
+import TableView from "@sellify/common-ui-components/adaptive-view/TableView";
 
 type Product = {
   name: string;
@@ -15,10 +15,10 @@ type RerenderFn = (ui: ReactElement) => void;
 
 describe("TableView", () => {
   const cellPrototypes: TableViewProps["cellPrototypes"] = [
-    { title: "Name", viewBuilder: (product) => <span>{product.name}</span> },
+    { title: "Name", buildView: (product) => <span>{product.name}</span> },
     {
       title: "Status",
-      viewBuilder: (product) => <span>{product.status}</span>,
+      buildView: (product) => <span>{product.status}</span>,
     },
   ];
 
@@ -69,18 +69,23 @@ describe("TableView", () => {
       expect(within(secondRow).getByText("Paused")).toBeVisible();
     });
 
-    it("passes each complete data row to every view builder", () => {
+    it("passes each complete data row to the prototype build function", () => {
+      const buildView = jest.fn(({ name, status }: Product) => (
+        <span>{`${name} is ${status}`}</span>
+      ));
+
       renderTableView({
         cellPrototypes: [
           {
             title: "Summary",
-            viewBuilder: ({ name, status }) => (
-              <span>{`${name} is ${status}`}</span>
-            ),
+            buildView,
           },
         ],
       });
 
+      expect(buildView).toHaveBeenCalledTimes(data.length);
+      expect(buildView).toHaveBeenNthCalledWith(1, data[0]);
+      expect(buildView).toHaveBeenNthCalledWith(2, data[1]);
       expect(screen.getByText("Alpha is Active")).toBeVisible();
       expect(screen.getByText("Beta is Paused")).toBeVisible();
     });
@@ -107,14 +112,14 @@ describe("TableView", () => {
       expect(getBodyRows()).toHaveLength(1);
     });
 
-    it("updates headers and cells when prototypes change", () => {
+    it("updates headers and cells when cell prototypes change", () => {
       const { rerender } = renderTableView();
 
       rerenderTableView(rerender, {
         cellPrototypes: [
           {
             title: "Summary",
-            viewBuilder: ({ name, status }) => (
+            buildView: ({ name, status }) => (
               <span>{`${name} is ${status}`}</span>
             ),
           },

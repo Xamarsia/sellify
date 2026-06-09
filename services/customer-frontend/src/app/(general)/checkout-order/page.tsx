@@ -7,7 +7,7 @@ import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
 import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
-import { PaymentProvider } from "@sellify/common-ui-components/constants";
+import { PAYMENT_PROVIDER } from "@sellify/common-ui-components/constants";
 import {
   PaymentMethodInfo,
   PaymentProvider as PaymentProviderType,
@@ -57,7 +57,7 @@ import {
 export default function CheckoutPage() {
   const [cartItems] = useState<Array<CartItem>>(getCartItems());
   const [paymentProvider, setPaymentProvider] = useState<PaymentProviderType>(
-    PaymentProvider.Balance,
+    PAYMENT_PROVIDER.BALANCE,
   );
   const [deliveryFee] = useState<number>(getDeliveryFee());
   const [contactInfo, setContactInfo] = useState<ContactInfo | undefined>(

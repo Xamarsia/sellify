@@ -1,18 +1,18 @@
-import type { Cell } from "../types";
+import type { CellPrototype } from "./AdaptiveCell";
 
 type TableViewProps<T> = {
-  cellPrototypes: ReadonlyArray<Cell<T>>;
+  cellPrototypes: ReadonlyArray<CellPrototype<T>>;
   data: ReadonlyArray<T>;
 };
 
 /**
  * Renders data in a table using shared definitions for headers and cells.
  *
- * Each cell prototype provides a column title and a builder that renders the
- * corresponding value from the complete row object.
+ * Each cell prototype becomes one column. Its title renders in the table
+ * header, and its build function renders one cell for every data row.
  *
  * @typeParam T - Shape of each data row
- * @param cellPrototypes - Definitions used to render headers and row values
+ * @param cellPrototypes - Definitions used to render each column header and row cell
  * @param data - Rows rendered in the table body
  */
 export default function TableView<T>({
@@ -41,12 +41,12 @@ export default function TableView<T>({
               key={`table-row-${rowIndex}`}
               className="body min-h-16 hover:bg-combobox-item"
             >
-              {cellPrototypes.map(({ viewBuilder }, cellIndex) => (
+              {cellPrototypes.map(({ buildView }, cellIndex) => (
                 <td
                   key={`table-row-${rowIndex}-cell-${cellIndex}`}
                   className="px-3 lg:px-6 py-3 mx-2"
                 >
-                  {viewBuilder(row)}
+                  {buildView(row)}
                 </td>
               ))}
             </tr>

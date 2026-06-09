@@ -1,6 +1,6 @@
 import { Admin } from "../types";
 
-import AdminStatusComponent from "../statuses/AdminStatusComponent";
+import AdminStatusComponent from "../statuses/AdminStatus";
 
 type AdminInfoProps = {
   admin: Admin;
