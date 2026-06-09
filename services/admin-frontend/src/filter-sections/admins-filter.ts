@@ -1,15 +1,15 @@
-import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterSection } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   InputFilterProperty,
   IdInputFilterProperty,
-} from "../../../../packages/common-ui-components/src/filter/common/Property";
+} from "../../../../packages/common-ui-components/src/components/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
   InputFilterPropertyValue,
-} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+} from "../../../../packages/common-ui-components/src/components/filter/common/PropertyValues";
 import { getRolePreviewsComboboxItems } from "actions/roles-actions";
 
 const roles: Map<number, string> = getRolePreviewsComboboxItems();

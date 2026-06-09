@@ -1,17 +1,17 @@
-import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterSection } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 import {
   CheckboxFilterProperty,
   MultiSelectionComboboxFilterProperty,
   RangeFilterProperty,
   InputFilterProperty,
   IdInputFilterProperty,
-} from "../../../../packages/common-ui-components/src/filter/common/Property";
+} from "../../../../packages/common-ui-components/src/components/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   MultiSelectionComboboxFilterPropertyValue,
   RangeFilterPropertyValue,
   InputFilterPropertyValue,
-} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+} from "../../../../packages/common-ui-components/src/components/filter/common/PropertyValues";
 import { getCategoryComboboxItems } from "actions/category-actions";
 
 const categories: Map<number, string> = getCategoryComboboxItems();

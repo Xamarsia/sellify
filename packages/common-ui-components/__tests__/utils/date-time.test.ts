@@ -1,4 +1,7 @@
-import { formatDate, formatDateTime } from "../../src/utils/dateTime";
+import {
+  formatDate,
+  formatDateTime,
+} from "@sellify/common-ui-components/utils/dateTime";
 
 describe("dateTime", () => {
   const date = new Date("2026-06-07T14:05:00.000Z");

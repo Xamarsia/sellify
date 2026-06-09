@@ -1,15 +1,15 @@
-import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterSection } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 import {
   CheckboxFilterProperty,
   RangeFilterProperty,
   InputFilterProperty,
   IdInputFilterProperty,
-} from "../../../../packages/common-ui-components/src/filter/common/Property";
+} from "../../../../packages/common-ui-components/src/components/filter/common/Property";
 import {
   CheckboxFilterPropertyValue,
   RangeFilterPropertyValue,
   InputFilterPropertyValue,
-} from "../../../../packages/common-ui-components/src/filter/common/PropertyValues";
+} from "../../../../packages/common-ui-components/src/components/filter/common/PropertyValues";
 
 export const CustomersFilterSections: Array<FilterSection> = [
   new FilterSection("customer-name", [

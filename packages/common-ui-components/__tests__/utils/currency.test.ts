@@ -1,4 +1,4 @@
-import { formatCurrency } from "../../src/utils/currency";
+import { formatCurrency } from "@sellify/common-ui-components/utils/currency";
 
 describe("formatCurrency", () => {
   it("formats a value as US dollars", () => {

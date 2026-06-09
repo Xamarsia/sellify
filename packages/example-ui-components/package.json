@@ -4,8 +4,8 @@
   "private": true,
   "license": "MIT",
   "exports": {
-    "./styles": "./styles/globals.css",
-    "./*": "./src/*.tsx"
+    "./styles": "./src/styles.css",
+    "./*": "./src/components/*.tsx"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

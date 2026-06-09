@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx",
-    "./enums": "./src/common/enums.ts",
-    "./common": "./src/common/common.ts",
-    "./styles": "./styles/globals.css"
+    "./styles": "./src/styles.css",
+    "./*": "./src/icons/*.tsx"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

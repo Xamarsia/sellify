@@ -7,10 +7,9 @@
     "./types": "./src/types.d.ts",
     "./utils/*": "./src/utils/*.ts",
     "./constants": "./src/constants.ts",
-    "./statuses/types": "./src/statuses/types.ts",
-    "./styles": "./styles/globals.css",
-    "./*": "./src/*.tsx",
-    "./**/*": "./src/**/*.tsx"
+    "./statuses/types": "./src/components/statuses/types.ts",
+    "./styles": "./src/styles.css",
+    "./*": "./src/components/*.tsx"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

@@ -5,8 +5,8 @@
   "license": "MIT",
   "exports": {
     "./types": "./src/types.d.ts",
-    "./styles": "./styles/globals.css",
-    "./*": "./src/*.tsx"
+    "./styles": "./src/styles.css",
+    "./*": "./src/components/*.tsx"
   },
   "scripts": {
     "check-types": "tsc --noEmit",

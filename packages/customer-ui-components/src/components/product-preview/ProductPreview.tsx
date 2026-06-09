@@ -1,0 +1,44 @@
+import { useCallback } from "react";
+
+import Button from "@sellify/common-ui-components/buttons/Button";
+
+import { ProductPreview as ProductPreviewType } from "../../types";
+import DynamicImagePreview from "./DynamicImagePreview";
+
+type ProductPreviewProps = {
+  productPreview: ProductPreviewType;
+  onAddProductToCart: (productPreview: ProductPreviewType) => void;
+};
+
+export default function ProductPreview({
+  productPreview,
+  onAddProductToCart,
+}: ProductPreviewProps) {
+  const onAddToCart = useCallback((): void => {
+    onAddProductToCart(productPreview);
+  }, [onAddProductToCart, productPreview]);
+
+  return (
+    <div className="flex flex-row md:flex-col body gap-4 md:gap-0 justify-between wrap-anywhere not-md:border-b border-stroke not-md:py-4">
+      <div className="flex not-md:basis-64">
+        <DynamicImagePreview
+          src={productPreview.image}
+          hoveredSrc={productPreview.hoveredImage}
+        />
+      </div>
+      <div className="flex not-md:basis-128 flex-col justify-between">
+        <div className="flex flex-col shrink-0 justify-between gap-4 h-24 mx-2 md:my-4 pb-2">
+          <a href={`/product/${productPreview.productId}`}>
+            <h4 className="not-md:text-justify line-clamp-2 break-all hover:underline underline-offset-3">
+              {productPreview.title}
+            </h4>
+          </a>
+          <p>${productPreview.price}</p>
+        </div>
+        <Button variant="outline" size="small" onClick={onAddToCart}>
+          <p>Add to Cart</p>
+        </Button>
+      </div>
+    </div>
+  );
+}

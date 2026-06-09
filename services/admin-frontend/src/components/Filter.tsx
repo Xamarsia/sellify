@@ -6,7 +6,7 @@ import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 
 import { FilterPanelController } from "types";
 import { FilterPanelContext } from "contexts/common-context";
-import { FilterSection } from "../../../../packages/common-ui-components/src/filter/common/Section";
+import { FilterSection } from "../../../../packages/common-ui-components/src/components/filter/common/Section";
 
 type Props = {
   filterSections: Array<FilterSection>;
