@@ -9,7 +9,7 @@ import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
 import ComboboxItem from "./ComboboxItem";
 
-type MultiSelectionComboboxProps<T> = {
+export type MultiSelectionComboboxProps<T extends string | number> = {
   items: ReadonlyMap<T, string>;
   selectedItems: Map<T, string>;
   required?: boolean;
@@ -27,7 +27,9 @@ export default function MultiSelectionCombobox<T extends string | number>({
   onItemRemoved,
 }: MultiSelectionComboboxProps<T>) {
   const dropdown = useRef<HTMLDivElement>(null);
-  const [suggestedItems, setSuggestedItems] = useState<Map<T, string>>(items);
+  const [suggestedItems, setSuggestedItems] = useState<Map<T, string>>(
+    new Map(items),
+  );
   const [isExtended, setIsExtended] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
 

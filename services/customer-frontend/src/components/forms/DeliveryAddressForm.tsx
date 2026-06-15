@@ -2,10 +2,9 @@
 
 import { FormEvent, useCallback, useState } from "react";
 
-import FormItem from "@sellify/common-ui-components/form/FormItem";
-import Input from "@sellify/common-ui-components/input/Input";
-import LabeledCheckbox from "@sellify/common-ui-components/form/LabeledCheckbox";
-import Combobox from "@sellify/common-ui-components/combobox/Combobox";
+import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
+import CheckboxFormItem from "@sellify/common-ui-components/form/CheckboxFormItem";
+import ComboboxFormItem from "@sellify/common-ui-components/form/ComboboxFormItem";
 
 import FormSection from "@sellify/customer-ui-components/FormSection";
 import { DeliveryAddress } from "@sellify/customer-ui-components/types";
@@ -57,18 +56,20 @@ export default function DeliveryAddressForm({
 
   return (
     <FormSection onChange={onChangeAddressForm}>
-      <FormItem title={"Country"} required>
-        <Combobox
-          items={availableCountries}
-          value={country}
-          required
-          onItemSelected={onItemSelected}
-        />
-      </FormItem>
-      <FormItem title={"Address"} required>
-        <Input value={address} required onChange={setAddress} />
-      </FormItem>
-      <LabeledCheckbox
+      <ComboboxFormItem
+        label="Country"
+        items={availableCountries}
+        value={country}
+        required
+        onItemSelected={onItemSelected}
+      />
+      <InputFormItem
+        label="Address"
+        value={address}
+        required
+        onChange={setAddress}
+      />
+      <CheckboxFormItem
         value="use_as_default_address"
         label="Use as my default address"
         checked={useAsDefault}

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import LabeledCheckbox from "../form/LabeledCheckbox";
+import CheckboxFormItem from "../form/CheckboxFormItem";
 import { CheckboxFilterPropertyValue } from "./common/PropertyValues";
 
 type CheckboxFilterPropertyViewProps = {
@@ -29,7 +29,7 @@ export default function CheckboxFilterPropertyView({
 
   return (
     <div className="flex gap-1">
-      <LabeledCheckbox
+      <CheckboxFormItem
         checked={selectedValue.value}
         onChange={onChange}
         value={propertyKey}

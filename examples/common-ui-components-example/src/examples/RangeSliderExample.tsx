@@ -1,13 +1,13 @@
+import RangeSlider, {
+  SliderRange,
+} from "@sellify/common-ui-components/range-slider/RangeSlider";
 import { useCallback, useState } from "react";
 
-import RangeSlider from "./RangeSlider";
-import { SliderRange } from "../types";
-
-type PriceRangeSliderProps = {
+type RangeSliderExampleProps = {
   range: SliderRange;
 };
 
-export default function PriceRangeSlider({ range }: PriceRangeSliderProps) {
+export default function RangeSliderExample({ range }: RangeSliderExampleProps) {
   const [currentRange, setCurrentRange] = useState<SliderRange>(range);
 
   const onMinValueChange = useCallback(

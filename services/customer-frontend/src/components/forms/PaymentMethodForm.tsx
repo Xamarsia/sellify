@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 
-import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
+import RadioFormItem from "@sellify/common-ui-components/form/RadioFormItem";
 import { PAYMENT_PROVIDER } from "@sellify/common-ui-components/constants";
 import {
   PaymentMethodInfo,
@@ -58,7 +58,7 @@ export default function PaymentMethodForm({
     <form className="flex w-full flex-col gap-8 pt-4">
       {Array.from(paymentMethods).map(([provider, info]) => {
         return (
-          <LabeledRadio
+          <RadioFormItem
             key={provider}
             label={info.title}
             value={provider}

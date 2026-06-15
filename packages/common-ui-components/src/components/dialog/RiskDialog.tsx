@@ -8,8 +8,7 @@ import DialogBase from "./DialogBase";
 import AlertDialogIcon from "./AlertDialogIcon";
 
 import Button from "../buttons/Button";
-import FormItem from "../form/FormItem";
-import Input from "../input/Input";
+import InputFormItem from "../form/InputFormItem";
 
 type RiskDialogProps = {
   title: string;
@@ -64,15 +63,14 @@ export default function RiskDialog({
           {description && (
             <p className="text-justify wrap-break-word">{description}</p>
           )}
-          <FormItem title="Password" required>
-            <Input
-              type="password"
-              value={password}
-              placeholder="Enter your password"
-              required
-              onChange={setPassword}
-            />
-          </FormItem>
+          <InputFormItem
+            label="Password"
+            type="password"
+            value={password}
+            placeholder="Enter your password"
+            required
+            onChange={setPassword}
+          />
         </div>
         {/* Control Panel */}
         <div className="flex justify-between gap-6">
