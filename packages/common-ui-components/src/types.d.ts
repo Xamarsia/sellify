@@ -18,17 +18,7 @@ export type PaymentMethodInfo = {
   isAvailable?: boolean;
 };
 
-export type SliderRange = {
-  min: number;
-  max: number;
-};
-
 export type CollapsiblePanelInfo = {
   title: string;
   content: ReactNode;
-};
-
-export type Summary = {
-  label: string;
-  amount: number;
 };

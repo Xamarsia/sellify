@@ -1,6 +1,6 @@
 "use client";
 
-import { NavMenuItem } from "../types";
+import { NavMenuItem } from "../../types";
 import SideMenuItem from "./SideMenuItem";
 
 type SideMenuProps = {

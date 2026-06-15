@@ -2,12 +2,11 @@
 
 import { useCallback, useState } from "react";
 
-import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
-import Combobox from "@sellify/common-ui-components/combobox/Combobox";
-import FormItem from "@sellify/common-ui-components/form/FormItem";
-import Textarea from "@sellify/common-ui-components/input/Textarea";
-import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInput";
+import ComboboxFormItem from "@sellify/common-ui-components/form/ComboboxFormItem";
+import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
+import MediaInputFormItem from "@sellify/common-ui-components/form/MediaInputFormItem";
+import TextareaFormItem from "@sellify/common-ui-components/form/TextareaFormItem";
 
 import { CreateProductRequest } from "types";
 import { createProduct } from "actions/product-actions";
@@ -83,43 +82,51 @@ export default function CreateProductForm() {
       onSubmit={onFormSubmit}
     >
       <div className="flex flex-col gap-6">
-        <FormItem title="Title" required>
-          <Input
-            value={title}
-            placeholder="Title"
-            required
-            onChange={setTitle}
-          />
-        </FormItem>
-        <FormItem title="Short Description" required>
-          <Input
-            value={shortDescription}
-            placeholder="Short Description"
-            required
-            onChange={setShortDescription}
-          />
-        </FormItem>
-
-        <FormItem title={"Description"} required>
-          <Textarea value={description} onChange={setDescription} />
-        </FormItem>
-        <FormItem title={"Category"} required>
-          <Combobox
-            items={categories}
-            value={category}
-            required
-            onItemSelected={onCategorySelected}
-          />
-        </FormItem>
-        <FormItem title="Media" required>
-          <MediaInput images={images} onImagesChanged={setImages} />
-        </FormItem>
-        <FormItem title="Price" required>
-          <Input value={price} required onChange={handlePriceChange} />
-        </FormItem>
-        <FormItem title="Quantity" required>
-          <Input value={quantity} required onChange={handleQuantityChange} />
-        </FormItem>
+        <InputFormItem
+          label="Title"
+          value={title}
+          placeholder="Title"
+          required
+          onChange={setTitle}
+        />
+        <InputFormItem
+          label="Short Description"
+          value={shortDescription}
+          placeholder="Short Description"
+          required
+          onChange={setShortDescription}
+        />
+        <TextareaFormItem
+          label="Description"
+          value={description}
+          required
+          onChange={setDescription}
+        />
+        <ComboboxFormItem
+          label="Category"
+          items={categories}
+          value={category}
+          required
+          onItemSelected={onCategorySelected}
+        />
+        <MediaInputFormItem
+          label="Media"
+          images={images}
+          required
+          onImagesChanged={setImages}
+        />
+        <InputFormItem
+          label="Price"
+          value={price}
+          required
+          onChange={handlePriceChange}
+        />
+        <InputFormItem
+          label="Quantity"
+          value={quantity}
+          required
+          onChange={handleQuantityChange}
+        />
       </div>
       <div className="sm:w-xs">
         <Button type="submit">Create Product</Button>

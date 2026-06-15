@@ -12,7 +12,6 @@ import PlusIcon from "@sellify/common-icons/plus";
 
 import {
   NavMenuItem,
-  SliderRange,
   // TabItemInfo,
 } from "@sellify/common-ui-components/types";
 
@@ -27,10 +26,10 @@ import Button from "@sellify/common-ui-components/buttons/Button";
 import IconButton from "@sellify/common-ui-components/buttons/IconButton";
 import LinkButton from "@sellify/common-ui-components/buttons/LinkButton";
 import TransparentIconButton from "@sellify/common-ui-components/buttons/TransparentIconButton";
-import LabeledCheckbox from "@sellify/common-ui-components/form/LabeledCheckbox";
+import CheckboxFormItem from "@sellify/common-ui-components/form/CheckboxFormItem";
 import Input from "@sellify/common-ui-components/input/Input";
 import MediaInput from "@sellify/common-ui-components/input/media-input/MediaInput";
-import LabeledRadio from "@sellify/common-ui-components/form/LabeledRadio";
+import RadioFormItem from "@sellify/common-ui-components/form/RadioFormItem";
 import Textarea from "@sellify/common-ui-components/input/Textarea";
 import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
@@ -39,13 +38,13 @@ import SideMenu from "@sellify/common-ui-components/side-menu/SideMenu";
 
 import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
-import PriceRangeSlider from "@sellify/common-ui-components/range-slider/PriceRangeSlider";
-import FormItem from "@sellify/common-ui-components/form/FormItem";
+import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
 import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
 import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
+import { SliderRange } from "@sellify/common-ui-components/range-slider/RangeSlider";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
@@ -55,6 +54,7 @@ import SearchBarExample from "examples/SearchBarExample";
 import SidePanelExample from "examples/SidePanelExample";
 import RiskDialogExample from "examples/RiskDialogExample";
 import AdaptiveDataViewExample from "examples/AdaptiveDataViewExample";
+import RangeSliderExample from "examples/RangeSliderExample";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -125,9 +125,9 @@ export default function Home() {
     <>
       <Header title="Common UI Components" />
       <MainLayout>
-        <Section title={"Price Range Slider"}>
+        <Section title={"Range Slider"}>
           <SectionItem>
-            <PriceRangeSlider range={range} />
+            <RangeSliderExample range={range} />
           </SectionItem>
         </Section>
 
@@ -259,14 +259,13 @@ export default function Home() {
 
         <Section title={"Form Input Item "}>
           <SectionItem>
-            <FormItem title="Required Input" required>
-              <Input
-                value={inputValue}
-                placeholder="Required Input"
-                required
-                onChange={setInputValue}
-              />
-            </FormItem>
+            <InputFormItem
+              label="Required Input"
+              value={inputValue}
+              placeholder="Required Input"
+              required
+              onChange={setInputValue}
+            />
           </SectionItem>
         </Section>
 
@@ -307,27 +306,27 @@ export default function Home() {
 
         <Section title={"Checkbox & Radio buttons"}>
           <SectionItem>
-            <LabeledCheckbox
+            <CheckboxFormItem
               label="Default Checkbox"
               value="default"
               checked={isChecked}
               onChange={setIsChecked}
             />
-            <LabeledCheckbox
+            <CheckboxFormItem
               label="Checked Checkbox"
               value="checked"
               checked={true}
               onChange={setIsChecked}
               readOnly
             />
-            <LabeledCheckbox
+            <CheckboxFormItem
               label="Disabled Checkbox"
               value="disabled"
               checked={false}
               onChange={setIsChecked}
               disabled
             />
-            <LabeledCheckbox
+            <CheckboxFormItem
               disabled
               checked
               label="Disabled Checked Checkbox"
@@ -337,26 +336,26 @@ export default function Home() {
             />
           </SectionItem>
           <SectionItem>
-            <LabeledRadio
+            <RadioFormItem
               label="Default Radio"
               value="default"
               onChange={() => {}}
             />
-            <LabeledRadio
+            <RadioFormItem
               checked
               label="Checked Radio"
               value="checked"
               readOnly
               onChange={() => {}}
             />
-            <LabeledRadio
+            <RadioFormItem
               disabled
               label="Disabled Radio"
               value="disabled"
               readOnly
               onChange={() => {}}
             />
-            <LabeledRadio
+            <RadioFormItem
               disabled
               checked
               readOnly

@@ -2,10 +2,9 @@
 
 import { useCallback, useState } from "react";
 
-import FormItem from "@sellify/common-ui-components/form/FormItem";
-import Input from "@sellify/common-ui-components/input/Input";
 import Button from "@sellify/common-ui-components/buttons/Button";
-import Combobox from "@sellify/common-ui-components/combobox/Combobox";
+import ComboboxFormItem from "@sellify/common-ui-components/form/ComboboxFormItem";
+import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 
 import {
@@ -84,27 +83,34 @@ export default function ProfilePage() {
   return (
     <div className="flex w-full flex-col items-end gap-12">
       <InfoSection title="Contact Information">
-        <FormItem title={"Full Name"} required>
-          <Input value={fullName} required onChange={setFullName} />
-        </FormItem>
-
-        <FormItem title={"Phone Number"} required>
-          <Input value={phoneNumber} required onChange={setPhoneNumber} />
-        </FormItem>
+        <InputFormItem
+          label="Full Name"
+          value={fullName}
+          required
+          onChange={setFullName}
+        />
+        <InputFormItem
+          label="Phone Number"
+          value={phoneNumber}
+          required
+          onChange={setPhoneNumber}
+        />
       </InfoSection>
 
       <InfoSection title="Delivery address">
-        <FormItem title={"Country"} required>
-          <Combobox
-            items={availableCountries}
-            value={country}
-            required
-            onItemSelected={onCountrySelected}
-          />
-        </FormItem>
-        <FormItem title={"Address"} required>
-          <Input value={address} required onChange={setAddress} />
-        </FormItem>
+        <ComboboxFormItem
+          label="Country"
+          items={availableCountries}
+          value={country}
+          required
+          onItemSelected={onCountrySelected}
+        />
+        <InputFormItem
+          label="Address"
+          value={address}
+          required
+          onChange={setAddress}
+        />
       </InfoSection>
 
       <SettingsSection title="Language" description="Select your language.">

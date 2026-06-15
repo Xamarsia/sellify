@@ -3,9 +3,8 @@
 import { useCallback, useState } from "react";
 
 import Button from "@sellify/common-ui-components/buttons/Button";
-import Combobox from "@sellify/common-ui-components/combobox/Combobox";
-import FormItem from "@sellify/common-ui-components/form/FormItem";
-import Input from "@sellify/common-ui-components/input/Input";
+import ComboboxFormItem from "@sellify/common-ui-components/form/ComboboxFormItem";
+import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
 
 import { CreateAdminRequest } from "types";
 import { createAdmin } from "actions/admins-actions";
@@ -41,41 +40,36 @@ export default function CreateAdminForm() {
     >
       <div className="flex flex-col gap-6">
         <div className="flex gap-6">
-          <FormItem title={"First Name"} required>
-            <Input
-              value={firstName}
-              placeholder="First Name"
-              required
-              onChange={setFirstName}
-            />
-          </FormItem>
-
-          <FormItem title={"Last Name"} required>
-            <Input
-              value={lastName}
-              placeholder="Last Name"
-              required
-              onChange={setLastName}
-            />
-          </FormItem>
+          <InputFormItem
+            label="First Name"
+            value={firstName}
+            placeholder="First Name"
+            required
+            onChange={setFirstName}
+          />
+          <InputFormItem
+            label="Last Name"
+            value={lastName}
+            placeholder="Last Name"
+            required
+            onChange={setLastName}
+          />
         </div>
-        <FormItem title={"Email"} required>
-          <Input
-            type="email"
-            value={email}
-            placeholder="axample@domain.com"
-            required
-            onChange={setEmail}
-          />
-        </FormItem>
-        <FormItem title={"Role"} required>
-          <Combobox
-            items={roles}
-            value={role}
-            required
-            onItemSelected={onRoleSelected}
-          />
-        </FormItem>
+        <InputFormItem
+          label="Email"
+          type="email"
+          value={email}
+          placeholder="axample@domain.com"
+          required
+          onChange={setEmail}
+        />
+        <ComboboxFormItem
+          label="Role"
+          items={roles}
+          value={role}
+          required
+          onItemSelected={onRoleSelected}
+        />
       </div>
       <div className="sm:w-xs">
         <Button type="submit">Invite New Admin</Button>

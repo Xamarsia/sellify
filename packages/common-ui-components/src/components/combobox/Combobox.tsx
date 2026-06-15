@@ -8,7 +8,7 @@ import ChevronUpIcon from "@sellify/common-icons/chevron-up";
 import TransparentIconButton from "../buttons/TransparentIconButton";
 import DropdownItem from "../dropdown/DropdownItem";
 
-type ComboboxProps<T> = {
+export type ComboboxProps<T> = {
   items: Map<T, string>;
   value?: string;
   required?: boolean;

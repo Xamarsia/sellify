@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect } from "react";
 
-import FormItem from "@sellify/common-ui-components/form/FormItem";
-import MultiSelectionCombobox from "@sellify/common-ui-components/combobox/MultiSelectionCombobox";
+import MultiSelectionComboboxFormItem from "@sellify/common-ui-components/form/MultiSelectionComboboxFormItem";
 import { Permission } from "../enums";
 
 const PERMISSIONS: Readonly<Record<Permission, string>> = {
@@ -76,15 +75,14 @@ export default function PermissionsMultiSelectionCombobox({
   }, []); // Runs only on the first render
 
   return (
-    <FormItem title={"Permissions"} required>
-      <MultiSelectionCombobox
-        items={items}
-        selectedItems={selectedPermissions}
-        required={required}
-        disabled={disabled}
-        onItemSelected={onItemSelected}
-        onItemRemoved={onItemRemoved}
-      />
-    </FormItem>
+    <MultiSelectionComboboxFormItem
+      label="Permissions"
+      items={items}
+      selectedItems={selectedPermissions}
+      required={required}
+      disabled={disabled}
+      onItemSelected={onItemSelected}
+      onItemRemoved={onItemRemoved}
+    />
   );
 }
