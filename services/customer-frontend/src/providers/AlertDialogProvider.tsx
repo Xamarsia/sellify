@@ -38,9 +38,8 @@ export default function AlertDialogProvider({
           description={content.description}
           onDialogClose={onAlertDialogCloseClicked}
           icon={content.icon}
-        >
-          {content.controlPanel}
-        </AlertDialog>
+          actions={content.actions}
+        />
       )}
       {children}
     </AlertDialogContext.Provider>

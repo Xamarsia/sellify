@@ -3,7 +3,7 @@
 import { NavMenuItem } from "../types";
 
 type BreadcrumbsProps = {
-  items: Array<NavMenuItem>;
+  readonly items: NavMenuItem[];
 };
 
 /**

@@ -9,6 +9,14 @@ type MediaInputImageProps = {
   onRemoveImage?: (name: string) => void;
 };
 
+/**
+ * Renders an uploaded image preview with an optional remove action.
+ *
+ * Clicking the remove button returns the image file name to the callback.
+ *
+ * @param image - Image file displayed in the preview
+ * @param onRemoveImage - Optional callback invoked with the image file name
+ */
 export default function MediaInputImage({
   image,
   onRemoveImage,

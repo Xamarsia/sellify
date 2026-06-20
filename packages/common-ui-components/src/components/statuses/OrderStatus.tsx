@@ -1,5 +1,8 @@
 import type { StatusProps } from "./types";
 
+/**
+ * Supported order status values.
+ */
 export const ORDER_STATUS = {
   NEW: "NEW",
   IN_PROGRESS: "IN_PROGRESS",
@@ -33,6 +36,11 @@ const orderStatusDefinitions = {
   },
 } satisfies Readonly<Record<OrderStatusVariant, StatusProps>>;
 
+/**
+ * Renders a human-readable order status with status-specific text color.
+ *
+ * @param status - Order status value to display
+ */
 export default function OrderStatus({ status }: OrderStatusProps) {
   const { label, color } = orderStatusDefinitions[status];
 

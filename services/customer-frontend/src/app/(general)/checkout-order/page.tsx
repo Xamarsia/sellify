@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 import ShoppingBagIcon from "@sellify/common-icons/shopping-bag";
 
-import Button from "@sellify/common-ui-components/buttons/Button";
 import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSummary";
 import { PAYMENT_PROVIDER } from "@sellify/common-ui-components/constants";
 import {
@@ -131,27 +130,23 @@ export default function CheckoutPage() {
       title: "Thanks for shopping!",
       description:
         "Your order hasn't shipped yet, but we will send you and email when it done.",
-      controlPanel: (
-        <>
-          <Button
-            variant="outline"
-            onClick={() => {
-              router.push(`/`);
-              closeAlertDialog();
-            }}
-          >
-            Back to home
-          </Button>
-          <Button
-            onClick={() => {
-              router.push(`/order/${orderId}`);
-              closeAlertDialog();
-            }}
-          >
-            View Order
-          </Button>
-        </>
-      ),
+      actions: [
+        {
+          children: "Back to home",
+          variant: "outline",
+          onClick: () => {
+            router.push(`/`);
+            closeAlertDialog();
+          },
+        },
+        {
+          children: "View Order",
+          onClick: () => {
+            router.push(`/order/${orderId}`);
+            closeAlertDialog();
+          },
+        },
+      ],
     };
 
     showAlertDialog(alertDialogContent);

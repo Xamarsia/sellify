@@ -9,6 +9,18 @@ type DropdownItemProps<T> = {
   onItemSelected: (value: T, label: string) => void;
 };
 
+/**
+ * Renders a selectable item inside a dropdown menu.
+ *
+ * Selected items receive focus when rendered. Clicking the item returns both
+ * its value and display label.
+ *
+ * @typeParam T - Type of the value represented by the item
+ * @param value - Value returned when the item is selected
+ * @param label - Text displayed inside the item
+ * @param selected - Whether the item receives focus when rendered
+ * @param onItemSelected - Callback invoked with the item value and label
+ */
 export default function DropdownItem<T>({
   value,
   label,

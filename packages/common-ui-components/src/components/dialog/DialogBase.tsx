@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import type { ReactNode } from "react";
 
 type DialogBaseProps = {
   dialogOpen: boolean;
@@ -8,6 +9,16 @@ type DialogBaseProps = {
   onDialogClose: () => void;
 };
 
+/**
+ * Renders shared modal overlay and content-container behavior.
+ *
+ * Content is rendered only while the dialog is open. Clicking outside the
+ * content container invokes the close callback.
+ *
+ * @param dialogOpen - Whether the modal overlay and content are visible
+ * @param children - Optional content rendered inside the modal container
+ * @param onDialogClose - Callback invoked after an outside click
+ */
 export default function DialogBase({
   children: content,
   dialogOpen,

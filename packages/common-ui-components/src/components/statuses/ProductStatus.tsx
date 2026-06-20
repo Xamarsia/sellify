@@ -1,5 +1,8 @@
 import type { StatusProps } from "./types";
 
+/**
+ * Supported product status values.
+ */
 export const PRODUCT_STATUS = {
   ACTIVE: "ACTIVE",
   ARCHIVED: "ARCHIVED",
@@ -23,6 +26,11 @@ const productStatusDefinitions = {
   },
 } satisfies Readonly<Record<ProductStatusVariant, StatusProps>>;
 
+/**
+ * Renders a human-readable product status with status-specific text color.
+ *
+ * @param status - Product status value to display
+ */
 export default function ProductStatus({ status }: ProductStatusProps) {
   const { label, color } = productStatusDefinitions[status];
 

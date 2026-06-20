@@ -44,7 +44,7 @@ import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
-import { SliderRange } from "@sellify/common-ui-components/range-slider/RangeSlider";
+import type { SliderRange } from "@sellify/common-ui-components/range-slider/types";
 
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";

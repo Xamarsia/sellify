@@ -6,15 +6,24 @@ import MediaInputImage from "./MediaInputImage";
 
 import MediaInputField from "./MediaInputField";
 
-type MediaInputFieldProps = {
+type MediaInputProps = {
   images: File[];
   onImagesChanged: (images: File[]) => void;
 };
 
+/**
+ * Renders image previews and a field for adding more images.
+ *
+ * Selected files are appended to the existing images. Removing a preview
+ * returns a new list without images that share its file name.
+ *
+ * @param images - Current image files displayed as previews
+ * @param onImagesChanged - Callback invoked with the updated image list
+ */
 export default function MediaInput({
   images,
   onImagesChanged,
-}: MediaInputFieldProps) {
+}: MediaInputProps) {
   const onImageSelected = useCallback(
     (files: FileList): void => {
       const newImagesList = [...images];

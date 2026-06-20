@@ -1,9 +1,14 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type AlertDialogIconProps = {
   icon: ReactNode;
 };
 
+/**
+ * Renders an icon inside layered circular alert styling.
+ *
+ * @param icon - Icon content displayed at the center
+ */
 export default function AlertDialogIcon({ icon }: AlertDialogIconProps) {
   return (
     <div className="flex items-center justify-center size-20 bg-black/30 rounded-full">

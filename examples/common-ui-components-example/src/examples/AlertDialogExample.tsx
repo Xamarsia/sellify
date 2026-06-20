@@ -29,21 +29,21 @@ export default function AlertDialogExample({ title }: DialogProps) {
         dialogOpen={opened}
         onDialogClose={onCloseClicked}
         icon={<FireIcon />}
-      >
-        <div className="grow flex flex-col justify-between gap-4">
-          <div className="grow flex flex-col gap-4 shrink-0">
-            <div className="h-2.5 bg-gray-200 rounded-full " />
-          </div>
-          <div className="flex justify-between gap-6">
-            <Button variant="outline">
+        description="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus, massa venenatis ornare aliquam, urna enim interdum nibh, non fermentum magna odio eget odio."
+        actions={[
+          {
+            variant: "outline",
+            children: (
               <div className="h-2.5 my-3 bg-gray-200 rounded-full w-32" />
-            </Button>
-            <Button>
+            ),
+          },
+          {
+            children: (
               <div className="h-2.5 my-3 bg-gray-200 rounded-full w-32" />
-            </Button>
-          </div>
-        </div>
-      </AlertDialog>
+            ),
+          },
+        ]}
+      />
     </>
   );
 }

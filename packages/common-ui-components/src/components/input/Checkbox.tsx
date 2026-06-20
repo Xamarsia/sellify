@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEvent, useCallback } from "react";
+import { useCallback } from "react";
+import type { ChangeEvent } from "react";
 
 import CheckMiniIcon from "@sellify/common-icons/check-mini";
 
@@ -12,6 +13,15 @@ type CheckboxProps = {
   onChange: (isChecked: boolean, value: string) => void;
 };
 
+/**
+ * Renders a checkbox with a custom checked indicator.
+ *
+ * @param checked - Whether the checkbox is checked
+ * @param disabled - Whether the checkbox is disabled
+ * @param value - Value assigned to the checkbox and used in its identifier
+ * @param readOnly - Whether the checkbox is read-only
+ * @param onChange - Callback invoked with the checked state and value
+ */
 export default function Checkbox({
   checked,
   disabled,

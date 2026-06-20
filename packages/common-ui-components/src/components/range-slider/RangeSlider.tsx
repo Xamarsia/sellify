@@ -1,123 +1,64 @@
-import { useCallback, useEffect, useRef, useMemo, ChangeEvent } from "react";
-import RangeSliderInput from "./RangeSliderInput";
-import RangeNumberInput from "./RangeNumberInput";
+import DualThumbSlider from "./DualThumbSlider";
+import RangeValueInputs from "./RangeValueInputs";
+import type { SliderRange } from "./types";
 
-export type SliderRange = {
-  min: number;
-  max: number;
-};
-
+/**
+ * Props for a range slider with numeric inputs.
+ */
 type RangeSliderProps = {
+  /** Allowed slider range. */
   range: SliderRange;
+
+  /** Current slider values. */
   currentRange: SliderRange;
-  onMaxValueChange: (max: number) => void;
-  onMinValueChange: (max: number) => void;
+
+  /** Called with both values after either changes. */
+  onCurrentRangeChange: (range: SliderRange) => void;
 };
 
+/**
+ * Renders a dual-thumb range slider with editable numeric inputs.
+ *
+ * Thumbs may cross. Numeric inputs remain ordered from lower to higher.
+ *
+ * @param range - Allowed slider range
+ * @param currentRange - Current slider values
+ * @param onCurrentRangeChange - Called with both values after either changes
+ */
 export default function RangeSlider({
   range,
   currentRange,
-  onMaxValueChange,
-  onMinValueChange,
+  onCurrentRangeChange,
 }: RangeSliderProps) {
-  const selectedRange = useRef<HTMLDivElement>(null);
+  const updateMinValue = (value: number): void => {
+    onCurrentRangeChange({
+      min: value,
+      max: currentRange.max,
+    });
+  };
 
-  const getPercent = useCallback(
-    (value: number): number => {
-      return Math.round(((value - range.min) / (range.max - range.min)) * 100);
-    },
-    [range],
-  );
-
-  const minPercent = useMemo<number>(() => {
-    return getPercent(currentRange.min);
-  }, [currentRange.min, getPercent]);
-
-  const maxPercent = useMemo<number>(() => {
-    return getPercent(currentRange.max);
-  }, [currentRange.max, getPercent]);
-
-  // Set range width to decrease from the left
-  useEffect(() => {
-    if (selectedRange.current) {
-      selectedRange.current.style.left = `${minPercent}%`;
-      selectedRange.current.style.width = `${maxPercent - minPercent}%`;
-    }
-  }, [currentRange.min, maxPercent, minPercent]);
-
-  // Set range width to decrease from the right
-  useEffect(() => {
-    if (selectedRange.current) {
-      selectedRange.current.style.width = `${maxPercent - minPercent}%`;
-    }
-  }, [currentRange.max, maxPercent, minPercent]);
-
-  const handleMinValueChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const newMinValue: number = Math.min(
-        Number(e.target.value),
-        currentRange.max - 1,
-      );
-      onMinValueChange(newMinValue);
-    },
-    [currentRange.max, onMinValueChange],
-  );
-
-  const handleMaxValueChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const newMaxValue: number = Math.max(
-        Number(e.target.value),
-        currentRange.min + 1,
-      );
-      onMaxValueChange(newMaxValue);
-    },
-    [currentRange.min, onMaxValueChange],
-  );
+  const updateMaxValue = (value: number): void => {
+    onCurrentRangeChange({
+      min: currentRange.min,
+      max: value,
+    });
+  };
 
   return (
-    <>
-      <div className="relative w-full flex flex-col items-center justify-center gap-6">
-        <div className="w-full flex items-center justify-between gap-x-10">
-          <RangeNumberInput
-            min={range.min}
-            max={currentRange.max - 1}
-            value={currentRange.min}
-            title="From"
-            onChange={onMinValueChange}
-          />
-          <RangeNumberInput
-            min={currentRange.min + 1}
-            max={range.max}
-            value={currentRange.max}
-            title="To"
-            onChange={onMaxValueChange}
-          />
-        </div>
+    <div className="relative w-full flex flex-col items-center justify-center gap-6">
+      <RangeValueInputs
+        range={range}
+        currentRange={currentRange}
+        onMaxValueChange={updateMaxValue}
+        onMinValueChange={updateMinValue}
+      />
 
-        <div className="multi-slide-input-container w-full my-2.5">
-          <RangeSliderInput
-            min={range.min}
-            max={range.max}
-            value={currentRange.min}
-            onChange={handleMinValueChange}
-            style={currentRange.min > range.max - 100 ? "z-5" : "z-3"}
-          />
-          <RangeSliderInput
-            min={range.min}
-            max={range.max}
-            value={currentRange.max}
-            onChange={handleMaxValueChange}
-            style="z-4"
-          />
-          <div className="relative">
-            <div className="absolute rounded-sm h-[6px] w-full z-1 bg-stroke" />
-            <div
-              ref={selectedRange}
-              className="absolute rounded-sm h-[6px] z-2 bg-primary-hover"
-            />
-          </div>
-        </div>
-      </div>
-    </>
+      <DualThumbSlider
+        range={range}
+        currentRange={currentRange}
+        onMaxValueChange={updateMaxValue}
+        onMinValueChange={updateMinValue}
+      />
+    </div>
   );
 }

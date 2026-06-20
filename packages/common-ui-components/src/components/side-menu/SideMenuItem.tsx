@@ -1,11 +1,18 @@
-"use client";
-
 type SideMenuItemProps = {
   text: string;
   href: string;
   selected?: boolean;
 };
 
+/**
+ * Renders a navigation link for use inside a side menu.
+ *
+ * Selected items use active link styling.
+ *
+ * @param text - Link text displayed to the user
+ * @param href - Link destination
+ * @param selected - Whether the link represents the current destination
+ */
 export default function SideMenuItem({
   text,
   href,

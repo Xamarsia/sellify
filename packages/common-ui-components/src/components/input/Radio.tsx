@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEvent, useCallback } from "react";
+import { useCallback } from "react";
+import type { ChangeEvent } from "react";
 
 type RadioProps = {
   checked?: boolean;
@@ -10,6 +11,15 @@ type RadioProps = {
   onChange: (isChecked: boolean, value: string) => void;
 };
 
+/**
+ * Renders a radio input with a custom selected indicator.
+ *
+ * @param checked - Whether the radio input is selected
+ * @param disabled - Whether the radio input is disabled
+ * @param value - Value assigned to the radio input and used in its identifier
+ * @param readOnly - Whether the radio input is read-only
+ * @param onChange - Callback invoked with the checked state and value
+ */
 export default function Radio({
   checked,
   disabled,

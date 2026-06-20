@@ -1,46 +1,45 @@
 "use client";
 
 import { useCallback, useState } from "react";
-
-import React from "react";
+import type { ChangeEvent, DragEvent } from "react";
 
 type MediaInputFieldProps = {
   text?: string;
   onImageSelected?: (files: FileList) => void;
 };
 
+/**
+ * Renders a file input that accepts image selection and drag-and-drop.
+ *
+ * Dragging files over the field applies active styling. Non-empty file lists
+ * are passed to the optional selection callback.
+ *
+ * @param text - Optional instructions displayed inside the upload field
+ * @param onImageSelected - Callback invoked with selected or dropped files
+ */
 export default function MediaInputField({
   text,
   onImageSelected,
 }: MediaInputFieldProps) {
   const [dragActive, setDragActive] = useState<boolean>(false);
 
-  const onDragLeave = useCallback(
-    (e: React.DragEvent<HTMLLabelElement>): void => {
-      e.preventDefault();
-      setDragActive(false);
-    },
-    [],
-  );
+  const onDragLeave = useCallback((e: DragEvent<HTMLLabelElement>): void => {
+    e.preventDefault();
+    setDragActive(false);
+  }, []);
 
-  const onDragOver = useCallback(
-    (e: React.DragEvent<HTMLLabelElement>): void => {
-      e.preventDefault();
-      setDragActive(true);
-    },
-    [],
-  );
+  const onDragOver = useCallback((e: DragEvent<HTMLLabelElement>): void => {
+    e.preventDefault();
+    setDragActive(true);
+  }, []);
 
-  const onDragEnter = useCallback(
-    (e: React.DragEvent<HTMLLabelElement>): void => {
-      e.preventDefault();
-      setDragActive(true);
-    },
-    [],
-  );
+  const onDragEnter = useCallback((e: DragEvent<HTMLLabelElement>): void => {
+    e.preventDefault();
+    setDragActive(true);
+  }, []);
 
   const onDrop = useCallback(
-    (e: React.DragEvent<HTMLLabelElement>): void => {
+    (e: DragEvent<HTMLLabelElement>): void => {
       e.preventDefault();
       setDragActive(false);
 
@@ -56,7 +55,7 @@ export default function MediaInputField({
   );
 
   const onImageChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>): void => {
+    (e: ChangeEvent<HTMLInputElement>): void => {
       if (!e.target.files || e.target.files.length === 0) {
         return;
       }

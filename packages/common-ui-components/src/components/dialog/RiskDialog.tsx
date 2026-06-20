@@ -22,8 +22,11 @@ type RiskDialogProps = {
 };
 
 /**
- * Displays a high-risk confirmation dialog that requires password entry.
- * Prompts the user to enter a password before completing a destructive action.
+ * Renders a high-risk confirmation dialog that requires password entry.
+ *
+ * The confirmation action remains disabled until a password is entered.
+ * Successful password validation invokes the provided success callback.
+ *
  * @param title - Main heading displayed in the dialog
  * @param description - Optional explanatory text shown under the title
  * @param dialogOpen - Whether the dialog is currently open
