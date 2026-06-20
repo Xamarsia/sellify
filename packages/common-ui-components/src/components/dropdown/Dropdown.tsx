@@ -15,6 +15,18 @@ type DropdownProps = {
   onKeySelected: (key: string) => void;
 };
 
+/**
+ * Renders a dropdown for selecting one string-keyed item.
+ *
+ * The trigger displays the selected item label or the fallback title. The
+ * menu closes after selection or when the user clicks outside it.
+ *
+ * @param title - Fallback text displayed when no item is selected
+ * @param items - Available item keys and display labels
+ * @param selectedKey - Key of the currently selected item
+ * @param disabled - Whether the dropdown trigger is disabled
+ * @param onKeySelected - Callback invoked with the selected item key
+ */
 export default function Dropdown({
   title,
   items,

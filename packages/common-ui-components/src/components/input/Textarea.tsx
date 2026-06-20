@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEvent, useCallback } from "react";
+import { useCallback } from "react";
+import type { ChangeEvent } from "react";
 
 type TextareaProps = {
   value?: string;
@@ -12,6 +13,20 @@ type TextareaProps = {
   onChange: (newValue: string) => void;
 };
 
+/**
+ * Renders a multi-line text input with validation styling.
+ *
+ * Invalid state styling is displayed after the user leaves a non-empty
+ * textarea.
+ *
+ * @param value - Current textarea value
+ * @param disabled - Whether the textarea is disabled
+ * @param maxLength - Maximum number of characters accepted
+ * @param placeholder - Placeholder text displayed while the textarea is empty
+ * @param required - Whether the textarea is required
+ * @param state - Validation state used to style the textarea
+ * @param onChange - Callback invoked with the updated textarea value
+ */
 export default function Textarea({
   required,
   state,

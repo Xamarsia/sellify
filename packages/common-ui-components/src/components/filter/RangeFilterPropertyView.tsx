@@ -1,6 +1,6 @@
-import { useCallback } from "react";
 import { RangeFilterPropertyValue } from "./common/PropertyValues";
 import RangeSlider from "../range-slider/RangeSlider";
+import type { SliderRange } from "../range-slider/types";
 
 type RangeFilterPropertyViewProps = {
   propertyKey: string;
@@ -18,38 +18,18 @@ export default function RangeFilterPropertyView({
   fullRange,
   onFilterPropertyChange,
 }: RangeFilterPropertyViewProps) {
-  const onMinValueChange = useCallback(
-    (min: number): void => {
-      onFilterPropertyChange(
-        propertyKey,
-        new RangeFilterPropertyValue({
-          min: min,
-          max: selectedRange.value.max,
-        }),
-      );
-    },
-    [onFilterPropertyChange, propertyKey, selectedRange.value.max],
-  );
-
-  const onMaxValueChange = useCallback(
-    (max: number): void => {
-      onFilterPropertyChange(
-        propertyKey,
-        new RangeFilterPropertyValue({
-          min: selectedRange.value.min,
-          max: max,
-        }),
-      );
-    },
-    [onFilterPropertyChange, propertyKey, selectedRange.value.min],
-  );
+  const onCurrentRangeChange = (currentRange: SliderRange): void => {
+    onFilterPropertyChange(
+      propertyKey,
+      new RangeFilterPropertyValue(currentRange),
+    );
+  };
 
   return (
     <RangeSlider
       range={fullRange.value}
       currentRange={selectedRange.value}
-      onMinValueChange={onMinValueChange}
-      onMaxValueChange={onMaxValueChange}
+      onCurrentRangeChange={onCurrentRangeChange}
     />
   );
 }

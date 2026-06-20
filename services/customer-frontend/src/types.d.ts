@@ -1,5 +1,8 @@
 import type { CartItem } from "@sellify/customer-ui-components/types";
-import { ReactNode } from "react";
+import type Button from "@sellify/common-ui-components/buttons/Button";
+import type { ComponentProps, ReactNode } from "react";
+
+type ButtonProps = ComponentProps<typeof Button>;
 
 export type ProgressBarContent = {
   isValid: boolean;
@@ -10,7 +13,7 @@ export type AlertDialogContent = {
   title: string;
   icon: ReactNode;
   description?: string;
-  controlPanel: ReactNode;
+  actions?: ButtonProps[];
 };
 
 export type RiskDialogContent = {

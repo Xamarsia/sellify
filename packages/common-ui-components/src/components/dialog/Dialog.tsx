@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import XMarkIcon from "@sellify/common-icons/x-mark";
 
@@ -14,6 +14,16 @@ type DialogProps = {
   onDialogClose: () => void;
 };
 
+/**
+ * Renders a titled dialog with a close button and custom content.
+ *
+ * The dialog also closes when the user clicks outside its content.
+ *
+ * @param title - Heading displayed in the dialog header
+ * @param dialogOpen - Whether the dialog is visible
+ * @param children - Optional content rendered below the header
+ * @param onDialogClose - Callback invoked when the dialog should close
+ */
 export default function Dialog({
   title,
   children: content,

@@ -4,7 +4,6 @@ import { useCallback, useContext, useState } from "react";
 
 import FireIcon from "@sellify/common-icons/fire";
 
-import Button from "@sellify/common-ui-components/buttons/Button";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
 
 import Card from "@sellify/admin-ui-components/card/Card";
@@ -35,16 +34,17 @@ export default function InventoryPage() {
         icon: <FireIcon />,
         title: "Inventory change!",
         description: `Are you certain you'd like to add ${quantity} to product #${productId}?`,
-        controlPanel: (
-          <>
-            <Button variant="outline" onClick={closeAlertDialog}>
-              Cancel
-            </Button>
-            <Button onClick={() => setProductQuantity(productId, quantity)}>
-              Add Quantity
-            </Button>
-          </>
-        ),
+        actions: [
+          {
+            children: "Cancel",
+            variant: "outline",
+            onClick: closeAlertDialog,
+          },
+          {
+            children: "Add Quantity",
+            onClick: () => setProductQuantity(productId, quantity),
+          },
+        ],
       };
       showAlertDialog(alertDialogContent);
     },

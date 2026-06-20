@@ -1,4 +1,8 @@
 import "@sellify/admin-ui-components/types";
+import type { ComponentProps } from "react";
+import type Button from "@sellify/common-ui-components/buttons/Button";
+
+type ButtonProps = ComponentProps<typeof Button>;
 
 export type RiskDialogContent = {
   title: string;
@@ -16,7 +20,7 @@ export type AlertDialogContent = {
   title: string;
   icon: ReactNode;
   description?: string;
-  controlPanel: ReactNode;
+  actions?: ButtonProps[];
 };
 
 export type AlertDialogController = {

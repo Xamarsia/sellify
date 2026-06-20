@@ -19,7 +19,7 @@ describe("AlertDialog", () => {
     props: Partial<AlertDialogProps> = {},
   ): AlertDialogProps => ({
     ...defaultProps,
-    children: <button type="button">Continue</button>,
+    actions: [{ children: "Continue" }],
     onDialogClose: jest.fn(),
     ...props,
   });
@@ -50,6 +50,43 @@ describe("AlertDialog", () => {
       renderAlertDialog();
 
       expect(screen.queryByText("Alert description")).not.toBeInTheDocument();
+    });
+
+    it("renders actions in the provided order", () => {
+      renderAlertDialog({
+        actions: [
+          { children: "Cancel", variant: "outline" },
+          { children: "Continue", disabled: true },
+        ],
+      });
+
+      const actions = screen.getAllByRole("button");
+
+      expect(actions).toHaveLength(2);
+      expect(actions[0]).toHaveTextContent("Cancel");
+      expect(actions[1]).toHaveTextContent("Continue");
+      expect(actions[1]).toBeDisabled();
+    });
+
+    it("omits action buttons when actions are not provided", () => {
+      renderAlertDialog({ actions: undefined });
+
+      expect(screen.queryByRole("button")).not.toBeInTheDocument();
+    });
+  });
+
+  describe("action handling", () => {
+    it("calls an action click handler", async () => {
+      const user = userEvent.setup();
+      const onClick = jest.fn();
+
+      renderAlertDialog({
+        actions: [{ children: "Continue", onClick }],
+      });
+
+      await user.click(screen.getByRole("button", { name: "Continue" }));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 
