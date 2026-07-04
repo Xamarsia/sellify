@@ -40,7 +40,6 @@ import OrderSummary from "@sellify/common-ui-components/order-summary/OrderSumma
 import CollapsiblePanel from "@sellify/common-ui-components/CollapsiblePanel";
 import InputFormItem from "@sellify/common-ui-components/form/InputFormItem";
 import Breadcrumbs from "@sellify/common-ui-components/Breadcrumbs";
-import FilterButton from "@sellify/common-ui-components/filter/FilterButton";
 import ProductImagesSlider from "@sellify/common-ui-components/slider/ProductImagesSlider";
 import Dropdown from "@sellify/common-ui-components/dropdown/Dropdown";
 import Pagination from "@sellify/common-ui-components/pages/Pagination";
@@ -49,6 +48,7 @@ import type { SliderRange } from "@sellify/common-ui-components/range-slider/typ
 import AlertDialogExample from "examples/AlertDialogExample";
 import ComboboxUseExample from "examples/ComboboxUseExample";
 import DialogExample from "examples/DialogExample";
+import FilterButtonExample from "examples/FilterButtonExample";
 import MultiSelectionComboboxUseExample from "examples/MultiSelectionComboboxUseExample";
 import SearchBarExample from "examples/SearchBarExample";
 import SidePanelExample from "examples/SidePanelExample";
@@ -472,9 +472,7 @@ export default function Home() {
 
         <Section title={"Filter Button"}>
           <SectionItem>
-            <div className="flex-none">
-              <FilterButton />
-            </div>
+            <FilterButtonExample />
           </SectionItem>
         </Section>
 
