@@ -1,23 +1,76 @@
 name: CI
+
 on:
   push:
   pull_request:
-    types: [opened, reopened, close]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+# Grant the workflow read-only access to repository contents and deny unnecessary permissions.
+permissions:
+  contents: read
+
+# Prevent duplicate CI runs for the same workflow and ref by cancelling older runs when a newer one starts.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  container-run-tests:
+  checks:
+    name: Checks
     runs-on: ubuntu-latest
     container: xamarsia/sellify-ci:0.0.1
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
         with:
-          python-version: 3.x
-      - name: Install all dependencies for the project
-        run: pnpm install
-      - name: Add git safe directory before pre-commit/action
-        run: git config --global --add safe.directory '*'
+          python-version: "3.x"
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Cache pre-commit hooks
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/pre-commit
+          key: "pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}"
+
+      - name: Cache Turbo task outputs
+        uses: actions/cache@v5
+        with:
+          path: .turbo
+          key: "turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'turbo.json', '**/package.json') }}-${{ github.sha }}"
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'turbo.json', '**/package.json') }}-
+            turbo-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Mark repository as safe
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install pre-commit
+        run: python -m pip install pre-commit
+
         # Runs pre-commit hooks on all files, including those that would normally be skipped due to the hook stage.
         # This ensures that all checks with hook-stage ["manual"] are performed during CI.
-      - uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: --all-files --hook-stage manual
+      - name: Run repository hygiene checks
+        run: pre-commit run --show-diff-on-failure --color=always --all-files --hook-stage manual
+
+      # TODO: Implement type checking once all workspaces pass `pnpm turbo run check-types`.
+      # - name: Check types
+      #   run: pnpm turbo run check-types
+
+      # TODO: Implement unit test execution after CI-relevant packages expose stable `test:unit` scripts.
+      # - name: Run unit tests
+      #   run: pnpm test:unit
+
+      # TODO: Implement build verification once every app and package can build successfully in CI.
+      # - name: Build
+      #   run: pnpm build
