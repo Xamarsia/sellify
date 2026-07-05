@@ -14,6 +14,7 @@ type OrderSummaryElements = {
   deliveryFeeRow: HTMLElement;
   spacer: HTMLElement;
   totalCostRow: HTMLElement;
+  actionButtonsContainer: HTMLElement;
   actionButtons: HTMLButtonElement[];
 };
 
@@ -63,14 +64,17 @@ describe("OrderSummary", () => {
       deliveryFeeRow,
       spacer,
       totalCostRow,
-      ...actionButtons
+      actionButtonsContainer,
     ] = Array.from(sideCard.children) as [
       HTMLDivElement,
       HTMLDivElement,
       HTMLDivElement,
       HTMLDivElement,
-      ...Array<HTMLButtonElement>,
+      HTMLDivElement,
     ];
+    const actionButtons = Array.from(
+      actionButtonsContainer.children,
+    ) as HTMLButtonElement[];
 
     return {
       sideCard,
@@ -78,6 +82,7 @@ describe("OrderSummary", () => {
       deliveryFeeRow,
       spacer,
       totalCostRow,
+      actionButtonsContainer,
       actionButtons,
     };
   };
@@ -105,6 +110,7 @@ describe("OrderSummary", () => {
         deliveryFeeRow,
         spacer,
         totalCostRow,
+        actionButtonsContainer,
         actionButtons,
       } = renderOrderSummary();
 
@@ -135,6 +141,7 @@ describe("OrderSummary", () => {
       expect(totalCostAmount).toHaveTextContent("formatted total");
       expect(totalCostAmount.tagName).toBe("H3");
 
+      expect(actionButtonsContainer).toBeEmptyDOMElement();
       expect(actionButtons).toHaveLength(0);
       expect(formatCurrencySpy).toHaveBeenCalledTimes(3);
       expect(formatCurrencySpy).toHaveBeenNthCalledWith(1, 125);
