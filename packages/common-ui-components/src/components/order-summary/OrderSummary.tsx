@@ -6,13 +6,13 @@ import EmphasizedSummaryRow from "./EmphasizedSummaryRow";
 import Button from "../buttons/Button";
 import VerticalSpacer from "../helpers/VerticalSpacer";
 
-type ButtonProps = ComponentProps<typeof Button>;
+type OrderSummaryAction = Omit<ComponentProps<typeof Button>, "size">;
 
 type OrderSummaryProps = {
   itemsSubtotal: number;
   deliveryFee: number;
   orderTotal: number;
-  actions?: ButtonProps[];
+  actions?: OrderSummaryAction[];
 };
 
 /**
@@ -35,9 +35,11 @@ export default function OrderSummary({
       <VerticalSpacer />
       <EmphasizedSummaryRow label="Total Cost" amount={orderTotal} />
 
-      {actions?.map((action, index) => (
-        <Button {...action} key={index} />
-      ))}
+      <div className="flex flex-col gap-2">
+        {actions?.map((action, index) => (
+          <Button {...action} key={index} size="small" />
+        ))}
+      </div>
     </SideCard>
   );
 }
