@@ -36,7 +36,7 @@ export default function OrdersHistoryPage() {
   );
 
   return (
-    <div className="flex w-full flex-col items-end gap-6">
+    <div className="flex flex-col w-full gap-6">
       <div className="relative flex w-full justify-between items-start gap-4">
         <div className="flex w-94">
           <SearchInput value={query} onChange={onSearchChanged} />
